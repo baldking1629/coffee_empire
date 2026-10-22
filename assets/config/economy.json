@@ -1,0 +1,552 @@
+{
+  "startingCash": "5",
+  "backgroundGapSeconds": 10,
+  "autosaveIntervalSeconds": 15,
+  "milestoneLevels": [
+    25,
+    50,
+    100,
+    200,
+    300,
+    400
+  ],
+  "milestoneMultiplier": 2,
+  "managerCostMultiplier": 50,
+  "managerIncomeMultiplier": 3,
+  "equipmentCostMultipliers": [
+    100,
+    1000,
+    10000
+  ],
+  "equipmentIncomeMultiplier": 2,
+  "achievementBonus": 0.01,
+  "shops": [
+    {
+      "id": "street_cart",
+      "baseCost": "4",
+      "baseIncome": "0.5",
+      "growth": 1.07
+    },
+    {
+      "id": "corner_booth",
+      "baseCost": "6.00e1",
+      "baseIncome": "4",
+      "growth": 1.15
+    },
+    {
+      "id": "boutique_cafe",
+      "baseCost": "1.88e4",
+      "baseIncome": "30",
+      "growth": 1.15
+    },
+    {
+      "id": "campus_coworking",
+      "baseCost": "3.53e5",
+      "baseIncome": "220",
+      "growth": 1.15
+    },
+    {
+      "id": "drive_thru",
+      "baseCost": "1.89e6",
+      "baseIncome": "1.6e3",
+      "growth": 1.15
+    },
+    {
+      "id": "city_roastery",
+      "baseCost": "1.33e7",
+      "baseIncome": "1.2e4",
+      "growth": 1.15
+    },
+    {
+      "id": "airport_lounge",
+      "baseCost": "1.33e8",
+      "baseIncome": "9e4",
+      "growth": 1.15
+    },
+    {
+      "id": "robotic_kiosk",
+      "baseCost": "1.88e10",
+      "baseIncome": "6.5e5",
+      "growth": 1.15
+    },
+    {
+      "id": "capsule_store",
+      "baseCost": "1.79e11",
+      "baseIncome": "4.8e6",
+      "growth": 1.15
+    },
+    {
+      "id": "global_mega_roastery",
+      "baseCost": "1.23e12",
+      "baseIncome": "3.5e7",
+      "growth": 1.15
+    }
+  ],
+  "tap": {
+    "tapFillStep": 0.1,
+    "tapPayoutSeconds": 10,
+    "minTapPayout": "1",
+    "comboWindowSeconds": 5,
+    "rushComboThreshold": 5,
+    "rushDurationSeconds": 15,
+    "rushMultiplier": 2,
+    "autoTapPerSecond": 1
+  },
+  "lab": {
+    "testCostFloor": "10",
+    "scorePenaltyPerPoint": 3,
+    "recipes": [
+      {
+        "id": "espresso_classic",
+        "nameKey": "recipe_espresso_classic",
+        "unlockCost": "0",
+        "target": {
+          "acidity": 55,
+          "body": 70,
+          "aroma": 65,
+          "caffeine": 80
+        },
+        "tolerance": 15,
+        "testDurationSeconds": 30,
+        "testCostSeconds": 10,
+        "maxBonus": 0.1,
+        "isCapsule": false
+      },
+      {
+        "id": "cappuccino",
+        "nameKey": "recipe_cappuccino",
+        "unlockCost": "5e3",
+        "target": {
+          "acidity": 35,
+          "body": 60,
+          "aroma": 55,
+          "caffeine": 50
+        },
+        "tolerance": 13,
+        "testDurationSeconds": 60,
+        "testCostSeconds": 15,
+        "maxBonus": 0.15,
+        "isCapsule": false
+      },
+      {
+        "id": "cold_brew",
+        "nameKey": "recipe_cold_brew",
+        "unlockCost": "2.5e5",
+        "target": {
+          "acidity": 20,
+          "body": 75,
+          "aroma": 40,
+          "caffeine": 90
+        },
+        "tolerance": 11,
+        "testDurationSeconds": 180,
+        "testCostSeconds": 20,
+        "maxBonus": 0.2,
+        "isCapsule": false
+      },
+      {
+        "id": "flat_white",
+        "nameKey": "recipe_flat_white",
+        "unlockCost": "1e7",
+        "target": {
+          "acidity": 40,
+          "body": 85,
+          "aroma": 70,
+          "caffeine": 65
+        },
+        "tolerance": 9,
+        "testDurationSeconds": 300,
+        "testCostSeconds": 30,
+        "maxBonus": 0.25,
+        "isCapsule": false
+      },
+      {
+        "id": "capsule_house_blend",
+        "nameKey": "recipe_capsule_house_blend",
+        "unlockCost": "5e7",
+        "target": {
+          "acidity": 45,
+          "body": 55,
+          "aroma": 60,
+          "caffeine": 60
+        },
+        "tolerance": 8,
+        "testDurationSeconds": 600,
+        "testCostSeconds": 40,
+        "maxBonus": 0.5,
+        "isCapsule": true
+      },
+      {
+        "id": "ethiopian_pour_over",
+        "nameKey": "recipe_ethiopian_pour_over",
+        "unlockCost": "1e9",
+        "target": {
+          "acidity": 90,
+          "body": 30,
+          "aroma": 95,
+          "caffeine": 55
+        },
+        "tolerance": 7,
+        "testDurationSeconds": 900,
+        "testCostSeconds": 60,
+        "maxBonus": 0.35,
+        "isCapsule": false
+      },
+      {
+        "id": "nitro_mocha",
+        "nameKey": "recipe_nitro_mocha",
+        "unlockCost": "1e11",
+        "target": {
+          "acidity": 15,
+          "body": 95,
+          "aroma": 80,
+          "caffeine": 75
+        },
+        "tolerance": 5,
+        "testDurationSeconds": 1800,
+        "testCostSeconds": 90,
+        "maxBonus": 0.45,
+        "isCapsule": false
+      },
+      {
+        "id": "capsule_signature_reserve",
+        "nameKey": "recipe_capsule_signature_reserve",
+        "unlockCost": "1e13",
+        "target": {
+          "acidity": 65,
+          "body": 70,
+          "aroma": 90,
+          "caffeine": 85
+        },
+        "tolerance": 3,
+        "testDurationSeconds": 3600,
+        "testCostSeconds": 120,
+        "maxBonus": 1.0,
+        "isCapsule": true
+      }
+    ]
+  },
+  "capsule": {
+    "unlockScore": 80,
+    "unlockHype": 70,
+    "machineBaseCost": "1e7",
+    "machineCostGrowth": 1.12,
+    "machineIncome": "2e3"
+  },
+  "franchise": {
+    "slotCostGrowth": 1.8,
+    "completionMultiplier": 1.5,
+    "cities": [
+      {
+        "id": "vienna",
+        "countryCode": "AT",
+        "region": "europe",
+        "slots": 1,
+        "requiredHype": 50,
+        "baseCost": "1.00e+03",
+        "royaltyShare": 0.003
+      },
+      {
+        "id": "lisbon",
+        "countryCode": "PT",
+        "region": "europe",
+        "slots": 1,
+        "requiredHype": 54,
+        "baseCost": "2.51e+03",
+        "royaltyShare": 0.003
+      },
+      {
+        "id": "reykjavik",
+        "countryCode": "IS",
+        "region": "europe",
+        "slots": 1,
+        "requiredHype": 58,
+        "baseCost": "6.31e+03",
+        "royaltyShare": 0.003
+      },
+      {
+        "id": "addis_ababa",
+        "countryCode": "ET",
+        "region": "mea",
+        "slots": 1,
+        "requiredHype": 62,
+        "baseCost": "1.58e+04",
+        "royaltyShare": 0.003
+      },
+      {
+        "id": "nairobi",
+        "countryCode": "KE",
+        "region": "mea",
+        "slots": 1,
+        "requiredHype": 66,
+        "baseCost": "3.98e+04",
+        "royaltyShare": 0.003
+      },
+      {
+        "id": "hanoi",
+        "countryCode": "VN",
+        "region": "asia_pacific",
+        "slots": 1,
+        "requiredHype": 70,
+        "baseCost": "1.00e+05",
+        "royaltyShare": 0.003
+      },
+      {
+        "id": "amsterdam",
+        "countryCode": "NL",
+        "region": "europe",
+        "slots": 2,
+        "requiredHype": 70,
+        "baseCost": "1.00e+05",
+        "royaltyShare": 0.004
+      },
+      {
+        "id": "singapore",
+        "countryCode": "SG",
+        "region": "asia_pacific",
+        "slots": 2,
+        "requiredHype": 74,
+        "baseCost": "2.51e+05",
+        "royaltyShare": 0.004
+      },
+      {
+        "id": "bangkok",
+        "countryCode": "TH",
+        "region": "asia_pacific",
+        "slots": 2,
+        "requiredHype": 78,
+        "baseCost": "6.31e+05",
+        "royaltyShare": 0.004
+      },
+      {
+        "id": "buenos_aires",
+        "countryCode": "AR",
+        "region": "americas",
+        "slots": 2,
+        "requiredHype": 82,
+        "baseCost": "1.58e+06",
+        "royaltyShare": 0.004
+      },
+      {
+        "id": "bogota",
+        "countryCode": "CO",
+        "region": "americas",
+        "slots": 2,
+        "requiredHype": 86,
+        "baseCost": "3.98e+06",
+        "royaltyShare": 0.004
+      },
+      {
+        "id": "lagos",
+        "countryCode": "NG",
+        "region": "mea",
+        "slots": 2,
+        "requiredHype": 90,
+        "baseCost": "1.00e+07",
+        "royaltyShare": 0.004
+      },
+      {
+        "id": "berlin",
+        "countryCode": "DE",
+        "region": "europe",
+        "slots": 3,
+        "requiredHype": 90,
+        "baseCost": "1.00e+07",
+        "royaltyShare": 0.006
+      },
+      {
+        "id": "madrid",
+        "countryCode": "ES",
+        "region": "europe",
+        "slots": 3,
+        "requiredHype": 93,
+        "baseCost": "2.00e+07",
+        "royaltyShare": 0.006
+      },
+      {
+        "id": "rome",
+        "countryCode": "IT",
+        "region": "europe",
+        "slots": 3,
+        "requiredHype": 96,
+        "baseCost": "3.98e+07",
+        "royaltyShare": 0.006
+      },
+      {
+        "id": "toronto",
+        "countryCode": "CA",
+        "region": "americas",
+        "slots": 3,
+        "requiredHype": 99,
+        "baseCost": "7.94e+07",
+        "royaltyShare": 0.006
+      },
+      {
+        "id": "sydney",
+        "countryCode": "AU",
+        "region": "asia_pacific",
+        "slots": 3,
+        "requiredHype": 101,
+        "baseCost": "1.26e+08",
+        "royaltyShare": 0.006
+      },
+      {
+        "id": "mumbai",
+        "countryCode": "IN",
+        "region": "asia_pacific",
+        "slots": 3,
+        "requiredHype": 104,
+        "baseCost": "2.51e+08",
+        "royaltyShare": 0.006
+      },
+      {
+        "id": "cairo",
+        "countryCode": "EG",
+        "region": "mea",
+        "slots": 3,
+        "requiredHype": 107,
+        "baseCost": "5.01e+08",
+        "royaltyShare": 0.006
+      },
+      {
+        "id": "jakarta",
+        "countryCode": "ID",
+        "region": "asia_pacific",
+        "slots": 3,
+        "requiredHype": 110,
+        "baseCost": "1.00e+09",
+        "royaltyShare": 0.006
+      },
+      {
+        "id": "paris",
+        "countryCode": "FR",
+        "region": "europe",
+        "slots": 4,
+        "requiredHype": 110,
+        "baseCost": "1.00e+09",
+        "royaltyShare": 0.008
+      },
+      {
+        "id": "dubai",
+        "countryCode": "AE",
+        "region": "mea",
+        "slots": 4,
+        "requiredHype": 115,
+        "baseCost": "3.16e+09",
+        "royaltyShare": 0.008
+      },
+      {
+        "id": "shanghai",
+        "countryCode": "CN",
+        "region": "asia_pacific",
+        "slots": 4,
+        "requiredHype": 120,
+        "baseCost": "1.00e+10",
+        "royaltyShare": 0.008
+      },
+      {
+        "id": "mexico_city",
+        "countryCode": "MX",
+        "region": "americas",
+        "slots": 4,
+        "requiredHype": 125,
+        "baseCost": "3.16e+10",
+        "royaltyShare": 0.008
+      },
+      {
+        "id": "seoul",
+        "countryCode": "KR",
+        "region": "asia_pacific",
+        "slots": 4,
+        "requiredHype": 130,
+        "baseCost": "1.00e+11",
+        "royaltyShare": 0.008
+      },
+      {
+        "id": "new_york",
+        "countryCode": "US",
+        "region": "americas",
+        "slots": 5,
+        "requiredHype": 130,
+        "baseCost": "1.00e+11",
+        "royaltyShare": 0.01
+      },
+      {
+        "id": "tokyo",
+        "countryCode": "JP",
+        "region": "asia_pacific",
+        "slots": 5,
+        "requiredHype": 135,
+        "baseCost": "3.16e+11",
+        "royaltyShare": 0.01
+      },
+      {
+        "id": "london",
+        "countryCode": "GB",
+        "region": "europe",
+        "slots": 5,
+        "requiredHype": 140,
+        "baseCost": "1.00e+12",
+        "royaltyShare": 0.01
+      },
+      {
+        "id": "istanbul",
+        "countryCode": "TR",
+        "region": "europe",
+        "slots": 5,
+        "requiredHype": 145,
+        "baseCost": "3.16e+12",
+        "royaltyShare": 0.01
+      },
+      {
+        "id": "sao_paulo",
+        "countryCode": "BR",
+        "region": "americas",
+        "slots": 5,
+        "requiredHype": 150,
+        "baseCost": "1.00e+13",
+        "royaltyShare": 0.01
+      }
+    ]
+  },
+  "prestige": {
+    "threshold": "1.23e13",
+    "scale": 5,
+    "beanBonus": 0.02
+  },
+  "offline": {
+    "minAwaySeconds": 60,
+    "capSeconds": 14400,
+    "vipCapSeconds": 43200,
+    "efficiency": 1.0
+  },
+  "rewarded": {
+    "cooldownSeconds": 600,
+    "caffeineRushMultiplier": 2,
+    "caffeineRushSeconds": 14400,
+    "caffeineRushMaxSeconds": 28800,
+    "emergencyFundSeconds": 600,
+    "emergencyFundMin": "100",
+    "offlineDoubleMultiplier": 2
+  },
+  "iap": {
+    "vipIncomeMultiplier": 2,
+    "timeSkipSeconds": 86400,
+    "starterPackIncomeMultiplier": 1.25,
+    "starterPackCashSeconds": 7200
+  },
+  "dailyReward": {
+    "claimableAfterSeconds": 72000,
+    "streakResetSeconds": 172800,
+    "daySeconds": [
+      300,
+      600,
+      900,
+      1800,
+      2700,
+      3600,
+      7200
+    ],
+    "finalDayGoldenBeans": 1
+  }
+}

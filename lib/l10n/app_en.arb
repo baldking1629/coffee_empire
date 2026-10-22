@@ -1,0 +1,12 @@
+{
+  "@@locale": "en",
+  "appTitle": "Coffee Empire",
+  "durationDays": "{value}d",
+  "@durationDays": {"placeholders": {"value": {"type": "int"}}},
+  "durationHours": "{value}h",
+  "@durationHours": {"placeholders": {"value": {"type": "int"}}},
+  "durationMinutes": "{value}m",
+  "@durationMinutes": {"placeholders": {"value": {"type": "int"}}},
+  "durationSeconds": "{value}s",
+  "@durationSeconds": {"placeholders": {"value": {"type": "int"}}}
+}

@@ -1,0 +1,8 @@
+{
+  "@@locale": "tr",
+  "appTitle": "Coffee Empire",
+  "durationDays": "{value}g",
+  "durationHours": "{value}sa",
+  "durationMinutes": "{value}dk",
+  "durationSeconds": "{value}sn"
+}
