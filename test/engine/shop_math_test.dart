@@ -163,4 +163,50 @@ void main() {
       expect(math.isShopAvailable([1, 0, 0], 2), isFalse);
     });
   });
+
+  group('purchase plan', () {
+    test('x1 and x10 report exact cost and affordability', () {
+      final one = math.purchasePlan(
+        booth,
+        0,
+        BigNumber.fromInt(60),
+        BuyAmount.one,
+      );
+      expect(one.count, 1);
+      expect(one.affordable, isTrue);
+      final ten = math.purchasePlan(
+        booth,
+        0,
+        BigNumber.fromInt(60),
+        BuyAmount.ten,
+      );
+      expect(ten.count, 10);
+      expectApprox(ten.cost, bruteForceCost(0, 10));
+      expect(ten.affordable, isFalse);
+    });
+
+    test('MAX buys as many as affordable', () {
+      final cash = BigNumber.fromDouble(bruteForceCost(4, 7) + 1);
+      final plan = math.purchasePlan(booth, 4, cash, BuyAmount.max);
+      expect(plan.count, 7);
+      expect(plan.affordable, isTrue);
+    });
+
+    test('MAX with nothing affordable shows next level as unaffordable', () {
+      final plan = math.purchasePlan(
+        booth,
+        0,
+        BigNumber.fromInt(10),
+        BuyAmount.max,
+      );
+      expect(plan.count, 1);
+      expect(plan.affordable, isFalse);
+      expectApprox(plan.cost, 60);
+    });
+
+    test('previous milestone', () {
+      expect(math.previousMilestone(10), isNull);
+      expect(math.previousMilestone(60), 50);
+    });
+  });
 }

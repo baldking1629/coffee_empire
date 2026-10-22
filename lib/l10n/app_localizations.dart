@@ -187,6 +187,156 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Coffee cup, {percent}% full'**
   String cupSemanticLabel(int percent);
+
+  /// No description provided for @shop_street_cart.
+  ///
+  /// In en, this message translates to:
+  /// **'Street Cart'**
+  String get shop_street_cart;
+
+  /// No description provided for @shop_corner_booth.
+  ///
+  /// In en, this message translates to:
+  /// **'Corner Booth'**
+  String get shop_corner_booth;
+
+  /// No description provided for @shop_boutique_cafe.
+  ///
+  /// In en, this message translates to:
+  /// **'Boutique Café'**
+  String get shop_boutique_cafe;
+
+  /// No description provided for @shop_campus_coworking.
+  ///
+  /// In en, this message translates to:
+  /// **'Campus Co-working'**
+  String get shop_campus_coworking;
+
+  /// No description provided for @shop_drive_thru.
+  ///
+  /// In en, this message translates to:
+  /// **'Drive-Thru'**
+  String get shop_drive_thru;
+
+  /// No description provided for @shop_city_roastery.
+  ///
+  /// In en, this message translates to:
+  /// **'City Roastery'**
+  String get shop_city_roastery;
+
+  /// No description provided for @shop_airport_lounge.
+  ///
+  /// In en, this message translates to:
+  /// **'Airport Lounge'**
+  String get shop_airport_lounge;
+
+  /// No description provided for @shop_robotic_kiosk.
+  ///
+  /// In en, this message translates to:
+  /// **'Robotic Kiosk'**
+  String get shop_robotic_kiosk;
+
+  /// No description provided for @shop_capsule_store.
+  ///
+  /// In en, this message translates to:
+  /// **'Capsule Store'**
+  String get shop_capsule_store;
+
+  /// No description provided for @shop_global_mega_roastery.
+  ///
+  /// In en, this message translates to:
+  /// **'Global Mega Roastery'**
+  String get shop_global_mega_roastery;
+
+  /// No description provided for @buyAmountOne.
+  ///
+  /// In en, this message translates to:
+  /// **'x1'**
+  String get buyAmountOne;
+
+  /// No description provided for @buyAmountTen.
+  ///
+  /// In en, this message translates to:
+  /// **'x10'**
+  String get buyAmountTen;
+
+  /// No description provided for @buyAmountMax.
+  ///
+  /// In en, this message translates to:
+  /// **'MAX'**
+  String get buyAmountMax;
+
+  /// No description provided for @managerHired.
+  ///
+  /// In en, this message translates to:
+  /// **'Manager hired'**
+  String get managerHired;
+
+  /// No description provided for @milestoneMaxed.
+  ///
+  /// In en, this message translates to:
+  /// **'All milestones reached'**
+  String get milestoneMaxed;
+
+  /// No description provided for @equipmentEspressoMachine.
+  ///
+  /// In en, this message translates to:
+  /// **'Espresso Machine'**
+  String get equipmentEspressoMachine;
+
+  /// No description provided for @equipmentDiamondGrinder.
+  ///
+  /// In en, this message translates to:
+  /// **'Diamond Grinder'**
+  String get equipmentDiamondGrinder;
+
+  /// No description provided for @equipmentSmartSystem.
+  ///
+  /// In en, this message translates to:
+  /// **'Smart System'**
+  String get equipmentSmartSystem;
+
+  /// No description provided for @shopLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'Lv. {level}'**
+  String shopLevel(int level);
+
+  /// No description provided for @buyLevels.
+  ///
+  /// In en, this message translates to:
+  /// **'Buy x{count} · {cost}'**
+  String buyLevels(int count, String cost);
+
+  /// No description provided for @hireManager.
+  ///
+  /// In en, this message translates to:
+  /// **'Hire manager · {cost}'**
+  String hireManager(String cost);
+
+  /// No description provided for @buyEquipment.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} · {cost}'**
+  String buyEquipment(String name, String cost);
+
+  /// No description provided for @nextMilestone.
+  ///
+  /// In en, this message translates to:
+  /// **'×2 income at Lv. {level}'**
+  String nextMilestone(int level);
+
+  /// No description provided for @shopLocked.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlocks after buying {shop}'**
+  String shopLocked(String shop);
+
+  /// No description provided for @equipmentAllOwned.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} · Owned'**
+  String equipmentAllOwned(String name);
 }
 
 class _AppLocalizationsDelegate

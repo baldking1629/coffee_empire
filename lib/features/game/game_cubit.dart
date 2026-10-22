@@ -1,9 +1,11 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../config/economy_config.dart';
+import '../../core/bignumber/big_number.dart';
 import '../../core/time/clock.dart';
 import '../../engine/barista_math.dart';
 import '../../engine/economy_engine.dart';
+import '../../engine/shop_math.dart';
 import 'game_state.dart';
 import 'save_repository.dart';
 
@@ -60,6 +62,72 @@ class GameCubit extends Cubit<GameState> {
   Future<void> handleBackgroundGap(double gapSeconds) async {
     emit(state.copyWith(barista: _barista.settle(state.barista, _clock.now())));
     await save();
+  }
+
+  ShopMath get shopMath => _engine.shopMath;
+
+  List<int> get shopLevelList => [
+    for (final shop in _engine.config.shops) state.shopLevels[shop.id] ?? 0,
+  ];
+
+  Future<bool> buyShopLevels(String shopId, BuyAmount amount) async {
+    final index = _shopIndex(shopId);
+    if (index < 0 || !shopMath.isShopAvailable(shopLevelList, index)) {
+      return false;
+    }
+    final level = state.shopLevels[shopId] ?? 0;
+    final plan = shopMath.purchasePlan(
+      _engine.config.shops[index],
+      level,
+      state.cash,
+      amount,
+    );
+    if (!plan.affordable) return false;
+    return _completePurchase(
+      plan.cost,
+      state.copyWith(
+        shopLevels: {...state.shopLevels, shopId: level + plan.count},
+      ),
+    );
+  }
+
+  Future<bool> hireManager(String shopId) async {
+    final index = _shopIndex(shopId);
+    if (index < 0 ||
+        (state.shopLevels[shopId] ?? 0) < 1 ||
+        (state.managers[shopId] ?? false)) {
+      return false;
+    }
+    final cost = shopMath.managerCost(_engine.config.shops[index]);
+    return _completePurchase(
+      cost,
+      state.copyWith(managers: {...state.managers, shopId: true}),
+    );
+  }
+
+  Future<bool> buyEquipment(String shopId) async {
+    final index = _shopIndex(shopId);
+    final owned = state.equipment[shopId] ?? 0;
+    if (index < 0 ||
+        (state.shopLevels[shopId] ?? 0) < 1 ||
+        owned >= shopMath.equipmentTierCount) {
+      return false;
+    }
+    final cost = shopMath.equipmentCost(_engine.config.shops[index], owned);
+    return _completePurchase(
+      cost,
+      state.copyWith(equipment: {...state.equipment, shopId: owned + 1}),
+    );
+  }
+
+  int _shopIndex(String shopId) =>
+      _engine.config.shops.indexWhere((shop) => shop.id == shopId);
+
+  Future<bool> _completePurchase(BigNumber cost, GameState upgraded) async {
+    if (state.cash < cost) return false;
+    emit(_withIncome(upgraded.copyWith(cash: state.cash - cost)));
+    await save();
+    return true;
   }
 
   Future<void> save() async {

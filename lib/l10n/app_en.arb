@@ -63,5 +63,85 @@
         "type": "int"
       }
     }
+  },
+  "shop_street_cart": "Street Cart",
+  "shop_corner_booth": "Corner Booth",
+  "shop_boutique_cafe": "Boutique Café",
+  "shop_campus_coworking": "Campus Co-working",
+  "shop_drive_thru": "Drive-Thru",
+  "shop_city_roastery": "City Roastery",
+  "shop_airport_lounge": "Airport Lounge",
+  "shop_robotic_kiosk": "Robotic Kiosk",
+  "shop_capsule_store": "Capsule Store",
+  "shop_global_mega_roastery": "Global Mega Roastery",
+  "buyAmountOne": "x1",
+  "buyAmountTen": "x10",
+  "buyAmountMax": "MAX",
+  "managerHired": "Manager hired",
+  "milestoneMaxed": "All milestones reached",
+  "equipmentEspressoMachine": "Espresso Machine",
+  "equipmentDiamondGrinder": "Diamond Grinder",
+  "equipmentSmartSystem": "Smart System",
+  "shopLevel": "Lv. {level}",
+  "@shopLevel": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "buyLevels": "Buy x{count} · {cost}",
+  "@buyLevels": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "cost": {
+        "type": "String"
+      }
+    }
+  },
+  "hireManager": "Hire manager · {cost}",
+  "@hireManager": {
+    "placeholders": {
+      "cost": {
+        "type": "String"
+      }
+    }
+  },
+  "buyEquipment": "{name} · {cost}",
+  "@buyEquipment": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "cost": {
+        "type": "String"
+      }
+    }
+  },
+  "nextMilestone": "×2 income at Lv. {level}",
+  "@nextMilestone": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "shopLocked": "Unlocks after buying {shop}",
+  "@shopLocked": {
+    "placeholders": {
+      "shop": {
+        "type": "String"
+      }
+    }
+  },
+  "equipmentAllOwned": "{name} · Owned",
+  "@equipmentAllOwned": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
   }
 }

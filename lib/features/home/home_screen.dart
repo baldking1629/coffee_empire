@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../app/theme/app_colors.dart';
 import '../../l10n/app_localizations.dart';
+import '../shops/shops_tab.dart';
 import 'widgets/barista_tap_area.dart';
 import 'widgets/bottom_nav.dart';
 import 'widgets/cash_header.dart';
@@ -27,20 +28,21 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             const CashHeader(),
             const Expanded(
-              flex: 5,
+              flex: 3,
               child: Padding(
                 padding: EdgeInsetsDirectional.symmetric(vertical: 8),
                 child: BaristaTapArea(),
               ),
             ),
             Expanded(
-              flex: 4,
+              flex: 5,
               child: IndexedStack(
                 index: _selectedTab,
-                children: List.generate(
-                  HomeScreen.tabCount,
-                  (_) => const _ComingSoonTab(),
-                ),
+                children: [
+                  const ShopsTab(),
+                  for (var tab = 1; tab < HomeScreen.tabCount; tab++)
+                    const _ComingSoonTab(),
+                ],
               ),
             ),
           ],

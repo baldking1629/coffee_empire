@@ -66,4 +66,93 @@ class AppLocalizationsTr extends AppLocalizations {
   String cupSemanticLabel(int percent) {
     return 'Kahve fincanı, %$percent dolu';
   }
+
+  @override
+  String get shop_street_cart => 'Sokak Arabası';
+
+  @override
+  String get shop_corner_booth => 'Köşe Büfesi';
+
+  @override
+  String get shop_boutique_cafe => 'Butik Kafe';
+
+  @override
+  String get shop_campus_coworking => 'Kampüs Ortak Alanı';
+
+  @override
+  String get shop_drive_thru => 'Arabaya Servis';
+
+  @override
+  String get shop_city_roastery => 'Şehir Kavurmahanesi';
+
+  @override
+  String get shop_airport_lounge => 'Havalimanı Salonu';
+
+  @override
+  String get shop_robotic_kiosk => 'Robotik Kiosk';
+
+  @override
+  String get shop_capsule_store => 'Kapsül Mağazası';
+
+  @override
+  String get shop_global_mega_roastery => 'Küresel Mega Kavurmahane';
+
+  @override
+  String get buyAmountOne => 'x1';
+
+  @override
+  String get buyAmountTen => 'x10';
+
+  @override
+  String get buyAmountMax => 'MAKS';
+
+  @override
+  String get managerHired => 'Yönetici işte';
+
+  @override
+  String get milestoneMaxed => 'Tüm kilometre taşları tamam';
+
+  @override
+  String get equipmentEspressoMachine => 'Espresso Makinesi';
+
+  @override
+  String get equipmentDiamondGrinder => 'Elmas Değirmen';
+
+  @override
+  String get equipmentSmartSystem => 'Akıllı Sistem';
+
+  @override
+  String shopLevel(int level) {
+    return 'Sv. $level';
+  }
+
+  @override
+  String buyLevels(int count, String cost) {
+    return 'x$count Al · $cost';
+  }
+
+  @override
+  String hireManager(String cost) {
+    return 'Yönetici kirala · $cost';
+  }
+
+  @override
+  String buyEquipment(String name, String cost) {
+    return '$name · $cost';
+  }
+
+  @override
+  String nextMilestone(int level) {
+    return 'Sv. $level\'de gelir ×2';
+  }
+
+  @override
+  String shopLocked(String shop) {
+    return '$shop alınınca açılır';
+  }
+
+  @override
+  String equipmentAllOwned(String name) {
+    return '$name · Alındı';
+  }
 }

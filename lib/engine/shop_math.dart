@@ -1,7 +1,26 @@
 import 'dart:math' as math;
 
+import 'package:equatable/equatable.dart';
+
 import '../config/economy_config.dart';
 import '../core/bignumber/big_number.dart';
+
+enum BuyAmount { one, ten, max }
+
+class PurchasePlan extends Equatable {
+  const PurchasePlan({
+    required this.count,
+    required this.cost,
+    required this.affordable,
+  });
+
+  final int count;
+  final BigNumber cost;
+  final bool affordable;
+
+  @override
+  List<Object?> get props => [count, cost, affordable];
+}
 
 class ShopMath {
   const ShopMath(this.rules);
@@ -34,6 +53,36 @@ class ShopMath {
       count++;
     }
     return count;
+  }
+
+  PurchasePlan purchasePlan(
+    ShopConfig shop,
+    int level,
+    BigNumber cash,
+    BuyAmount amount,
+  ) {
+    final count = switch (amount) {
+      BuyAmount.one => 1,
+      BuyAmount.ten => 10,
+      BuyAmount.max => maxAffordable(shop, level, cash),
+    };
+    if (count == 0) {
+      return PurchasePlan(
+        count: 1,
+        cost: costOfNext(shop, level),
+        affordable: false,
+      );
+    }
+    final cost = costOfN(shop, level, count);
+    return PurchasePlan(count: count, cost: cost, affordable: cost <= cash);
+  }
+
+  int? previousMilestone(int level) {
+    int? reached;
+    for (final milestone in rules.milestoneLevels) {
+      if (level >= milestone) reached = milestone;
+    }
+    return reached;
   }
 
   BigNumber milestoneMultiplier(int level) {
