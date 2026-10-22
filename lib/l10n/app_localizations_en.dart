@@ -30,4 +30,40 @@ class AppLocalizationsEn extends AppLocalizations {
   String durationSeconds(int value) {
     return '${value}s';
   }
+
+  @override
+  String get tabShops => 'Shops';
+
+  @override
+  String get tabLab => 'R&D';
+
+  @override
+  String get tabGrowth => 'Growth';
+
+  @override
+  String get tabStore => 'Store';
+
+  @override
+  String get comingSoon => 'Coming soon';
+
+  @override
+  String incomePerSecond(String amount) {
+    return '$amount/sec';
+  }
+
+  @override
+  String comboLabel(int count) {
+    return 'Combo x$count';
+  }
+
+  @override
+  String get baristaRush => 'Barista Rush!';
+
+  @override
+  String get tapToBrew => 'Tap the cup to brew';
+
+  @override
+  String cupSemanticLabel(int percent) {
+    return 'Coffee cup, $percent% full';
+  }
 }

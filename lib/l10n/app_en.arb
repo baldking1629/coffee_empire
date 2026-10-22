@@ -2,11 +2,66 @@
   "@@locale": "en",
   "appTitle": "Coffee Empire",
   "durationDays": "{value}d",
-  "@durationDays": {"placeholders": {"value": {"type": "int"}}},
+  "@durationDays": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
   "durationHours": "{value}h",
-  "@durationHours": {"placeholders": {"value": {"type": "int"}}},
+  "@durationHours": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
   "durationMinutes": "{value}m",
-  "@durationMinutes": {"placeholders": {"value": {"type": "int"}}},
+  "@durationMinutes": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
   "durationSeconds": "{value}s",
-  "@durationSeconds": {"placeholders": {"value": {"type": "int"}}}
+  "@durationSeconds": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "tabShops": "Shops",
+  "tabLab": "R&D",
+  "tabGrowth": "Growth",
+  "tabStore": "Store",
+  "comingSoon": "Coming soon",
+  "incomePerSecond": "{amount}/sec",
+  "@incomePerSecond": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "comboLabel": "Combo x{count}",
+  "@comboLabel": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "baristaRush": "Barista Rush!",
+  "tapToBrew": "Tap the cup to brew",
+  "cupSemanticLabel": "Coffee cup, {percent}% full",
+  "@cupSemanticLabel": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  }
 }

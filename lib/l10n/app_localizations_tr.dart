@@ -30,4 +30,40 @@ class AppLocalizationsTr extends AppLocalizations {
   String durationSeconds(int value) {
     return '${value}sn';
   }
+
+  @override
+  String get tabShops => 'Dükkanlar';
+
+  @override
+  String get tabLab => 'Ar-Ge';
+
+  @override
+  String get tabGrowth => 'Büyüme';
+
+  @override
+  String get tabStore => 'Mağaza';
+
+  @override
+  String get comingSoon => 'Yakında';
+
+  @override
+  String incomePerSecond(String amount) {
+    return '$amount/sn';
+  }
+
+  @override
+  String comboLabel(int count) {
+    return 'Kombo x$count';
+  }
+
+  @override
+  String get baristaRush => 'Barista Rush!';
+
+  @override
+  String get tapToBrew => 'Demlemek için fincana dokun';
+
+  @override
+  String cupSemanticLabel(int percent) {
+    return 'Kahve fincanı, %$percent dolu';
+  }
 }

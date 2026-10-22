@@ -4,5 +4,15 @@
   "durationDays": "{value}g",
   "durationHours": "{value}sa",
   "durationMinutes": "{value}dk",
-  "durationSeconds": "{value}sn"
+  "durationSeconds": "{value}sn",
+  "tabShops": "Dükkanlar",
+  "tabLab": "Ar-Ge",
+  "tabGrowth": "Büyüme",
+  "tabStore": "Mağaza",
+  "comingSoon": "Yakında",
+  "incomePerSecond": "{amount}/sn",
+  "comboLabel": "Kombo x{count}",
+  "baristaRush": "Barista Rush!",
+  "tapToBrew": "Demlemek için fincana dokun",
+  "cupSemanticLabel": "Kahve fincanı, %{percent} dolu"
 }

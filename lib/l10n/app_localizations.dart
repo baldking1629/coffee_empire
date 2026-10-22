@@ -127,6 +127,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{value}s'**
   String durationSeconds(int value);
+
+  /// No description provided for @tabShops.
+  ///
+  /// In en, this message translates to:
+  /// **'Shops'**
+  String get tabShops;
+
+  /// No description provided for @tabLab.
+  ///
+  /// In en, this message translates to:
+  /// **'R&D'**
+  String get tabLab;
+
+  /// No description provided for @tabGrowth.
+  ///
+  /// In en, this message translates to:
+  /// **'Growth'**
+  String get tabGrowth;
+
+  /// No description provided for @tabStore.
+  ///
+  /// In en, this message translates to:
+  /// **'Store'**
+  String get tabStore;
+
+  /// No description provided for @comingSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Coming soon'**
+  String get comingSoon;
+
+  /// No description provided for @incomePerSecond.
+  ///
+  /// In en, this message translates to:
+  /// **'{amount}/sec'**
+  String incomePerSecond(String amount);
+
+  /// No description provided for @comboLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Combo x{count}'**
+  String comboLabel(int count);
+
+  /// No description provided for @baristaRush.
+  ///
+  /// In en, this message translates to:
+  /// **'Barista Rush!'**
+  String get baristaRush;
+
+  /// No description provided for @tapToBrew.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap the cup to brew'**
+  String get tapToBrew;
+
+  /// No description provided for @cupSemanticLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Coffee cup, {percent}% full'**
+  String cupSemanticLabel(int percent);
 }
 
 class _AppLocalizationsDelegate
