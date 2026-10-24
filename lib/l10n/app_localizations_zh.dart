@@ -868,4 +868,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String floatingGain(String amount) {
     return '+$amount';
   }
+
+  @override
+  String get lockedStationName => '???';
+
+  @override
+  String get stationUpgradesHint => '点击查看店长和设备';
 }

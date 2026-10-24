@@ -879,4 +879,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String floatingGain(String amount) {
     return '+$amount';
   }
+
+  @override
+  String get lockedStationName => '???';
+
+  @override
+  String get stationUpgradesHint => 'Yönetici ve ekipman için dokun';
 }

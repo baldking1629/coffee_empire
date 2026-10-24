@@ -92,7 +92,28 @@ void main() {
     expect(cubit.state.tutorialStep, TutorialSteps.hireManager);
 
     await earnWhileAway(const Duration(minutes: 5));
-    await tapKey(const Key('hire_manager_street_cart'));
+    final upgradesHint = find.descendant(
+      of: find.byKey(const Key('station_card_street_cart')),
+      matching: find.text('Tap for manager & equipment'),
+    );
+    tester
+        .state<ScrollableState>(find.byType(Scrollable).first)
+        .position
+        .jumpTo(0);
+    await tester.pump(const Duration(milliseconds: 300));
+    await Scrollable.ensureVisible(
+      tester.element(upgradesHint),
+      alignment: 0.5,
+    );
+    await tester.pump(const Duration(milliseconds: 300));
+    await tester.tap(upgradesHint);
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 500));
+    await tester.tap(find.byKey(const Key('hire_manager_street_cart')));
+    await tester.pump(const Duration(milliseconds: 300));
+    await tester.tapAt(const Offset(20, 60));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 500));
     expect(cubit.state.tutorialStep, TutorialSteps.openLab);
 
     await tester.tap(find.text('R&D'));

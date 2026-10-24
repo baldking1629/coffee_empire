@@ -868,4 +868,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String floatingGain(String amount) {
     return '+$amount';
   }
+
+  @override
+  String get lockedStationName => '???';
+
+  @override
+  String get stationUpgradesHint => '탭하여 매니저와 장비 보기';
 }

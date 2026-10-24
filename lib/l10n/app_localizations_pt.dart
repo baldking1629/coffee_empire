@@ -881,4 +881,10 @@ class AppLocalizationsPt extends AppLocalizations {
   String floatingGain(String amount) {
     return '+$amount';
   }
+
+  @override
+  String get lockedStationName => '???';
+
+  @override
+  String get stationUpgradesHint => 'Toque para gerente e equipamentos';
 }

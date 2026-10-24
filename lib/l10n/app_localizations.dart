@@ -1623,6 +1623,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'+{amount}'**
   String floatingGain(String amount);
+
+  /// No description provided for @lockedStationName.
+  ///
+  /// In en, this message translates to:
+  /// **'???'**
+  String get lockedStationName;
+
+  /// No description provided for @stationUpgradesHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap for manager & equipment'**
+  String get stationUpgradesHint;
 }
 
 class _AppLocalizationsDelegate

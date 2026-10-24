@@ -883,4 +883,10 @@ class AppLocalizationsRu extends AppLocalizations {
   String floatingGain(String amount) {
     return '+$amount';
   }
+
+  @override
+  String get lockedStationName => '???';
+
+  @override
+  String get stationUpgradesHint => 'Нажмите: менеджер и оборудование';
 }

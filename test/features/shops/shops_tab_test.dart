@@ -61,7 +61,11 @@ void main() {
     final cubit = await pumpShops(tester, '3');
     expect(buyButton(tester, 'street_cart').canAfford, isFalse);
     expect(buyButton(tester, 'street_cart').isEnabled, isTrue);
-    expect(find.text('Unlocks after buying Street Cart'), findsOneWidget);
+    expect(
+      find.byKey(const Key('locked_station_corner_booth')),
+      findsOneWidget,
+    );
+    expect(find.byKey(const Key('buy_shop_corner_booth')), findsNothing);
     await tester.tap(find.byKey(const Key('buy_shop_street_cart')));
     await tester.pump();
     expect(cubit.state.shopLevels['street_cart'], isNull);
@@ -76,8 +80,10 @@ void main() {
     await tester.pump();
     expect(cubit.state.shopLevels['street_cart'], 1);
     expect(find.text('Lv. 1'), findsOneWidget);
-    expect(find.byKey(const Key('hire_manager_street_cart')), findsOneWidget);
     expect(find.byKey(const Key('buy_shop_corner_booth')), findsOneWidget);
+    await tester.tap(find.text('Tap for manager & equipment'));
+    await tester.pumpAndSettle();
+    expect(find.byKey(const Key('hire_manager_street_cart')), findsOneWidget);
   });
 
   testWidgets('x10 is unaffordable when ten cost too much while MAX can buy', (

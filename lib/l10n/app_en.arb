@@ -659,5 +659,7 @@
         "type": "String"
       }
     }
-  }
+  },
+  "lockedStationName": "???",
+  "stationUpgradesHint": "Tap for manager & equipment"
 }
