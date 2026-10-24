@@ -4,6 +4,7 @@ import 'package:coffee_empire/features/game/game_cubit.dart';
 import 'package:coffee_empire/features/game/save_repository.dart';
 import 'package:coffee_empire/features/home/widgets/barista_tap_area.dart';
 import 'package:coffee_empire/features/home/widgets/cash_header.dart';
+import 'package:coffee_empire/features/home/widgets/counting_money_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -43,6 +44,7 @@ void main() {
       await tester.tap(find.byKey(BaristaTapArea.cupKey));
       await tester.pump(const Duration(milliseconds: 50));
     }
+    await tester.pump(CountingMoneyText.duration);
     expect(cashText(), r'$6');
 
     for (var cup = 1; cup < 6; cup++) {
@@ -54,6 +56,7 @@ void main() {
       if (cup < 5) expect(find.text('Combo x$cup'), findsOneWidget);
     }
     expect(find.text('Barista Rush!'), findsNWidgets(2));
+    await tester.pump(CountingMoneyText.duration);
     expect(cashText(), r'$11');
 
     await tester.pumpWidget(const SizedBox.shrink());

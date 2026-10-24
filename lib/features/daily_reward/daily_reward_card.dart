@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../app/widgets/bouncy_button.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 
@@ -95,12 +96,8 @@ class DailyRewardCard extends StatelessWidget {
                   style: const TextStyle(color: AppColors.gold),
                 ),
               const SizedBox(height: 8),
-              FilledButton(
+              BouncyButton(
                 key: claimKey,
-                style: FilledButton.styleFrom(
-                  backgroundColor: AppColors.mint,
-                  foregroundColor: AppColors.background,
-                ),
                 onPressed: status.claimable ? cubit.claimDailyReward : null,
                 child: FittedBox(
                   fit: BoxFit.scaleDown,

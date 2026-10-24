@@ -1,4 +1,4 @@
-enum GameSound { tap, cupFull, purchase, prestige }
+enum GameSound { tap, cupFull, purchase, prestige, denied }
 
 abstract class SoundService {
   Future<void> play(GameSound sound);

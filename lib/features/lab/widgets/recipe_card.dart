@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../app/widgets/bouncy_button.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 
@@ -108,11 +109,11 @@ class RecipeCard extends StatelessWidget {
           ],
           const SizedBox(height: 8),
           if (!data.unlocked)
-            FilledButton(
+            BouncyButton(
               key: Key('unlock_recipe_${recipe.id}'),
-              onPressed: data.canAffordUnlock
-                  ? () => cubit.unlockRecipe(recipe.id)
-                  : null,
+              canAfford: data.canAffordUnlock,
+              onPressed: () => cubit.unlockRecipe(recipe.id),
+              onDenied: cubit.reportInsufficientFunds,
               child: FittedBox(
                 fit: BoxFit.scaleDown,
                 child: Text(
@@ -128,18 +129,28 @@ class RecipeCard extends StatelessWidget {
           else if (brewingThis)
             BrewCountdown(endsAt: activeBrew.endsAt, clock: cubit.clock)
           else
-            OutlinedButton.icon(
+            BouncyButton(
               key: Key('open_recipe_${recipe.id}'),
+              style: BouncyButtonStyle.secondary,
+              compact: true,
               onPressed: () => Navigator.of(context).push(
                 MaterialPageRoute<void>(
                   builder: (_) => RecipeScreen(recipe: recipe),
                 ),
               ),
-              icon: const Icon(LucideIcons.slidersHorizontal, size: 16),
-              label: Text(
-                l10n.openRecipe,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Icon(LucideIcons.slidersHorizontal, size: 16),
+                  const SizedBox(width: 6),
+                  Flexible(
+                    child: Text(
+                      l10n.openRecipe,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ],
               ),
             ),
         ],

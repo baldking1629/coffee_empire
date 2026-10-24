@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../config/achievement_config.dart';
@@ -61,6 +63,20 @@ abstract class _GameCubitCore extends Cubit<GameState> {
   final AnalyticsService _analytics;
   final GameFeedback _feedback;
   double _secondsSinceSave = 0;
+  final StreamController<void> _deniedSignals = StreamController.broadcast();
+
+  Stream<void> get deniedSignals => _deniedSignals.stream;
+
+  void reportInsufficientFunds() {
+    _play(FeedbackKind.denied);
+    _deniedSignals.add(null);
+  }
+
+  @override
+  Future<void> close() async {
+    await _deniedSignals.close();
+    return super.close();
+  }
 
   void _restore() {
     final now = clock.now();
@@ -74,7 +90,7 @@ abstract class _GameCubitCore extends Cubit<GameState> {
     );
   }
 
-  void tapCup() {
+  TapOutcome tapCup() {
     final outcome = _barista.tap(
       state.barista,
       state.incomePerSec,
@@ -92,6 +108,7 @@ abstract class _GameCubitCore extends Cubit<GameState> {
             .copyWith(barista: outcome.barista, stats: stats),
       ),
     );
+    return outcome;
   }
 
   Future<void> tick(double deltaSeconds) async {

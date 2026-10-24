@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../app/widgets/game_background.dart';
 import '../achievements/achievement_listener.dart';
 import '../game/game_cubit.dart';
 import '../growth/growth_tab.dart';
@@ -33,38 +34,40 @@ class _HomeScreenState extends State<HomeScreen> {
     return OfflineEarningsListener(
       child: Scaffold(
         body: AchievementListener(
-          child: SafeArea(
-            bottom: false,
-            child: Column(
-              children: [
-                const CashHeader(),
-                const Expanded(
-                  flex: 3,
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.symmetric(vertical: 8),
-                    child: BaristaTapArea(),
+          child: GameBackground(
+            child: SafeArea(
+              bottom: false,
+              child: Column(
+                children: [
+                  const CashHeader(),
+                  const Expanded(
+                    flex: 3,
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.symmetric(vertical: 8),
+                      child: BaristaTapArea(),
+                    ),
                   ),
-                ),
-                const TutorialBanner(),
-                Expanded(
-                  flex: 5,
-                  child: AnimatedSwitcher(
-                    duration: const Duration(milliseconds: 200),
-                    child: KeyedSubtree(
-                      key: ValueKey(_selectedTab),
-                      child: IndexedStack(
-                        index: _selectedTab,
-                        children: const [
-                          ShopsTab(),
-                          LabTab(),
-                          GrowthTab(),
-                          StoreTab(),
-                        ],
+                  const TutorialBanner(),
+                  Expanded(
+                    flex: 5,
+                    child: AnimatedSwitcher(
+                      duration: const Duration(milliseconds: 200),
+                      child: KeyedSubtree(
+                        key: ValueKey(_selectedTab),
+                        child: IndexedStack(
+                          index: _selectedTab,
+                          children: const [
+                            ShopsTab(),
+                            LabTab(),
+                            GrowthTab(),
+                            StoreTab(),
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

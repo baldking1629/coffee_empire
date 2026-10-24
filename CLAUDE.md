@@ -20,6 +20,7 @@ Bu dosya projenin tek doğruluk kaynağıdır. Her oturumun başında tamamını
 5. Offline kazanç, otomatik kayıt, kayıt versiyonlama
 6. Mock monetizasyon (ödüllü reklam + IAP), günlük ödül, yerel bildirimler
 7. Tutorial, başarımlar, haptic, ses altyapısı, analitik altyapısı (mock)
+8. Oyun hissi (game feel): dükkan ilerleme haritası, uçan sayılar, yaylanan butonlar, yetersiz nakit geri bildirimi, canlı fincan/makine sahnesi (bölüm 14.1)
 
 ### Kapsam DIŞI — BUNLARI ASLA YAZMA
 - Çekirdek borsası, fiyat grafikleri, al-sat, çekirdek stoğu
@@ -98,6 +99,11 @@ lib/
     theme/
       app_colors.dart
       app_theme.dart
+    widgets/                      (FAZ 8a)
+      game_background.dart
+      bouncy_button.dart
+      floating_text_layer.dart
+      insufficient_funds_flash.dart
   core/
     bignumber/
       big_number.dart
@@ -135,9 +141,14 @@ lib/
       widgets/
         cash_header.dart
         coffee_cup_painter.dart
+        espresso_machine_painter.dart   (FAZ 8a)
         barista_tap_area.dart
         bottom_nav.dart
     shops/
+      widgets/                    (FAZ 8b)
+        shop_progress_path.dart
+        shop_station.dart
+        progress_road_painter.dart
     lab/
     growth/
     store/
@@ -459,29 +470,60 @@ bool isOwned(String productId)
 Olaylar: `tutorial_step(step)`, `tutorial_complete`, `shop_unlocked(id)`, `manager_hired(id)`, `recipe_brewed(id,score)`, `capsule_unlocked`, `franchise_opened(cityId,slotIndex)`, `prestige(count,gain)`, `rewarded_shown(type)`, `rewarded_completed(type)`, `iap_purchase(id)`, `offline_modal(minutes)`, `daily_reward_claimed(day)`, `save_corrupt`, `session_start`.
 
 ### Haptic ve Ses
-- `HapticService`: tıklama `selectionClick`, fincan dolunca `lightImpact`, satın alma `mediumImpact`, prestij `heavyImpact`. Ayarlardan kapatılabilir.
-- `SoundService`: soyut arayüz + `NoopSoundService`. Ses dosyası eklenene kadar hiçbir şey çalmaz; çağrı noktaları hazır olsun (`tap`, `cupFull`, `purchase`, `prestige`).
+- `HapticService`: tıklama `selectionClick`, fincan dolunca `lightImpact`, satın alma `mediumImpact`, prestij `heavyImpact`, yetersiz nakit (`denied`, FAZ 8a) `lightImpact`. Ayarlardan kapatılabilir.
+- `SoundService`: soyut arayüz + `NoopSoundService`. Ses dosyası eklenene kadar hiçbir şey çalmaz; çağrı noktaları hazır olsun (`tap`, `cupFull`, `purchase`, `prestige`, `denied`).
+- Haptic ve ses YALNIZCA `GameFeedback.play(FeedbackKind, settings)` üzerinden çağrılır. Widget içinde doğrudan `HapticFeedback.*` çağırma; aksi halde ayarlardaki "titreşim kapalı" seçeneği atlanır.
 
 ---
 
 ## 14. TEMA
 
-| Rol                | Hex      |
-|--------------------|----------|
-| background         | `#120E0A`|
-| surface            | `#1E1812`|
-| card               | `#2A211B`|
-| cardBorder         | karamel, `#8B5A2B` (alfa 0.5) |
-| gold (prestij)     | `#D4AF37`|
-| mint (nakit/kâr)   | `#00E676`|
-| copper (üretim)    | `#E65100`|
-| textPrimary        | `#F5EBDD`|
-| textSecondary      | `#B8A894`|
+Hedef: finans paneli değil, sıcak ve canlı bir mobil casual oyun hissi. (FAZ 8a ile güncellendi.)
 
-- Koyu tema tek tema. Kartlar yuvarlak köşeli (16), ince karamel kenarlıklı, hafif `LinearGradient` ile.
+| Rol                     | Hex      |
+|-------------------------|----------|
+| backgroundTop           | `#1A120B`|
+| backgroundBottom        | `#0D0907`|
+| surface                 | `#241911`|
+| card                    | `#2E2017`|
+| cardHighlight           | `#3A2A1E` (kart gradyanının açık ucu) |
+| cardBorder              | karamel, `#8B5A2B` (alfa 0.5) |
+| primaryGradientStart    | neon turuncu `#FF8A1F`|
+| primaryGradientEnd      | altın sarısı `#FFC93C`|
+| gold (prestij)          | `#D4AF37`|
+| mint (nakit/kâr)        | `#00E676`|
+| copper (üretim)         | `#E65100`|
+| danger (yetersiz nakit) | `#FF4D4D`|
+| lockedShade             | `#0A0705` (alfa 0.7) |
+| textPrimary             | `#F5EBDD`|
+| textSecondary           | `#B8A894`|
+| textOnPrimary           | `#2A1606` (turuncu/altın buton üstündeki metin) |
+
+- Koyu tema tek tema. Arka plan düz renk değil: `GameBackground` ile `backgroundTop → backgroundBottom` dikey gradyan; tüm sekmeler bunun üstünde durur.
+- Kartlar yuvarlak köşeli (20), ince karamel kenarlıklı, `card → cardHighlight` hafif `LinearGradient`, yumuşak gölge. Keskin gri/düz kutu yok.
+- Birincil aksiyon butonları (satın al, test et, franchise aç, prestij, mağaza) `primaryGradientStart → primaryGradientEnd` gradyanlı, hafif dış parıltılı, `textOnPrimary` metinli.
+- Anlam renkleri korunur: mint = nakit/kâr, gold = prestij/tamamlanma, copper = üretim/Rush, danger = sadece hata/yetersiz nakit.
 - `coffee_cup_painter.dart`: `CustomPainter` ile fincan, buhar, dolan kahve seviyesi (0–1). Rush modunda bakır parlama.
 - Renkler yalnızca `app_colors.dart`'tan; widget içinde hex yazma.
-- Ana ekran: üstte sabit başlık (Kasa bakiyesi, saniyelik gelir, boost göstergesi), altında tıklama alanı + fincan, altta 4 sekmeli `NavigationBar`: **Dükkanlar, Ar-Ge, Büyüme (Franchise + Prestij), Mağaza (VIP + Günlük ödül + Ayarlar)**.
+- Ana ekran: üstte sabit başlık (Kasa bakiyesi, saniyelik gelir, boost göstergesi), altında tıklama alanı + fincan sahnesi, altta 4 sekmeli `NavigationBar`: **Dükkanlar, Ar-Ge, Büyüme (Franchise + Prestij), Mağaza (VIP + Günlük ödül + Ayarlar)**.
+
+### 14.1 Oyun Hissi (Game Juice) Kuralları
+
+Yeni paket YOK (`flutter_animate`, `lottie`, `rive` vb. kullanma). Yalnızca `AnimationController`, `Tween`, `CustomPainter`, `Overlay`/`Stack` ile.
+
+- **BouncyButton** (`app/widgets/bouncy_button.dart`): basılınca ~0.94 ölçeğe küçülür, bırakınca hafif yaylanarak (`Curves.elasticOut` veya `easeOutBack`) 1.0'a döner (~150–250 ms). Tüm satın alma ve birincil aksiyon butonları bunu kullanır.
+- **Yetersiz nakit** (bu kural FAZ 2'deki "yetersiz nakitte buton pasif" kuralının yerine geçer): buton görsel olarak sönük ama BASILABİLİR kalır. Basılınca satın alma YAPILMAZ; buton yatayda hafifçe sallanır (~300 ms), ekran kenarında `InsufficientFundsFlash` ile `danger` renkli ince çerçeve ~300 ms yanıp söner, `FeedbackKind.denied` çalar. Başarılı satın almada kırmızı efekt ASLA çıkmaz.
+- **Uçan sayılar** (`app/widgets/floating_text_layer.dart`): fincan dolup ödeme alınınca dokunulan noktadan yukarı ~60–80 px süzülüp ~900 ms'de sönen mint renkli `+$1.25K` metni. Sayı `NumberFormatter` ile, metin şablonu ARB'den (`floatingGain` gibi placeholder'lı anahtar). Para metni RTL dilde de `TextDirection.ltr`. Rush sırasında daha büyük ve bakır tonlu. Aynı anda en fazla 8 uçan yazı; fazlası en eskisini siler.
+- **Satın alma efekti**: başarılı satın almada butondan kısa bir bakır/altın parıltı veya küçük `+1` seviye yazısı.
+- **Kasa sayacı**: başlıktaki nakit değeri her tick'te sıçramaz; eski değerden yeniye kısa (~400 ms) bir sayma animasyonuyla geçer (sadece görsel; state değişmez).
+- **Fincan sahnesi**: `coffee_cup_painter.dart` yeniden YAZILMAZ, zenginleştirilir. Arkasına `espresso_machine_painter.dart` ile basit bir espresso makinesi; dokunuşta makineden fincana akan kahve/damla; daha canlı, dalgalı `Path` buharı; Rush'ta efektler yoğunlaşır.
+- **Erişilebilirlik**: `MediaQuery.disableAnimationsOf(context)` true ise uçan yazılar, sallanma, parıltı ve sayma animasyonları kapalı veya anlık olur; işlev aynı kalır.
+- **Performans**: animasyonlar saniyelik Cubit tick'ine bağlı değildir; kendi controller'larında çalışır. Painter'lar `RepaintBoundary` içinde. Saniyelik tick'te harita ve fincan sahnesi gereksiz yeniden çizilmez (`BlocSelector`/`buildWhen`).
+- **Dükkan ilerleme haritası** (FAZ 8b): Dükkanlar sekmesindeki kart listesi yerine dikey kaydırılan bir yol/istasyon haritası. 1. dükkan (kahve arabası) en üstte, 10. dükkan (mega kavurma tesisi) en altta; istasyonlar `progress_road_painter.dart` ile çizilen kıvrımlı bir yolla birbirine bağlıdır. Yolun açılmış kısmı sıcak/parlak, kilitli kısmı koyu ve kesikli.
+  - Açık istasyon: dükkan ikonu (lucide), ad, seviye, saniyelik gelir, milestone ilerleme halkası, x1/x10/MAX satın alma, yönetici ve 3 ekipman (istasyona dokununca açılan alt panelde).
+  - Kilitli istasyon: `lockedShade` ile koyu siluet, kilit ikonu, ad "???" (ARB), maliyet gizli. Sadece açılabilir olan bir sonraki istasyon maliyetini gösterir.
+  - Bir dükkan ilk kez açıldığında istasyonda tek seferlik altın parıltı (glow) + ölçek animasyonu.
+  - Dükkan açma kuralı, x1/x10/MAX, yönetici, ekipman, milestone göstergesi ve tüm formüller AYNEN korunur. Tutorial adımlarının (1. ve 2. dükkanı al, yönetici kirala) hedeflediği öğeler haritada da çalışır.
 
 ---
 
@@ -521,7 +563,7 @@ Yapılacak:
 - `GameCubit` satın alma metotları, her satın almada kayıt.
 Kabul:
 - Tüm formüller bölüm 8.1 ile birebir; testler MAX hesabını ve çoklu satın almayı doğrular.
-- Yetersiz nakitte buton pasif; MAX en az 1 alabiliyorsa aktif.
+- Yetersiz nakitte buton pasif; MAX en az 1 alabiliyorsa aktif. (FAZ 8a'dan itibaren yerini bölüm 14.1'deki "yetersiz nakit" davranışı alır.)
 - 25. seviyede gelir ×2 olur (testli).
 - Liste 60 FPS'e yakın akar (gereksiz rebuild yok: `buildWhen` kullanıldı).
 Commit: `phase2: shops, managers, equipment`
@@ -588,6 +630,36 @@ Kabul:
 - README'ye "Çeviriler makine çevirisidir, yayından önce anadil kontrolü gerekir" notu eklenir.
 Commit: `phase7: 15 languages, rtl`
 
+### FAZ 8a — Oyun Hissi: Tema, Butonlar, Uçan Sayılar, Fincan Sahnesi
+Kapsam: SADECE UI katmanı. `engine/`, ekonomi, kayıt şeması ve Cubit hesap mantığı DEĞİŞMEZ (yetersiz nakit için Cubit'e sadece "denied" geri bildirim sinyali eklenebilir).
+Yapılacak:
+- Yeni palet (bölüm 14) `app_colors.dart` ve `app_theme.dart`'a; `GameBackground` tüm sekmelerde.
+- `BouncyButton`, `InsufficientFundsFlash`, `FloatingTextLayer` (bölüm 14.1); `FeedbackKind.denied` ve `GameSound.denied`.
+- Birincil butonları Dükkanlar, Ar-Ge, Büyüme ve Mağaza sekmelerinde `BouncyButton` + gradyan stile çevir; yetersiz nakit davranışını bölüm 14.1'e göre uygula.
+- Fincan sahnesini zenginleştir (`espresso_machine_painter.dart`), kasa sayacı animasyonu.
+- Yeni ARB anahtarlarını 15 dilin HEPSİNE ekle.
+Kabul:
+- Mevcut tüm testler yeşil, `flutter analyze` temiz; l10n doğrulama testleri ve `de/ru/ar/ja/hi` + 1.3 ölçek taşma testleri hâlâ geçiyor.
+- Widget testleri: `BouncyButton` basılınca küçülüp döner; yetersiz nakitte satın alma yapılmaz ve flash görünür, başarılı satın almada görünmez; uçan yazı 8 ile sınırlı; `disableAnimations` true iken uçan yazı/sallanma oluşmaz.
+- Ayarlarda titreşim kapalıyken hiçbir haptic çağrısı yapılmaz (testli, sahte `HapticService` ile).
+- Kodda doğrudan `HapticFeedback.` çağrısı sadece `haptic_service.dart` içinde.
+- `ar` dilinde düzen sağdan sola, para metinleri soldan sağa.
+Commit: `phase8a: game feel - theme, buttons, floating text, cup scene`
+
+### FAZ 8b — Dükkan İlerleme Haritası
+Kapsam: Sadece Dükkanlar sekmesinin görünümü. Oyun mantığı DEĞİŞMEZ.
+Yapılacak:
+- `shop_card` tabanlı listeyi bölüm 14.1'deki dikey ilerleme haritasıyla değiştir (`shop_progress_path.dart`, `shop_station.dart`, `progress_road_painter.dart`); eski kart dosyaları kullanılmıyorsa sil.
+- Kilitli/açık/açılabilir istasyon durumları, ilk açılış glow animasyonu, istasyon alt paneli (satın alma, yönetici, ekipman).
+- Yeni ARB anahtarlarını 15 dilin HEPSİNE ekle.
+Kabul:
+- FAZ 2 testleri (MAX, çoklu satın alma, milestone) değişmeden yeşil.
+- Widget testleri: kilitli istasyon maliyet göstermez; önceki dükkan seviye 0 iken sonraki açılamaz; açılınca glow tetiklenir ve bir daha tetiklenmez.
+- Tutorial yeni kurulumda haritada akar (1. ve 2. dükkan, yönetici adımları).
+- 10 istasyonlu harita `de/ru/ar/ja/hi` + 1.3 ölçekte taşma vermez; `ar`'da yol ve düzen aynalanır.
+- Saniyelik tick'te harita yolu yeniden çizilmez (`RepaintBoundary`, `buildWhen`).
+Commit: `phase8b: shop progression map`
+
 ---
 
 ## 16. TEST KURALLARI
@@ -644,7 +716,7 @@ Desteklenen 15 dil (ARB kodu, yerel ad, yön):
 | `vi` | Tiếng Việt | LTR |
 
 Kurallar:
-- Kaynak dosya `app_en.arb`. Yeni metin önce `en` ve `tr`'ye eklenir. Diğer 13 dile SADECE Faz 7'de eklenir; Faz 1–6'da onlara dokunma.
+- Kaynak dosya `app_en.arb`. Yeni metin önce `en` ve `tr`'ye eklenir. Faz 1–6'da diğer 13 dile dokunulmaz. FAZ 7 ve sonrasında (FAZ 8a, 8b dahil) her yeni anahtar aynı fazda 15 dilin hepsine eklenir.
 - ARB'de çoğul/cinsiyet için ICU `plural`/`select` kullan; metin birleştirme (`a + b`) yok.
 - Cihaz dili desteklenenler arasında değilse `en`. Kullanıcı seçimi ayarlarda saklanır (`settings.locale`, "system" varsayılan).
 - Dil seçicide dil adı kendi dilinde yazılır, bayrak kullanılmaz.
@@ -665,4 +737,4 @@ Doğrulama testleri (`test/l10n/`):
 
 ## 20. BAŞLATMA
 
-İlk mesajda yalnızca şunu yap: bu dosyayı oku, "FAZ 0"ı bölüm 2 protokolüyle uygula, durup onay bekle.
+FAZ 0–7 tamamlandı. Sıradaki faz: FAZ 8a. Yeni oturumda yalnızca şunu yap: bu dosyayı oku, sıradaki fazı bölüm 2 protokolüyle uygula, durup onay bekle. "Devam et" gelince bir sonraki faza (8a → 8b) geç.

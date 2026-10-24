@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../app/widgets/bouncy_button.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 
@@ -92,11 +93,11 @@ class _CapsuleCardState extends State<CapsuleCard> {
                   onChanged: (amount) => setState(() => _amount = amount),
                 ),
                 const SizedBox(height: 8),
-                FilledButton(
+                BouncyButton(
                   key: const Key('buy_capsule_machines'),
-                  onPressed: data.plan.affordable
-                      ? () => cubit.buyCapsuleMachines(_amount)
-                      : null,
+                  canAfford: data.plan.affordable,
+                  onPressed: () => cubit.buyCapsuleMachines(_amount),
+                  onDenied: cubit.reportInsufficientFunds,
                   child: FittedBox(
                     fit: BoxFit.scaleDown,
                     child: Text(

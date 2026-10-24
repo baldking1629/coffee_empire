@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 import '../../../app/theme/app_colors.dart';
+import '../../../app/widgets/bouncy_button.dart';
 import '../../../l10n/app_localizations.dart';
 import '../shop_labels.dart';
 
@@ -18,6 +19,7 @@ class ShopUpgrades extends StatelessWidget {
     required this.equipmentAffordable,
     required this.onHireManager,
     required this.onBuyEquipment,
+    required this.onDenied,
   });
 
   final String shopId;
@@ -30,6 +32,7 @@ class ShopUpgrades extends StatelessWidget {
   final bool equipmentAffordable;
   final VoidCallback onHireManager;
   final VoidCallback onBuyEquipment;
+  final VoidCallback onDenied;
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +49,9 @@ class ShopUpgrades extends StatelessWidget {
             key: Key('hire_manager_$shopId'),
             icon: LucideIcons.userPlus,
             label: l10n.hireManager(managerCost),
-            onPressed: managerAffordable ? onHireManager : null,
+            canAfford: managerAffordable,
+            onPressed: onHireManager,
+            onDenied: onDenied,
           ),
         if (nextCost == null)
           _OwnedChip(
@@ -63,7 +68,9 @@ class ShopUpgrades extends StatelessWidget {
               equipmentName(l10n, equipmentOwned),
               nextCost,
             ),
-            onPressed: equipmentAffordable ? onBuyEquipment : null,
+            canAfford: equipmentAffordable,
+            onPressed: onBuyEquipment,
+            onDenied: onDenied,
           ),
         for (var tier = 0; tier < equipmentTierCount; tier++)
           Icon(
@@ -83,23 +90,34 @@ class _UpgradeButton extends StatelessWidget {
     super.key,
     required this.icon,
     required this.label,
+    required this.canAfford,
     required this.onPressed,
+    required this.onDenied,
   });
 
   final IconData icon;
   final String label;
-  final VoidCallback? onPressed;
+  final bool canAfford;
+  final VoidCallback onPressed;
+  final VoidCallback onDenied;
 
   @override
   Widget build(BuildContext context) {
-    return OutlinedButton.icon(
+    return BouncyButton(
+      style: BouncyButtonStyle.secondary,
+      compact: true,
+      canAfford: canAfford,
       onPressed: onPressed,
-      icon: Icon(icon, size: 16),
-      label: Text(label, maxLines: 1, overflow: TextOverflow.ellipsis),
-      style: OutlinedButton.styleFrom(
-        visualDensity: VisualDensity.compact,
-        foregroundColor: AppColors.gold,
-        side: const BorderSide(color: AppColors.cardBorder),
+      onDenied: onDenied,
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, size: 16),
+          const SizedBox(width: 6),
+          Flexible(
+            child: Text(label, maxLines: 1, overflow: TextOverflow.ellipsis),
+          ),
+        ],
       ),
     );
   }

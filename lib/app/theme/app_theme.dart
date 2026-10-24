@@ -3,13 +3,30 @@ import 'package:flutter/material.dart';
 import 'app_colors.dart';
 
 abstract final class AppTheme {
-  static const double cardRadius = 16;
+  static const double cardRadius = 20;
+  static const double buttonRadius = 16;
 
   static const LinearGradient cardGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [AppColors.cardHighlight, AppColors.card],
+  );
+
+  static const LinearGradient primaryGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [AppColors.primaryGradientStart, AppColors.primaryGradientEnd],
+  );
+
+  static const LinearGradient backgroundGradient = LinearGradient(
     begin: Alignment.topCenter,
     end: Alignment.bottomCenter,
-    colors: [AppColors.card, AppColors.surface],
+    colors: [AppColors.backgroundTop, AppColors.backgroundBottom],
   );
+
+  static const List<BoxShadow> cardShadow = [
+    BoxShadow(color: AppColors.shadow, blurRadius: 12, offset: Offset(0, 4)),
+  ];
 
   static BoxDecoration cardDecoration({
     Color borderColor = AppColors.cardBorder,
@@ -17,6 +34,7 @@ abstract final class AppTheme {
     gradient: cardGradient,
     borderRadius: BorderRadius.circular(cardRadius),
     border: Border.all(color: borderColor),
+    boxShadow: cardShadow,
   );
 
   static ThemeData build() {
@@ -33,7 +51,7 @@ abstract final class AppTheme {
       useMaterial3: true,
       brightness: Brightness.dark,
       colorScheme: colorScheme,
-      scaffoldBackgroundColor: AppColors.background,
+      scaffoldBackgroundColor: AppColors.backgroundBottom,
       dividerTheme: const DividerThemeData(color: AppColors.cardBorder),
       pageTransitionsTheme: const PageTransitionsTheme(
         builders: {

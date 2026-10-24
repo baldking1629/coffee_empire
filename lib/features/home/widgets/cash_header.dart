@@ -10,6 +10,7 @@ import '../../../engine/boost_math.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../game/game_cubit.dart';
 import '../../game/game_state.dart';
+import 'counting_money_text.dart';
 
 typedef CashHeaderData = ({
   BigNumber cash,
@@ -64,13 +65,13 @@ class CashHeader extends StatelessWidget {
                     FittedBox(
                       fit: BoxFit.scaleDown,
                       alignment: AlignmentDirectional.centerStart,
-                      child: Text(
-                        formatter.formatMoney(data.cash),
-                        key: cashTextKey,
-                        textDirection: TextDirection.ltr,
+                      child: CountingMoneyText(
+                        value: data.cash,
+                        formatter: formatter,
+                        textKey: cashTextKey,
                         style: textTheme.headlineMedium?.copyWith(
                           color: AppColors.mint,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w900,
                         ),
                       ),
                     ),

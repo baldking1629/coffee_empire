@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../app/widgets/bouncy_button.dart';
+import '../../app/widgets/game_background.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../app/formatters.dart';
@@ -60,39 +62,41 @@ class _RecipeScreenState extends State<RecipeScreen> {
           overflow: TextOverflow.ellipsis,
         ),
       ),
-      body: BlocSelector<GameCubit, GameState, RecipeScreenData>(
-        selector: (state) {
-          final cost = cubit.lab.testCost(widget.recipe, state);
-          return (
-            progress: state.lab.progressOf(widget.recipe.id),
-            activeBrew: state.lab.activeBrew,
-            testCost: cost,
-            canAfford: state.cash >= cost,
-            scientific: state.settings.scientific,
-          );
-        },
-        builder: (context, data) => ListView(
-          padding: const EdgeInsetsDirectional.all(16),
-          children: [
-            Text(
-              l10n.flavorProfileTitle,
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
-            SizedBox(height: 240, child: FlavorRadar(profile: _sliders)),
-            for (final attribute in FlavorAttribute.values)
-              _FlavorSlider(
-                label: flavorName(l10n, attribute),
-                value: _sliders.values[attribute.index],
-                enabled: data.activeBrew == null,
-                onChanged: (value) => setState(
-                  () => _sliders = _sliders.withValue(attribute.index, value),
-                ),
+      body: GameBackground(
+        child: BlocSelector<GameCubit, GameState, RecipeScreenData>(
+          selector: (state) {
+            final cost = cubit.lab.testCost(widget.recipe, state);
+            return (
+              progress: state.lab.progressOf(widget.recipe.id),
+              activeBrew: state.lab.activeBrew,
+              testCost: cost,
+              canAfford: state.cash >= cost,
+              scientific: state.settings.scientific,
+            );
+          },
+          builder: (context, data) => ListView(
+            padding: const EdgeInsetsDirectional.all(16),
+            children: [
+              Text(
+                l10n.flavorProfileTitle,
+                style: Theme.of(context).textTheme.titleMedium,
               ),
-            const SizedBox(height: 8),
-            _ResultSummary(progress: data.progress),
-            const SizedBox(height: 16),
-            _buildAction(context, cubit, data),
-          ],
+              SizedBox(height: 240, child: FlavorRadar(profile: _sliders)),
+              for (final attribute in FlavorAttribute.values)
+                _FlavorSlider(
+                  label: flavorName(l10n, attribute),
+                  value: _sliders.values[attribute.index],
+                  enabled: data.activeBrew == null,
+                  onChanged: (value) => setState(
+                    () => _sliders = _sliders.withValue(attribute.index, value),
+                  ),
+                ),
+              const SizedBox(height: 8),
+              _ResultSummary(progress: data.progress),
+              const SizedBox(height: 16),
+              _buildAction(context, cubit, data),
+            ],
+          ),
         ),
       ),
     );
@@ -110,11 +114,16 @@ class _RecipeScreenState extends State<RecipeScreen> {
         children: [
           BrewCountdown(endsAt: brew.endsAt, clock: cubit.clock),
           const SizedBox(height: 8),
-          OutlinedButton(
+          BouncyButton(
             key: const Key('lab_speedup_button'),
+            style: BouncyButtonStyle.secondary,
             onPressed: () =>
                 watchAdForReward(context, RewardedAdType.labSpeedup),
-            child: Text(l10n.rewardLabSpeedupTitle),
+            child: Text(
+              l10n.rewardLabSpeedupTitle,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
           ),
         ],
       );
@@ -130,12 +139,11 @@ class _RecipeScreenState extends State<RecipeScreen> {
       context,
       scientific: data.scientific,
     ).formatMoney(data.testCost);
-    return FilledButton(
+    return BouncyButton(
       key: RecipeScreen.testButtonKey,
-      style: FilledButton.styleFrom(backgroundColor: AppColors.copper),
-      onPressed: data.canAfford
-          ? () => cubit.startBrew(widget.recipe.id, _sliders)
-          : null,
+      canAfford: data.canAfford,
+      onPressed: () => cubit.startBrew(widget.recipe.id, _sliders),
+      onDenied: cubit.reportInsufficientFunds,
       child: FittedBox(
         fit: BoxFit.scaleDown,
         child: Text(l10n.startTest(cost)),

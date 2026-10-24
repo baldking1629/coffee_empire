@@ -2,7 +2,7 @@ import '../../core/services/haptic_service.dart';
 import '../../core/services/sound_service.dart';
 import 'game_settings.dart';
 
-enum FeedbackKind { tap, cupFull, purchase, prestige }
+enum FeedbackKind { tap, cupFull, purchase, prestige, denied }
 
 class GameFeedback {
   const GameFeedback({
@@ -18,7 +18,7 @@ class GameFeedback {
       switch (kind) {
         case FeedbackKind.tap:
           haptics.selection();
-        case FeedbackKind.cupFull:
+        case FeedbackKind.cupFull || FeedbackKind.denied:
           haptics.light();
         case FeedbackKind.purchase:
           haptics.medium();
@@ -32,6 +32,7 @@ class GameFeedback {
         FeedbackKind.cupFull => GameSound.cupFull,
         FeedbackKind.purchase => GameSound.purchase,
         FeedbackKind.prestige => GameSound.prestige,
+        FeedbackKind.denied => GameSound.denied,
       });
     }
   }

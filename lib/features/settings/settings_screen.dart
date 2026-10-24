@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../app/widgets/game_background.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 
@@ -70,75 +71,80 @@ class SettingsScreen extends StatelessWidget {
         backgroundColor: AppColors.surface,
         title: Text(l10n.settingsTitle),
       ),
-      body: BlocSelector<GameCubit, GameState, GameSettings>(
-        selector: (state) => state.settings,
-        builder: (context, settings) => ListView(
-          children: [
-            ListTile(
-              leading: const Icon(LucideIcons.languages),
-              title: Text(l10n.settingsLanguage),
-              trailing: DropdownButton<String>(
-                key: languageKey,
-                value: settings.locale,
-                underline: const SizedBox.shrink(),
-                onChanged: (code) {
-                  if (code != null) {
-                    cubit.updateSettings(settings.copyWith(locale: code));
-                  }
-                },
-                items: [
-                  for (final code in languageCodes)
-                    DropdownMenuItem(
-                      value: code,
-                      child: Text(
-                        code == GameSettings.systemLocale
-                            ? l10n.languageSystem
-                            : languageNativeName(l10n, code),
+      body: GameBackground(
+        child: BlocSelector<GameCubit, GameState, GameSettings>(
+          selector: (state) => state.settings,
+          builder: (context, settings) => ListView(
+            children: [
+              ListTile(
+                leading: const Icon(LucideIcons.languages),
+                title: Text(l10n.settingsLanguage),
+                trailing: DropdownButton<String>(
+                  key: languageKey,
+                  value: settings.locale,
+                  underline: const SizedBox.shrink(),
+                  onChanged: (code) {
+                    if (code != null) {
+                      cubit.updateSettings(settings.copyWith(locale: code));
+                    }
+                  },
+                  items: [
+                    for (final code in languageCodes)
+                      DropdownMenuItem(
+                        value: code,
+                        child: Text(
+                          code == GameSettings.systemLocale
+                              ? l10n.languageSystem
+                              : languageNativeName(l10n, code),
+                        ),
                       ),
-                    ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            SwitchListTile(
-              secondary: const Icon(LucideIcons.volume2),
-              title: Text(l10n.settingsSound),
-              value: settings.sound,
-              onChanged: (value) =>
-                  cubit.updateSettings(settings.copyWith(sound: value)),
-            ),
-            SwitchListTile(
-              secondary: const Icon(LucideIcons.vibrate),
-              title: Text(l10n.settingsHaptics),
-              value: settings.haptics,
-              onChanged: (value) =>
-                  cubit.updateSettings(settings.copyWith(haptics: value)),
-            ),
-            SwitchListTile(
-              secondary: const Icon(LucideIcons.bell),
-              title: Text(l10n.settingsNotifications),
-              value: settings.notifications,
-              onChanged: (value) =>
-                  _toggleNotifications(context, cubit, settings, value),
-            ),
-            SwitchListTile(
-              key: const Key('settings_scientific'),
-              secondary: const Icon(LucideIcons.sigma),
-              title: Text(l10n.settingsScientific),
-              value: settings.scientific,
-              onChanged: (value) =>
-                  cubit.updateSettings(settings.copyWith(scientific: value)),
-            ),
-            const Divider(),
-            ListTile(
-              key: resetKey,
-              leading: const Icon(LucideIcons.trash2, color: AppColors.copper),
-              title: Text(
-                l10n.settingsReset,
-                style: const TextStyle(color: AppColors.copper),
+              SwitchListTile(
+                secondary: const Icon(LucideIcons.volume2),
+                title: Text(l10n.settingsSound),
+                value: settings.sound,
+                onChanged: (value) =>
+                    cubit.updateSettings(settings.copyWith(sound: value)),
               ),
-              onTap: () => _confirmReset(context, cubit),
-            ),
-          ],
+              SwitchListTile(
+                secondary: const Icon(LucideIcons.vibrate),
+                title: Text(l10n.settingsHaptics),
+                value: settings.haptics,
+                onChanged: (value) =>
+                    cubit.updateSettings(settings.copyWith(haptics: value)),
+              ),
+              SwitchListTile(
+                secondary: const Icon(LucideIcons.bell),
+                title: Text(l10n.settingsNotifications),
+                value: settings.notifications,
+                onChanged: (value) =>
+                    _toggleNotifications(context, cubit, settings, value),
+              ),
+              SwitchListTile(
+                key: const Key('settings_scientific'),
+                secondary: const Icon(LucideIcons.sigma),
+                title: Text(l10n.settingsScientific),
+                value: settings.scientific,
+                onChanged: (value) =>
+                    cubit.updateSettings(settings.copyWith(scientific: value)),
+              ),
+              const Divider(),
+              ListTile(
+                key: resetKey,
+                leading: const Icon(
+                  LucideIcons.trash2,
+                  color: AppColors.copper,
+                ),
+                title: Text(
+                  l10n.settingsReset,
+                  style: const TextStyle(color: AppColors.copper),
+                ),
+                onTap: () => _confirmReset(context, cubit),
+              ),
+            ],
+          ),
         ),
       ),
     );

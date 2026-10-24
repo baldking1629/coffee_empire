@@ -863,4 +863,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get languageNative_vi => 'Tiếng Việt';
+
+  @override
+  String floatingGain(String amount) {
+    return '+$amount';
+  }
 }

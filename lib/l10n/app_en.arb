@@ -651,5 +651,13 @@
   "languageNative_ja": "日本語",
   "languageNative_ko": "한국어",
   "languageNative_zh": "简体中文",
-  "languageNative_vi": "Tiếng Việt"
+  "languageNative_vi": "Tiếng Việt",
+  "floatingGain": "+{amount}",
+  "@floatingGain": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  }
 }

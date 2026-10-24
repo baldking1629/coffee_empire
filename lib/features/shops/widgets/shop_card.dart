@@ -5,6 +5,7 @@ import 'package:lucide_icons_flutter/lucide_icons.dart';
 import '../../../app/formatters.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_theme.dart';
+import '../../../app/widgets/bouncy_button.dart';
 import '../../../config/economy_config.dart';
 import '../../../core/bignumber/big_number.dart';
 import '../../../engine/shop_math.dart';
@@ -159,16 +160,11 @@ class ShopCard extends StatelessWidget {
           const SizedBox(height: 8),
           _MilestoneBar(level: data.level, math: math),
           const SizedBox(height: 8),
-          FilledButton(
+          BouncyButton(
             key: Key('buy_shop_${shop.id}'),
-            onPressed: data.plan.affordable
-                ? () => cubit.buyShopLevels(shop.id, buyAmount)
-                : null,
-            style: FilledButton.styleFrom(
-              backgroundColor: AppColors.copper,
-              foregroundColor: AppColors.textPrimary,
-              visualDensity: VisualDensity.compact,
-            ),
+            canAfford: data.plan.affordable,
+            onPressed: () => cubit.buyShopLevels(shop.id, buyAmount),
+            onDenied: cubit.reportInsufficientFunds,
             child: FittedBox(
               fit: BoxFit.scaleDown,
               child: Text(
@@ -197,6 +193,7 @@ class ShopCard extends StatelessWidget {
               equipmentAffordable: data.equipmentAffordable,
               onHireManager: () => cubit.hireManager(shop.id),
               onBuyEquipment: () => cubit.buyEquipment(shop.id),
+              onDenied: cubit.reportInsufficientFunds,
             ),
           ],
         ],

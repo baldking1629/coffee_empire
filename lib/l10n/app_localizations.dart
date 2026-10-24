@@ -1617,6 +1617,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Tiếng Việt'**
   String get languageNative_vi;
+
+  /// No description provided for @floatingGain.
+  ///
+  /// In en, this message translates to:
+  /// **'+{amount}'**
+  String floatingGain(String amount);
 }
 
 class _AppLocalizationsDelegate

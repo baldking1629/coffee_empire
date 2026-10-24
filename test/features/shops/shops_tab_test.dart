@@ -1,3 +1,4 @@
+import 'package:coffee_empire/app/widgets/bouncy_button.dart';
 import 'package:coffee_empire/config/economy_config.dart';
 import 'package:coffee_empire/core/bignumber/big_number.dart';
 import 'package:coffee_empire/features/game/game_cubit.dart';
@@ -51,20 +52,26 @@ void main() {
     return cubit;
   }
 
-  FilledButton buyButton(WidgetTester tester, String shopId) =>
-      tester.widget<FilledButton>(find.byKey(Key('buy_shop_$shopId')));
+  BouncyButton buyButton(WidgetTester tester, String shopId) =>
+      tester.widget<BouncyButton>(find.byKey(Key('buy_shop_$shopId')));
 
-  testWidgets('buy button is disabled without enough cash', (tester) async {
-    await pumpShops(tester, '3');
-    expect(buyButton(tester, 'street_cart').onPressed, isNull);
+  testWidgets('without enough cash the buy button is dimmed and refuses', (
+    tester,
+  ) async {
+    final cubit = await pumpShops(tester, '3');
+    expect(buyButton(tester, 'street_cart').canAfford, isFalse);
+    expect(buyButton(tester, 'street_cart').isEnabled, isTrue);
     expect(find.text('Unlocks after buying Street Cart'), findsOneWidget);
+    await tester.tap(find.byKey(const Key('buy_shop_street_cart')));
+    await tester.pump();
+    expect(cubit.state.shopLevels['street_cart'], isNull);
   });
 
   testWidgets('buying the first shop unlocks upgrades and the next shop', (
     tester,
   ) async {
     final cubit = await pumpShops(tester, '5');
-    expect(buyButton(tester, 'street_cart').onPressed, isNotNull);
+    expect(buyButton(tester, 'street_cart').canAfford, isTrue);
     await tester.tap(find.byKey(const Key('buy_shop_street_cart')));
     await tester.pump();
     expect(cubit.state.shopLevels['street_cart'], 1);
@@ -73,16 +80,16 @@ void main() {
     expect(find.byKey(const Key('buy_shop_corner_booth')), findsOneWidget);
   });
 
-  testWidgets('x10 disables when ten are unaffordable while MAX stays active', (
+  testWidgets('x10 is unaffordable when ten cost too much while MAX can buy', (
     tester,
   ) async {
     await pumpShops(tester, '10');
     await tester.tap(find.text('x10'));
     await tester.pump();
-    expect(buyButton(tester, 'street_cart').onPressed, isNull);
+    expect(buyButton(tester, 'street_cart').canAfford, isFalse);
     await tester.tap(find.text('MAX'));
     await tester.pump();
-    expect(buyButton(tester, 'street_cart').onPressed, isNotNull);
+    expect(buyButton(tester, 'street_cart').canAfford, isTrue);
     expect(find.textContaining('Buy x2'), findsOneWidget);
   });
 }

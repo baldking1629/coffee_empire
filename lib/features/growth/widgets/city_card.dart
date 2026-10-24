@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../app/widgets/bouncy_button.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../app/formatters.dart';
@@ -125,11 +126,11 @@ class CityCard extends StatelessWidget {
                     style: const TextStyle(color: AppColors.gold),
                   )
                 else
-                  FilledButton(
+                  BouncyButton(
                     key: Key('open_franchise_${city.id}'),
-                    onPressed: data.affordable
-                        ? () => cubit.openFranchise(city.id)
-                        : null,
+                    canAfford: data.affordable,
+                    onPressed: () => cubit.openFranchise(city.id),
+                    onDenied: cubit.reportInsufficientFunds,
                     child: FittedBox(
                       fit: BoxFit.scaleDown,
                       child: Text(

@@ -43,7 +43,7 @@ class CoffeeCupPainter extends CustomPainter {
         ..strokeWidth = 2
         ..color = AppColors.caramel,
     );
-    if (fill > 0.05) _paintSteam(canvas, w, h);
+    if (fill > 0.05 || rushGlow > 0) _paintSteam(canvas, w, h);
   }
 
   void _paintRushGlow(Canvas canvas, Size size) {
@@ -120,21 +120,28 @@ class CoffeeCupPainter extends CustomPainter {
   }
 
   void _paintSteam(Canvas canvas, double w, double h) {
+    final plumes = rushGlow > 0 ? 5 : 3;
+    final intensity = (fill.clamp(0.0, 1.0) + rushGlow * 0.5).clamp(0.0, 1.0);
     final paint = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = w * 0.02
+      ..strokeWidth = w * (0.018 + rushGlow * 0.008)
       ..strokeCap = StrokeCap.round;
-    for (var i = 0; i < 3; i++) {
-      final phase = (steamPhase + i / 3) % 1.0;
-      final x = w * (0.38 + 0.12 * i);
-      final rise = h * 0.12 * phase;
-      final sway = math.sin((phase + i) * math.pi * 2) * w * 0.025;
+    for (var i = 0; i < plumes; i++) {
+      final phase = (steamPhase + i / plumes) % 1.0;
+      final x = w * (0.34 + 0.32 * i / (plumes - 1));
+      final rise = h * 0.14 * phase;
+      final baseY = h * 0.35 - rise;
       paint.color = AppColors.steam.withValues(
-        alpha: AppColors.steam.a * (1 - phase) * fill.clamp(0.0, 1.0),
+        alpha: AppColors.steam.a * (1 - phase) * intensity,
       );
-      final path = Path()
-        ..moveTo(x, h * 0.34 - rise)
-        ..quadraticBezierTo(x + sway, h * 0.27 - rise, x, h * 0.2 - rise);
+      final path = Path()..moveTo(x, baseY);
+      const segments = 3;
+      for (var segment = 1; segment <= segments; segment++) {
+        final y = baseY - h * 0.05 * segment;
+        final wave = math.sin((phase * 2 + segment * 0.7 + i) * math.pi);
+        final controlX = x + wave * w * 0.035;
+        path.quadraticBezierTo(controlX, y + h * 0.025, x + wave * w * 0.01, y);
+      }
       canvas.drawPath(path, paint);
     }
   }

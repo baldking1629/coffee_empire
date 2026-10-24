@@ -13,6 +13,7 @@ import '../features/game/game_tick_service.dart';
 import '../features/home/home_screen.dart';
 import '../l10n/app_localizations.dart';
 import 'theme/app_theme.dart';
+import 'widgets/insufficient_funds_flash.dart';
 
 class CoffeeEmpireApp extends StatefulWidget {
   const CoffeeEmpireApp({super.key, required this.clock, this.notifications});
@@ -94,6 +95,10 @@ class _CoffeeEmpireAppState extends State<CoffeeEmpireApp> {
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
         localeResolutionCallback: resolveSupportedLocale,
+        builder: (context, child) => InsufficientFundsFlash(
+          signals: _cubit.deniedSignals,
+          child: child ?? const SizedBox.shrink(),
+        ),
         home: const HomeScreen(),
       ),
     );

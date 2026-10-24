@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../app/widgets/bouncy_button.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 
@@ -132,13 +133,9 @@ class _ProductTile extends StatelessWidget {
               ),
               const SizedBox(width: 8),
               Flexible(
-                child: FilledButton(
+                child: BouncyButton(
                   key: Key('buy_product_$productId'),
-                  style: FilledButton.styleFrom(
-                    backgroundColor: AppColors.gold,
-                    foregroundColor: AppColors.background,
-                    visualDensity: VisualDensity.compact,
-                  ),
+                  compact: true,
                   onPressed: canBuy ? () => _buy(context) : null,
                   child: FittedBox(
                     fit: BoxFit.scaleDown,
