@@ -37,7 +37,6 @@
   "tabLab": "R&D",
   "tabGrowth": "Growth",
   "tabStore": "Store",
-  "comingSoon": "Coming soon",
   "incomePerSecond": "{amount}/sec",
   "@incomePerSecond": {
     "placeholders": {
@@ -420,5 +419,98 @@
   },
   "offlineCollect": "Collect",
   "offlineCollectDouble": "Watch ad, collect 2x",
-  "adPlaying": "Playing ad…"
+  "adPlaying": "Playing ad…",
+  "notificationChannelName": "Coffee reminders",
+  "notifOfflineTitle": "Your shops are overflowing!",
+  "notifOfflineBody": "Offline earnings reached the limit. Come back to collect.",
+  "notifDailyTitle": "Daily reward ready",
+  "notifDailyBody": "Your daily coffee bonus is waiting.",
+  "notifRushTitle": "Caffeine Rush ended",
+  "notifRushBody": "Watch another ad to keep income doubled.",
+  "rewardedTitle": "Free boosts",
+  "rewardCaffeineRushTitle": "Caffeine Rush",
+  "rewardCaffeineRushBody": "All income ×2 for 4 hours (up to 8 hours)",
+  "rewardEmergencyFundTitle": "Emergency Fund",
+  "rewardEmergencyFundBody": "Get {amount} instantly",
+  "@rewardEmergencyFundBody": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "rewardLabSpeedupTitle": "Lab Speed-up",
+  "rewardLabSpeedupBody": "Finish the running R&D test now",
+  "watchAd": "Watch ad",
+  "readyIn": "Ready in {time}",
+  "@readyIn": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "unavailable": "Not available",
+  "boostActive": "×{multiplier} {time}",
+  "@boostActive": {
+    "placeholders": {
+      "multiplier": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "shopTitle": "Premium",
+  "vipTitle": "Master Roaster VIP",
+  "vipBody": "Permanent income ×2, 12-hour offline limit and an auto-tapping barista",
+  "starterPackTitle": "Espresso Starter Pack",
+  "starterPackBody": "Permanent income ×1.25 plus 2 hours of income in cash",
+  "timeSkipTitle": "24h Time Skip",
+  "timeSkipBody": "Instantly receive {amount}",
+  "@timeSkipBody": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "buyProduct": "Buy",
+  "owned": "Owned",
+  "restorePurchases": "Restore purchases",
+  "noForcedAds": "No forced ads — rewarded ads are always optional.",
+  "dailyRewardTitle": "Daily reward",
+  "dailyRewardDay": "Day {day}",
+  "@dailyRewardDay": {
+    "placeholders": {
+      "day": {
+        "type": "int"
+      }
+    }
+  },
+  "dailyRewardClaim": "Claim {amount}",
+  "@dailyRewardClaim": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "dailyRewardNext": "Next reward in {time}",
+  "@dailyRewardNext": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "dailyRewardBean": "+{beans} Golden Bean",
+  "@dailyRewardBean": {
+    "placeholders": {
+      "beans": {
+        "type": "int"
+      }
+    }
+  }
 }

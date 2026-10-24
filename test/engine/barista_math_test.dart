@@ -123,4 +123,16 @@ void main() {
     final outcome = math.tap(settled, BigNumber.zero, past);
     expect(outcome.payout.isNegative, isFalse);
   });
+
+  test('auto tapper fills cups without touching combo or rush', () {
+    final combo = BaristaState(combo: 3, lastCupFilledAt: start, cupFill: 0.5);
+    final outcome = math.autoFill(combo, BigNumber.fromInt(10), 15);
+    expect(outcome.payout, BigNumber.fromInt(200));
+    expect(outcome.barista.cupFill, closeTo(0, 1e-9));
+    expect(outcome.barista.combo, 3);
+    expect(outcome.rushStarted, isFalse);
+    final partial = math.autoFill(BaristaState.idle, BigNumber.fromInt(10), 3);
+    expect(partial.payout, BigNumber.zero);
+    expect(partial.barista.cupFill, closeTo(0.3, 1e-9));
+  });
 }

@@ -547,6 +547,7 @@
       3600,
       7200
     ],
-    "finalDayGoldenBeans": 1
+    "finalDayGoldenBeans": 1,
+    "minCash": "50"
   }
 }

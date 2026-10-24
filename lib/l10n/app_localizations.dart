@@ -152,12 +152,6 @@ abstract class AppLocalizations {
   /// **'Store'**
   String get tabStore;
 
-  /// No description provided for @comingSoon.
-  ///
-  /// In en, this message translates to:
-  /// **'Coming soon'**
-  String get comingSoon;
-
   /// No description provided for @incomePerSecond.
   ///
   /// In en, this message translates to:
@@ -1009,6 +1003,210 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Playing ad…'**
   String get adPlaying;
+
+  /// No description provided for @notificationChannelName.
+  ///
+  /// In en, this message translates to:
+  /// **'Coffee reminders'**
+  String get notificationChannelName;
+
+  /// No description provided for @notifOfflineTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your shops are overflowing!'**
+  String get notifOfflineTitle;
+
+  /// No description provided for @notifOfflineBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Offline earnings reached the limit. Come back to collect.'**
+  String get notifOfflineBody;
+
+  /// No description provided for @notifDailyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily reward ready'**
+  String get notifDailyTitle;
+
+  /// No description provided for @notifDailyBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Your daily coffee bonus is waiting.'**
+  String get notifDailyBody;
+
+  /// No description provided for @notifRushTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Caffeine Rush ended'**
+  String get notifRushTitle;
+
+  /// No description provided for @notifRushBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Watch another ad to keep income doubled.'**
+  String get notifRushBody;
+
+  /// No description provided for @rewardedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Free boosts'**
+  String get rewardedTitle;
+
+  /// No description provided for @rewardCaffeineRushTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Caffeine Rush'**
+  String get rewardCaffeineRushTitle;
+
+  /// No description provided for @rewardCaffeineRushBody.
+  ///
+  /// In en, this message translates to:
+  /// **'All income ×2 for 4 hours (up to 8 hours)'**
+  String get rewardCaffeineRushBody;
+
+  /// No description provided for @rewardEmergencyFundTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Emergency Fund'**
+  String get rewardEmergencyFundTitle;
+
+  /// No description provided for @rewardEmergencyFundBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Get {amount} instantly'**
+  String rewardEmergencyFundBody(String amount);
+
+  /// No description provided for @rewardLabSpeedupTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Lab Speed-up'**
+  String get rewardLabSpeedupTitle;
+
+  /// No description provided for @rewardLabSpeedupBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Finish the running R&D test now'**
+  String get rewardLabSpeedupBody;
+
+  /// No description provided for @watchAd.
+  ///
+  /// In en, this message translates to:
+  /// **'Watch ad'**
+  String get watchAd;
+
+  /// No description provided for @readyIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Ready in {time}'**
+  String readyIn(String time);
+
+  /// No description provided for @unavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Not available'**
+  String get unavailable;
+
+  /// No description provided for @boostActive.
+  ///
+  /// In en, this message translates to:
+  /// **'×{multiplier} {time}'**
+  String boostActive(String multiplier, String time);
+
+  /// No description provided for @shopTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Premium'**
+  String get shopTitle;
+
+  /// No description provided for @vipTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Master Roaster VIP'**
+  String get vipTitle;
+
+  /// No description provided for @vipBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Permanent income ×2, 12-hour offline limit and an auto-tapping barista'**
+  String get vipBody;
+
+  /// No description provided for @starterPackTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Espresso Starter Pack'**
+  String get starterPackTitle;
+
+  /// No description provided for @starterPackBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Permanent income ×1.25 plus 2 hours of income in cash'**
+  String get starterPackBody;
+
+  /// No description provided for @timeSkipTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'24h Time Skip'**
+  String get timeSkipTitle;
+
+  /// No description provided for @timeSkipBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Instantly receive {amount}'**
+  String timeSkipBody(String amount);
+
+  /// No description provided for @buyProduct.
+  ///
+  /// In en, this message translates to:
+  /// **'Buy'**
+  String get buyProduct;
+
+  /// No description provided for @owned.
+  ///
+  /// In en, this message translates to:
+  /// **'Owned'**
+  String get owned;
+
+  /// No description provided for @restorePurchases.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore purchases'**
+  String get restorePurchases;
+
+  /// No description provided for @noForcedAds.
+  ///
+  /// In en, this message translates to:
+  /// **'No forced ads — rewarded ads are always optional.'**
+  String get noForcedAds;
+
+  /// No description provided for @dailyRewardTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily reward'**
+  String get dailyRewardTitle;
+
+  /// No description provided for @dailyRewardDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Day {day}'**
+  String dailyRewardDay(int day);
+
+  /// No description provided for @dailyRewardClaim.
+  ///
+  /// In en, this message translates to:
+  /// **'Claim {amount}'**
+  String dailyRewardClaim(String amount);
+
+  /// No description provided for @dailyRewardNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Next reward in {time}'**
+  String dailyRewardNext(String time);
+
+  /// No description provided for @dailyRewardBean.
+  ///
+  /// In en, this message translates to:
+  /// **'+{beans} Golden Bean'**
+  String dailyRewardBean(int beans);
 }
 
 class _AppLocalizationsDelegate

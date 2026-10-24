@@ -28,6 +28,10 @@ void main() {
     expect(state.lab.activeBrew, isNull);
     expect(state.lab.capsuleMachines, 0);
     expect(state.franchises, isEmpty);
+    expect(state.store.boosts, isEmpty);
+    expect(state.store.purchases, isEmpty);
+    expect(state.store.rewardedCooldowns, isEmpty);
+    expect(state.dailyReward.streak, 0);
   });
 
   test('migration steps are chained in order', () {

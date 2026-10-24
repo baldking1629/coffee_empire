@@ -108,6 +108,34 @@ class BaristaMath {
     );
   }
 
+  TapOutcome autoFill(
+    BaristaState current,
+    BigNumber incomePerSec,
+    double taps,
+  ) {
+    if (taps <= 0) {
+      return TapOutcome(
+        barista: current,
+        payout: BigNumber.zero,
+        cupFilled: false,
+        rushStarted: false,
+      );
+    }
+    final filled = current.cupFill + taps * config.tapFillStep;
+    final cups = (filled + 1e-9).floor();
+    final payout = cups == 0
+        ? BigNumber.zero
+        : cupPayout(incomePerSec, rushActive: false) * BigNumber.fromInt(cups);
+    return TapOutcome(
+      barista: current.copyWith(
+        cupFill: cups == 0 ? filled : (filled - cups).clamp(0.0, 1.0),
+      ),
+      payout: payout,
+      cupFilled: cups > 0,
+      rushStarted: false,
+    );
+  }
+
   BaristaState settle(BaristaState current, DateTime now) {
     var result = current;
     final lastFill = current.lastCupFilledAt;

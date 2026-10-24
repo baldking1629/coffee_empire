@@ -42,6 +42,11 @@ class _OfflineEarningsListenerState extends State<OfflineEarningsListener> {
       builder: (dialogContext) => _OfflineDialog(
         earnings: earnings,
         scientific: cubit.state.settings.scientific,
+        canDouble: cubit.store.canWatch(
+          cubit.state,
+          RewardedAdType.offlineDouble,
+          cubit.clock.now(),
+        ),
       ),
     );
     _showing = false;
@@ -63,10 +68,15 @@ class _OfflineEarningsListenerState extends State<OfflineEarningsListener> {
 }
 
 class _OfflineDialog extends StatelessWidget {
-  const _OfflineDialog({required this.earnings, required this.scientific});
+  const _OfflineDialog({
+    required this.earnings,
+    required this.scientific,
+    required this.canDouble,
+  });
 
   final OfflineEarnings earnings;
   final bool scientific;
+  final bool canDouble;
 
   @override
   Widget build(BuildContext context) {

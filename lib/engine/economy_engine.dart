@@ -2,6 +2,8 @@ import 'package:equatable/equatable.dart';
 
 import '../config/economy_config.dart';
 import '../core/bignumber/big_number.dart';
+import 'boost_math.dart';
+import 'daily_reward_math.dart';
 import 'franchise_math.dart';
 import 'lab_math.dart';
 import 'offline_math.dart';
@@ -17,6 +19,9 @@ class IncomeInputs extends Equatable {
     this.recipeBestScores = const {},
     this.capsuleMachines = 0,
     this.franchises = const {},
+    this.boostMultiplier = 1,
+    this.vip = false,
+    this.starterPack = false,
   });
 
   final Map<String, int> shopLevels;
@@ -26,6 +31,9 @@ class IncomeInputs extends Equatable {
   final Map<String, int> recipeBestScores;
   final int capsuleMachines;
   final Map<String, int> franchises;
+  final double boostMultiplier;
+  final bool vip;
+  final bool starterPack;
 
   @override
   List<Object?> get props => [
@@ -36,6 +44,9 @@ class IncomeInputs extends Equatable {
     recipeBestScores,
     capsuleMachines,
     franchises,
+    boostMultiplier,
+    vip,
+    starterPack,
   ];
 }
 
@@ -45,7 +56,9 @@ class EconomyEngine {
       labMath = LabMath(lab: config.lab, capsule: config.capsule),
       franchiseMath = FranchiseMath(config.franchise),
       prestigeMath = PrestigeMath(config.prestige),
-      offlineMath = OfflineMath(config.offline);
+      offlineMath = OfflineMath(config.offline),
+      boostMath = BoostMath(rewarded: config.rewarded, iap: config.iap),
+      dailyRewardMath = DailyRewardMath(config.dailyReward);
 
   final EconomyConfig config;
   final ShopMath shopMath;
@@ -53,6 +66,8 @@ class EconomyEngine {
   final FranchiseMath franchiseMath;
   final PrestigeMath prestigeMath;
   final OfflineMath offlineMath;
+  final BoostMath boostMath;
+  final DailyRewardMath dailyRewardMath;
 
   BigNumber shopsIncomePerSec(IncomeInputs inputs) {
     var total = BigNumber.zero;
@@ -69,7 +84,12 @@ class EconomyEngine {
 
   BigNumber globalMultiplier(IncomeInputs inputs) =>
       prestigeMath.beanMultiplier(inputs.goldenBeans) *
-      labMath.labBonusMultiplier(inputs.recipeBestScores);
+      labMath.labBonusMultiplier(inputs.recipeBestScores) *
+      BigNumber.fromDouble(
+        inputs.boostMultiplier *
+            boostMath.vipMultiplier(vip: inputs.vip) *
+            boostMath.starterPackMultiplier(owned: inputs.starterPack),
+      );
 
   BigNumber totalIncomePerSec(IncomeInputs inputs) {
     final shopsSum = shopsIncomePerSec(inputs);

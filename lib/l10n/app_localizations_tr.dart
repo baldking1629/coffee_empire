@@ -44,9 +44,6 @@ class AppLocalizationsTr extends AppLocalizations {
   String get tabStore => 'Mağaza';
 
   @override
-  String get comingSoon => 'Yakında';
-
-  @override
   String incomePerSecond(String amount) {
     return '$amount/sn';
   }
@@ -533,4 +530,128 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get adPlaying => 'Reklam oynatılıyor…';
+
+  @override
+  String get notificationChannelName => 'Kahve hatırlatmaları';
+
+  @override
+  String get notifOfflineTitle => 'Dükkanların taşıyor!';
+
+  @override
+  String get notifOfflineBody =>
+      'Offline kazanç sınıra ulaştı. Toplamak için geri dön.';
+
+  @override
+  String get notifDailyTitle => 'Günlük ödül hazır';
+
+  @override
+  String get notifDailyBody => 'Günlük kahve bonusun seni bekliyor.';
+
+  @override
+  String get notifRushTitle => 'Caffeine Rush bitti';
+
+  @override
+  String get notifRushBody =>
+      'Geliri ikiye katlamaya devam etmek için yeni bir reklam izle.';
+
+  @override
+  String get rewardedTitle => 'Ücretsiz destekler';
+
+  @override
+  String get rewardCaffeineRushTitle => 'Caffeine Rush';
+
+  @override
+  String get rewardCaffeineRushBody =>
+      'Tüm gelir 4 saat boyunca ×2 (en fazla 8 saat)';
+
+  @override
+  String get rewardEmergencyFundTitle => 'Acil Durum Fonu';
+
+  @override
+  String rewardEmergencyFundBody(String amount) {
+    return 'Anında $amount al';
+  }
+
+  @override
+  String get rewardLabSpeedupTitle => 'Ar-Ge Hızlandırma';
+
+  @override
+  String get rewardLabSpeedupBody => 'Süren Ar-Ge testini hemen bitir';
+
+  @override
+  String get watchAd => 'Reklam izle';
+
+  @override
+  String readyIn(String time) {
+    return '$time sonra hazır';
+  }
+
+  @override
+  String get unavailable => 'Kullanılamaz';
+
+  @override
+  String boostActive(String multiplier, String time) {
+    return '×$multiplier $time';
+  }
+
+  @override
+  String get shopTitle => 'Premium';
+
+  @override
+  String get vipTitle => 'Usta Kavurucu VIP';
+
+  @override
+  String get vipBody =>
+      'Kalıcı gelir ×2, 12 saatlik offline sınırı ve otomatik dokunan barista';
+
+  @override
+  String get starterPackTitle => 'Espresso Başlangıç Paketi';
+
+  @override
+  String get starterPackBody =>
+      'Kalıcı gelir ×1,25 ve 2 saatlik gelir kadar nakit';
+
+  @override
+  String get timeSkipTitle => '24 Saat İleri Sar';
+
+  @override
+  String timeSkipBody(String amount) {
+    return 'Anında $amount al';
+  }
+
+  @override
+  String get buyProduct => 'Satın al';
+
+  @override
+  String get owned => 'Sahipsin';
+
+  @override
+  String get restorePurchases => 'Satın alımları geri yükle';
+
+  @override
+  String get noForcedAds =>
+      'Zorunlu reklam yok — ödüllü reklamlar her zaman isteğe bağlı.';
+
+  @override
+  String get dailyRewardTitle => 'Günlük ödül';
+
+  @override
+  String dailyRewardDay(int day) {
+    return 'Gün $day';
+  }
+
+  @override
+  String dailyRewardClaim(String amount) {
+    return '$amount al';
+  }
+
+  @override
+  String dailyRewardNext(String time) {
+    return 'Sonraki ödül $time sonra';
+  }
+
+  @override
+  String dailyRewardBean(int beans) {
+    return '+$beans Altın Çekirdek';
+  }
 }

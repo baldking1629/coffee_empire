@@ -1,5 +1,8 @@
 import '../../core/bignumber/big_number.dart';
+import '../../engine/boost_math.dart';
+import '../daily_reward/daily_reward_state.dart';
 import '../lab/lab_state.dart';
+import '../store/store_state.dart';
 import 'game_settings.dart';
 import 'game_state.dart';
 
@@ -29,6 +32,18 @@ GameState gameStateFromJson(JsonMap json) {
       capsuleMachines: _int(json['capsuleMachines']),
     ),
     franchises: _intMap(json['franchises']),
+    store: StoreState(
+      boosts: (json['boosts'] as List<dynamic>)
+          .cast<JsonMap>()
+          .map(ActiveBoost.fromJson)
+          .toList(),
+      purchases: (json['purchases'] as List<dynamic>).cast<String>().toSet(),
+      rewardedCooldowns: (json['rewardedCooldowns'] as JsonMap).map(
+        (type, endsAt) =>
+            MapEntry(type, DateTime.parse(endsAt as String).toUtc()),
+      ),
+    ),
+    dailyReward: DailyRewardState.fromJson(json['dailyReward'] as JsonMap),
     stats: GameStats.fromJson(json['stats'] as JsonMap),
     tutorialStep: _int(json['tutorialStep']),
     settings: GameSettings.fromJson(json['settings'] as JsonMap),
@@ -49,6 +64,12 @@ JsonMap gameStateToJson(GameState state) => {
   'activeBrew': state.lab.activeBrew?.toJson(),
   'capsuleMachines': state.lab.capsuleMachines,
   'franchises': state.franchises,
+  'boosts': [for (final boost in state.store.boosts) boost.toJson()],
+  'purchases': state.store.purchases.toList(),
+  'rewardedCooldowns': state.store.rewardedCooldowns.map(
+    (type, endsAt) => MapEntry(type, endsAt.toUtc().toIso8601String()),
+  ),
+  'dailyReward': state.dailyReward.toJson(),
   'stats': state.stats.toJson(),
   'tutorialStep': state.tutorialStep,
   'settings': state.settings.toJson(),

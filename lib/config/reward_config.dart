@@ -111,6 +111,7 @@ class DailyRewardConfig extends Equatable {
     required this.streakResetSeconds,
     required this.daySeconds,
     required this.finalDayGoldenBeans,
+    required this.minCash,
   });
 
   factory DailyRewardConfig.fromJson(JsonMap json) => DailyRewardConfig(
@@ -118,12 +119,14 @@ class DailyRewardConfig extends Equatable {
     streakResetSeconds: readInt(json, 'streakResetSeconds'),
     daySeconds: readDoubleList(json, 'daySeconds'),
     finalDayGoldenBeans: readInt(json, 'finalDayGoldenBeans'),
+    minCash: readBig(json, 'minCash'),
   );
 
   final int claimableAfterSeconds;
   final int streakResetSeconds;
   final List<double> daySeconds;
   final int finalDayGoldenBeans;
+  final BigNumber minCash;
 
   @override
   List<Object?> get props => [
@@ -131,5 +134,6 @@ class DailyRewardConfig extends Equatable {
     streakResetSeconds,
     daySeconds,
     finalDayGoldenBeans,
+    minCash,
   ];
 }

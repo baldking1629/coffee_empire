@@ -3,7 +3,9 @@ import 'package:equatable/equatable.dart';
 import '../../core/bignumber/big_number.dart';
 import '../../engine/barista_math.dart';
 import '../../engine/offline_math.dart';
+import '../daily_reward/daily_reward_state.dart';
 import '../lab/lab_state.dart';
+import '../store/store_state.dart';
 import 'game_settings.dart';
 import 'game_state_json.dart';
 
@@ -20,6 +22,8 @@ class GameState extends Equatable {
     this.equipment = const {},
     this.lab = const LabState(),
     this.franchises = const {},
+    this.store = const StoreState(),
+    this.dailyReward = const DailyRewardState(),
     this.stats = const GameStats(),
     this.tutorialStep = 0,
     this.settings = const GameSettings(),
@@ -49,6 +53,8 @@ class GameState extends Equatable {
   final Map<String, int> equipment;
   final LabState lab;
   final Map<String, int> franchises;
+  final StoreState store;
+  final DailyRewardState dailyReward;
   final GameStats stats;
   final int tutorialStep;
   final GameSettings settings;
@@ -80,6 +86,8 @@ class GameState extends Equatable {
     Map<String, int>? equipment,
     LabState? lab,
     Map<String, int>? franchises,
+    StoreState? store,
+    DailyRewardState? dailyReward,
     GameStats? stats,
     int? tutorialStep,
     GameSettings? settings,
@@ -98,6 +106,8 @@ class GameState extends Equatable {
     equipment: equipment ?? this.equipment,
     lab: lab ?? this.lab,
     franchises: franchises ?? this.franchises,
+    store: store ?? this.store,
+    dailyReward: dailyReward ?? this.dailyReward,
     stats: stats ?? this.stats,
     tutorialStep: tutorialStep ?? this.tutorialStep,
     settings: settings ?? this.settings,
@@ -121,6 +131,8 @@ class GameState extends Equatable {
     equipment,
     lab,
     franchises,
+    store,
+    dailyReward,
     stats,
     tutorialStep,
     settings,

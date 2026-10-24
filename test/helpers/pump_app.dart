@@ -1,4 +1,5 @@
 import 'package:coffee_empire/config/economy_config.dart';
+import 'package:coffee_empire/core/services/analytics_service.dart';
 import 'package:coffee_empire/core/services/monetization_service.dart';
 import 'package:coffee_empire/features/game/game_cubit.dart';
 import 'package:coffee_empire/l10n/app_localizations.dart';
@@ -18,6 +19,9 @@ Future<void> pumpWithGame(
     MultiRepositoryProvider(
       providers: [
         RepositoryProvider<EconomyConfig>.value(value: config),
+        RepositoryProvider<AnalyticsService>.value(
+          value: const DebugAnalyticsService(),
+        ),
         RepositoryProvider<MonetizationService>.value(
           value:
               monetization ??

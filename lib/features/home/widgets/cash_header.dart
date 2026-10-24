@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 
+import '../../../app/formatters.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_theme.dart';
 import '../../../core/bignumber/big_number.dart';
 import '../../../core/format/number_formatter.dart';
+import '../../../engine/boost_math.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../game/game_cubit.dart';
 import '../../game/game_state.dart';
@@ -15,6 +17,7 @@ typedef CashHeaderData = ({
   BigNumber incomePerSec,
   bool scientific,
   bool rushActive,
+  int caffeineRushMinutes,
 });
 
 class CashHeader extends StatelessWidget {
@@ -26,13 +29,21 @@ class CashHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final languageCode = Localizations.localeOf(context).languageCode;
+    final cubit = context.read<GameCubit>();
     return BlocSelector<GameCubit, GameState, CashHeaderData>(
-      selector: (state) => (
-        cash: state.cash,
-        incomePerSec: state.incomePerSec,
-        scientific: state.settings.scientific,
-        rushActive: state.barista.rushEndsAt != null,
-      ),
+      selector: (state) {
+        final rush = state.store.boostOf(ActiveBoost.caffeineRush);
+        final remaining = rush?.endsAt.difference(cubit.clock.now());
+        return (
+          cash: state.cash,
+          incomePerSec: state.incomePerSec,
+          scientific: state.settings.scientific,
+          rushActive: state.barista.rushEndsAt != null,
+          caffeineRushMinutes: remaining == null || remaining.isNegative
+              ? 0
+              : remaining.inMinutes + 1,
+        );
+      },
       builder: (context, data) {
         final formatter = NumberFormatter(
           languageCode: languageCode,
@@ -78,7 +89,34 @@ class CashHeader extends StatelessWidget {
                   ],
                 ),
               ),
-              if (data.rushActive) const _BoostIndicator(),
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  if (data.caffeineRushMinutes > 0)
+                    _BoostIndicator(
+                      key: const Key('caffeine_rush_indicator'),
+                      icon: LucideIcons.coffee,
+                      label: l10n.boostActive(
+                        formatter.format(
+                          BigNumber.fromDouble(
+                            cubit.engine.config.rewarded.caffeineRushMultiplier,
+                          ),
+                        ),
+                        durationFormatterOf(
+                          context,
+                        ).format(Duration(minutes: data.caffeineRushMinutes)),
+                      ),
+                    ),
+                  if (data.rushActive && data.caffeineRushMinutes > 0)
+                    const SizedBox(height: 4),
+                  if (data.rushActive)
+                    _BoostIndicator(
+                      icon: LucideIcons.zap,
+                      label: l10n.baristaRush,
+                    ),
+                ],
+              ),
             ],
           ),
         );
@@ -88,7 +126,10 @@ class CashHeader extends StatelessWidget {
 }
 
 class _BoostIndicator extends StatelessWidget {
-  const _BoostIndicator();
+  const _BoostIndicator({super.key, required this.icon, required this.label});
+
+  final IconData icon;
+  final String label;
 
   @override
   Widget build(BuildContext context) {
@@ -105,10 +146,10 @@ class _BoostIndicator extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Icon(LucideIcons.zap, size: 16, color: AppColors.copper),
+          Icon(icon, size: 16, color: AppColors.copper),
           const SizedBox(width: 4),
           Text(
-            AppLocalizations.of(context).baristaRush,
+            label,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: const TextStyle(

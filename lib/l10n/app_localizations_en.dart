@@ -44,9 +44,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get tabStore => 'Store';
 
   @override
-  String get comingSoon => 'Coming soon';
-
-  @override
   String incomePerSecond(String amount) {
     return '$amount/sec';
   }
@@ -539,4 +536,126 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get adPlaying => 'Playing ad…';
+
+  @override
+  String get notificationChannelName => 'Coffee reminders';
+
+  @override
+  String get notifOfflineTitle => 'Your shops are overflowing!';
+
+  @override
+  String get notifOfflineBody =>
+      'Offline earnings reached the limit. Come back to collect.';
+
+  @override
+  String get notifDailyTitle => 'Daily reward ready';
+
+  @override
+  String get notifDailyBody => 'Your daily coffee bonus is waiting.';
+
+  @override
+  String get notifRushTitle => 'Caffeine Rush ended';
+
+  @override
+  String get notifRushBody => 'Watch another ad to keep income doubled.';
+
+  @override
+  String get rewardedTitle => 'Free boosts';
+
+  @override
+  String get rewardCaffeineRushTitle => 'Caffeine Rush';
+
+  @override
+  String get rewardCaffeineRushBody =>
+      'All income ×2 for 4 hours (up to 8 hours)';
+
+  @override
+  String get rewardEmergencyFundTitle => 'Emergency Fund';
+
+  @override
+  String rewardEmergencyFundBody(String amount) {
+    return 'Get $amount instantly';
+  }
+
+  @override
+  String get rewardLabSpeedupTitle => 'Lab Speed-up';
+
+  @override
+  String get rewardLabSpeedupBody => 'Finish the running R&D test now';
+
+  @override
+  String get watchAd => 'Watch ad';
+
+  @override
+  String readyIn(String time) {
+    return 'Ready in $time';
+  }
+
+  @override
+  String get unavailable => 'Not available';
+
+  @override
+  String boostActive(String multiplier, String time) {
+    return '×$multiplier $time';
+  }
+
+  @override
+  String get shopTitle => 'Premium';
+
+  @override
+  String get vipTitle => 'Master Roaster VIP';
+
+  @override
+  String get vipBody =>
+      'Permanent income ×2, 12-hour offline limit and an auto-tapping barista';
+
+  @override
+  String get starterPackTitle => 'Espresso Starter Pack';
+
+  @override
+  String get starterPackBody =>
+      'Permanent income ×1.25 plus 2 hours of income in cash';
+
+  @override
+  String get timeSkipTitle => '24h Time Skip';
+
+  @override
+  String timeSkipBody(String amount) {
+    return 'Instantly receive $amount';
+  }
+
+  @override
+  String get buyProduct => 'Buy';
+
+  @override
+  String get owned => 'Owned';
+
+  @override
+  String get restorePurchases => 'Restore purchases';
+
+  @override
+  String get noForcedAds => 'No forced ads — rewarded ads are always optional.';
+
+  @override
+  String get dailyRewardTitle => 'Daily reward';
+
+  @override
+  String dailyRewardDay(int day) {
+    return 'Day $day';
+  }
+
+  @override
+  String dailyRewardClaim(String amount) {
+    return 'Claim $amount';
+  }
+
+  @override
+  String dailyRewardNext(String time) {
+    return 'Next reward in $time';
+  }
+
+  @override
+  String dailyRewardBean(int beans) {
+    return '+$beans Golden Bean';
+  }
 }

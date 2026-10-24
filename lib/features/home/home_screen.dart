@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../app/theme/app_colors.dart';
-import '../../l10n/app_localizations.dart';
 import '../growth/growth_tab.dart';
 import '../lab/lab_tab.dart';
 import '../shops/shops_tab.dart';
+import '../store/store_tab.dart';
 import 'widgets/barista_tap_area.dart';
 import 'widgets/bottom_nav.dart';
 import 'widgets/cash_header.dart';
@@ -42,12 +41,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 flex: 5,
                 child: IndexedStack(
                   index: _selectedTab,
-                  children: [
-                    const ShopsTab(),
-                    const LabTab(),
-                    const GrowthTab(),
-                    for (var tab = 3; tab < HomeScreen.tabCount; tab++)
-                      const _ComingSoonTab(),
+                  children: const [
+                    ShopsTab(),
+                    LabTab(),
+                    GrowthTab(),
+                    StoreTab(),
                   ],
                 ),
               ),
@@ -58,24 +56,6 @@ class _HomeScreenState extends State<HomeScreen> {
           selectedIndex: _selectedTab,
           onSelected: (index) => setState(() => _selectedTab = index),
         ),
-      ),
-    );
-  }
-}
-
-class _ComingSoonTab extends StatelessWidget {
-  const _ComingSoonTab();
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        AppLocalizations.of(context).comingSoon,
-        maxLines: 1,
-        overflow: TextOverflow.ellipsis,
-        style: Theme.of(
-          context,
-        ).textTheme.titleMedium?.copyWith(color: AppColors.textSecondary),
       ),
     );
   }

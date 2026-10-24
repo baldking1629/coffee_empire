@@ -4,11 +4,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../app/formatters.dart';
 import '../../app/theme/app_colors.dart';
 import '../../config/economy_config.dart';
+import '../../core/services/monetization_service.dart';
 import '../../core/bignumber/big_number.dart';
 import '../../engine/lab_math.dart';
 import '../../l10n/app_localizations.dart';
 import '../game/game_cubit.dart';
 import '../game/game_state.dart';
+import '../home/widgets/rewarded_ad_runner.dart';
 import 'lab_labels.dart';
 import 'lab_state.dart';
 import 'widgets/brew_countdown.dart';
@@ -104,8 +106,17 @@ class _RecipeScreenState extends State<RecipeScreen> {
     final l10n = AppLocalizations.of(context);
     final brew = data.activeBrew;
     if (brew != null && brew.recipeId == widget.recipe.id) {
-      return Center(
-        child: BrewCountdown(endsAt: brew.endsAt, clock: cubit.clock),
+      return Column(
+        children: [
+          BrewCountdown(endsAt: brew.endsAt, clock: cubit.clock),
+          const SizedBox(height: 8),
+          OutlinedButton(
+            key: const Key('lab_speedup_button'),
+            onPressed: () =>
+                watchAdForReward(context, RewardedAdType.labSpeedup),
+            child: Text(l10n.rewardLabSpeedupTitle),
+          ),
+        ],
       );
     }
     if (brew != null) {
