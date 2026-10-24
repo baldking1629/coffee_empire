@@ -5,7 +5,9 @@ import '../../core/bignumber/big_number.dart';
 import '../../core/time/clock.dart';
 import '../../engine/barista_math.dart';
 import '../../engine/economy_engine.dart';
+import '../../engine/lab_math.dart';
 import '../../engine/shop_math.dart';
+import '../lab/lab_actions.dart';
 import 'game_state.dart';
 import 'save_repository.dart';
 
@@ -15,17 +17,29 @@ class GameCubit extends Cubit<GameState> {
     required SaveRepository repository,
     required Clock clock,
     GameState? restored,
-  }) : _engine = EconomyEngine(config),
-       _barista = BaristaMath(config.tap),
-       _repository = repository,
-       _clock = clock,
-       _autosaveIntervalSeconds = config.autosaveIntervalSeconds.toDouble(),
-       super(restored ?? GameState.initial(startingCash: config.startingCash)) {
-    emit(_withIncome(state));
+  }) : this._(EconomyEngine(config), repository, clock, restored);
+
+  GameCubit._(
+    EconomyEngine engine,
+    SaveRepository repository,
+    Clock clock,
+    GameState? restored,
+  ) : _engine = engine,
+      _barista = BaristaMath(engine.config.tap),
+      _labActions = LabActions(engine),
+      _repository = repository,
+      _clock = clock,
+      _autosaveIntervalSeconds = engine.config.autosaveIntervalSeconds
+          .toDouble(),
+      super(
+        restored ?? GameState.initial(startingCash: engine.config.startingCash),
+      ) {
+    emit(_withIncome(_labActions.completeDueBrew(state, _clock.now()).state));
   }
 
   final EconomyEngine _engine;
   final BaristaMath _barista;
+  final LabActions _labActions;
   final SaveRepository _repository;
   final Clock _clock;
   final double _autosaveIntervalSeconds;
@@ -54,9 +68,44 @@ class GameCubit extends Cubit<GameState> {
     final barista = _barista.settle(state.barista, _clock.now());
     emit(state.earn(earned).copyWith(barista: barista));
     _secondsSinceSave += safeDelta;
+    if (await _completeDueBrew()) return;
     if (_secondsSinceSave >= _autosaveIntervalSeconds) {
       await save();
     }
+  }
+
+  LabActions get lab => _labActions;
+
+  Clock get clock => _clock;
+
+  Future<bool> unlockRecipe(String recipeId) =>
+      _commit(_labActions.unlockRecipe(state, recipeId));
+
+  Future<bool> startBrew(String recipeId, FlavorProfile sliders) =>
+      _commit(_labActions.startBrew(state, recipeId, sliders, _clock.now()));
+
+  Future<bool> finishBrewNow() async {
+    final expired = _labActions.expireBrewNow(state, _clock.now());
+    if (expired == null) return false;
+    emit(expired);
+    return _completeDueBrew();
+  }
+
+  Future<bool> buyCapsuleMachines(BuyAmount amount) =>
+      _commit(_labActions.buyCapsuleMachines(state, amount));
+
+  Future<bool> _completeDueBrew() async {
+    final completion = _labActions.completeDueBrew(state, _clock.now());
+    final BrewResult? result = completion.result;
+    if (result == null) return false;
+    return _commit(completion.state);
+  }
+
+  Future<bool> _commit(GameState? next) async {
+    if (next == null) return false;
+    emit(_withIncome(next));
+    await save();
+    return true;
   }
 
   Future<void> handleBackgroundGap(double gapSeconds) async {
@@ -125,9 +174,7 @@ class GameCubit extends Cubit<GameState> {
 
   Future<bool> _completePurchase(BigNumber cost, GameState upgraded) async {
     if (state.cash < cost) return false;
-    emit(_withIncome(upgraded.copyWith(cash: state.cash - cost)));
-    await save();
-    return true;
+    return _commit(upgraded.spend(cost));
   }
 
   Future<void> save() async {
@@ -136,12 +183,16 @@ class GameCubit extends Cubit<GameState> {
     if (!isClosed) emit(state.copyWith(savedAt: saved.savedAt));
   }
 
+  IncomeInputs incomeInputsOf(GameState source) => IncomeInputs(
+    shopLevels: source.shopLevels,
+    managers: source.managers,
+    equipment: source.equipment,
+    goldenBeans: source.goldenBeans,
+    recipeBestScores: source.lab.bestScores,
+    capsuleMachines: source.lab.capsuleMachines,
+  );
+
   GameState _withIncome(GameState source) => source.copyWith(
-    incomePerSec: _engine.totalIncomePerSec(
-      shopLevels: source.shopLevels,
-      managers: source.managers,
-      equipment: source.equipment,
-      goldenBeans: source.goldenBeans,
-    ),
+    incomePerSec: _engine.totalIncomePerSec(incomeInputsOf(source)),
   );
 }

@@ -143,5 +143,117 @@
         "type": "String"
       }
     }
-  }
+  },
+  "recipe_espresso_classic": "Classic Espresso",
+  "recipe_cappuccino": "Cappuccino",
+  "recipe_cold_brew": "Cold Brew",
+  "recipe_flat_white": "Flat White",
+  "recipe_capsule_house_blend": "House Blend Capsule",
+  "recipe_ethiopian_pour_over": "Ethiopian Pour-Over",
+  "recipe_nitro_mocha": "Nitro Mocha",
+  "recipe_capsule_signature_reserve": "Signature Reserve Capsule",
+  "flavorAcidity": "Acidity",
+  "flavorBody": "Body",
+  "flavorAroma": "Aroma",
+  "flavorCaffeine": "Caffeine",
+  "hintTooLow": "{attribute} is too low",
+  "@hintTooLow": {
+    "placeholders": {
+      "attribute": {
+        "type": "String"
+      }
+    }
+  },
+  "hintTooHigh": "{attribute} is too high",
+  "@hintTooHigh": {
+    "placeholders": {
+      "attribute": {
+        "type": "String"
+      }
+    }
+  },
+  "hintOnTrack": "You're on the right track!",
+  "recipeBestScore": "Best: {score}",
+  "@recipeBestScore": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      }
+    }
+  },
+  "recipeLastResult": "Last test: {score} · {hint}",
+  "@recipeLastResult": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      },
+      "hint": {
+        "type": "String"
+      }
+    }
+  },
+  "recipeCapsuleTag": "Capsule",
+  "unlockRecipe": "Unlock · {cost}",
+  "@unlockRecipe": {
+    "placeholders": {
+      "cost": {
+        "type": "String"
+      }
+    }
+  },
+  "startTest": "Test · {cost}",
+  "@startTest": {
+    "placeholders": {
+      "cost": {
+        "type": "String"
+      }
+    }
+  },
+  "brewingRemaining": "Brewing… {time}",
+  "@brewingRemaining": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "anotherBrewActive": "Another test is running",
+  "openRecipe": "Develop",
+  "capsuleTitle": "Capsule Machines",
+  "capsuleLocked": "Needs a recipe scoring {score}+ and {hype} Brand Hype",
+  "@capsuleLocked": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      },
+      "hype": {
+        "type": "int"
+      }
+    }
+  },
+  "capsuleOwned": "{count, plural, =1{1 machine} other{{count} machines}}",
+  "@capsuleOwned": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "brandHypeValue": "Brand Hype: {hype}",
+  "@brandHypeValue": {
+    "placeholders": {
+      "hype": {
+        "type": "int"
+      }
+    }
+  },
+  "labBonusValue": "R&D bonus: +{percent}%",
+  "@labBonusValue": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "flavorProfileTitle": "Flavor profile"
 }

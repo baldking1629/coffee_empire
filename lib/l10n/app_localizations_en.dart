@@ -155,4 +155,119 @@ class AppLocalizationsEn extends AppLocalizations {
   String equipmentAllOwned(String name) {
     return '$name · Owned';
   }
+
+  @override
+  String get recipe_espresso_classic => 'Classic Espresso';
+
+  @override
+  String get recipe_cappuccino => 'Cappuccino';
+
+  @override
+  String get recipe_cold_brew => 'Cold Brew';
+
+  @override
+  String get recipe_flat_white => 'Flat White';
+
+  @override
+  String get recipe_capsule_house_blend => 'House Blend Capsule';
+
+  @override
+  String get recipe_ethiopian_pour_over => 'Ethiopian Pour-Over';
+
+  @override
+  String get recipe_nitro_mocha => 'Nitro Mocha';
+
+  @override
+  String get recipe_capsule_signature_reserve => 'Signature Reserve Capsule';
+
+  @override
+  String get flavorAcidity => 'Acidity';
+
+  @override
+  String get flavorBody => 'Body';
+
+  @override
+  String get flavorAroma => 'Aroma';
+
+  @override
+  String get flavorCaffeine => 'Caffeine';
+
+  @override
+  String hintTooLow(String attribute) {
+    return '$attribute is too low';
+  }
+
+  @override
+  String hintTooHigh(String attribute) {
+    return '$attribute is too high';
+  }
+
+  @override
+  String get hintOnTrack => 'You\'re on the right track!';
+
+  @override
+  String recipeBestScore(int score) {
+    return 'Best: $score';
+  }
+
+  @override
+  String recipeLastResult(int score, String hint) {
+    return 'Last test: $score · $hint';
+  }
+
+  @override
+  String get recipeCapsuleTag => 'Capsule';
+
+  @override
+  String unlockRecipe(String cost) {
+    return 'Unlock · $cost';
+  }
+
+  @override
+  String startTest(String cost) {
+    return 'Test · $cost';
+  }
+
+  @override
+  String brewingRemaining(String time) {
+    return 'Brewing… $time';
+  }
+
+  @override
+  String get anotherBrewActive => 'Another test is running';
+
+  @override
+  String get openRecipe => 'Develop';
+
+  @override
+  String get capsuleTitle => 'Capsule Machines';
+
+  @override
+  String capsuleLocked(int score, int hype) {
+    return 'Needs a recipe scoring $score+ and $hype Brand Hype';
+  }
+
+  @override
+  String capsuleOwned(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count machines',
+      one: '1 machine',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String brandHypeValue(int hype) {
+    return 'Brand Hype: $hype';
+  }
+
+  @override
+  String labBonusValue(int percent) {
+    return 'R&D bonus: +$percent%';
+  }
+
+  @override
+  String get flavorProfileTitle => 'Flavor profile';
 }

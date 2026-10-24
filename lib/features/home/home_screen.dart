@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../app/theme/app_colors.dart';
 import '../../l10n/app_localizations.dart';
+import '../lab/lab_tab.dart';
 import '../shops/shops_tab.dart';
 import 'widgets/barista_tap_area.dart';
 import 'widgets/bottom_nav.dart';
@@ -40,7 +41,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 index: _selectedTab,
                 children: [
                   const ShopsTab(),
-                  for (var tab = 1; tab < HomeScreen.tabCount; tab++)
+                  const LabTab(),
+                  for (var tab = 2; tab < HomeScreen.tabCount; tab++)
                     const _ComingSoonTab(),
                 ],
               ),

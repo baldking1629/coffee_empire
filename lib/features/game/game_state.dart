@@ -2,7 +2,9 @@ import 'package:equatable/equatable.dart';
 
 import '../../core/bignumber/big_number.dart';
 import '../../engine/barista_math.dart';
+import '../lab/lab_state.dart';
 import 'game_settings.dart';
+import 'game_state_json.dart';
 
 class GameState extends Equatable {
   const GameState({
@@ -15,6 +17,7 @@ class GameState extends Equatable {
     this.shopLevels = const {},
     this.managers = const {},
     this.equipment = const {},
+    this.lab = const LabState(),
     this.stats = const GameStats(),
     this.tutorialStep = 0,
     this.settings = const GameSettings(),
@@ -29,26 +32,8 @@ class GameState extends Equatable {
     incomePerSec: BigNumber.zero,
   );
 
-  factory GameState.fromJson(Map<String, dynamic> json) {
-    final savedAt = json['savedAt'] as String?;
-    return GameState(
-      cash: BigNumber.fromJson(json['cash']),
-      runEarnings: BigNumber.fromJson(json['runEarnings']),
-      lifetimeEarnings: BigNumber.fromJson(json['lifetimeEarnings']),
-      incomePerSec: BigNumber.zero,
-      goldenBeans: (json['goldenBeans'] as num).toInt(),
-      prestigeCount: (json['prestigeCount'] as num).toInt(),
-      shopLevels: _intMap(json['shopLevels']),
-      managers: (json['managers'] as Map<String, dynamic>).map(
-        (id, owned) => MapEntry(id, owned as bool),
-      ),
-      equipment: _intMap(json['equipment']),
-      stats: GameStats.fromJson(json['stats'] as Map<String, dynamic>),
-      tutorialStep: (json['tutorialStep'] as num).toInt(),
-      settings: GameSettings.fromJson(json['settings'] as Map<String, dynamic>),
-      savedAt: savedAt == null ? null : DateTime.parse(savedAt).toUtc(),
-    );
-  }
+  factory GameState.fromJson(Map<String, dynamic> json) =>
+      gameStateFromJson(json);
 
   final BigNumber cash;
   final BigNumber runEarnings;
@@ -59,6 +44,7 @@ class GameState extends Equatable {
   final Map<String, int> shopLevels;
   final Map<String, bool> managers;
   final Map<String, int> equipment;
+  final LabState lab;
   final GameStats stats;
   final int tutorialStep;
   final GameSettings settings;
@@ -73,6 +59,10 @@ class GameState extends Equatable {
           lifetimeEarnings: lifetimeEarnings + amount,
         );
 
+  GameState spend(BigNumber amount) => copyWith(cash: cash - amount);
+
+  Map<String, dynamic> toJson() => gameStateToJson(this);
+
   GameState copyWith({
     BigNumber? cash,
     BigNumber? runEarnings,
@@ -83,6 +73,7 @@ class GameState extends Equatable {
     Map<String, int>? shopLevels,
     Map<String, bool>? managers,
     Map<String, int>? equipment,
+    LabState? lab,
     GameStats? stats,
     int? tutorialStep,
     GameSettings? settings,
@@ -98,32 +89,13 @@ class GameState extends Equatable {
     shopLevels: shopLevels ?? this.shopLevels,
     managers: managers ?? this.managers,
     equipment: equipment ?? this.equipment,
+    lab: lab ?? this.lab,
     stats: stats ?? this.stats,
     tutorialStep: tutorialStep ?? this.tutorialStep,
     settings: settings ?? this.settings,
     savedAt: savedAt ?? this.savedAt,
     barista: barista ?? this.barista,
   );
-
-  Map<String, dynamic> toJson() => {
-    'cash': cash.toJson(),
-    'runEarnings': runEarnings.toJson(),
-    'lifetimeEarnings': lifetimeEarnings.toJson(),
-    'goldenBeans': goldenBeans,
-    'prestigeCount': prestigeCount,
-    'shopLevels': shopLevels,
-    'managers': managers,
-    'equipment': equipment,
-    'stats': stats.toJson(),
-    'tutorialStep': tutorialStep,
-    'settings': settings.toJson(),
-    if (savedAt != null) 'savedAt': savedAt?.toUtc().toIso8601String(),
-  };
-
-  static Map<String, int> _intMap(Object? json) =>
-      (json as Map<String, dynamic>).map(
-        (id, value) => MapEntry(id, (value as num).toInt()),
-      );
 
   @override
   List<Object?> get props => [
@@ -136,6 +108,7 @@ class GameState extends Equatable {
     shopLevels,
     managers,
     equipment,
+    lab,
     stats,
     tutorialStep,
     settings,

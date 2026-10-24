@@ -18,10 +18,31 @@ class FlavorProfile extends Equatable {
     caffeine: readInt(json, 'caffeine'),
   );
 
+  factory FlavorProfile.fromValues(List<int> values) => FlavorProfile(
+    acidity: values[0],
+    body: values[1],
+    aroma: values[2],
+    caffeine: values[3],
+  );
+
+  static const FlavorProfile neutral = FlavorProfile(
+    acidity: 50,
+    body: 50,
+    aroma: 50,
+    caffeine: 50,
+  );
+
   final int acidity;
   final int body;
   final int aroma;
   final int caffeine;
+
+  List<int> get values => [acidity, body, aroma, caffeine];
+
+  FlavorProfile withValue(int index, int value) {
+    final updated = values..[index] = value;
+    return FlavorProfile.fromValues(updated);
+  }
 
   JsonMap toJson() => {
     'acidity': acidity,

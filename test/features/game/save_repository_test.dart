@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:coffee_empire/core/bignumber/big_number.dart';
 import 'package:coffee_empire/features/game/game_settings.dart';
 import 'package:coffee_empire/features/game/game_state.dart';
+import 'package:coffee_empire/features/game/save_migrations.dart';
 import 'package:coffee_empire/features/game/save_repository.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -41,7 +42,7 @@ void main() {
     final raw = jsonDecode(
       preferences.getString(SaveRepository.currentKey) ?? '',
     );
-    expect(raw['schemaVersion'], 1);
+    expect(raw['schemaVersion'], SaveMigrations.latestSchemaVersion);
     expect(raw['savedAt'], '2026-05-01T12:00:00.000Z');
     expect(raw['cash'], '1.5e12');
 

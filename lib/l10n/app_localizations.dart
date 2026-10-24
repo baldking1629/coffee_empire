@@ -337,6 +337,180 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{name} · Owned'**
   String equipmentAllOwned(String name);
+
+  /// No description provided for @recipe_espresso_classic.
+  ///
+  /// In en, this message translates to:
+  /// **'Classic Espresso'**
+  String get recipe_espresso_classic;
+
+  /// No description provided for @recipe_cappuccino.
+  ///
+  /// In en, this message translates to:
+  /// **'Cappuccino'**
+  String get recipe_cappuccino;
+
+  /// No description provided for @recipe_cold_brew.
+  ///
+  /// In en, this message translates to:
+  /// **'Cold Brew'**
+  String get recipe_cold_brew;
+
+  /// No description provided for @recipe_flat_white.
+  ///
+  /// In en, this message translates to:
+  /// **'Flat White'**
+  String get recipe_flat_white;
+
+  /// No description provided for @recipe_capsule_house_blend.
+  ///
+  /// In en, this message translates to:
+  /// **'House Blend Capsule'**
+  String get recipe_capsule_house_blend;
+
+  /// No description provided for @recipe_ethiopian_pour_over.
+  ///
+  /// In en, this message translates to:
+  /// **'Ethiopian Pour-Over'**
+  String get recipe_ethiopian_pour_over;
+
+  /// No description provided for @recipe_nitro_mocha.
+  ///
+  /// In en, this message translates to:
+  /// **'Nitro Mocha'**
+  String get recipe_nitro_mocha;
+
+  /// No description provided for @recipe_capsule_signature_reserve.
+  ///
+  /// In en, this message translates to:
+  /// **'Signature Reserve Capsule'**
+  String get recipe_capsule_signature_reserve;
+
+  /// No description provided for @flavorAcidity.
+  ///
+  /// In en, this message translates to:
+  /// **'Acidity'**
+  String get flavorAcidity;
+
+  /// No description provided for @flavorBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Body'**
+  String get flavorBody;
+
+  /// No description provided for @flavorAroma.
+  ///
+  /// In en, this message translates to:
+  /// **'Aroma'**
+  String get flavorAroma;
+
+  /// No description provided for @flavorCaffeine.
+  ///
+  /// In en, this message translates to:
+  /// **'Caffeine'**
+  String get flavorCaffeine;
+
+  /// No description provided for @hintTooLow.
+  ///
+  /// In en, this message translates to:
+  /// **'{attribute} is too low'**
+  String hintTooLow(String attribute);
+
+  /// No description provided for @hintTooHigh.
+  ///
+  /// In en, this message translates to:
+  /// **'{attribute} is too high'**
+  String hintTooHigh(String attribute);
+
+  /// No description provided for @hintOnTrack.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'re on the right track!'**
+  String get hintOnTrack;
+
+  /// No description provided for @recipeBestScore.
+  ///
+  /// In en, this message translates to:
+  /// **'Best: {score}'**
+  String recipeBestScore(int score);
+
+  /// No description provided for @recipeLastResult.
+  ///
+  /// In en, this message translates to:
+  /// **'Last test: {score} · {hint}'**
+  String recipeLastResult(int score, String hint);
+
+  /// No description provided for @recipeCapsuleTag.
+  ///
+  /// In en, this message translates to:
+  /// **'Capsule'**
+  String get recipeCapsuleTag;
+
+  /// No description provided for @unlockRecipe.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock · {cost}'**
+  String unlockRecipe(String cost);
+
+  /// No description provided for @startTest.
+  ///
+  /// In en, this message translates to:
+  /// **'Test · {cost}'**
+  String startTest(String cost);
+
+  /// No description provided for @brewingRemaining.
+  ///
+  /// In en, this message translates to:
+  /// **'Brewing… {time}'**
+  String brewingRemaining(String time);
+
+  /// No description provided for @anotherBrewActive.
+  ///
+  /// In en, this message translates to:
+  /// **'Another test is running'**
+  String get anotherBrewActive;
+
+  /// No description provided for @openRecipe.
+  ///
+  /// In en, this message translates to:
+  /// **'Develop'**
+  String get openRecipe;
+
+  /// No description provided for @capsuleTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Capsule Machines'**
+  String get capsuleTitle;
+
+  /// No description provided for @capsuleLocked.
+  ///
+  /// In en, this message translates to:
+  /// **'Needs a recipe scoring {score}+ and {hype} Brand Hype'**
+  String capsuleLocked(int score, int hype);
+
+  /// No description provided for @capsuleOwned.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 machine} other{{count} machines}}'**
+  String capsuleOwned(int count);
+
+  /// No description provided for @brandHypeValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Brand Hype: {hype}'**
+  String brandHypeValue(int hype);
+
+  /// No description provided for @labBonusValue.
+  ///
+  /// In en, this message translates to:
+  /// **'R&D bonus: +{percent}%'**
+  String labBonusValue(int percent);
+
+  /// No description provided for @flavorProfileTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Flavor profile'**
+  String get flavorProfileTitle;
 }
 
 class _AppLocalizationsDelegate

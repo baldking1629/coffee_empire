@@ -24,6 +24,9 @@ void main() {
     expect(migrated['schemaVersion'], SaveMigrations.latestSchemaVersion);
     final state = GameState.fromJson(migrated);
     expect(state.stats.totalTaps, 10);
+    expect(state.lab.recipes, isEmpty);
+    expect(state.lab.activeBrew, isNull);
+    expect(state.lab.capsuleMachines, 0);
   });
 
   test('migration steps are chained in order', () {
@@ -42,7 +45,7 @@ void main() {
   test('missing or invalid version throws FormatException', () {
     expect(() => const SaveMigrations().migrate({}), throwsFormatException);
     expect(
-      () => const SaveMigrations(currentVersion: 2).migrate(v1Sample),
+      () => const SaveMigrations(currentVersion: 3).migrate(v1Sample),
       throwsFormatException,
     );
   });
