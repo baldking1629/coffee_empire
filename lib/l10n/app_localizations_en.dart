@@ -270,4 +270,273 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get flavorProfileTitle => 'Flavor profile';
+
+  @override
+  String get city_new_york => 'New York';
+
+  @override
+  String get city_tokyo => 'Tokyo';
+
+  @override
+  String get city_london => 'London';
+
+  @override
+  String get city_istanbul => 'Istanbul';
+
+  @override
+  String get city_sao_paulo => 'São Paulo';
+
+  @override
+  String get city_paris => 'Paris';
+
+  @override
+  String get city_dubai => 'Dubai';
+
+  @override
+  String get city_shanghai => 'Shanghai';
+
+  @override
+  String get city_mexico_city => 'Mexico City';
+
+  @override
+  String get city_seoul => 'Seoul';
+
+  @override
+  String get city_berlin => 'Berlin';
+
+  @override
+  String get city_madrid => 'Madrid';
+
+  @override
+  String get city_rome => 'Rome';
+
+  @override
+  String get city_toronto => 'Toronto';
+
+  @override
+  String get city_sydney => 'Sydney';
+
+  @override
+  String get city_mumbai => 'Mumbai';
+
+  @override
+  String get city_cairo => 'Cairo';
+
+  @override
+  String get city_jakarta => 'Jakarta';
+
+  @override
+  String get city_amsterdam => 'Amsterdam';
+
+  @override
+  String get city_singapore => 'Singapore';
+
+  @override
+  String get city_bangkok => 'Bangkok';
+
+  @override
+  String get city_buenos_aires => 'Buenos Aires';
+
+  @override
+  String get city_bogota => 'Bogotá';
+
+  @override
+  String get city_lagos => 'Lagos';
+
+  @override
+  String get city_vienna => 'Vienna';
+
+  @override
+  String get city_lisbon => 'Lisbon';
+
+  @override
+  String get city_reykjavik => 'Reykjavík';
+
+  @override
+  String get city_addis_ababa => 'Addis Ababa';
+
+  @override
+  String get city_nairobi => 'Nairobi';
+
+  @override
+  String get city_hanoi => 'Hanoi';
+
+  @override
+  String get country_US => 'United States';
+
+  @override
+  String get country_JP => 'Japan';
+
+  @override
+  String get country_GB => 'United Kingdom';
+
+  @override
+  String get country_TR => 'Türkiye';
+
+  @override
+  String get country_BR => 'Brazil';
+
+  @override
+  String get country_FR => 'France';
+
+  @override
+  String get country_AE => 'United Arab Emirates';
+
+  @override
+  String get country_CN => 'China';
+
+  @override
+  String get country_MX => 'Mexico';
+
+  @override
+  String get country_KR => 'South Korea';
+
+  @override
+  String get country_DE => 'Germany';
+
+  @override
+  String get country_ES => 'Spain';
+
+  @override
+  String get country_IT => 'Italy';
+
+  @override
+  String get country_CA => 'Canada';
+
+  @override
+  String get country_AU => 'Australia';
+
+  @override
+  String get country_IN => 'India';
+
+  @override
+  String get country_EG => 'Egypt';
+
+  @override
+  String get country_ID => 'Indonesia';
+
+  @override
+  String get country_NL => 'Netherlands';
+
+  @override
+  String get country_SG => 'Singapore';
+
+  @override
+  String get country_TH => 'Thailand';
+
+  @override
+  String get country_AR => 'Argentina';
+
+  @override
+  String get country_CO => 'Colombia';
+
+  @override
+  String get country_NG => 'Nigeria';
+
+  @override
+  String get country_AT => 'Austria';
+
+  @override
+  String get country_PT => 'Portugal';
+
+  @override
+  String get country_IS => 'Iceland';
+
+  @override
+  String get country_ET => 'Ethiopia';
+
+  @override
+  String get country_KE => 'Kenya';
+
+  @override
+  String get country_VN => 'Vietnam';
+
+  @override
+  String get region_europe => 'Europe';
+
+  @override
+  String get region_asia_pacific => 'Asia-Pacific';
+
+  @override
+  String get region_americas => 'Americas';
+
+  @override
+  String get region_mea => 'Middle East & Africa';
+
+  @override
+  String get franchiseTitle => 'Franchises';
+
+  @override
+  String franchiseRoyalty(String amount) {
+    return 'Royalties: $amount/sec';
+  }
+
+  @override
+  String franchisePerSlot(String amount) {
+    return '+$amount/sec per slot';
+  }
+
+  @override
+  String franchiseRequiresHype(int hype) {
+    return 'Requires $hype Brand Hype';
+  }
+
+  @override
+  String franchiseOpen(String cost) {
+    return 'Open · $cost';
+  }
+
+  @override
+  String franchiseComplete(String multiplier) {
+    return 'City complete ×$multiplier';
+  }
+
+  @override
+  String get prestigeTitle => 'Golden Beans';
+
+  @override
+  String prestigeOwned(int beans, String multiplier) {
+    return '$beans Golden Beans · income ×$multiplier';
+  }
+
+  @override
+  String prestigeProgress(String earned, String threshold) {
+    return 'Run earnings $earned / $threshold';
+  }
+
+  @override
+  String prestigeButton(int beans) {
+    return 'Sell the empire · +$beans';
+  }
+
+  @override
+  String get prestigeConfirmTitle => 'Start a new empire?';
+
+  @override
+  String prestigeConfirmBody(int beans, String multiplier) {
+    return 'You will earn $beans Golden Beans. Your income multiplier becomes ×$multiplier. Shops, managers, equipment, capsule machines and franchises reset.';
+  }
+
+  @override
+  String get confirm => 'Confirm';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get offlineTitle => 'Welcome back!';
+
+  @override
+  String offlineBody(String duration, String amount) {
+    return 'While you were away for $duration, your empire earned $amount.';
+  }
+
+  @override
+  String get offlineCollect => 'Collect';
+
+  @override
+  String get offlineCollectDouble => 'Watch ad, collect 2x';
+
+  @override
+  String get adPlaying => 'Playing ad…';
 }

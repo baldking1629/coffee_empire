@@ -264,4 +264,273 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get flavorProfileTitle => 'Tat profili';
+
+  @override
+  String get city_new_york => 'New York';
+
+  @override
+  String get city_tokyo => 'Tokyo';
+
+  @override
+  String get city_london => 'Londra';
+
+  @override
+  String get city_istanbul => 'İstanbul';
+
+  @override
+  String get city_sao_paulo => 'São Paulo';
+
+  @override
+  String get city_paris => 'Paris';
+
+  @override
+  String get city_dubai => 'Dubai';
+
+  @override
+  String get city_shanghai => 'Şanghay';
+
+  @override
+  String get city_mexico_city => 'Meksiko';
+
+  @override
+  String get city_seoul => 'Seul';
+
+  @override
+  String get city_berlin => 'Berlin';
+
+  @override
+  String get city_madrid => 'Madrid';
+
+  @override
+  String get city_rome => 'Roma';
+
+  @override
+  String get city_toronto => 'Toronto';
+
+  @override
+  String get city_sydney => 'Sidney';
+
+  @override
+  String get city_mumbai => 'Mumbai';
+
+  @override
+  String get city_cairo => 'Kahire';
+
+  @override
+  String get city_jakarta => 'Cakarta';
+
+  @override
+  String get city_amsterdam => 'Amsterdam';
+
+  @override
+  String get city_singapore => 'Singapur';
+
+  @override
+  String get city_bangkok => 'Bangkok';
+
+  @override
+  String get city_buenos_aires => 'Buenos Aires';
+
+  @override
+  String get city_bogota => 'Bogota';
+
+  @override
+  String get city_lagos => 'Lagos';
+
+  @override
+  String get city_vienna => 'Viyana';
+
+  @override
+  String get city_lisbon => 'Lizbon';
+
+  @override
+  String get city_reykjavik => 'Reykjavik';
+
+  @override
+  String get city_addis_ababa => 'Addis Ababa';
+
+  @override
+  String get city_nairobi => 'Nairobi';
+
+  @override
+  String get city_hanoi => 'Hanoi';
+
+  @override
+  String get country_US => 'Amerika Birleşik Devletleri';
+
+  @override
+  String get country_JP => 'Japonya';
+
+  @override
+  String get country_GB => 'Birleşik Krallık';
+
+  @override
+  String get country_TR => 'Türkiye';
+
+  @override
+  String get country_BR => 'Brezilya';
+
+  @override
+  String get country_FR => 'Fransa';
+
+  @override
+  String get country_AE => 'Birleşik Arap Emirlikleri';
+
+  @override
+  String get country_CN => 'Çin';
+
+  @override
+  String get country_MX => 'Meksika';
+
+  @override
+  String get country_KR => 'Güney Kore';
+
+  @override
+  String get country_DE => 'Almanya';
+
+  @override
+  String get country_ES => 'İspanya';
+
+  @override
+  String get country_IT => 'İtalya';
+
+  @override
+  String get country_CA => 'Kanada';
+
+  @override
+  String get country_AU => 'Avustralya';
+
+  @override
+  String get country_IN => 'Hindistan';
+
+  @override
+  String get country_EG => 'Mısır';
+
+  @override
+  String get country_ID => 'Endonezya';
+
+  @override
+  String get country_NL => 'Hollanda';
+
+  @override
+  String get country_SG => 'Singapur';
+
+  @override
+  String get country_TH => 'Tayland';
+
+  @override
+  String get country_AR => 'Arjantin';
+
+  @override
+  String get country_CO => 'Kolombiya';
+
+  @override
+  String get country_NG => 'Nijerya';
+
+  @override
+  String get country_AT => 'Avusturya';
+
+  @override
+  String get country_PT => 'Portekiz';
+
+  @override
+  String get country_IS => 'İzlanda';
+
+  @override
+  String get country_ET => 'Etiyopya';
+
+  @override
+  String get country_KE => 'Kenya';
+
+  @override
+  String get country_VN => 'Vietnam';
+
+  @override
+  String get region_europe => 'Avrupa';
+
+  @override
+  String get region_asia_pacific => 'Asya-Pasifik';
+
+  @override
+  String get region_americas => 'Amerika';
+
+  @override
+  String get region_mea => 'Orta Doğu ve Afrika';
+
+  @override
+  String get franchiseTitle => 'Franchise\'lar';
+
+  @override
+  String franchiseRoyalty(String amount) {
+    return 'Telif geliri: $amount/sn';
+  }
+
+  @override
+  String franchisePerSlot(String amount) {
+    return 'Yuva başı +$amount/sn';
+  }
+
+  @override
+  String franchiseRequiresHype(int hype) {
+    return '$hype Marka Değeri gerekir';
+  }
+
+  @override
+  String franchiseOpen(String cost) {
+    return 'Aç · $cost';
+  }
+
+  @override
+  String franchiseComplete(String multiplier) {
+    return 'Şehir tamamlandı ×$multiplier';
+  }
+
+  @override
+  String get prestigeTitle => 'Altın Çekirdekler';
+
+  @override
+  String prestigeOwned(int beans, String multiplier) {
+    return '$beans Altın Çekirdek · gelir ×$multiplier';
+  }
+
+  @override
+  String prestigeProgress(String earned, String threshold) {
+    return 'Bu turdaki kazanç $earned / $threshold';
+  }
+
+  @override
+  String prestigeButton(int beans) {
+    return 'İmparatorluğu sat · +$beans';
+  }
+
+  @override
+  String get prestigeConfirmTitle => 'Yeni bir imparatorluk kurulsun mu?';
+
+  @override
+  String prestigeConfirmBody(int beans, String multiplier) {
+    return '$beans Altın Çekirdek kazanacaksın. Gelir çarpanın ×$multiplier olacak. Dükkanlar, yöneticiler, ekipmanlar, kapsül makineleri ve franchise\'lar sıfırlanır.';
+  }
+
+  @override
+  String get confirm => 'Onayla';
+
+  @override
+  String get cancel => 'Vazgeç';
+
+  @override
+  String get offlineTitle => 'Tekrar hoş geldin!';
+
+  @override
+  String offlineBody(String duration, String amount) {
+    return 'Sen $duration yokken imparatorluğun $amount kazandı.';
+  }
+
+  @override
+  String get offlineCollect => 'Al';
+
+  @override
+  String get offlineCollectDouble => 'Reklam İzle, 2x Al';
+
+  @override
+  String get adPlaying => 'Reklam oynatılıyor…';
 }

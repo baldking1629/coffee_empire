@@ -255,5 +255,170 @@
       }
     }
   },
-  "flavorProfileTitle": "Flavor profile"
+  "flavorProfileTitle": "Flavor profile",
+  "city_new_york": "New York",
+  "city_tokyo": "Tokyo",
+  "city_london": "London",
+  "city_istanbul": "Istanbul",
+  "city_sao_paulo": "São Paulo",
+  "city_paris": "Paris",
+  "city_dubai": "Dubai",
+  "city_shanghai": "Shanghai",
+  "city_mexico_city": "Mexico City",
+  "city_seoul": "Seoul",
+  "city_berlin": "Berlin",
+  "city_madrid": "Madrid",
+  "city_rome": "Rome",
+  "city_toronto": "Toronto",
+  "city_sydney": "Sydney",
+  "city_mumbai": "Mumbai",
+  "city_cairo": "Cairo",
+  "city_jakarta": "Jakarta",
+  "city_amsterdam": "Amsterdam",
+  "city_singapore": "Singapore",
+  "city_bangkok": "Bangkok",
+  "city_buenos_aires": "Buenos Aires",
+  "city_bogota": "Bogotá",
+  "city_lagos": "Lagos",
+  "city_vienna": "Vienna",
+  "city_lisbon": "Lisbon",
+  "city_reykjavik": "Reykjavík",
+  "city_addis_ababa": "Addis Ababa",
+  "city_nairobi": "Nairobi",
+  "city_hanoi": "Hanoi",
+  "country_US": "United States",
+  "country_JP": "Japan",
+  "country_GB": "United Kingdom",
+  "country_TR": "Türkiye",
+  "country_BR": "Brazil",
+  "country_FR": "France",
+  "country_AE": "United Arab Emirates",
+  "country_CN": "China",
+  "country_MX": "Mexico",
+  "country_KR": "South Korea",
+  "country_DE": "Germany",
+  "country_ES": "Spain",
+  "country_IT": "Italy",
+  "country_CA": "Canada",
+  "country_AU": "Australia",
+  "country_IN": "India",
+  "country_EG": "Egypt",
+  "country_ID": "Indonesia",
+  "country_NL": "Netherlands",
+  "country_SG": "Singapore",
+  "country_TH": "Thailand",
+  "country_AR": "Argentina",
+  "country_CO": "Colombia",
+  "country_NG": "Nigeria",
+  "country_AT": "Austria",
+  "country_PT": "Portugal",
+  "country_IS": "Iceland",
+  "country_ET": "Ethiopia",
+  "country_KE": "Kenya",
+  "country_VN": "Vietnam",
+  "region_europe": "Europe",
+  "region_asia_pacific": "Asia-Pacific",
+  "region_americas": "Americas",
+  "region_mea": "Middle East & Africa",
+  "franchiseTitle": "Franchises",
+  "franchiseRoyalty": "Royalties: {amount}/sec",
+  "@franchiseRoyalty": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "franchisePerSlot": "+{amount}/sec per slot",
+  "@franchisePerSlot": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "franchiseRequiresHype": "Requires {hype} Brand Hype",
+  "@franchiseRequiresHype": {
+    "placeholders": {
+      "hype": {
+        "type": "int"
+      }
+    }
+  },
+  "franchiseOpen": "Open · {cost}",
+  "@franchiseOpen": {
+    "placeholders": {
+      "cost": {
+        "type": "String"
+      }
+    }
+  },
+  "franchiseComplete": "City complete ×{multiplier}",
+  "@franchiseComplete": {
+    "placeholders": {
+      "multiplier": {
+        "type": "String"
+      }
+    }
+  },
+  "prestigeTitle": "Golden Beans",
+  "prestigeOwned": "{beans} Golden Beans · income ×{multiplier}",
+  "@prestigeOwned": {
+    "placeholders": {
+      "beans": {
+        "type": "int"
+      },
+      "multiplier": {
+        "type": "String"
+      }
+    }
+  },
+  "prestigeProgress": "Run earnings {earned} / {threshold}",
+  "@prestigeProgress": {
+    "placeholders": {
+      "earned": {
+        "type": "String"
+      },
+      "threshold": {
+        "type": "String"
+      }
+    }
+  },
+  "prestigeButton": "Sell the empire · +{beans}",
+  "@prestigeButton": {
+    "placeholders": {
+      "beans": {
+        "type": "int"
+      }
+    }
+  },
+  "prestigeConfirmTitle": "Start a new empire?",
+  "prestigeConfirmBody": "You will earn {beans} Golden Beans. Your income multiplier becomes ×{multiplier}. Shops, managers, equipment, capsule machines and franchises reset.",
+  "@prestigeConfirmBody": {
+    "placeholders": {
+      "beans": {
+        "type": "int"
+      },
+      "multiplier": {
+        "type": "String"
+      }
+    }
+  },
+  "confirm": "Confirm",
+  "cancel": "Cancel",
+  "offlineTitle": "Welcome back!",
+  "offlineBody": "While you were away for {duration}, your empire earned {amount}.",
+  "@offlineBody": {
+    "placeholders": {
+      "duration": {
+        "type": "String"
+      },
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "offlineCollect": "Collect",
+  "offlineCollectDouble": "Watch ad, collect 2x",
+  "adPlaying": "Playing ad…"
 }

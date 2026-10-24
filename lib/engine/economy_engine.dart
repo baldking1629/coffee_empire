@@ -2,7 +2,10 @@ import 'package:equatable/equatable.dart';
 
 import '../config/economy_config.dart';
 import '../core/bignumber/big_number.dart';
+import 'franchise_math.dart';
 import 'lab_math.dart';
+import 'offline_math.dart';
+import 'prestige_math.dart';
 import 'shop_math.dart';
 
 class IncomeInputs extends Equatable {
@@ -13,6 +16,7 @@ class IncomeInputs extends Equatable {
     this.goldenBeans = 0,
     this.recipeBestScores = const {},
     this.capsuleMachines = 0,
+    this.franchises = const {},
   });
 
   final Map<String, int> shopLevels;
@@ -21,6 +25,7 @@ class IncomeInputs extends Equatable {
   final int goldenBeans;
   final Map<String, int> recipeBestScores;
   final int capsuleMachines;
+  final Map<String, int> franchises;
 
   @override
   List<Object?> get props => [
@@ -30,17 +35,24 @@ class IncomeInputs extends Equatable {
     goldenBeans,
     recipeBestScores,
     capsuleMachines,
+    franchises,
   ];
 }
 
 class EconomyEngine {
   EconomyEngine(this.config)
     : shopMath = ShopMath(config.shopRules),
-      labMath = LabMath(lab: config.lab, capsule: config.capsule);
+      labMath = LabMath(lab: config.lab, capsule: config.capsule),
+      franchiseMath = FranchiseMath(config.franchise),
+      prestigeMath = PrestigeMath(config.prestige),
+      offlineMath = OfflineMath(config.offline);
 
   final EconomyConfig config;
   final ShopMath shopMath;
   final LabMath labMath;
+  final FranchiseMath franchiseMath;
+  final PrestigeMath prestigeMath;
+  final OfflineMath offlineMath;
 
   BigNumber shopsIncomePerSec(IncomeInputs inputs) {
     var total = BigNumber.zero;
@@ -56,19 +68,18 @@ class EconomyEngine {
   }
 
   BigNumber globalMultiplier(IncomeInputs inputs) =>
-      (BigNumber.one +
-          BigNumber.fromDouble(
-            inputs.goldenBeans * config.prestige.beanBonus,
-          )) *
+      prestigeMath.beanMultiplier(inputs.goldenBeans) *
       labMath.labBonusMultiplier(inputs.recipeBestScores);
 
   BigNumber totalIncomePerSec(IncomeInputs inputs) {
+    final shopsSum = shopsIncomePerSec(inputs);
     final base =
-        shopsIncomePerSec(inputs) +
+        shopsSum +
         labMath.capsuleIncomePerSec(
           inputs.capsuleMachines,
           inputs.recipeBestScores,
-        );
+        ) +
+        franchiseMath.royaltyIncome(inputs.franchises, shopsSum);
     return base * globalMultiplier(inputs);
   }
 

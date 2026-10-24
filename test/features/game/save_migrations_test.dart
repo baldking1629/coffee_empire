@@ -27,6 +27,7 @@ void main() {
     expect(state.lab.recipes, isEmpty);
     expect(state.lab.activeBrew, isNull);
     expect(state.lab.capsuleMachines, 0);
+    expect(state.franchises, isEmpty);
   });
 
   test('migration steps are chained in order', () {
@@ -45,7 +46,9 @@ void main() {
   test('missing or invalid version throws FormatException', () {
     expect(() => const SaveMigrations().migrate({}), throwsFormatException);
     expect(
-      () => const SaveMigrations(currentVersion: 3).migrate(v1Sample),
+      () => const SaveMigrations(
+        currentVersion: SaveMigrations.latestSchemaVersion + 1,
+      ).migrate(v1Sample),
       throwsFormatException,
     );
   });

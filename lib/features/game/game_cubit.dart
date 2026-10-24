@@ -6,7 +6,10 @@ import '../../core/time/clock.dart';
 import '../../engine/barista_math.dart';
 import '../../engine/economy_engine.dart';
 import '../../engine/lab_math.dart';
+import '../../engine/offline_math.dart';
 import '../../engine/shop_math.dart';
+import '../growth/franchise_actions.dart';
+import '../growth/prestige_actions.dart';
 import '../lab/lab_actions.dart';
 import 'game_state.dart';
 import 'save_repository.dart';
@@ -27,6 +30,8 @@ class GameCubit extends Cubit<GameState> {
   ) : _engine = engine,
       _barista = BaristaMath(engine.config.tap),
       _labActions = LabActions(engine),
+      _franchiseActions = FranchiseActions(engine),
+      _prestigeActions = PrestigeActions(engine),
       _repository = repository,
       _clock = clock,
       _autosaveIntervalSeconds = engine.config.autosaveIntervalSeconds
@@ -34,12 +39,17 @@ class GameCubit extends Cubit<GameState> {
       super(
         restored ?? GameState.initial(startingCash: engine.config.startingCash),
       ) {
-    emit(_withIncome(_labActions.completeDueBrew(state, _clock.now()).state));
+    final restoredState = _withIncome(
+      _labActions.completeDueBrew(state, _clock.now()).state,
+    );
+    emit(_withOfflineEarnings(restoredState, _awaySinceSave(restoredState)));
   }
 
   final EconomyEngine _engine;
   final BaristaMath _barista;
   final LabActions _labActions;
+  final FranchiseActions _franchiseActions;
+  final PrestigeActions _prestigeActions;
   final SaveRepository _repository;
   final Clock _clock;
   final double _autosaveIntervalSeconds;
@@ -109,9 +119,66 @@ class GameCubit extends Cubit<GameState> {
   }
 
   Future<void> handleBackgroundGap(double gapSeconds) async {
-    emit(state.copyWith(barista: _barista.settle(state.barista, _clock.now())));
+    final settled = state.copyWith(
+      barista: _barista.settle(state.barista, _clock.now()),
+    );
+    emit(_withOfflineEarnings(settled, gapSeconds));
+    await _completeDueBrew();
     await save();
   }
+
+  Future<void> claimOfflineEarnings({required bool doubled}) async {
+    final pending = state.pendingOffline;
+    if (pending == null) return;
+    final multiplier = doubled
+        ? BigNumber.fromDouble(_engine.config.rewarded.offlineDoubleMultiplier)
+        : BigNumber.one;
+    emit(
+      state
+          .earn(pending.amount * multiplier)
+          .copyWith(pendingOffline: () => null),
+    );
+    await save();
+  }
+
+  double _awaySinceSave(GameState source) {
+    final savedAt = source.savedAt;
+    if (savedAt == null) return 0;
+    return _clock.now().difference(savedAt).inMilliseconds /
+        Duration.millisecondsPerSecond;
+  }
+
+  GameState _withOfflineEarnings(GameState source, double awaySeconds) {
+    final earnings = _engine.offlineMath.compute(
+      awaySeconds: awaySeconds,
+      incomePerSec: source.incomePerSec,
+      vip: false,
+    );
+    if (earnings.amount.isZero) return source;
+    if (!earnings.showModal) return source.earn(earnings.amount);
+    final previous = source.pendingOffline;
+    final merged = previous == null
+        ? earnings
+        : OfflineEarnings(
+            awaySeconds: previous.awaySeconds + earnings.awaySeconds,
+            creditedSeconds:
+                previous.creditedSeconds + earnings.creditedSeconds,
+            amount: previous.amount + earnings.amount,
+            showModal: true,
+          );
+    return source.copyWith(pendingOffline: () => merged);
+  }
+
+  EconomyEngine get engine => _engine;
+
+  FranchiseActions get franchise => _franchiseActions;
+
+  PrestigeActions get prestigeRules => _prestigeActions;
+
+  Future<bool> openFranchise(String cityId) =>
+      _commit(_franchiseActions.openFranchise(state, cityId));
+
+  Future<bool> prestige() => _commit(_prestigeActions.prestige(state));
 
   ShopMath get shopMath => _engine.shopMath;
 
@@ -190,6 +257,7 @@ class GameCubit extends Cubit<GameState> {
     goldenBeans: source.goldenBeans,
     recipeBestScores: source.lab.bestScores,
     capsuleMachines: source.lab.capsuleMachines,
+    franchises: source.franchises,
   );
 
   GameState _withIncome(GameState source) => source.copyWith(

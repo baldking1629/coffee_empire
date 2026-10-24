@@ -6,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'app/app.dart';
 import 'config/economy_config.dart';
 import 'config/economy_config_loader.dart';
+import 'core/services/monetization_service.dart';
 import 'core/time/clock.dart';
 import 'features/game/game_cubit.dart';
 import 'features/game/save_repository.dart';
@@ -29,6 +30,9 @@ Future<void> main() async {
       providers: [
         RepositoryProvider<EconomyConfig>.value(value: config),
         RepositoryProvider<SaveRepository>.value(value: repository),
+        RepositoryProvider<MonetizationService>.value(
+          value: MockMonetizationService(),
+        ),
       ],
       child: BlocProvider<GameCubit>.value(
         value: cubit,

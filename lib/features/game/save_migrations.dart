@@ -7,9 +7,12 @@ class SaveMigrations {
     this.steps = defaultSteps,
   });
 
-  static const int latestSchemaVersion = 2;
+  static const int latestSchemaVersion = 3;
   static const String versionKey = 'schemaVersion';
-  static const Map<int, SaveMigration> defaultSteps = {1: _addLab};
+  static const Map<int, SaveMigration> defaultSteps = {
+    1: _addLab,
+    2: _addFranchises,
+  };
 
   final int currentVersion;
   final Map<int, SaveMigration> steps;
@@ -35,5 +38,10 @@ class SaveMigrations {
     'recipes': json['recipes'] ?? <String, dynamic>{},
     'activeBrew': json['activeBrew'],
     'capsuleMachines': json['capsuleMachines'] ?? 0,
+  };
+
+  static SaveJson _addFranchises(SaveJson json) => {
+    ...json,
+    'franchises': json['franchises'] ?? <String, dynamic>{},
   };
 }

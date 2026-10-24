@@ -21,18 +21,24 @@ class GameTickService {
 
   Timer? _timer;
   DateTime? _lastTickAt;
+  DateTime? _stoppedAt;
 
   bool get isRunning => _timer != null;
 
   void start() {
     if (isRunning) return;
-    _lastTickAt = _clock.now();
+    final stoppedAt = _stoppedAt;
+    _stoppedAt = null;
+    _lastTickAt = stoppedAt ?? _clock.now();
     _timer = Timer.periodic(interval, (_) => handleTimerFired());
+    if (stoppedAt != null) handleTimerFired();
   }
 
   void stop() {
+    if (!isRunning) return;
     _timer?.cancel();
     _timer = null;
+    _stoppedAt = _clock.now();
     _lastTickAt = null;
   }
 

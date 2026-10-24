@@ -2,6 +2,7 @@ import 'package:equatable/equatable.dart';
 
 import '../../core/bignumber/big_number.dart';
 import '../../engine/barista_math.dart';
+import '../../engine/offline_math.dart';
 import '../lab/lab_state.dart';
 import 'game_settings.dart';
 import 'game_state_json.dart';
@@ -18,11 +19,13 @@ class GameState extends Equatable {
     this.managers = const {},
     this.equipment = const {},
     this.lab = const LabState(),
+    this.franchises = const {},
     this.stats = const GameStats(),
     this.tutorialStep = 0,
     this.settings = const GameSettings(),
     this.savedAt,
     this.barista = BaristaState.idle,
+    this.pendingOffline,
   });
 
   factory GameState.initial({required BigNumber startingCash}) => GameState(
@@ -45,11 +48,13 @@ class GameState extends Equatable {
   final Map<String, bool> managers;
   final Map<String, int> equipment;
   final LabState lab;
+  final Map<String, int> franchises;
   final GameStats stats;
   final int tutorialStep;
   final GameSettings settings;
   final DateTime? savedAt;
   final BaristaState barista;
+  final OfflineEarnings? pendingOffline;
 
   GameState earn(BigNumber amount) => amount.isZero
       ? this
@@ -74,11 +79,13 @@ class GameState extends Equatable {
     Map<String, bool>? managers,
     Map<String, int>? equipment,
     LabState? lab,
+    Map<String, int>? franchises,
     GameStats? stats,
     int? tutorialStep,
     GameSettings? settings,
     DateTime? savedAt,
     BaristaState? barista,
+    OfflineEarnings? Function()? pendingOffline,
   }) => GameState(
     cash: cash ?? this.cash,
     runEarnings: runEarnings ?? this.runEarnings,
@@ -90,11 +97,15 @@ class GameState extends Equatable {
     managers: managers ?? this.managers,
     equipment: equipment ?? this.equipment,
     lab: lab ?? this.lab,
+    franchises: franchises ?? this.franchises,
     stats: stats ?? this.stats,
     tutorialStep: tutorialStep ?? this.tutorialStep,
     settings: settings ?? this.settings,
     savedAt: savedAt ?? this.savedAt,
     barista: barista ?? this.barista,
+    pendingOffline: pendingOffline == null
+        ? this.pendingOffline
+        : pendingOffline(),
   );
 
   @override
@@ -109,10 +120,12 @@ class GameState extends Equatable {
     managers,
     equipment,
     lab,
+    franchises,
     stats,
     tutorialStep,
     settings,
     savedAt,
     barista,
+    pendingOffline,
   ];
 }

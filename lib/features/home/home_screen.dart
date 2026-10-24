@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 
 import '../../app/theme/app_colors.dart';
 import '../../l10n/app_localizations.dart';
+import '../growth/growth_tab.dart';
 import '../lab/lab_tab.dart';
 import '../shops/shops_tab.dart';
 import 'widgets/barista_tap_area.dart';
 import 'widgets/bottom_nav.dart';
 import 'widgets/cash_header.dart';
+import 'widgets/offline_earnings_listener.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -22,37 +24,40 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        bottom: false,
-        child: Column(
-          children: [
-            const CashHeader(),
-            const Expanded(
-              flex: 3,
-              child: Padding(
-                padding: EdgeInsetsDirectional.symmetric(vertical: 8),
-                child: BaristaTapArea(),
+    return OfflineEarningsListener(
+      child: Scaffold(
+        body: SafeArea(
+          bottom: false,
+          child: Column(
+            children: [
+              const CashHeader(),
+              const Expanded(
+                flex: 3,
+                child: Padding(
+                  padding: EdgeInsetsDirectional.symmetric(vertical: 8),
+                  child: BaristaTapArea(),
+                ),
               ),
-            ),
-            Expanded(
-              flex: 5,
-              child: IndexedStack(
-                index: _selectedTab,
-                children: [
-                  const ShopsTab(),
-                  const LabTab(),
-                  for (var tab = 2; tab < HomeScreen.tabCount; tab++)
-                    const _ComingSoonTab(),
-                ],
+              Expanded(
+                flex: 5,
+                child: IndexedStack(
+                  index: _selectedTab,
+                  children: [
+                    const ShopsTab(),
+                    const LabTab(),
+                    const GrowthTab(),
+                    for (var tab = 3; tab < HomeScreen.tabCount; tab++)
+                      const _ComingSoonTab(),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
-      bottomNavigationBar: BottomNav(
-        selectedIndex: _selectedTab,
-        onSelected: (index) => setState(() => _selectedTab = index),
+        bottomNavigationBar: BottomNav(
+          selectedIndex: _selectedTab,
+          onSelected: (index) => setState(() => _selectedTab = index),
+        ),
       ),
     );
   }

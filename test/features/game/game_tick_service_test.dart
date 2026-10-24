@@ -45,13 +45,22 @@ void main() {
     expect(gaps, [45]);
   });
 
-  test('stop and start reset the reference time', () {
+  test('resuming after a pause reports the paused time as a gap', () {
     service.stop();
     expect(service.isRunning, isFalse);
     clock.advance(const Duration(minutes: 30));
     service.start();
+    expect(gaps, [1800]);
     clock.advance(const Duration(seconds: 1));
     service.handleTimerFired();
     expect(ticks, [1]);
+  });
+
+  test('short pause is credited as a normal tick', () {
+    service.stop();
+    clock.advance(const Duration(seconds: 4));
+    service.start();
+    expect(ticks, [4]);
+    expect(gaps, isEmpty);
   });
 }
