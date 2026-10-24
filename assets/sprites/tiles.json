@@ -1,0 +1,135 @@
+{
+ "sprites": [
+  {
+   "id": "floor_tile",
+   "width": 16,
+   "height": 16,
+   "anchor": "topLeft",
+   "fps": 6,
+   "palette": {
+    "o": "outline",
+    "a": "floor_a",
+    "b": "floor_b",
+    "w": "wall_a",
+    "W": "wall_b",
+    "r": "wall_trim",
+    "d": "wood_dark",
+    "m": "wood_mid",
+    "l": "wood_light",
+    "g": "gold"
+   },
+   "animations": {
+    "default": [
+     [
+      "aaaaaaaabbbbbbbb",
+      "aaaaaaaabbbbbbbb",
+      "aaaaaaaabbbbbbbb",
+      "aaaaaaaabbbbbbbb",
+      "aaaaaaaabbbbbbbb",
+      "aaaaaaaabbbbbbbb",
+      "aaaaaaaabbbbbbbb",
+      "aaaaaaaabbbbbbbb",
+      "bbbbbbbbaaaaaaaa",
+      "bbbbbbbbaaaaaaaa",
+      "bbbbbbbbaaaaaaaa",
+      "bbbbbbbbaaaaaaaa",
+      "bbbbbbbbaaaaaaaa",
+      "bbbbbbbbaaaaaaaa",
+      "bbbbbbbbaaaaaaaa",
+      "bbbbbbbbaaaaaaaa"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "wall_tile",
+   "width": 16,
+   "height": 16,
+   "anchor": "topLeft",
+   "fps": 6,
+   "palette": {
+    "o": "outline",
+    "a": "floor_a",
+    "b": "floor_b",
+    "w": "wall_a",
+    "W": "wall_b",
+    "r": "wall_trim",
+    "d": "wood_dark",
+    "m": "wood_mid",
+    "l": "wood_light",
+    "g": "gold"
+   },
+   "animations": {
+    "default": [
+     [
+      "WwwwWwwwWwwwWwww",
+      "WwwwWwwwWwwwWwww",
+      "WwwwWwwwWwwwWwww",
+      "WwwwWwwwWwwwWwww",
+      "WwwwWwwwWwwwWwww",
+      "WwwwWwwwWwwwWwww",
+      "WwwwWwwwWwwwWwww",
+      "WwwwWwwwWwwwWwww",
+      "WwwwWwwwWwwwWwww",
+      "WwwwWwwwWwwwWwww",
+      "WwwwWwwwWwwwWwww",
+      "WwwwWwwwWwwwWwww",
+      "oooooooooooooooo",
+      "rrrrrrrrrrrrrrrr",
+      "rrrrrrrrrrrrrrrr",
+      "rrrrrrrrrrrrrrrr"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "door",
+   "width": 16,
+   "height": 24,
+   "anchor": "bottomCenter",
+   "fps": 6,
+   "palette": {
+    "o": "outline",
+    "a": "floor_a",
+    "b": "floor_b",
+    "w": "wall_a",
+    "W": "wall_b",
+    "r": "wall_trim",
+    "d": "wood_dark",
+    "m": "wood_mid",
+    "l": "wood_light",
+    "g": "gold"
+   },
+   "animations": {
+    "default": [
+     [
+      "moooooooooooooom",
+      "mommmmmmmmmmmmom",
+      "momddddddddddmom",
+      "momdlllllllldmom",
+      "momdlllllllldmom",
+      "momdlllllllldmom",
+      "momdlllllllldmom",
+      "momdlllllllldmom",
+      "momdlllllllldmom",
+      "momdlllllllldmom",
+      "momddddddddddmom",
+      "mommmmmmmmmmmmom",
+      "mommmmmmmmmggmom",
+      "momddddddddddmom",
+      "momdlllllllldmom",
+      "momdlllllllldmom",
+      "momdlllllllldmom",
+      "momdlllllllldmom",
+      "momdlllllllldmom",
+      "momdlllllllldmom",
+      "momdlllllllldmom",
+      "momddddddddddmom",
+      "mommmmmmmmmmmmom",
+      "moooooooooooooom"
+     ]
+    ]
+   }
+  }
+ ]
+}

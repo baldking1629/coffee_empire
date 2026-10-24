@@ -889,4 +889,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get stationUpgradesHint => 'Нажмите: менеджер и оборудование';
+
+  @override
+  String get spriteGalleryTitle => 'Галерея спрайтов';
 }

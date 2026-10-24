@@ -889,4 +889,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get stationUpgradesHint => 'Touchez pour gérant et équipements';
+
+  @override
+  String get spriteGalleryTitle => 'Galerie de sprites';
 }

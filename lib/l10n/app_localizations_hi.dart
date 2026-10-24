@@ -883,4 +883,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get stationUpgradesHint => 'मैनेजर और उपकरण के लिए टैप करें';
+
+  @override
+  String get spriteGalleryTitle => 'स्प्राइट गैलरी';
 }

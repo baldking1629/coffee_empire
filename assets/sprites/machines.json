@@ -1,0 +1,245 @@
+{
+ "sprites": [
+  {
+   "id": "espresso_machine_0",
+   "width": 16,
+   "height": 24,
+   "anchor": "bottomCenter",
+   "fps": 6,
+   "palette": {
+    "o": "outline",
+    "x": "metal_dark",
+    "s": "metal",
+    "S": "metal_light",
+    "g": "gold",
+    "G": "gold_light",
+    "c": "coffee",
+    "w": "white",
+    "q": "screen",
+    "a": "accent"
+   },
+   "animations": {
+    "default": [
+     [
+      "................",
+      ".oooooooooooooo.",
+      "oxxxxxxxxxxxxxxo",
+      "oxxxxxxxxxxxxxxo",
+      "oxxxxaaaaaaxxxxo",
+      "osSsssssssssssso",
+      "osSsssssssssssso",
+      "osSsssssssssagso",
+      "osSsssssssssssso",
+      "osSssssxxxssssso",
+      "osSssssxxxssssso",
+      "osSssssxxxssssso",
+      "osSsssssxsssssso",
+      "osSsssssssssssso",
+      "osSsssssssssssso",
+      "osSsssssssssssso",
+      "osSsssssssssssso",
+      "osSsssswcwssssso",
+      "osSsssswwwssssso",
+      "osssssswwwssssso",
+      ".oxxxxxxxxxxxxo.",
+      ".oxxxxxxxxxxxxo.",
+      ".oxxxxxxxxxxxxo.",
+      "..oooooooooooo.."
+     ]
+    ]
+   }
+  },
+  {
+   "id": "espresso_machine_1",
+   "width": 16,
+   "height": 24,
+   "anchor": "bottomCenter",
+   "fps": 6,
+   "palette": {
+    "o": "outline",
+    "x": "metal_dark",
+    "s": "metal",
+    "S": "metal_light",
+    "g": "gold",
+    "G": "gold_light",
+    "c": "coffee",
+    "w": "white",
+    "q": "screen",
+    "a": "accent"
+   },
+   "animations": {
+    "default": [
+     [
+      "................",
+      ".oooooooooooooo.",
+      "oxxxxxxxxxxxxxxo",
+      "oxxxxxxxxxxxxxxo",
+      "oxxxxqqqqqqxxxxo",
+      "osSsssssssssssso",
+      "osSsssssssssssso",
+      "osSsssssssssagso",
+      "osSsssssssssssso",
+      "osSsxxxsssxxxsso",
+      "osSsxxxsssxxxsso",
+      "osSsxxxsssxxxsso",
+      "osSssxsssssxssso",
+      "osSsssssssssssso",
+      "osSsssssssssssso",
+      "osSsssssssssssso",
+      "osSsssssssssssso",
+      "osSswcwssswcwsso",
+      "osSswwwssswwwsso",
+      "ossswwwssswwwsso",
+      ".oxxxxxxxxxxxxo.",
+      ".oxxxxxxxxxxxxo.",
+      ".oxxxxxxxxxxxxo.",
+      "..oooooooooooo.."
+     ]
+    ]
+   }
+  },
+  {
+   "id": "espresso_machine_2",
+   "width": 16,
+   "height": 24,
+   "anchor": "bottomCenter",
+   "fps": 6,
+   "palette": {
+    "o": "outline",
+    "x": "metal_dark",
+    "s": "metal",
+    "S": "metal_light",
+    "g": "gold",
+    "G": "gold_light",
+    "c": "coffee",
+    "w": "white",
+    "q": "screen",
+    "a": "accent"
+   },
+   "animations": {
+    "default": [
+     [
+      "................",
+      ".oooooooooooooo.",
+      "oxxxxxxxxxxxxxxo",
+      "oxxxxxxxxxxxxxxo",
+      "oxxxxqqqqqqxxxxo",
+      "oSwwSSSSSSSSSSSo",
+      "oSwwwwwwwwwwwwSo",
+      "oSwwSSSSSSSSagSo",
+      "oSwwSSSSSSSSSSSo",
+      "oSwwxxxSSSxxxSSo",
+      "oSwwxxxSSSxxxSSo",
+      "oSwwxxxSSSxxxSSo",
+      "oSwwSxSSSSSxSSSo",
+      "oSwwSSSSSSSSSSSo",
+      "oSwwSSSSSSSSSSSo",
+      "oSwwSSSSSSSSSSSo",
+      "oSwwSSSSSSSSSSSo",
+      "oSwwwcwSSSwcwSSo",
+      "oSwwwwwSSSwwwSSo",
+      "oSSSwwwSSSwwwSSo",
+      ".oxxxxxxxxxxxxo.",
+      ".oxxxxxxxxxxxxo.",
+      ".oxxxxxxxxxxxxo.",
+      "..oooooooooooo.."
+     ]
+    ]
+   }
+  },
+  {
+   "id": "espresso_machine_3",
+   "width": 16,
+   "height": 24,
+   "anchor": "bottomCenter",
+   "fps": 6,
+   "palette": {
+    "o": "outline",
+    "x": "metal_dark",
+    "s": "metal",
+    "S": "metal_light",
+    "g": "gold",
+    "G": "gold_light",
+    "c": "coffee",
+    "w": "white",
+    "q": "screen",
+    "a": "accent"
+   },
+   "animations": {
+    "default": [
+     [
+      "................",
+      ".oooooooooooooo.",
+      "oxxxxxxxxxxxxxxo",
+      "oxxxxxxxxxxxxxxo",
+      "oxxxxqqqqqqxxxxo",
+      "ogGGgggggggggggo",
+      "ogGGGGGGGGGGGGgo",
+      "ogGGggggggggaago",
+      "ogGGgggggggggggo",
+      "ogGGxxxgggxxxggo",
+      "ogGGxxxgggxxxggo",
+      "ogGGxxxgggxxxggo",
+      "ogGGgxgggggxgggo",
+      "ogGGgggggggggggo",
+      "ogGGgggggggggggo",
+      "ogGGgggggggggggo",
+      "ogGGgggggggggggo",
+      "ogGGwcwgggwcwggo",
+      "ogGGwwwgggwwwggo",
+      "ogggwwwgggwwwggo",
+      ".oxxxxxxxxxxxxo.",
+      ".oxxxxxxxxxxxxo.",
+      ".oxxxxxxxxxxxxo.",
+      "..oooooooooooo.."
+     ]
+    ]
+   }
+  },
+  {
+   "id": "steam",
+   "width": 8,
+   "height": 8,
+   "anchor": "bottomCenter",
+   "fps": 6,
+   "palette": {
+    "w": "white",
+    "W": "steam"
+   },
+   "animations": {
+    "default": [
+     [
+      ".W...W..",
+      "..W...W.",
+      "...WW...",
+      "........",
+      "..W...W.",
+      "...ww...",
+      ".w...w..",
+      "........"
+     ],
+     [
+      "..W...W.",
+      "...WW...",
+      "........",
+      "..W...W.",
+      "...WW...",
+      ".w...w..",
+      "........",
+      "...ww..."
+     ],
+     [
+      "...WW...",
+      "........",
+      "..W...W.",
+      "...WW...",
+      ".W...W..",
+      "........",
+      "...ww...",
+      ".w...w.."
+     ]
+    ]
+   }
+  }
+ ]
+}

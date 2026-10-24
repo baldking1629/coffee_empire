@@ -874,4 +874,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get stationUpgradesHint => '点击查看店长和设备';
+
+  @override
+  String get spriteGalleryTitle => '精灵图库';
 }

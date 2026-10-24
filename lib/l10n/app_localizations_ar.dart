@@ -885,4 +885,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get stationUpgradesHint => 'المس للمدير والمعدات';
+
+  @override
+  String get spriteGalleryTitle => 'معرض الرسوم';
 }

@@ -887,4 +887,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get stationUpgradesHint => 'Toque para gerente e equipamentos';
+
+  @override
+  String get spriteGalleryTitle => 'Galeria de sprites';
 }

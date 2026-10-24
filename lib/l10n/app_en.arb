@@ -661,5 +661,6 @@
     }
   },
   "lockedStationName": "???",
-  "stationUpgradesHint": "Tap for manager & equipment"
+  "stationUpgradesHint": "Tap for manager & equipment",
+  "spriteGalleryTitle": "Sprite Gallery"
 }

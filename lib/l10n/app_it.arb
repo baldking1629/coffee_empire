@@ -251,5 +251,6 @@
   "languageNative_vi": "Tiếng Việt",
   "floatingGain": "+{amount}",
   "lockedStationName": "???",
-  "stationUpgradesHint": "Tocca per manager e attrezzature"
+  "stationUpgradesHint": "Tocca per manager e attrezzature",
+  "spriteGalleryTitle": "Galleria sprite"
 }

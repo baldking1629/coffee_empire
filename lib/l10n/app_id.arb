@@ -251,5 +251,6 @@
   "languageNative_vi": "Tiếng Việt",
   "floatingGain": "+{amount}",
   "lockedStationName": "???",
-  "stationUpgradesHint": "Ketuk untuk manajer & peralatan"
+  "stationUpgradesHint": "Ketuk untuk manajer & peralatan",
+  "spriteGalleryTitle": "Galeri sprite"
 }

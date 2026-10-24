@@ -251,5 +251,6 @@
   "languageNative_vi": "Tiếng Việt",
   "floatingGain": "+{amount}",
   "lockedStationName": "???",
-  "stationUpgradesHint": "المس للمدير والمعدات"
+  "stationUpgradesHint": "المس للمدير والمعدات",
+  "spriteGalleryTitle": "معرض الرسوم"
 }

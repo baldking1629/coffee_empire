@@ -888,4 +888,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get stationUpgradesHint => 'Tippen für Manager & Ausrüstung';
+
+  @override
+  String get spriteGalleryTitle => 'Sprite-Galerie';
 }

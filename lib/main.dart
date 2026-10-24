@@ -13,6 +13,7 @@ import 'core/services/monetization_service.dart';
 import 'core/services/notification_service.dart';
 import 'core/services/sound_service.dart';
 import 'core/time/clock.dart';
+import 'pixel/sprite_atlas.dart';
 import 'features/game/game_cubit.dart';
 import 'features/game/game_feedback.dart';
 import 'features/game/notification_coordinator.dart';
@@ -29,6 +30,12 @@ Future<void> main() async {
   final loader = EconomyConfigLoader(rootBundle);
   final config = await loader.load();
   final achievements = await loader.loadAchievements();
+  final spriteTimer = Stopwatch()..start();
+  final sprites = await SpriteAtlas.load(rootBundle);
+  final cachedFrames = sprites.warmUp();
+  debugPrint(
+    '[sprites] cached $cachedFrames frames in ${spriteTimer.elapsedMilliseconds} ms',
+  );
   final preferences = await SharedPreferences.getInstance();
   final repository = SaveRepository(preferences, clock: clock);
   final loaded = repository.load();
@@ -55,6 +62,7 @@ Future<void> main() async {
     MultiRepositoryProvider(
       providers: [
         RepositoryProvider<EconomyConfig>.value(value: config),
+        RepositoryProvider<SpriteAtlas>.value(value: sprites),
         RepositoryProvider<SaveRepository>.value(value: repository),
         RepositoryProvider<AnalyticsService>.value(value: analytics),
         RepositoryProvider<ConsentService>.value(value: consent),

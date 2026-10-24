@@ -251,5 +251,6 @@
   "languageNative_vi": "Tiếng Việt",
   "floatingGain": "+{amount}",
   "lockedStationName": "???",
-  "stationUpgradesHint": "Chạm để xem quản lý và thiết bị"
+  "stationUpgradesHint": "Chạm để xem quản lý và thiết bị",
+  "spriteGalleryTitle": "Thư viện sprite"
 }

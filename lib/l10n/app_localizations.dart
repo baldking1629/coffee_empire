@@ -1635,6 +1635,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Tap for manager & equipment'**
   String get stationUpgradesHint;
+
+  /// No description provided for @spriteGalleryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sprite Gallery'**
+  String get spriteGalleryTitle;
 }
 
 class _AppLocalizationsDelegate

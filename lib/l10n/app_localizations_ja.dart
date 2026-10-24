@@ -874,4 +874,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get stationUpgradesHint => 'タップで店長と設備';
+
+  @override
+  String get spriteGalleryTitle => 'スプライトギャラリー';
 }

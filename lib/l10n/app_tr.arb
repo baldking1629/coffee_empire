@@ -251,5 +251,6 @@
   "languageNative_vi": "Tiếng Việt",
   "floatingGain": "+{amount}",
   "lockedStationName": "???",
-  "stationUpgradesHint": "Yönetici ve ekipman için dokun"
+  "stationUpgradesHint": "Yönetici ve ekipman için dokun",
+  "spriteGalleryTitle": "Sprite Galerisi"
 }

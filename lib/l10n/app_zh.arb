@@ -251,5 +251,6 @@
   "languageNative_vi": "Tiếng Việt",
   "floatingGain": "+{amount}",
   "lockedStationName": "???",
-  "stationUpgradesHint": "点击查看店长和设备"
+  "stationUpgradesHint": "点击查看店长和设备",
+  "spriteGalleryTitle": "精灵图库"
 }

@@ -874,4 +874,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get stationUpgradesHint => '탭하여 매니저와 장비 보기';
+
+  @override
+  String get spriteGalleryTitle => '스프라이트 갤러리';
 }

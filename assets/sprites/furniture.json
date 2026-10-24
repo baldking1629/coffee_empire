@@ -1,0 +1,334 @@
+{
+ "sprites": [
+  {
+   "id": "counter",
+   "width": 32,
+   "height": 16,
+   "anchor": "bottomCenter",
+   "fps": 6,
+   "palette": {
+    "o": "outline",
+    "d": "wood_dark",
+    "m": "wood_mid",
+    "l": "wood_light",
+    "x": "metal_dark",
+    "s": "metal",
+    "S": "metal_light",
+    "q": "screen",
+    "p": "pot",
+    "f": "leaf",
+    "F": "leaf_dark",
+    "c": "coffee",
+    "w": "white",
+    "a": "accent",
+    "g": "gold"
+   },
+   "animations": {
+    "default": [
+     [
+      "oooooooooooooooooooooooooooooooo",
+      "ollllllllllllllllllllllllllllllo",
+      "ollllllllllllllllllllllllllllllo",
+      "ollllllllllllllllllllllllllllllo",
+      "ommmmmmmmmmmmmmmmmmmmmmmmmmmmmmo",
+      "ommmmmmmmmmmmmmmmmmmmmmmmmmmmmmo",
+      "ommmmmmmdmmmmmmmdmmmmmmmdmmmmmmo",
+      "ommmmmmmdmmmmmmmdmmmmmmmdmmmmmmo",
+      "ommmmmmmdmmmmmmmdmmmmmmmdmmmmmmo",
+      "ommmmmmmdmmmmmmmdmmmmmmmdmmmmmmo",
+      "ommmmmmmdmmmmmmmdmmmmmmmdmmmmmmo",
+      "ommmmmmmdmmmmmmmdmmmmmmmdmmmmmmo",
+      "ommmmmmmdmmmmmmmdmmmmmmmdmmmmmmo",
+      "ommmmmmmdmmmmmmmdmmmmmmmdmmmmmmo",
+      "ommmmmmmdmmmmmmmdmmmmmmmdmmmmmmo",
+      "oooooooooooooooooooooooooooooooo"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "cash_register",
+   "width": 16,
+   "height": 16,
+   "anchor": "bottomCenter",
+   "fps": 6,
+   "palette": {
+    "o": "outline",
+    "d": "wood_dark",
+    "m": "wood_mid",
+    "l": "wood_light",
+    "x": "metal_dark",
+    "s": "metal",
+    "S": "metal_light",
+    "q": "screen",
+    "p": "pot",
+    "f": "leaf",
+    "F": "leaf_dark",
+    "c": "coffee",
+    "w": "white",
+    "a": "accent",
+    "g": "gold"
+   },
+   "animations": {
+    "default": [
+     [
+      "................",
+      "....oooooooo....",
+      "...oxxxxxxxxo...",
+      "...oxqqqqqqxo...",
+      "...oxqqqqqqxo...",
+      "..ooxqqqqqqxoo..",
+      ".oxxxxxxxxxxxxo.",
+      ".oxssssssssssxo.",
+      ".oxssssssssssxo.",
+      ".oxsSSsSSsSSsxo.",
+      ".oxssssssssssxo.",
+      ".oxsSSsSSsSSsxo.",
+      ".oxssssssssssxo.",
+      ".oxssssssssssxo.",
+      ".oxxxxxxxxxxxxo.",
+      "..oooooooooooo.."
+     ]
+    ]
+   }
+  },
+  {
+   "id": "table",
+   "width": 16,
+   "height": 16,
+   "anchor": "bottomCenter",
+   "fps": 6,
+   "palette": {
+    "o": "outline",
+    "d": "wood_dark",
+    "m": "wood_mid",
+    "l": "wood_light",
+    "x": "metal_dark",
+    "s": "metal",
+    "S": "metal_light",
+    "q": "screen",
+    "p": "pot",
+    "f": "leaf",
+    "F": "leaf_dark",
+    "c": "coffee",
+    "w": "white",
+    "a": "accent",
+    "g": "gold"
+   },
+   "animations": {
+    "default": [
+     [
+      "................",
+      "................",
+      ".oooooooooooooo.",
+      "ollllllllllllllo",
+      "ollllllllllllllo",
+      "ollllllllllllllo",
+      "ollllllllllllllo",
+      "ollllllllllllllo",
+      "ommmmmmmmmmmmmmo",
+      ".ooooooddoooooo.",
+      "......oddo......",
+      "......oddo......",
+      "......oddo......",
+      "....oooddooo....",
+      "...oddddddddo...",
+      "....oooooooo...."
+     ]
+    ]
+   }
+  },
+  {
+   "id": "table_long",
+   "width": 32,
+   "height": 16,
+   "anchor": "bottomCenter",
+   "fps": 6,
+   "palette": {
+    "o": "outline",
+    "d": "wood_dark",
+    "m": "wood_mid",
+    "l": "wood_light",
+    "x": "metal_dark",
+    "s": "metal",
+    "S": "metal_light",
+    "q": "screen",
+    "p": "pot",
+    "f": "leaf",
+    "F": "leaf_dark",
+    "c": "coffee",
+    "w": "white",
+    "a": "accent",
+    "g": "gold"
+   },
+   "animations": {
+    "default": [
+     [
+      "................................",
+      "................................",
+      ".oooooooooooooooooooooooooooooo.",
+      "ollllllllllllllllllllllllllllllo",
+      "ollllllllllllllllllllllllllllllo",
+      "ollllllllllllllllllllllllllllllo",
+      "ollllllllllllllllllllllllllllllo",
+      "ollllllllllllllllllllllllllllllo",
+      "ommmmmmmmmmmmmmmmmmmmmmmmmmmmmmo",
+      ".oooddooooooooooooooooooooddooo.",
+      "...oddo..................oddo...",
+      "...oddo..................oddo...",
+      "...oddo..................oddo...",
+      "...oddo..................oddo...",
+      "...oddo..................oddo...",
+      "....oo....................oo...."
+     ]
+    ]
+   }
+  },
+  {
+   "id": "chair",
+   "width": 16,
+   "height": 16,
+   "anchor": "bottomCenter",
+   "fps": 6,
+   "palette": {
+    "o": "outline",
+    "d": "wood_dark",
+    "m": "wood_mid",
+    "l": "wood_light",
+    "x": "metal_dark",
+    "s": "metal",
+    "S": "metal_light",
+    "q": "screen",
+    "p": "pot",
+    "f": "leaf",
+    "F": "leaf_dark",
+    "c": "coffee",
+    "w": "white",
+    "a": "accent",
+    "g": "gold"
+   },
+   "animations": {
+    "default": [
+     [
+      "....oooooooo....",
+      "...ommmmmmmmo...",
+      "...omllllllmo...",
+      "...omllllllmo...",
+      "...omllllllmo...",
+      "...omllllllmo...",
+      "...ommmmmmmmo...",
+      "..ollllllllllo..",
+      "..ollllllllllo..",
+      "..ommmmmmmmmmo..",
+      "...oddooooddo...",
+      "...oddo..oddo...",
+      "...oddo..oddo...",
+      "...oddo..oddo...",
+      "...oddo..oddo...",
+      "....oo....oo...."
+     ]
+    ]
+   }
+  },
+  {
+   "id": "plant",
+   "width": 16,
+   "height": 24,
+   "anchor": "bottomCenter",
+   "fps": 6,
+   "palette": {
+    "o": "outline",
+    "d": "wood_dark",
+    "m": "wood_mid",
+    "l": "wood_light",
+    "x": "metal_dark",
+    "s": "metal",
+    "S": "metal_light",
+    "q": "screen",
+    "p": "pot",
+    "f": "leaf",
+    "F": "leaf_dark",
+    "c": "coffee",
+    "w": "white",
+    "a": "accent",
+    "g": "gold"
+   },
+   "animations": {
+    "default": [
+     [
+      ".....ooo........",
+      "....offfooo.....",
+      "....offfoffo....",
+      "....ofFffffo....",
+      "....offffffoo...",
+      "...ooofffffffo..",
+      "..offffFfffffo..",
+      "..offffffffffo..",
+      "..offffffffFfo..",
+      "..ofFffffffffo..",
+      "..offffffffffo..",
+      "..offfffFffffo..",
+      "...oooffffooo...",
+      ".....offffo.....",
+      "...oooffffooo...",
+      "..oppppppppppo..",
+      "...oppppppppo...",
+      "...oppppppppo...",
+      "...oppppppppo...",
+      "...oppppppppo...",
+      "...oppppppppo...",
+      "...oppppppppo...",
+      "...oddddddddo...",
+      "....oooooooo...."
+     ]
+    ]
+   }
+  },
+  {
+   "id": "sign",
+   "width": 32,
+   "height": 16,
+   "anchor": "bottomCenter",
+   "fps": 6,
+   "palette": {
+    "o": "outline",
+    "d": "wood_dark",
+    "m": "wood_mid",
+    "l": "wood_light",
+    "x": "metal_dark",
+    "s": "metal",
+    "S": "metal_light",
+    "q": "screen",
+    "p": "pot",
+    "f": "leaf",
+    "F": "leaf_dark",
+    "c": "coffee",
+    "w": "white",
+    "a": "accent",
+    "g": "gold"
+   },
+   "animations": {
+    "default": [
+     [
+      ".oooooooooooooooooooooooooooooo.",
+      "ommmmmmmmmmmmmmmmmmmmmmmmmmmmmmo",
+      "ommmmmmmmmmmmmmmmmmmmmmmmmmmmmmo",
+      "ommllllllllllllllllllllllllllmmo",
+      "ommllllllllllllllllllllllllllmmo",
+      "ommllllllllwwwwwwwlllllllllllmmo",
+      "ommllllllllwcccccwwllllllllllmmo",
+      "ommllllllllwcccccwwwlllllllllmmo",
+      "ommllllllllwwwwwwwwllllllllllmmo",
+      "ommllllllllwwwwwwwlllllllllllmmo",
+      "ommllllllaaaaaaaaaaaaaallllllmmo",
+      "ommmmmmmmmmmmmmmmmmmmmmmmmmmmmmo",
+      "ommmmmmmmmmmmmmmmmmmmmmmmmmmmmmo",
+      ".oooooddooooooooooooooooddooooo.",
+      ".....oddo..............oddo.....",
+      ".....oddo..............oddo....."
+     ]
+    ]
+   }
+  }
+ ]
+}

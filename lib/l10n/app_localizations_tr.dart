@@ -885,4 +885,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get stationUpgradesHint => 'Yönetici ve ekipman için dokun';
+
+  @override
+  String get spriteGalleryTitle => 'Sprite Galerisi';
 }

@@ -251,5 +251,6 @@
   "languageNative_vi": "Tiếng Việt",
   "floatingGain": "+{amount}",
   "lockedStationName": "???",
-  "stationUpgradesHint": "タップで店長と設備"
+  "stationUpgradesHint": "タップで店長と設備",
+  "spriteGalleryTitle": "スプライトギャラリー"
 }

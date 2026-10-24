@@ -883,4 +883,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get stationUpgradesHint => 'Chạm để xem quản lý và thiết bị';
+
+  @override
+  String get spriteGalleryTitle => 'Thư viện sprite';
 }

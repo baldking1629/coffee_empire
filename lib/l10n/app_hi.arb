@@ -251,5 +251,6 @@
   "languageNative_vi": "Tiếng Việt",
   "floatingGain": "+{amount}",
   "lockedStationName": "???",
-  "stationUpgradesHint": "मैनेजर और उपकरण के लिए टैप करें"
+  "stationUpgradesHint": "मैनेजर और उपकरण के लिए टैप करें",
+  "spriteGalleryTitle": "स्प्राइट गैलरी"
 }

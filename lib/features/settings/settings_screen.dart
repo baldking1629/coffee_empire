@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import '../../app/widgets/game_background.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,12 +11,14 @@ import '../game/game_cubit.dart';
 import '../game/game_settings.dart';
 import '../game/game_state.dart';
 import 'language_names.dart';
+import 'sprite_gallery_screen.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
 
   static const Key resetKey = Key('settings_reset');
   static const Key languageKey = Key('settings_language');
+  static const Key spriteGalleryKey = Key('settings_sprite_gallery');
 
   Future<void> _confirmReset(BuildContext context, GameCubit cubit) async {
     final l10n = AppLocalizations.of(context);
@@ -130,6 +133,17 @@ class SettingsScreen extends StatelessWidget {
                 onChanged: (value) =>
                     cubit.updateSettings(settings.copyWith(scientific: value)),
               ),
+              if (kDebugMode)
+                ListTile(
+                  key: spriteGalleryKey,
+                  leading: const Icon(LucideIcons.grid3x3),
+                  title: Text(l10n.spriteGalleryTitle),
+                  onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute<void>(
+                      builder: (_) => const SpriteGalleryScreen(),
+                    ),
+                  ),
+                ),
               const Divider(),
               ListTile(
                 key: resetKey,

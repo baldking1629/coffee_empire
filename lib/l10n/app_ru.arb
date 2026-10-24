@@ -251,5 +251,6 @@
   "languageNative_vi": "Tiếng Việt",
   "floatingGain": "+{amount}",
   "lockedStationName": "???",
-  "stationUpgradesHint": "Нажмите: менеджер и оборудование"
+  "stationUpgradesHint": "Нажмите: менеджер и оборудование",
+  "spriteGalleryTitle": "Галерея спрайтов"
 }

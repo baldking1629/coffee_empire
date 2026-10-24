@@ -44,6 +44,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   timezone: ^0.10.1
+  flame: ^1.38.2
 
 dev_dependencies:
   flutter_test:
@@ -57,6 +58,7 @@ dev_dependencies:
   flutter_lints: ^6.0.0
   bloc_test: ^10.0.0
   mocktail: ^1.0.5
+  flame_test: ^2.3.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -67,3 +69,4 @@ flutter:
   uses-material-design: true
   assets:
     - assets/config/
+    - assets/sprites/

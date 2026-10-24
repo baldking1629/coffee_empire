@@ -885,4 +885,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get stationUpgradesHint => 'Ketuk untuk manajer & peralatan';
+
+  @override
+  String get spriteGalleryTitle => 'Galeri sprite';
 }
