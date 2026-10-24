@@ -54,4 +54,13 @@ void main() {
   test('negative values keep sign before currency', () {
     expect(en.formatMoney(BigNumber.parse('-1500')), r'-$1.50K');
   });
+
+  test('right-to-left isolation keeps money left-to-right', () {
+    final arabic = NumberFormatter(
+      languageCode: 'ar',
+      isolateLeftToRight: true,
+    );
+    expect(arabic.formatMoney(BigNumber.parse('1250')), '\u2066\$1.25K\u2069');
+    expect(en.formatMoney(BigNumber.parse('1250')), r'$1.25K');
+  });
 }

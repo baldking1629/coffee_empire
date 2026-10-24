@@ -18,6 +18,12 @@ flutter run
 - All game math is pure Dart under `lib/engine/` and is unit tested.
 - `tool/simulate.dart` runs a passive greedy bot and prints when each shop is first bought.
 
+## Languages
+
+15 languages: English (source), Türkçe, Español, Português (Brasil), Français, Deutsch, Italiano, Русский, العربية (RTL), हिन्दी, Bahasa Indonesia, 日本語, 한국어, 简体中文, Tiếng Việt. The player can pick one in Settings or follow the system language.
+
+> **Çeviriler makine çevirisidir, yayından önce anadil kontrolü gerekir.** (Translations are machine-generated and need a native-speaker review before release.)
+
 ## Release checklist
 
 - [ ] **App name:** "Coffee Empire" (Android `android:label`, iOS `CFBundleDisplayName`). Confirm the final store name.

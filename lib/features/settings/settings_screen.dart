@@ -57,10 +57,13 @@ class SettingsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final cubit = context.read<GameCubit>();
-    final languageCodes = [
-      GameSettings.systemLocale,
+    final supported = {
       for (final locale in AppLocalizations.supportedLocales)
         locale.languageCode,
+    };
+    final languageCodes = [
+      GameSettings.systemLocale,
+      ...languageOrder.where(supported.contains),
     ];
     return Scaffold(
       appBar: AppBar(

@@ -1,5 +1,23 @@
 import '../../l10n/app_localizations.dart';
 
+const List<String> languageOrder = [
+  'en',
+  'tr',
+  'es',
+  'pt',
+  'fr',
+  'de',
+  'it',
+  'ru',
+  'ar',
+  'hi',
+  'id',
+  'ja',
+  'ko',
+  'zh',
+  'vi',
+];
+
 String languageNativeName(AppLocalizations l10n, String code) => switch (code) {
   'en' => l10n.languageNative_en,
   'tr' => l10n.languageNative_tr,

@@ -6,7 +6,6 @@ import '../../../app/formatters.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_theme.dart';
 import '../../../core/bignumber/big_number.dart';
-import '../../../core/format/number_formatter.dart';
 import '../../../engine/boost_math.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../game/game_cubit.dart';
@@ -28,7 +27,6 @@ class CashHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    final languageCode = Localizations.localeOf(context).languageCode;
     final cubit = context.read<GameCubit>();
     return BlocSelector<GameCubit, GameState, CashHeaderData>(
       selector: (state) {
@@ -45,8 +43,8 @@ class CashHeader extends StatelessWidget {
         );
       },
       builder: (context, data) {
-        final formatter = NumberFormatter(
-          languageCode: languageCode,
+        final formatter = numberFormatterOf(
+          context,
           scientific: data.scientific,
         );
         final textTheme = Theme.of(context).textTheme;

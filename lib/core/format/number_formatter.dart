@@ -4,8 +4,11 @@ import '../bignumber/big_number.dart';
 import 'decimal_separators.dart';
 
 class NumberFormatter {
-  NumberFormatter({required String languageCode, this.scientific = false})
-    : decimalSeparator = decimalSeparatorFor(languageCode);
+  NumberFormatter({
+    required String languageCode,
+    this.scientific = false,
+    this.isolateLeftToRight = false,
+  }) : decimalSeparator = decimalSeparatorFor(languageCode);
 
   static const String currencySymbol = r'$';
   static const List<String> namedSuffixes = [
@@ -24,17 +27,26 @@ class NumberFormatter {
   ];
   static const int _alphabetLength = 26;
   static const int _letterCodeA = 97;
+  static const String _leftToRightIsolate = '\u2066';
+  static const String _popDirectionalIsolate = '\u2069';
 
   final String decimalSeparator;
   final bool scientific;
+  final bool isolateLeftToRight;
 
   String formatMoney(BigNumber value) {
     final sign = value.isNegative ? '-' : '';
-    return '$sign$currencySymbol${format(value.abs())}';
+    return _isolate('$sign$currencySymbol${_formatPlain(value.abs())}');
   }
 
-  String format(BigNumber value) {
-    if (value.isNegative) return '-${format(value.abs())}';
+  String format(BigNumber value) => _isolate(_formatPlain(value));
+
+  String _isolate(String text) => isolateLeftToRight
+      ? '$_leftToRightIsolate$text$_popDirectionalIsolate'
+      : text;
+
+  String _formatPlain(BigNumber value) {
+    if (value.isNegative) return '-${_formatPlain(value.abs())}';
     if (value.isZero) return '0';
     if (value.exponent < 3) {
       final small = _formatSmall(value.toDouble());

@@ -246,7 +246,12 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String capsuleOwned(int count) {
-    return '$count makine';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count makine',
+    );
+    return '$_temp0';
   }
 
   @override

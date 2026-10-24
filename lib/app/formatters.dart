@@ -10,6 +10,7 @@ NumberFormatter numberFormatterOf(
 }) => NumberFormatter(
   languageCode: Localizations.localeOf(context).languageCode,
   scientific: scientific,
+  isolateLeftToRight: Directionality.of(context) == TextDirection.rtl,
 );
 
 DurationFormatter durationFormatterOf(BuildContext context) {

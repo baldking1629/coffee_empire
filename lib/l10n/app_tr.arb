@@ -64,7 +64,7 @@
   "openRecipe": "Geliştir",
   "capsuleTitle": "Kapsül Makineleri",
   "capsuleLocked": "{score}+ puanlı bir reçete ve {hype} Marka Değeri gerekir",
-  "capsuleOwned": "{count} makine",
+  "capsuleOwned": "{count, plural, other{{count} makine}}",
   "brandHypeValue": "Marka Değeri: {hype}",
   "labBonusValue": "Ar-Ge bonusu: +%{percent}",
   "flavorProfileTitle": "Tat profili",

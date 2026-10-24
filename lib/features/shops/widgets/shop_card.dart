@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 
+import '../../../app/formatters.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_theme.dart';
 import '../../../config/economy_config.dart';
 import '../../../core/bignumber/big_number.dart';
-import '../../../core/format/number_formatter.dart';
 import '../../../engine/shop_math.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../game/game_cubit.dart';
@@ -106,10 +106,7 @@ class ShopCard extends StatelessWidget {
   Widget _buildOpen(BuildContext context, GameCubit cubit, ShopCardData data) {
     final l10n = AppLocalizations.of(context);
     final textTheme = Theme.of(context).textTheme;
-    final formatter = NumberFormatter(
-      languageCode: Localizations.localeOf(context).languageCode,
-      scientific: data.scientific,
-    );
+    final formatter = numberFormatterOf(context, scientific: data.scientific);
     final math = cubit.shopMath;
     final owned = data.level > 0;
     return Container(
