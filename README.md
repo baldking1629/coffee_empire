@@ -1,16 +1,29 @@
-# coffee_empire
+# Coffee Empire
 
-A new Flutter project.
+Idle coffee simulator for iOS and Android, built with Flutter. Start with a street cart and grow into a global franchise empire.
 
-## Getting Started
+## Development
 
-This project is a starting point for a Flutter application.
+```bash
+flutter pub get
+flutter gen-l10n
+dart format .
+flutter analyze
+flutter test
+dart run tool/simulate.dart
+flutter run
+```
 
-A few resources to get you started if this is your first Flutter project:
+- Game rules and numbers live in `assets/config/economy.json` and `assets/config/achievements.json`.
+- All game math is pure Dart under `lib/engine/` and is unit tested.
+- `tool/simulate.dart` runs a passive greedy bot and prints when each shop is first bought.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Release checklist
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- [ ] **App name:** "Coffee Empire" (Android `android:label`, iOS `CFBundleDisplayName`). Confirm the final store name.
+- [ ] **App icon:** the default Flutter icon is a placeholder. Replace `android/app/src/main/res/mipmap-*` and `ios/Runner/Assets.xcassets/AppIcon.appiconset`.
+- [ ] **Privacy policy URL:** `PRIVACY_POLICY_URL = <to be filled>`. Required by both stores, and linked from the store listing and the in-app consent flow.
+- [ ] **Age rating:** the game has no violence, gambling with real money or user-generated content. Rewarded ads and in-app purchases are present, so answer the IARC / App Store questionnaire with "contains ads" and "in-app purchases"; the expected rating is PEGI 3 / ESRB Everyone / App Store 4+.
+- [ ] **Monetization:** `MockMonetizationService` and `MockConsentService` must be replaced by real AdMob / IAP / UMP / ATT implementations before release.
+- [ ] **Analytics:** `DebugAnalyticsService` only prints to the debug console.
+- [ ] **Signing:** set up release signing for Android (`android/app/build.gradle.kts`) and iOS (Xcode team and provisioning).

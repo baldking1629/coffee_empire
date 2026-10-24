@@ -44,6 +44,9 @@ GameState gameStateFromJson(JsonMap json) {
       ),
     ),
     dailyReward: DailyRewardState.fromJson(json['dailyReward'] as JsonMap),
+    achievements: (json['achievements'] as List<dynamic>)
+        .cast<String>()
+        .toSet(),
     stats: GameStats.fromJson(json['stats'] as JsonMap),
     tutorialStep: _int(json['tutorialStep']),
     settings: GameSettings.fromJson(json['settings'] as JsonMap),
@@ -70,6 +73,7 @@ JsonMap gameStateToJson(GameState state) => {
     (type, endsAt) => MapEntry(type, endsAt.toUtc().toIso8601String()),
   ),
   'dailyReward': state.dailyReward.toJson(),
+  'achievements': state.achievements.toList(),
   'stats': state.stats.toJson(),
   'tutorialStep': state.tutorialStep,
   'settings': state.settings.toJson(),

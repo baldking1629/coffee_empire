@@ -1,0 +1,105 @@
+{
+  "masteryScore": 90,
+  "achievements": [
+    {
+      "id": "first_dollars",
+      "type": "lifetimeEarnings",
+      "threshold": "1e3"
+    },
+    {
+      "id": "small_business",
+      "type": "lifetimeEarnings",
+      "threshold": "1e6"
+    },
+    {
+      "id": "coffee_mogul",
+      "type": "lifetimeEarnings",
+      "threshold": "1e9"
+    },
+    {
+      "id": "bean_tycoon",
+      "type": "lifetimeEarnings",
+      "threshold": "1e12"
+    },
+    {
+      "id": "caffeine_empire",
+      "type": "lifetimeEarnings",
+      "threshold": "1e15"
+    },
+    {
+      "id": "growing_shop",
+      "type": "shopLevel",
+      "threshold": "10"
+    },
+    {
+      "id": "busy_counter",
+      "type": "shopLevel",
+      "threshold": "25"
+    },
+    {
+      "id": "centurion",
+      "type": "shopLevel",
+      "threshold": "100"
+    },
+    {
+      "id": "legendary_branch",
+      "type": "shopLevel",
+      "threshold": "200"
+    },
+    {
+      "id": "first_masterpiece",
+      "type": "recipeMastery",
+      "threshold": "1"
+    },
+    {
+      "id": "lab_regular",
+      "type": "recipeMastery",
+      "threshold": "4"
+    },
+    {
+      "id": "master_brewer",
+      "type": "recipeMastery",
+      "threshold": "8"
+    },
+    {
+      "id": "first_franchise",
+      "type": "franchises",
+      "threshold": "1"
+    },
+    {
+      "id": "regional_brand",
+      "type": "franchises",
+      "threshold": "10"
+    },
+    {
+      "id": "global_chain",
+      "type": "franchises",
+      "threshold": "40"
+    },
+    {
+      "id": "world_domination",
+      "type": "franchises",
+      "threshold": "87"
+    },
+    {
+      "id": "fresh_start",
+      "type": "prestigeCount",
+      "threshold": "1"
+    },
+    {
+      "id": "serial_founder",
+      "type": "prestigeCount",
+      "threshold": "5"
+    },
+    {
+      "id": "eager_barista",
+      "type": "totalTaps",
+      "threshold": "100"
+    },
+    {
+      "id": "tireless_barista",
+      "type": "totalTaps",
+      "threshold": "5000"
+    }
+  ]
+}

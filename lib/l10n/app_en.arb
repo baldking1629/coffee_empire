@@ -512,5 +512,144 @@
         "type": "int"
       }
     }
-  }
+  },
+  "tutorialTitle": "Barista training {step}/{total}",
+  "@tutorialTitle": {
+    "placeholders": {
+      "step": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "tutorialStepTapCup": "Tap the coffee cup to brew your first cup.",
+  "tutorialStepBuyFirstShop": "Buy a Street Cart in the Shops tab.",
+  "tutorialStepBuySecondShop": "Open your second shop: the Corner Booth.",
+  "tutorialStepHireManager": "Hire a manager to triple a shop's income.",
+  "tutorialStepOpenLab": "Open the R&D tab to discover recipes.",
+  "tutorialStepFinish": "You're ready to build your empire! Turn on reminders so you never miss a reward.",
+  "tutorialSkip": "Skip",
+  "tutorialFinish": "Let's go!",
+  "achievementsTitle": "Achievements",
+  "achievementsProgress": "{unlocked}/{total} unlocked · income +{percent}%",
+  "@achievementsProgress": {
+    "placeholders": {
+      "unlocked": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "achievementUnlocked": "Achievement unlocked: {name}",
+  "@achievementUnlocked": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "achDescLifetime": "Earn {amount} in total",
+  "@achDescLifetime": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "achDescShopLevel": "Reach level {level} in any shop",
+  "@achDescShopLevel": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "achDescRecipes": "Score {score}+ on {count} recipes",
+  "@achDescRecipes": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "achDescFranchises": "Own {count} franchise slots",
+  "@achDescFranchises": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "achDescPrestige": "Start a new empire {count} times",
+  "@achDescPrestige": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "achDescTaps": "Tap the cup {count} times",
+  "@achDescTaps": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "achievement_first_dollars": "First Dollars",
+  "achievement_small_business": "Small Business",
+  "achievement_coffee_mogul": "Coffee Mogul",
+  "achievement_bean_tycoon": "Bean Tycoon",
+  "achievement_caffeine_empire": "Caffeine Empire",
+  "achievement_growing_shop": "Growing Shop",
+  "achievement_busy_counter": "Busy Counter",
+  "achievement_centurion": "Centurion",
+  "achievement_legendary_branch": "Legendary Branch",
+  "achievement_first_masterpiece": "First Masterpiece",
+  "achievement_lab_regular": "Lab Regular",
+  "achievement_master_brewer": "Master Brewer",
+  "achievement_first_franchise": "First Franchise",
+  "achievement_regional_brand": "Regional Brand",
+  "achievement_global_chain": "Global Chain",
+  "achievement_world_domination": "World Domination",
+  "achievement_fresh_start": "Fresh Start",
+  "achievement_serial_founder": "Serial Founder",
+  "achievement_eager_barista": "Eager Barista",
+  "achievement_tireless_barista": "Tireless Barista",
+  "settingsTitle": "Settings",
+  "settingsLanguage": "Language",
+  "languageSystem": "System",
+  "settingsSound": "Sound",
+  "settingsHaptics": "Vibration",
+  "settingsNotifications": "Notifications",
+  "settingsScientific": "Scientific notation",
+  "settingsReset": "Reset progress",
+  "resetConfirmTitle": "Reset all progress?",
+  "resetConfirmBody": "This deletes your save, including Golden Beans and purchases. It cannot be undone.",
+  "resetConfirm": "Reset",
+  "languageNative_en": "English",
+  "languageNative_tr": "Türkçe",
+  "languageNative_es": "Español",
+  "languageNative_pt": "Português (Brasil)",
+  "languageNative_fr": "Français",
+  "languageNative_de": "Deutsch",
+  "languageNative_it": "Italiano",
+  "languageNative_ru": "Русский",
+  "languageNative_ar": "العربية",
+  "languageNative_hi": "हिन्दी",
+  "languageNative_id": "Bahasa Indonesia",
+  "languageNative_ja": "日本語",
+  "languageNative_ko": "한국어",
+  "languageNative_zh": "简体中文",
+  "languageNative_vi": "Tiếng Việt"
 }

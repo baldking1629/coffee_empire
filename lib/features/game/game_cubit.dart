@@ -1,10 +1,12 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../config/achievement_config.dart';
 import '../../config/economy_config.dart';
 import '../../core/bignumber/big_number.dart';
 import '../../core/services/analytics_service.dart';
 import '../../core/services/monetization_service.dart';
 import '../../core/time/clock.dart';
+import '../../engine/achievement_math.dart';
 import '../../engine/barista_math.dart';
 import '../../engine/economy_engine.dart';
 import '../../engine/shop_math.dart';
@@ -14,24 +16,22 @@ import '../growth/prestige_actions.dart';
 import '../lab/lab_actions.dart';
 import '../shops/shop_actions.dart';
 import '../store/store_actions.dart';
+import '../tutorial/tutorial_rules.dart';
+import 'game_feedback.dart';
+import 'game_settings.dart';
 import 'game_state.dart';
 import 'offline_actions.dart';
 import 'save_repository.dart';
 
-class GameCubit extends Cubit<GameState> {
-  GameCubit({
-    required EconomyConfig config,
-    required SaveRepository repository,
-    required Clock clock,
-    AnalyticsService analytics = const DebugAnalyticsService(),
-    GameState? restored,
-  }) : this._(EconomyEngine(config), repository, clock, analytics, restored);
+part 'game_cubit_commands.dart';
 
-  GameCubit._(
+abstract class _GameCubitCore extends Cubit<GameState> {
+  _GameCubitCore(
     this.engine,
     this._repository,
     this.clock,
     this._analytics,
+    this._feedback,
     GameState? restored,
   ) : _barista = BaristaMath(engine.config.tap),
       shops = ShopActions(engine),
@@ -40,10 +40,29 @@ class GameCubit extends Cubit<GameState> {
       prestigeRules = PrestigeActions(engine),
       store = StoreActions(engine),
       dailyRewards = DailyRewardActions(engine),
+      tutorial = TutorialRules(engine.config.shops),
       _offline = OfflineActions(engine),
       super(
         restored ?? GameState.initial(startingCash: engine.config.startingCash),
-      ) {
+      );
+
+  final EconomyEngine engine;
+  final Clock clock;
+  final ShopActions shops;
+  final LabActions lab;
+  final FranchiseActions franchise;
+  final PrestigeActions prestigeRules;
+  final StoreActions store;
+  final DailyRewardActions dailyRewards;
+  final TutorialRules tutorial;
+  final BaristaMath _barista;
+  final OfflineActions _offline;
+  final SaveRepository _repository;
+  final AnalyticsService _analytics;
+  final GameFeedback _feedback;
+  double _secondsSinceSave = 0;
+
+  void _restore() {
     final now = clock.now();
     final restoredState = _withIncome(lab.completeDueBrew(state, now).state);
     emit(
@@ -55,24 +74,6 @@ class GameCubit extends Cubit<GameState> {
     );
   }
 
-  final EconomyEngine engine;
-  final Clock clock;
-  final ShopActions shops;
-  final LabActions lab;
-  final FranchiseActions franchise;
-  final PrestigeActions prestigeRules;
-  final StoreActions store;
-  final DailyRewardActions dailyRewards;
-  final BaristaMath _barista;
-  final OfflineActions _offline;
-  final SaveRepository _repository;
-  final AnalyticsService _analytics;
-  double _secondsSinceSave = 0;
-
-  ShopMath get shopMath => engine.shopMath;
-
-  List<int> get shopLevelList => shops.levelList(state);
-
   void tapCup() {
     final outcome = _barista.tap(
       state.barista,
@@ -83,10 +84,13 @@ class GameCubit extends Cubit<GameState> {
       totalTaps: state.stats.totalTaps + 1,
       cupsFilled: state.stats.cupsFilled + (outcome.cupFilled ? 1 : 0),
     );
+    _play(outcome.cupFilled ? FeedbackKind.cupFull : FeedbackKind.tap);
     emit(
-      state
-          .earn(outcome.payout)
-          .copyWith(barista: outcome.barista, stats: stats),
+      _evaluateProgress(
+        state
+            .earn(outcome.payout)
+            .copyWith(barista: outcome.barista, stats: stats),
+      ),
     );
   }
 
@@ -105,7 +109,7 @@ class GameCubit extends Cubit<GameState> {
       final auto = _barista.autoFill(next.barista, next.incomePerSec, autoTaps);
       next = next.earn(auto.payout).copyWith(barista: auto.barista);
     }
-    emit(_withIncome(next));
+    emit(_withIncome(_evaluateProgress(next)));
     _secondsSinceSave += safeDelta;
     if (await _completeDueBrew()) return;
     if (_secondsSinceSave >= engine.config.autosaveIntervalSeconds) {
@@ -128,112 +132,15 @@ class GameCubit extends Cubit<GameState> {
     await save();
   }
 
-  Future<void> claimOfflineEarnings({required bool doubled}) async {
-    final pending = state.pendingOffline;
-    if (pending == null) return;
-    _log(AnalyticsEvents.offlineModal, {
-      'minutes': (pending.awaySeconds / Duration.secondsPerMinute).round(),
-    });
-    await _commit(_offline.claim(state, doubled: doubled));
-  }
-
-  Future<bool> buyShopLevels(String shopId, BuyAmount amount) {
-    final firstPurchase = (state.shopLevels[shopId] ?? 0) == 0;
-    return _commit(
-      shops.buyLevels(state, shopId, amount),
-      onSuccess: () {
-        if (firstPurchase) _log(AnalyticsEvents.shopUnlocked, {'id': shopId});
-      },
-    );
-  }
-
-  Future<bool> hireManager(String shopId) => _commit(
-    shops.hireManager(state, shopId),
-    onSuccess: () => _log(AnalyticsEvents.managerHired, {'id': shopId}),
-  );
-
-  Future<bool> buyEquipment(String shopId) =>
-      _commit(shops.buyEquipment(state, shopId));
-
-  Future<bool> unlockRecipe(String recipeId) =>
-      _commit(lab.unlockRecipe(state, recipeId));
-
-  Future<bool> startBrew(String recipeId, FlavorProfile sliders) =>
-      _commit(lab.startBrew(state, recipeId, sliders, clock.now()));
-
-  Future<bool> finishBrewNow() async {
-    final expired = lab.expireBrewNow(state, clock.now());
-    if (expired == null) return false;
-    emit(expired);
-    return _completeDueBrew();
-  }
-
-  Future<bool> buyCapsuleMachines(BuyAmount amount) {
-    final firstMachine = state.lab.capsuleMachines == 0;
-    return _commit(
-      lab.buyCapsuleMachines(state, amount),
-      onSuccess: () {
-        if (firstMachine) _log(AnalyticsEvents.capsuleUnlocked);
-      },
-    );
-  }
-
-  Future<bool> openFranchise(String cityId) {
-    final slotIndex = franchise.ownedIn(state, cityId);
-    return _commit(
-      franchise.openFranchise(state, cityId),
-      onSuccess: () => _log(AnalyticsEvents.franchiseOpened, {
-        'cityId': cityId,
-        'slotIndex': slotIndex,
-      }),
-    );
-  }
-
-  Future<bool> prestige() {
-    final gain = prestigeRules.previewGain(state);
-    return _commit(
-      prestigeRules.prestige(state),
-      onSuccess: () => _log(AnalyticsEvents.prestige, {
-        'count': state.prestigeCount,
-        'gain': gain,
-      }),
-    );
-  }
-
-  Future<bool> applyRewardedAd(RewardedAdType type) async {
-    final applied = await _commit(
-      store.applyRewarded(state, type, clock.now()),
-      onSuccess: () =>
-          _log(AnalyticsEvents.rewardedCompleted, {'type': type.id}),
-    );
-    if (applied && type == RewardedAdType.labSpeedup) await _completeDueBrew();
-    return applied;
-  }
-
-  Future<bool> applyPurchase(String productId) => _commit(
-    store.applyPurchase(state, productId),
-    onSuccess: () => _log(AnalyticsEvents.iapPurchase, {'id': productId}),
-  );
-
-  Future<void> restorePurchases(Iterable<String> ownedProducts) async {
-    await _commit(store.restore(state, ownedProducts));
-  }
-
-  Future<bool> claimDailyReward() async {
-    final claim = dailyRewards.claim(state, clock.now());
-    if (claim == null) return false;
-    return _commit(
-      claim.state,
-      onSuccess: () =>
-          _log(AnalyticsEvents.dailyRewardClaimed, {'day': claim.dayIndex + 1}),
-    );
-  }
-
   Future<void> save() async {
     _secondsSinceSave = 0;
     final saved = await _repository.save(state);
     if (!isClosed) emit(state.copyWith(savedAt: saved.savedAt));
   }
+
+  ShopMath get shopMath => engine.shopMath;
+
+  List<int> get shopLevelList => shops.levelList(state);
 
   IncomeInputs incomeInputsOf(GameState source, {bool includeBoosts = true}) =>
       IncomeInputs(
@@ -249,7 +156,40 @@ class GameCubit extends Cubit<GameState> {
             : 1,
         vip: source.store.isVip,
         starterPack: source.store.hasStarterPack,
+        achievementCount: source.achievements.length,
       );
+
+  AchievementProgress achievementProgressOf(GameState source) =>
+      AchievementProgress(
+        lifetimeEarnings: source.lifetimeEarnings,
+        maxShopLevel: source.shopLevels.values.fold(
+          0,
+          (best, level) => level > best ? level : best,
+        ),
+        recipeBestScores: source.lab.bestScores.values,
+        franchiseSlots: source.franchises.values.fold(0, (a, b) => a + b),
+        prestigeCount: source.prestigeCount,
+        totalTaps: source.stats.totalTaps,
+      );
+
+  GameState _evaluateProgress(GameState source, {int? openedTab}) {
+    var next = source;
+    final unlocked = engine.achievementMath.newlyUnlocked(
+      source.achievements,
+      achievementProgressOf(source),
+    );
+    if (unlocked.isNotEmpty) {
+      next = next.copyWith(achievements: {...next.achievements, ...unlocked});
+    }
+    if (tutorial.isActive(next)) {
+      final step = tutorial.advance(next, openedTab: openedTab);
+      for (var reached = next.tutorialStep + 1; reached <= step; reached++) {
+        _log(AnalyticsEvents.tutorialStep, {'step': reached});
+      }
+      next = next.copyWith(tutorialStep: step);
+    }
+    return next;
+  }
 
   Future<bool> _completeDueBrew() async {
     final completion = lab.completeDueBrew(state, clock.now());
@@ -265,13 +205,20 @@ class GameCubit extends Cubit<GameState> {
     );
   }
 
-  Future<bool> _commit(GameState? next, {void Function()? onSuccess}) async {
+  Future<bool> _commit(
+    GameState? next, {
+    void Function()? onSuccess,
+    FeedbackKind? feedback,
+  }) async {
     if (next == null) return false;
-    emit(_withIncome(next));
+    emit(_withIncome(_evaluateProgress(next)));
+    if (feedback != null) _play(feedback);
     onSuccess?.call();
     await save();
     return true;
   }
+
+  void _play(FeedbackKind kind) => _feedback.play(kind, state.settings);
 
   void _log(String event, [Map<String, Object> parameters = const {}]) =>
       _analytics.logEvent(event, parameters);
@@ -282,4 +229,26 @@ class GameCubit extends Cubit<GameState> {
   GameState _withIncome(GameState source) => source.copyWith(
     incomePerSec: engine.totalIncomePerSec(incomeInputsOf(source)),
   );
+}
+
+class GameCubit extends _GameCubitCore
+    with _ProgressCommands, _StoreCommands, _MetaCommands {
+  GameCubit({
+    required EconomyConfig config,
+    required SaveRepository repository,
+    required Clock clock,
+    AchievementCatalog achievements = AchievementCatalog.empty,
+    AnalyticsService analytics = const DebugAnalyticsService(),
+    GameFeedback feedback = const GameFeedback(),
+    GameState? restored,
+  }) : super(
+         EconomyEngine(config, achievements: achievements),
+         repository,
+         clock,
+         analytics,
+         feedback,
+         restored,
+       ) {
+    _restore();
+  }
 }

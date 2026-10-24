@@ -8,10 +8,13 @@ import 'config/economy_config.dart';
 import 'config/economy_config_loader.dart';
 import 'core/services/analytics_service.dart';
 import 'core/services/consent_service.dart';
+import 'core/services/haptic_service.dart';
 import 'core/services/monetization_service.dart';
 import 'core/services/notification_service.dart';
+import 'core/services/sound_service.dart';
 import 'core/time/clock.dart';
 import 'features/game/game_cubit.dart';
+import 'features/game/game_feedback.dart';
 import 'features/game/notification_coordinator.dart';
 import 'features/game/notification_planner.dart';
 import 'features/game/save_repository.dart';
@@ -23,7 +26,9 @@ Future<void> main() async {
   const AnalyticsService analytics = DebugAnalyticsService();
   const ConsentService consent = MockConsentService();
   final NotificationService notifications = LocalNotificationService();
-  final config = await EconomyConfigLoader(rootBundle).load();
+  final loader = EconomyConfigLoader(rootBundle);
+  final config = await loader.load();
+  final achievements = await loader.loadAchievements();
   final preferences = await SharedPreferences.getInstance();
   final repository = SaveRepository(preferences, clock: clock);
   final loaded = repository.load();
@@ -35,7 +40,12 @@ Future<void> main() async {
     config: config,
     repository: repository,
     clock: clock,
+    achievements: achievements,
     analytics: analytics,
+    feedback: const GameFeedback(
+      haptics: PlatformHapticService(),
+      sound: NoopSoundService(),
+    ),
     restored: loaded.state,
   );
   final MonetizationService monetization = MockMonetizationService(

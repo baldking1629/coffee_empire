@@ -24,6 +24,7 @@ class GameState extends Equatable {
     this.franchises = const {},
     this.store = const StoreState(),
     this.dailyReward = const DailyRewardState(),
+    this.achievements = const {},
     this.stats = const GameStats(),
     this.tutorialStep = 0,
     this.settings = const GameSettings(),
@@ -55,6 +56,7 @@ class GameState extends Equatable {
   final Map<String, int> franchises;
   final StoreState store;
   final DailyRewardState dailyReward;
+  final Set<String> achievements;
   final GameStats stats;
   final int tutorialStep;
   final GameSettings settings;
@@ -88,6 +90,7 @@ class GameState extends Equatable {
     Map<String, int>? franchises,
     StoreState? store,
     DailyRewardState? dailyReward,
+    Set<String>? achievements,
     GameStats? stats,
     int? tutorialStep,
     GameSettings? settings,
@@ -108,6 +111,7 @@ class GameState extends Equatable {
     franchises: franchises ?? this.franchises,
     store: store ?? this.store,
     dailyReward: dailyReward ?? this.dailyReward,
+    achievements: achievements ?? this.achievements,
     stats: stats ?? this.stats,
     tutorialStep: tutorialStep ?? this.tutorialStep,
     settings: settings ?? this.settings,
@@ -133,6 +137,7 @@ class GameState extends Equatable {
     franchises,
     store,
     dailyReward,
+    achievements,
     stats,
     tutorialStep,
     settings,

@@ -654,4 +654,219 @@ class AppLocalizationsTr extends AppLocalizations {
   String dailyRewardBean(int beans) {
     return '+$beans Altın Çekirdek';
   }
+
+  @override
+  String tutorialTitle(int step, int total) {
+    return 'Barista eğitimi $step/$total';
+  }
+
+  @override
+  String get tutorialStepTapCup => 'İlk kahveni demlemek için fincana dokun.';
+
+  @override
+  String get tutorialStepBuyFirstShop =>
+      'Dükkanlar sekmesinden bir Sokak Arabası al.';
+
+  @override
+  String get tutorialStepBuySecondShop => 'İkinci dükkanını aç: Köşe Büfesi.';
+
+  @override
+  String get tutorialStepHireManager =>
+      'Bir dükkanın gelirini üçe katlamak için yönetici kirala.';
+
+  @override
+  String get tutorialStepOpenLab =>
+      'Reçeteleri keşfetmek için Ar-Ge sekmesini aç.';
+
+  @override
+  String get tutorialStepFinish =>
+      'İmparatorluğunu kurmaya hazırsın! Hiçbir ödülü kaçırmamak için hatırlatmaları aç.';
+
+  @override
+  String get tutorialSkip => 'Atla';
+
+  @override
+  String get tutorialFinish => 'Başlayalım!';
+
+  @override
+  String get achievementsTitle => 'Başarımlar';
+
+  @override
+  String achievementsProgress(int unlocked, int total, int percent) {
+    return '$unlocked/$total açıldı · gelir +%$percent';
+  }
+
+  @override
+  String achievementUnlocked(String name) {
+    return 'Başarım açıldı: $name';
+  }
+
+  @override
+  String achDescLifetime(String amount) {
+    return 'Toplam $amount kazan';
+  }
+
+  @override
+  String achDescShopLevel(int level) {
+    return 'Herhangi bir dükkanda $level. seviyeye ulaş';
+  }
+
+  @override
+  String achDescRecipes(int score, int count) {
+    return '$count reçetede $score+ puan al';
+  }
+
+  @override
+  String achDescFranchises(int count) {
+    return '$count franchise yuvasına sahip ol';
+  }
+
+  @override
+  String achDescPrestige(int count) {
+    return '$count kez yeni imparatorluk kur';
+  }
+
+  @override
+  String achDescTaps(int count) {
+    return 'Fincana $count kez dokun';
+  }
+
+  @override
+  String get achievement_first_dollars => 'İlk Dolarlar';
+
+  @override
+  String get achievement_small_business => 'Küçük İşletme';
+
+  @override
+  String get achievement_coffee_mogul => 'Kahve Patronu';
+
+  @override
+  String get achievement_bean_tycoon => 'Çekirdek Kralı';
+
+  @override
+  String get achievement_caffeine_empire => 'Kafein İmparatorluğu';
+
+  @override
+  String get achievement_growing_shop => 'Büyüyen Dükkan';
+
+  @override
+  String get achievement_busy_counter => 'Yoğun Tezgah';
+
+  @override
+  String get achievement_centurion => 'Yüzbaşı';
+
+  @override
+  String get achievement_legendary_branch => 'Efsanevi Şube';
+
+  @override
+  String get achievement_first_masterpiece => 'İlk Başyapıt';
+
+  @override
+  String get achievement_lab_regular => 'Laboratuvar Müdavimi';
+
+  @override
+  String get achievement_master_brewer => 'Usta Demlemeci';
+
+  @override
+  String get achievement_first_franchise => 'İlk Franchise';
+
+  @override
+  String get achievement_regional_brand => 'Bölgesel Marka';
+
+  @override
+  String get achievement_global_chain => 'Küresel Zincir';
+
+  @override
+  String get achievement_world_domination => 'Dünya Hakimiyeti';
+
+  @override
+  String get achievement_fresh_start => 'Yeni Başlangıç';
+
+  @override
+  String get achievement_serial_founder => 'Seri Girişimci';
+
+  @override
+  String get achievement_eager_barista => 'Hevesli Barista';
+
+  @override
+  String get achievement_tireless_barista => 'Yorulmaz Barista';
+
+  @override
+  String get settingsTitle => 'Ayarlar';
+
+  @override
+  String get settingsLanguage => 'Dil';
+
+  @override
+  String get languageSystem => 'Sistem';
+
+  @override
+  String get settingsSound => 'Ses';
+
+  @override
+  String get settingsHaptics => 'Titreşim';
+
+  @override
+  String get settingsNotifications => 'Bildirimler';
+
+  @override
+  String get settingsScientific => 'Bilimsel gösterim';
+
+  @override
+  String get settingsReset => 'İlerlemeyi sıfırla';
+
+  @override
+  String get resetConfirmTitle => 'Tüm ilerleme sıfırlansın mı?';
+
+  @override
+  String get resetConfirmBody =>
+      'Bu işlem Altın Çekirdekler ve satın alımlar dahil kaydını siler. Geri alınamaz.';
+
+  @override
+  String get resetConfirm => 'Sıfırla';
+
+  @override
+  String get languageNative_en => 'English';
+
+  @override
+  String get languageNative_tr => 'Türkçe';
+
+  @override
+  String get languageNative_es => 'Español';
+
+  @override
+  String get languageNative_pt => 'Português (Brasil)';
+
+  @override
+  String get languageNative_fr => 'Français';
+
+  @override
+  String get languageNative_de => 'Deutsch';
+
+  @override
+  String get languageNative_it => 'Italiano';
+
+  @override
+  String get languageNative_ru => 'Русский';
+
+  @override
+  String get languageNative_ar => 'العربية';
+
+  @override
+  String get languageNative_hi => 'हिन्दी';
+
+  @override
+  String get languageNative_id => 'Bahasa Indonesia';
+
+  @override
+  String get languageNative_ja => '日本語';
+
+  @override
+  String get languageNative_ko => '한국어';
+
+  @override
+  String get languageNative_zh => '简体中文';
+
+  @override
+  String get languageNative_vi => 'Tiếng Việt';
 }

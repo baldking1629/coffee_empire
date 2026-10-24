@@ -32,6 +32,7 @@ void main() {
     expect(state.store.purchases, isEmpty);
     expect(state.store.rewardedCooldowns, isEmpty);
     expect(state.dailyReward.streak, 0);
+    expect(state.achievements, isEmpty);
   });
 
   test('migration steps are chained in order', () {

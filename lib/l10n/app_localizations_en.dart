@@ -658,4 +658,218 @@ class AppLocalizationsEn extends AppLocalizations {
   String dailyRewardBean(int beans) {
     return '+$beans Golden Bean';
   }
+
+  @override
+  String tutorialTitle(int step, int total) {
+    return 'Barista training $step/$total';
+  }
+
+  @override
+  String get tutorialStepTapCup => 'Tap the coffee cup to brew your first cup.';
+
+  @override
+  String get tutorialStepBuyFirstShop => 'Buy a Street Cart in the Shops tab.';
+
+  @override
+  String get tutorialStepBuySecondShop =>
+      'Open your second shop: the Corner Booth.';
+
+  @override
+  String get tutorialStepHireManager =>
+      'Hire a manager to triple a shop\'s income.';
+
+  @override
+  String get tutorialStepOpenLab => 'Open the R&D tab to discover recipes.';
+
+  @override
+  String get tutorialStepFinish =>
+      'You\'re ready to build your empire! Turn on reminders so you never miss a reward.';
+
+  @override
+  String get tutorialSkip => 'Skip';
+
+  @override
+  String get tutorialFinish => 'Let\'s go!';
+
+  @override
+  String get achievementsTitle => 'Achievements';
+
+  @override
+  String achievementsProgress(int unlocked, int total, int percent) {
+    return '$unlocked/$total unlocked · income +$percent%';
+  }
+
+  @override
+  String achievementUnlocked(String name) {
+    return 'Achievement unlocked: $name';
+  }
+
+  @override
+  String achDescLifetime(String amount) {
+    return 'Earn $amount in total';
+  }
+
+  @override
+  String achDescShopLevel(int level) {
+    return 'Reach level $level in any shop';
+  }
+
+  @override
+  String achDescRecipes(int score, int count) {
+    return 'Score $score+ on $count recipes';
+  }
+
+  @override
+  String achDescFranchises(int count) {
+    return 'Own $count franchise slots';
+  }
+
+  @override
+  String achDescPrestige(int count) {
+    return 'Start a new empire $count times';
+  }
+
+  @override
+  String achDescTaps(int count) {
+    return 'Tap the cup $count times';
+  }
+
+  @override
+  String get achievement_first_dollars => 'First Dollars';
+
+  @override
+  String get achievement_small_business => 'Small Business';
+
+  @override
+  String get achievement_coffee_mogul => 'Coffee Mogul';
+
+  @override
+  String get achievement_bean_tycoon => 'Bean Tycoon';
+
+  @override
+  String get achievement_caffeine_empire => 'Caffeine Empire';
+
+  @override
+  String get achievement_growing_shop => 'Growing Shop';
+
+  @override
+  String get achievement_busy_counter => 'Busy Counter';
+
+  @override
+  String get achievement_centurion => 'Centurion';
+
+  @override
+  String get achievement_legendary_branch => 'Legendary Branch';
+
+  @override
+  String get achievement_first_masterpiece => 'First Masterpiece';
+
+  @override
+  String get achievement_lab_regular => 'Lab Regular';
+
+  @override
+  String get achievement_master_brewer => 'Master Brewer';
+
+  @override
+  String get achievement_first_franchise => 'First Franchise';
+
+  @override
+  String get achievement_regional_brand => 'Regional Brand';
+
+  @override
+  String get achievement_global_chain => 'Global Chain';
+
+  @override
+  String get achievement_world_domination => 'World Domination';
+
+  @override
+  String get achievement_fresh_start => 'Fresh Start';
+
+  @override
+  String get achievement_serial_founder => 'Serial Founder';
+
+  @override
+  String get achievement_eager_barista => 'Eager Barista';
+
+  @override
+  String get achievement_tireless_barista => 'Tireless Barista';
+
+  @override
+  String get settingsTitle => 'Settings';
+
+  @override
+  String get settingsLanguage => 'Language';
+
+  @override
+  String get languageSystem => 'System';
+
+  @override
+  String get settingsSound => 'Sound';
+
+  @override
+  String get settingsHaptics => 'Vibration';
+
+  @override
+  String get settingsNotifications => 'Notifications';
+
+  @override
+  String get settingsScientific => 'Scientific notation';
+
+  @override
+  String get settingsReset => 'Reset progress';
+
+  @override
+  String get resetConfirmTitle => 'Reset all progress?';
+
+  @override
+  String get resetConfirmBody =>
+      'This deletes your save, including Golden Beans and purchases. It cannot be undone.';
+
+  @override
+  String get resetConfirm => 'Reset';
+
+  @override
+  String get languageNative_en => 'English';
+
+  @override
+  String get languageNative_tr => 'Türkçe';
+
+  @override
+  String get languageNative_es => 'Español';
+
+  @override
+  String get languageNative_pt => 'Português (Brasil)';
+
+  @override
+  String get languageNative_fr => 'Français';
+
+  @override
+  String get languageNative_de => 'Deutsch';
+
+  @override
+  String get languageNative_it => 'Italiano';
+
+  @override
+  String get languageNative_ru => 'Русский';
+
+  @override
+  String get languageNative_ar => 'العربية';
+
+  @override
+  String get languageNative_hi => 'हिन्दी';
+
+  @override
+  String get languageNative_id => 'Bahasa Indonesia';
+
+  @override
+  String get languageNative_ja => '日本語';
+
+  @override
+  String get languageNative_ko => '한국어';
+
+  @override
+  String get languageNative_zh => '简体中文';
+
+  @override
+  String get languageNative_vi => 'Tiếng Việt';
 }

@@ -1207,6 +1207,390 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'+{beans} Golden Bean'**
   String dailyRewardBean(int beans);
+
+  /// No description provided for @tutorialTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Barista training {step}/{total}'**
+  String tutorialTitle(int step, int total);
+
+  /// No description provided for @tutorialStepTapCup.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap the coffee cup to brew your first cup.'**
+  String get tutorialStepTapCup;
+
+  /// No description provided for @tutorialStepBuyFirstShop.
+  ///
+  /// In en, this message translates to:
+  /// **'Buy a Street Cart in the Shops tab.'**
+  String get tutorialStepBuyFirstShop;
+
+  /// No description provided for @tutorialStepBuySecondShop.
+  ///
+  /// In en, this message translates to:
+  /// **'Open your second shop: the Corner Booth.'**
+  String get tutorialStepBuySecondShop;
+
+  /// No description provided for @tutorialStepHireManager.
+  ///
+  /// In en, this message translates to:
+  /// **'Hire a manager to triple a shop\'s income.'**
+  String get tutorialStepHireManager;
+
+  /// No description provided for @tutorialStepOpenLab.
+  ///
+  /// In en, this message translates to:
+  /// **'Open the R&D tab to discover recipes.'**
+  String get tutorialStepOpenLab;
+
+  /// No description provided for @tutorialStepFinish.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'re ready to build your empire! Turn on reminders so you never miss a reward.'**
+  String get tutorialStepFinish;
+
+  /// No description provided for @tutorialSkip.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip'**
+  String get tutorialSkip;
+
+  /// No description provided for @tutorialFinish.
+  ///
+  /// In en, this message translates to:
+  /// **'Let\'s go!'**
+  String get tutorialFinish;
+
+  /// No description provided for @achievementsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Achievements'**
+  String get achievementsTitle;
+
+  /// No description provided for @achievementsProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'{unlocked}/{total} unlocked · income +{percent}%'**
+  String achievementsProgress(int unlocked, int total, int percent);
+
+  /// No description provided for @achievementUnlocked.
+  ///
+  /// In en, this message translates to:
+  /// **'Achievement unlocked: {name}'**
+  String achievementUnlocked(String name);
+
+  /// No description provided for @achDescLifetime.
+  ///
+  /// In en, this message translates to:
+  /// **'Earn {amount} in total'**
+  String achDescLifetime(String amount);
+
+  /// No description provided for @achDescShopLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'Reach level {level} in any shop'**
+  String achDescShopLevel(int level);
+
+  /// No description provided for @achDescRecipes.
+  ///
+  /// In en, this message translates to:
+  /// **'Score {score}+ on {count} recipes'**
+  String achDescRecipes(int score, int count);
+
+  /// No description provided for @achDescFranchises.
+  ///
+  /// In en, this message translates to:
+  /// **'Own {count} franchise slots'**
+  String achDescFranchises(int count);
+
+  /// No description provided for @achDescPrestige.
+  ///
+  /// In en, this message translates to:
+  /// **'Start a new empire {count} times'**
+  String achDescPrestige(int count);
+
+  /// No description provided for @achDescTaps.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap the cup {count} times'**
+  String achDescTaps(int count);
+
+  /// No description provided for @achievement_first_dollars.
+  ///
+  /// In en, this message translates to:
+  /// **'First Dollars'**
+  String get achievement_first_dollars;
+
+  /// No description provided for @achievement_small_business.
+  ///
+  /// In en, this message translates to:
+  /// **'Small Business'**
+  String get achievement_small_business;
+
+  /// No description provided for @achievement_coffee_mogul.
+  ///
+  /// In en, this message translates to:
+  /// **'Coffee Mogul'**
+  String get achievement_coffee_mogul;
+
+  /// No description provided for @achievement_bean_tycoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Bean Tycoon'**
+  String get achievement_bean_tycoon;
+
+  /// No description provided for @achievement_caffeine_empire.
+  ///
+  /// In en, this message translates to:
+  /// **'Caffeine Empire'**
+  String get achievement_caffeine_empire;
+
+  /// No description provided for @achievement_growing_shop.
+  ///
+  /// In en, this message translates to:
+  /// **'Growing Shop'**
+  String get achievement_growing_shop;
+
+  /// No description provided for @achievement_busy_counter.
+  ///
+  /// In en, this message translates to:
+  /// **'Busy Counter'**
+  String get achievement_busy_counter;
+
+  /// No description provided for @achievement_centurion.
+  ///
+  /// In en, this message translates to:
+  /// **'Centurion'**
+  String get achievement_centurion;
+
+  /// No description provided for @achievement_legendary_branch.
+  ///
+  /// In en, this message translates to:
+  /// **'Legendary Branch'**
+  String get achievement_legendary_branch;
+
+  /// No description provided for @achievement_first_masterpiece.
+  ///
+  /// In en, this message translates to:
+  /// **'First Masterpiece'**
+  String get achievement_first_masterpiece;
+
+  /// No description provided for @achievement_lab_regular.
+  ///
+  /// In en, this message translates to:
+  /// **'Lab Regular'**
+  String get achievement_lab_regular;
+
+  /// No description provided for @achievement_master_brewer.
+  ///
+  /// In en, this message translates to:
+  /// **'Master Brewer'**
+  String get achievement_master_brewer;
+
+  /// No description provided for @achievement_first_franchise.
+  ///
+  /// In en, this message translates to:
+  /// **'First Franchise'**
+  String get achievement_first_franchise;
+
+  /// No description provided for @achievement_regional_brand.
+  ///
+  /// In en, this message translates to:
+  /// **'Regional Brand'**
+  String get achievement_regional_brand;
+
+  /// No description provided for @achievement_global_chain.
+  ///
+  /// In en, this message translates to:
+  /// **'Global Chain'**
+  String get achievement_global_chain;
+
+  /// No description provided for @achievement_world_domination.
+  ///
+  /// In en, this message translates to:
+  /// **'World Domination'**
+  String get achievement_world_domination;
+
+  /// No description provided for @achievement_fresh_start.
+  ///
+  /// In en, this message translates to:
+  /// **'Fresh Start'**
+  String get achievement_fresh_start;
+
+  /// No description provided for @achievement_serial_founder.
+  ///
+  /// In en, this message translates to:
+  /// **'Serial Founder'**
+  String get achievement_serial_founder;
+
+  /// No description provided for @achievement_eager_barista.
+  ///
+  /// In en, this message translates to:
+  /// **'Eager Barista'**
+  String get achievement_eager_barista;
+
+  /// No description provided for @achievement_tireless_barista.
+  ///
+  /// In en, this message translates to:
+  /// **'Tireless Barista'**
+  String get achievement_tireless_barista;
+
+  /// No description provided for @settingsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settingsTitle;
+
+  /// No description provided for @settingsLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get settingsLanguage;
+
+  /// No description provided for @languageSystem.
+  ///
+  /// In en, this message translates to:
+  /// **'System'**
+  String get languageSystem;
+
+  /// No description provided for @settingsSound.
+  ///
+  /// In en, this message translates to:
+  /// **'Sound'**
+  String get settingsSound;
+
+  /// No description provided for @settingsHaptics.
+  ///
+  /// In en, this message translates to:
+  /// **'Vibration'**
+  String get settingsHaptics;
+
+  /// No description provided for @settingsNotifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get settingsNotifications;
+
+  /// No description provided for @settingsScientific.
+  ///
+  /// In en, this message translates to:
+  /// **'Scientific notation'**
+  String get settingsScientific;
+
+  /// No description provided for @settingsReset.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset progress'**
+  String get settingsReset;
+
+  /// No description provided for @resetConfirmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset all progress?'**
+  String get resetConfirmTitle;
+
+  /// No description provided for @resetConfirmBody.
+  ///
+  /// In en, this message translates to:
+  /// **'This deletes your save, including Golden Beans and purchases. It cannot be undone.'**
+  String get resetConfirmBody;
+
+  /// No description provided for @resetConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset'**
+  String get resetConfirm;
+
+  /// No description provided for @languageNative_en.
+  ///
+  /// In en, this message translates to:
+  /// **'English'**
+  String get languageNative_en;
+
+  /// No description provided for @languageNative_tr.
+  ///
+  /// In en, this message translates to:
+  /// **'Türkçe'**
+  String get languageNative_tr;
+
+  /// No description provided for @languageNative_es.
+  ///
+  /// In en, this message translates to:
+  /// **'Español'**
+  String get languageNative_es;
+
+  /// No description provided for @languageNative_pt.
+  ///
+  /// In en, this message translates to:
+  /// **'Português (Brasil)'**
+  String get languageNative_pt;
+
+  /// No description provided for @languageNative_fr.
+  ///
+  /// In en, this message translates to:
+  /// **'Français'**
+  String get languageNative_fr;
+
+  /// No description provided for @languageNative_de.
+  ///
+  /// In en, this message translates to:
+  /// **'Deutsch'**
+  String get languageNative_de;
+
+  /// No description provided for @languageNative_it.
+  ///
+  /// In en, this message translates to:
+  /// **'Italiano'**
+  String get languageNative_it;
+
+  /// No description provided for @languageNative_ru.
+  ///
+  /// In en, this message translates to:
+  /// **'Русский'**
+  String get languageNative_ru;
+
+  /// No description provided for @languageNative_ar.
+  ///
+  /// In en, this message translates to:
+  /// **'العربية'**
+  String get languageNative_ar;
+
+  /// No description provided for @languageNative_hi.
+  ///
+  /// In en, this message translates to:
+  /// **'हिन्दी'**
+  String get languageNative_hi;
+
+  /// No description provided for @languageNative_id.
+  ///
+  /// In en, this message translates to:
+  /// **'Bahasa Indonesia'**
+  String get languageNative_id;
+
+  /// No description provided for @languageNative_ja.
+  ///
+  /// In en, this message translates to:
+  /// **'日本語'**
+  String get languageNative_ja;
+
+  /// No description provided for @languageNative_ko.
+  ///
+  /// In en, this message translates to:
+  /// **'한국어'**
+  String get languageNative_ko;
+
+  /// No description provided for @languageNative_zh.
+  ///
+  /// In en, this message translates to:
+  /// **'简体中文'**
+  String get languageNative_zh;
+
+  /// No description provided for @languageNative_vi.
+  ///
+  /// In en, this message translates to:
+  /// **'Tiếng Việt'**
+  String get languageNative_vi;
 }
 
 class _AppLocalizationsDelegate

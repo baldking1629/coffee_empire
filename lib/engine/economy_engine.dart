@@ -1,7 +1,9 @@
 import 'package:equatable/equatable.dart';
 
+import '../config/achievement_config.dart';
 import '../config/economy_config.dart';
 import '../core/bignumber/big_number.dart';
+import 'achievement_math.dart';
 import 'boost_math.dart';
 import 'daily_reward_math.dart';
 import 'franchise_math.dart';
@@ -22,6 +24,7 @@ class IncomeInputs extends Equatable {
     this.boostMultiplier = 1,
     this.vip = false,
     this.starterPack = false,
+    this.achievementCount = 0,
   });
 
   final Map<String, int> shopLevels;
@@ -34,6 +37,7 @@ class IncomeInputs extends Equatable {
   final double boostMultiplier;
   final bool vip;
   final bool starterPack;
+  final int achievementCount;
 
   @override
   List<Object?> get props => [
@@ -47,18 +51,25 @@ class IncomeInputs extends Equatable {
     boostMultiplier,
     vip,
     starterPack,
+    achievementCount,
   ];
 }
 
 class EconomyEngine {
-  EconomyEngine(this.config)
-    : shopMath = ShopMath(config.shopRules),
-      labMath = LabMath(lab: config.lab, capsule: config.capsule),
-      franchiseMath = FranchiseMath(config.franchise),
-      prestigeMath = PrestigeMath(config.prestige),
-      offlineMath = OfflineMath(config.offline),
-      boostMath = BoostMath(rewarded: config.rewarded, iap: config.iap),
-      dailyRewardMath = DailyRewardMath(config.dailyReward);
+  EconomyEngine(
+    this.config, {
+    AchievementCatalog achievements = AchievementCatalog.empty,
+  }) : achievementMath = AchievementMath(
+         achievements,
+         bonusPerAchievement: config.achievementBonus,
+       ),
+       shopMath = ShopMath(config.shopRules),
+       labMath = LabMath(lab: config.lab, capsule: config.capsule),
+       franchiseMath = FranchiseMath(config.franchise),
+       prestigeMath = PrestigeMath(config.prestige),
+       offlineMath = OfflineMath(config.offline),
+       boostMath = BoostMath(rewarded: config.rewarded, iap: config.iap),
+       dailyRewardMath = DailyRewardMath(config.dailyReward);
 
   final EconomyConfig config;
   final ShopMath shopMath;
@@ -68,6 +79,7 @@ class EconomyEngine {
   final OfflineMath offlineMath;
   final BoostMath boostMath;
   final DailyRewardMath dailyRewardMath;
+  final AchievementMath achievementMath;
 
   BigNumber shopsIncomePerSec(IncomeInputs inputs) {
     var total = BigNumber.zero;
@@ -85,6 +97,7 @@ class EconomyEngine {
   BigNumber globalMultiplier(IncomeInputs inputs) =>
       prestigeMath.beanMultiplier(inputs.goldenBeans) *
       labMath.labBonusMultiplier(inputs.recipeBestScores) *
+      achievementMath.multiplier(inputs.achievementCount) *
       BigNumber.fromDouble(
         inputs.boostMultiplier *
             boostMath.vipMultiplier(vip: inputs.vip) *

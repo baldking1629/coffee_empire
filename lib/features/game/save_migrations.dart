@@ -7,12 +7,13 @@ class SaveMigrations {
     this.steps = defaultSteps,
   });
 
-  static const int latestSchemaVersion = 4;
+  static const int latestSchemaVersion = 5;
   static const String versionKey = 'schemaVersion';
   static const Map<int, SaveMigration> defaultSteps = {
     1: _addLab,
     2: _addFranchises,
     3: _addStore,
+    4: _addAchievements,
   };
 
   final int currentVersion;
@@ -52,5 +53,10 @@ class SaveMigrations {
     'purchases': json['purchases'] ?? <dynamic>[],
     'rewardedCooldowns': json['rewardedCooldowns'] ?? <String, dynamic>{},
     'dailyReward': json['dailyReward'] ?? <String, dynamic>{'streak': 0},
+  };
+
+  static SaveJson _addAchievements(SaveJson json) => {
+    ...json,
+    'achievements': json['achievements'] ?? <dynamic>[],
   };
 }
