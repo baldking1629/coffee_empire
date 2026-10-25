@@ -1,5 +1,6 @@
 import '../../core/bignumber/big_number.dart';
 import '../../engine/boost_math.dart';
+import '../../engine/cafe_layout.dart';
 import '../daily_reward/daily_reward_state.dart';
 import '../lab/lab_state.dart';
 import '../store/store_state.dart';
@@ -51,6 +52,8 @@ GameState gameStateFromJson(JsonMap json) {
     tutorialStep: _int(json['tutorialStep']),
     settings: GameSettings.fromJson(json['settings'] as JsonMap),
     savedAt: savedAt == null ? null : DateTime.parse(savedAt).toUtc(),
+    cafeLayout: CafeLayout.fromJson(json['cafeLayout'] as JsonMap),
+    inventory: _intMap(json['inventory']),
   );
 }
 
@@ -77,6 +80,8 @@ JsonMap gameStateToJson(GameState state) => {
   'stats': state.stats.toJson(),
   'tutorialStep': state.tutorialStep,
   'settings': state.settings.toJson(),
+  'cafeLayout': state.cafeLayout.toJson(),
+  'inventory': state.inventory,
   if (state.savedAt != null)
     'savedAt': state.savedAt?.toUtc().toIso8601String(),
 };

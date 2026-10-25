@@ -170,6 +170,16 @@
    "apron_shade": "#B48A2A",
    "shirt": "#F7F1E3",
    "shirt_shade": "#D9D2C5"
+  },
+  "wood_white": {
+   "wood_dark": "#9C9488",
+   "wood_mid": "#CFC8BC",
+   "wood_light": "#EDE7DC"
+  },
+  "wood_black": {
+   "wood_dark": "#1F1914",
+   "wood_mid": "#35291F",
+   "wood_light": "#4D3C2E"
   }
  }
 }

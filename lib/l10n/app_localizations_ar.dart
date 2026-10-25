@@ -921,4 +921,138 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get drink_cold_brew => 'قهوة باردة';
+
+  @override
+  String get editLayout => 'تعديل';
+
+  @override
+  String get editDone => 'تم';
+
+  @override
+  String get editHint => 'انقر على قطعة أثاث لتحريكها.';
+
+  @override
+  String get editRotate => 'تدوير';
+
+  @override
+  String get editStore => 'تخزين';
+
+  @override
+  String get editPlace => 'وضع';
+
+  @override
+  String get editCancel => 'إلغاء';
+
+  @override
+  String get editInvalid => 'لا يمكن الوضع هنا';
+
+  @override
+  String get furnitureCatalog => 'الأثاث';
+
+  @override
+  String furnitureOwned(int count) {
+    return 'في المخزن: $count';
+  }
+
+  @override
+  String furnitureAppeal(int appeal) {
+    return '+$appeal جاذبية';
+  }
+
+  @override
+  String furnitureLocked(String shop) {
+    return 'يُفتح مع $shop';
+  }
+
+  @override
+  String cafeAppealSummary(int appeal, String multiplier) {
+    return 'الجاذبية $appeal · الدخل ×$multiplier';
+  }
+
+  @override
+  String get furnitureCategorySeating => 'المقاعد';
+
+  @override
+  String get furnitureCategoryTable => 'الطاولات';
+
+  @override
+  String get furnitureCategoryDecor => 'الديكور';
+
+  @override
+  String get furnitureCategoryLighting => 'الإضاءة';
+
+  @override
+  String get furnitureCategoryCounter => 'إضافات المنضدة';
+
+  @override
+  String get furniture_chair => 'كرسي خشبي';
+
+  @override
+  String get furniture_stool => 'مقعد صغير';
+
+  @override
+  String get furniture_chair_white => 'كرسي أبيض';
+
+  @override
+  String get furniture_bench => 'مقعد طويل';
+
+  @override
+  String get furniture_armchair => 'كرسي مريح';
+
+  @override
+  String get furniture_sofa => 'أريكة';
+
+  @override
+  String get furniture_table => 'طاولة';
+
+  @override
+  String get furniture_table_round => 'طاولة مستديرة';
+
+  @override
+  String get furniture_table_long => 'طاولة طويلة';
+
+  @override
+  String get furniture_table_bar => 'طاولة بار';
+
+  @override
+  String get furniture_table_marble => 'طاولة رخامية';
+
+  @override
+  String get furniture_plant => 'نبتة في أصيص';
+
+  @override
+  String get furniture_painting => 'لوحة';
+
+  @override
+  String get furniture_shelf => 'رف';
+
+  @override
+  String get furniture_rug => 'سجادة';
+
+  @override
+  String get furniture_bookcase => 'مكتبة كتب';
+
+  @override
+  String get furniture_record_player => 'مشغل أسطوانات';
+
+  @override
+  String get furniture_neon_sign => 'لافتة نيون';
+
+  @override
+  String get furniture_aquarium => 'حوض أسماك';
+
+  @override
+  String get furniture_floor_lamp => 'مصباح أرضي';
+
+  @override
+  String get furniture_lantern => 'فانوس';
+
+  @override
+  String get furniture_light_pillar => 'عمود إضاءة';
+
+  @override
+  String get furniture_pastry_case => 'واجهة حلويات';
+
+  @override
+  String get furniture_drink_fridge => 'ثلاجة مشروبات';
 }

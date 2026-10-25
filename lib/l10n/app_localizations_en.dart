@@ -919,4 +919,138 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get drink_cold_brew => 'Cold Brew';
+
+  @override
+  String get editLayout => 'Edit';
+
+  @override
+  String get editDone => 'Done';
+
+  @override
+  String get editHint => 'Tap a piece of furniture to move it.';
+
+  @override
+  String get editRotate => 'Rotate';
+
+  @override
+  String get editStore => 'Store';
+
+  @override
+  String get editPlace => 'Place';
+
+  @override
+  String get editCancel => 'Cancel';
+
+  @override
+  String get editInvalid => 'Can\'t place here';
+
+  @override
+  String get furnitureCatalog => 'Furniture';
+
+  @override
+  String furnitureOwned(int count) {
+    return 'In storage: $count';
+  }
+
+  @override
+  String furnitureAppeal(int appeal) {
+    return '+$appeal appeal';
+  }
+
+  @override
+  String furnitureLocked(String shop) {
+    return 'Unlocks with $shop';
+  }
+
+  @override
+  String cafeAppealSummary(int appeal, String multiplier) {
+    return 'Appeal $appeal · income ×$multiplier';
+  }
+
+  @override
+  String get furnitureCategorySeating => 'Seating';
+
+  @override
+  String get furnitureCategoryTable => 'Tables';
+
+  @override
+  String get furnitureCategoryDecor => 'Decor';
+
+  @override
+  String get furnitureCategoryLighting => 'Lighting';
+
+  @override
+  String get furnitureCategoryCounter => 'Counter add-ons';
+
+  @override
+  String get furniture_chair => 'Wooden Chair';
+
+  @override
+  String get furniture_stool => 'Stool';
+
+  @override
+  String get furniture_chair_white => 'White Chair';
+
+  @override
+  String get furniture_bench => 'Bench';
+
+  @override
+  String get furniture_armchair => 'Armchair';
+
+  @override
+  String get furniture_sofa => 'Sofa';
+
+  @override
+  String get furniture_table => 'Table';
+
+  @override
+  String get furniture_table_round => 'Round Table';
+
+  @override
+  String get furniture_table_long => 'Long Table';
+
+  @override
+  String get furniture_table_bar => 'Bar Table';
+
+  @override
+  String get furniture_table_marble => 'Marble Table';
+
+  @override
+  String get furniture_plant => 'Potted Plant';
+
+  @override
+  String get furniture_painting => 'Painting';
+
+  @override
+  String get furniture_shelf => 'Shelf';
+
+  @override
+  String get furniture_rug => 'Rug';
+
+  @override
+  String get furniture_bookcase => 'Bookcase';
+
+  @override
+  String get furniture_record_player => 'Record Player';
+
+  @override
+  String get furniture_neon_sign => 'Neon Sign';
+
+  @override
+  String get furniture_aquarium => 'Aquarium';
+
+  @override
+  String get furniture_floor_lamp => 'Floor Lamp';
+
+  @override
+  String get furniture_lantern => 'Lantern';
+
+  @override
+  String get furniture_light_pillar => 'Light Pillar';
+
+  @override
+  String get furniture_pastry_case => 'Pastry Case';
+
+  @override
+  String get furniture_drink_fridge => 'Drink Fridge';
 }

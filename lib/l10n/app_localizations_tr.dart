@@ -921,4 +921,138 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get drink_cold_brew => 'Soğuk Demleme';
+
+  @override
+  String get editLayout => 'Düzenle';
+
+  @override
+  String get editDone => 'Bitti';
+
+  @override
+  String get editHint => 'Taşımak için bir mobilyaya dokun.';
+
+  @override
+  String get editRotate => 'Döndür';
+
+  @override
+  String get editStore => 'Depoya kaldır';
+
+  @override
+  String get editPlace => 'Yerleştir';
+
+  @override
+  String get editCancel => 'Vazgeç';
+
+  @override
+  String get editInvalid => 'Buraya yerleştirilemez';
+
+  @override
+  String get furnitureCatalog => 'Mobilya';
+
+  @override
+  String furnitureOwned(int count) {
+    return 'Depoda: $count';
+  }
+
+  @override
+  String furnitureAppeal(int appeal) {
+    return '+$appeal çekicilik';
+  }
+
+  @override
+  String furnitureLocked(String shop) {
+    return '$shop ile açılır';
+  }
+
+  @override
+  String cafeAppealSummary(int appeal, String multiplier) {
+    return 'Çekicilik $appeal · gelir ×$multiplier';
+  }
+
+  @override
+  String get furnitureCategorySeating => 'Oturma';
+
+  @override
+  String get furnitureCategoryTable => 'Masalar';
+
+  @override
+  String get furnitureCategoryDecor => 'Dekor';
+
+  @override
+  String get furnitureCategoryLighting => 'Aydınlatma';
+
+  @override
+  String get furnitureCategoryCounter => 'Tezgah ekleri';
+
+  @override
+  String get furniture_chair => 'Ahşap Sandalye';
+
+  @override
+  String get furniture_stool => 'Tabure';
+
+  @override
+  String get furniture_chair_white => 'Beyaz Sandalye';
+
+  @override
+  String get furniture_bench => 'Bank';
+
+  @override
+  String get furniture_armchair => 'Berjer';
+
+  @override
+  String get furniture_sofa => 'Kanepe';
+
+  @override
+  String get furniture_table => 'Masa';
+
+  @override
+  String get furniture_table_round => 'Yuvarlak Masa';
+
+  @override
+  String get furniture_table_long => 'Uzun Masa';
+
+  @override
+  String get furniture_table_bar => 'Bar Masası';
+
+  @override
+  String get furniture_table_marble => 'Mermer Masa';
+
+  @override
+  String get furniture_plant => 'Saksı Bitkisi';
+
+  @override
+  String get furniture_painting => 'Tablo';
+
+  @override
+  String get furniture_shelf => 'Raf';
+
+  @override
+  String get furniture_rug => 'Halı';
+
+  @override
+  String get furniture_bookcase => 'Kitaplık';
+
+  @override
+  String get furniture_record_player => 'Plak Çalar';
+
+  @override
+  String get furniture_neon_sign => 'Neon Tabela';
+
+  @override
+  String get furniture_aquarium => 'Akvaryum';
+
+  @override
+  String get furniture_floor_lamp => 'Lambader';
+
+  @override
+  String get furniture_lantern => 'Fener';
+
+  @override
+  String get furniture_light_pillar => 'Işık Sütunu';
+
+  @override
+  String get furniture_pastry_case => 'Pasta Vitrini';
+
+  @override
+  String get furniture_drink_fridge => 'İçecek Dolabı';
 }

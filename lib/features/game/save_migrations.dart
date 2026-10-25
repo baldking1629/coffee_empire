@@ -7,7 +7,7 @@ class SaveMigrations {
     this.steps = defaultSteps,
   });
 
-  static const int latestSchemaVersion = 6;
+  static const int latestSchemaVersion = 7;
   static const String versionKey = 'schemaVersion';
   static const Map<int, SaveMigration> defaultSteps = {
     1: _addLab,
@@ -15,6 +15,7 @@ class SaveMigrations {
     3: _addStore,
     4: _addAchievements,
     5: _addServiceStats,
+    6: _addCafeLayout,
   };
 
   final int currentVersion;
@@ -70,4 +71,12 @@ class SaveMigrations {
     }
     return {...json, 'stats': stats};
   }
+
+  static SaveJson _addCafeLayout(SaveJson json) => {
+    ...json,
+    'cafeLayout':
+        json['cafeLayout'] ??
+        <String, dynamic>{'roomTier': 1, 'items': <dynamic>[]},
+    'inventory': json['inventory'] ?? <String, dynamic>{},
+  };
 }

@@ -1,4 +1,5 @@
 import '../config/cafe_config.dart';
+import 'cafe_layout.dart';
 
 class CafeFloorPlan {
   const CafeFloorPlan({
@@ -10,36 +11,30 @@ class CafeFloorPlan {
     required this.blocked,
   });
 
-  factory CafeFloorPlan.fromLayout(
-    CafeLayoutConfig layout,
-    Map<String, FixtureConfig> fixtures, {
+  factory CafeFloorPlan.build({
+    required CafeRoom room,
+    required Iterable<LayoutItem> items,
+    required CafeCatalog catalog,
     required int laneLength,
   }) {
     final blocked = <GridCell>{
-      for (var y = 0; y < layout.queueHead.y; y++)
-        for (var x = 0; x < layout.cols; x++) (x: x, y: y),
+      for (var y = 0; y < room.queueHead.y; y++)
+        for (var x = 0; x < room.cols; x++) (x: x, y: y),
     };
     final seats = <GridCell>[];
-    for (final item in layout.items) {
-      final fixture = fixtures[item.itemId];
-      if (fixture == null) continue;
-      for (var dy = 0; dy < fixture.height; dy++) {
-        for (var dx = 0; dx < fixture.width; dx++) {
-          final cell = (x: item.x + dx, y: item.y + dy);
-          if (fixture.blocksWalk) blocked.add(cell);
-          if (fixture.isSeat) seats.add(cell);
-        }
+    for (final item in [...room.fixedItems, ...items]) {
+      final shape = catalog.shapeOf(item.itemId);
+      if (shape == null) continue;
+      for (final cell in item.cellsFor(shape)) {
+        if (shape.blocksWalk) blocked.add(cell);
+        if (shape.isSeat) seats.add(cell);
       }
     }
-    final lane = [
-      for (var i = 0; i < laneLength; i++)
-        (x: layout.queueHead.x, y: layout.queueHead.y + i),
-    ];
     return CafeFloorPlan(
-      cols: layout.cols,
-      rows: layout.rows,
-      door: layout.door,
-      lane: lane,
+      cols: room.cols,
+      rows: room.rows,
+      door: room.door,
+      lane: room.laneCells(laneLength),
       seats: seats,
       blocked: blocked,
     );

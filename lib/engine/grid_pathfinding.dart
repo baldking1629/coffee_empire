@@ -18,6 +18,21 @@ class GridPathfinder {
   bool isInside(GridCell cell) =>
       cell.x >= 0 && cell.y >= 0 && cell.x < cols && cell.y < rows;
 
+  Set<GridCell> reachableFrom(GridCell start, Set<GridCell> blocked) {
+    if (!isInside(start) || blocked.contains(start)) return const {};
+    final visited = <GridCell>{start};
+    final frontier = Queue<GridCell>()..add(start);
+    while (frontier.isNotEmpty) {
+      final current = frontier.removeFirst();
+      for (final step in _directions) {
+        final next = (x: current.x + step.x, y: current.y + step.y);
+        if (!isInside(next) || blocked.contains(next)) continue;
+        if (visited.add(next)) frontier.add(next);
+      }
+    }
+    return visited;
+  }
+
   List<GridCell>? findPath({
     required GridCell from,
     required GridCell to,

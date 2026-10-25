@@ -918,4 +918,138 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get drink_cold_brew => 'कोल्ड ब्रू';
+
+  @override
+  String get editLayout => 'संपादित करें';
+
+  @override
+  String get editDone => 'हो गया';
+
+  @override
+  String get editHint => 'फ़र्नीचर हटाने के लिए उस पर टैप करें।';
+
+  @override
+  String get editRotate => 'घुमाएँ';
+
+  @override
+  String get editStore => 'भंडार में रखें';
+
+  @override
+  String get editPlace => 'रखें';
+
+  @override
+  String get editCancel => 'रद्द करें';
+
+  @override
+  String get editInvalid => 'यहाँ नहीं रखा जा सकता';
+
+  @override
+  String get furnitureCatalog => 'फ़र्नीचर';
+
+  @override
+  String furnitureOwned(int count) {
+    return 'भंडार में: $count';
+  }
+
+  @override
+  String furnitureAppeal(int appeal) {
+    return '+$appeal आकर्षण';
+  }
+
+  @override
+  String furnitureLocked(String shop) {
+    return '$shop से खुलता है';
+  }
+
+  @override
+  String cafeAppealSummary(int appeal, String multiplier) {
+    return 'आकर्षण $appeal · आय ×$multiplier';
+  }
+
+  @override
+  String get furnitureCategorySeating => 'बैठने की जगह';
+
+  @override
+  String get furnitureCategoryTable => 'मेज़ें';
+
+  @override
+  String get furnitureCategoryDecor => 'सजावट';
+
+  @override
+  String get furnitureCategoryLighting => 'रोशनी';
+
+  @override
+  String get furnitureCategoryCounter => 'काउंटर एक्सटेंशन';
+
+  @override
+  String get furniture_chair => 'लकड़ी की कुर्सी';
+
+  @override
+  String get furniture_stool => 'स्टूल';
+
+  @override
+  String get furniture_chair_white => 'सफ़ेद कुर्सी';
+
+  @override
+  String get furniture_bench => 'बेंच';
+
+  @override
+  String get furniture_armchair => 'आरामकुर्सी';
+
+  @override
+  String get furniture_sofa => 'सोफ़ा';
+
+  @override
+  String get furniture_table => 'मेज़';
+
+  @override
+  String get furniture_table_round => 'गोल मेज़';
+
+  @override
+  String get furniture_table_long => 'लंबी मेज़';
+
+  @override
+  String get furniture_table_bar => 'बार मेज़';
+
+  @override
+  String get furniture_table_marble => 'संगमरमर की मेज़';
+
+  @override
+  String get furniture_plant => 'गमले का पौधा';
+
+  @override
+  String get furniture_painting => 'पेंटिंग';
+
+  @override
+  String get furniture_shelf => 'शेल्फ़';
+
+  @override
+  String get furniture_rug => 'कालीन';
+
+  @override
+  String get furniture_bookcase => 'किताबों की अलमारी';
+
+  @override
+  String get furniture_record_player => 'रिकॉर्ड प्लेयर';
+
+  @override
+  String get furniture_neon_sign => 'नियॉन साइन';
+
+  @override
+  String get furniture_aquarium => 'एक्वेरियम';
+
+  @override
+  String get furniture_floor_lamp => 'फ़्लोर लैंप';
+
+  @override
+  String get furniture_lantern => 'लालटेन';
+
+  @override
+  String get furniture_light_pillar => 'प्रकाश स्तंभ';
+
+  @override
+  String get furniture_pastry_case => 'पेस्ट्री शोकेस';
+
+  @override
+  String get furniture_drink_fridge => 'ड्रिंक फ़्रिज';
 }

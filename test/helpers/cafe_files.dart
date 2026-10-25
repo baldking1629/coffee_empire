@@ -11,9 +11,7 @@ CafeCatalog loadCafeCatalog() => CafeCatalog.fromJsonString(
 );
 
 final SpriteAtlas testAtlas = loadAtlas();
-final CafeCatalog testCafeCatalog = loadCafeCatalog();
 
 List<RepositoryProvider<Object>> cafeProviders() => [
   RepositoryProvider<SpriteAtlas>.value(value: testAtlas),
-  RepositoryProvider<CafeCatalog>.value(value: testCafeCatalog),
 ];

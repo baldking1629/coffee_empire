@@ -4,10 +4,12 @@ import '../config/achievement_config.dart';
 import '../config/economy_config.dart';
 import '../core/bignumber/big_number.dart';
 import 'achievement_math.dart';
+import 'appeal_math.dart';
 import 'boost_math.dart';
 import 'daily_reward_math.dart';
 import 'franchise_math.dart';
 import 'lab_math.dart';
+import 'layout_rules.dart';
 import 'offline_math.dart';
 import 'prestige_math.dart';
 import 'service_math.dart';
@@ -26,6 +28,7 @@ class IncomeInputs extends Equatable {
     this.vip = false,
     this.starterPack = false,
     this.achievementCount = 0,
+    this.appeal = 0,
   });
 
   final Map<String, int> shopLevels;
@@ -39,6 +42,7 @@ class IncomeInputs extends Equatable {
   final bool vip;
   final bool starterPack;
   final int achievementCount;
+  final int appeal;
 
   @override
   List<Object?> get props => [
@@ -53,6 +57,7 @@ class IncomeInputs extends Equatable {
     vip,
     starterPack,
     achievementCount,
+    appeal,
   ];
 }
 
@@ -71,7 +76,14 @@ class EconomyEngine {
        offlineMath = OfflineMath(config.offline),
        boostMath = BoostMath(rewarded: config.rewarded, iap: config.iap),
        dailyRewardMath = DailyRewardMath(config.dailyReward),
-       serviceMath = ServiceMath(service: config.service, tap: config.tap);
+       serviceMath = ServiceMath(service: config.service, tap: config.tap),
+       appealMath = AppealMath(rules: config.cafeRules, catalog: config.cafe),
+       layoutRules = LayoutRules(
+         catalog: config.cafe,
+         rules: config.cafeRules,
+         shops: config.shops,
+         laneLength: config.service.queueCapacity,
+       );
 
   final EconomyConfig config;
   final ShopMath shopMath;
@@ -83,6 +95,8 @@ class EconomyEngine {
   final DailyRewardMath dailyRewardMath;
   final AchievementMath achievementMath;
   final ServiceMath serviceMath;
+  final AppealMath appealMath;
+  final LayoutRules layoutRules;
 
   BigNumber shopsIncomePerSec(IncomeInputs inputs) {
     var total = BigNumber.zero;
@@ -104,7 +118,8 @@ class EconomyEngine {
       BigNumber.fromDouble(
         inputs.boostMultiplier *
             boostMath.vipMultiplier(vip: inputs.vip) *
-            boostMath.starterPackMultiplier(owned: inputs.starterPack),
+            boostMath.starterPackMultiplier(owned: inputs.starterPack) *
+            appealMath.multiplier(inputs.appeal),
       );
 
   BigNumber totalIncomePerSec(IncomeInputs inputs) {

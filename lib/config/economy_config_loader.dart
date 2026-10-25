@@ -14,16 +14,12 @@ class EconomyConfigLoader {
 
   Future<EconomyConfig> load() async {
     final source = await bundle.loadString(assetPath);
-    return EconomyConfig.fromJsonString(source);
+    final cafeSource = await bundle.loadString(furniturePath);
+    return EconomyConfig.fromJsonString(source, cafeSource: cafeSource);
   }
 
   Future<AchievementCatalog> loadAchievements() async {
     final source = await bundle.loadString(achievementsPath);
     return AchievementCatalog.fromJsonString(source);
-  }
-
-  Future<CafeCatalog> loadCafeCatalog() async {
-    final source = await bundle.loadString(furniturePath);
-    return CafeCatalog.fromJsonString(source);
   }
 }

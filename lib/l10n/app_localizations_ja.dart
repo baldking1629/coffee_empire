@@ -910,4 +910,138 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get drink_cold_brew => 'コールドブリュー';
+
+  @override
+  String get editLayout => '編集';
+
+  @override
+  String get editDone => '完了';
+
+  @override
+  String get editHint => '家具をタップして移動します。';
+
+  @override
+  String get editRotate => '回転';
+
+  @override
+  String get editStore => 'しまう';
+
+  @override
+  String get editPlace => '置く';
+
+  @override
+  String get editCancel => 'キャンセル';
+
+  @override
+  String get editInvalid => 'ここには置けません';
+
+  @override
+  String get furnitureCatalog => '家具';
+
+  @override
+  String furnitureOwned(int count) {
+    return '倉庫: $count';
+  }
+
+  @override
+  String furnitureAppeal(int appeal) {
+    return '魅力 +$appeal';
+  }
+
+  @override
+  String furnitureLocked(String shop) {
+    return '$shopで解放';
+  }
+
+  @override
+  String cafeAppealSummary(int appeal, String multiplier) {
+    return '魅力 $appeal · 収入 ×$multiplier';
+  }
+
+  @override
+  String get furnitureCategorySeating => '座席';
+
+  @override
+  String get furnitureCategoryTable => 'テーブル';
+
+  @override
+  String get furnitureCategoryDecor => 'インテリア';
+
+  @override
+  String get furnitureCategoryLighting => '照明';
+
+  @override
+  String get furnitureCategoryCounter => 'カウンター拡張';
+
+  @override
+  String get furniture_chair => '木の椅子';
+
+  @override
+  String get furniture_stool => 'スツール';
+
+  @override
+  String get furniture_chair_white => '白い椅子';
+
+  @override
+  String get furniture_bench => 'ベンチ';
+
+  @override
+  String get furniture_armchair => 'アームチェア';
+
+  @override
+  String get furniture_sofa => 'ソファ';
+
+  @override
+  String get furniture_table => 'テーブル';
+
+  @override
+  String get furniture_table_round => '丸テーブル';
+
+  @override
+  String get furniture_table_long => 'ロングテーブル';
+
+  @override
+  String get furniture_table_bar => 'バーテーブル';
+
+  @override
+  String get furniture_table_marble => '大理石テーブル';
+
+  @override
+  String get furniture_plant => '鉢植え';
+
+  @override
+  String get furniture_painting => '絵画';
+
+  @override
+  String get furniture_shelf => '棚';
+
+  @override
+  String get furniture_rug => 'ラグ';
+
+  @override
+  String get furniture_bookcase => '本棚';
+
+  @override
+  String get furniture_record_player => 'レコードプレーヤー';
+
+  @override
+  String get furniture_neon_sign => 'ネオンサイン';
+
+  @override
+  String get furniture_aquarium => '水槽';
+
+  @override
+  String get furniture_floor_lamp => 'フロアランプ';
+
+  @override
+  String get furniture_lantern => 'ランタン';
+
+  @override
+  String get furniture_light_pillar => 'ライトポール';
+
+  @override
+  String get furniture_pastry_case => 'ケーキショーケース';
+
+  @override
+  String get furniture_drink_fridge => 'ドリンク冷蔵庫';
 }

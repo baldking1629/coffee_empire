@@ -5,9 +5,11 @@ import 'package:flutter/foundation.dart';
 
 import '../core/bignumber/big_number.dart';
 import '../engine/cafe_customer.dart';
+import '../engine/cafe_layout.dart';
 import '../features/game/game_cubit.dart';
 import '../features/game/game_state.dart';
 import 'cafe_game.dart';
+import 'edit/edit_mode_controller.dart';
 
 class PlayerOrder extends Equatable {
   const PlayerOrder({
@@ -27,12 +29,19 @@ class PlayerOrder extends Equatable {
   List<Object?> get props => [customerId, drinkId, ready];
 }
 
-typedef StaffSetup = ({int npc, bool vip, List<String> drinks, int managers});
+typedef StaffSetup = ({
+  int npc,
+  bool vip,
+  List<String> drinks,
+  int managers,
+  int appeal,
+});
 
 class CafeBridge {
-  CafeBridge({required this.cubit});
+  CafeBridge({required this.cubit}) : editor = EditModeController(cubit: cubit);
 
   final GameCubit cubit;
+  final EditModeController editor;
   final ValueNotifier<PlayerOrder?> playerOrder = ValueNotifier(null);
   String Function(BigNumber amount) formatGain = _plainGain;
   String perfectLabel = '';
@@ -40,6 +49,7 @@ class CafeBridge {
   CafeGame? _game;
   StreamSubscription<GameState>? _subscription;
   StaffSetup? _staff;
+  CafeLayout? _layout;
 
   static String _plainGain(BigNumber amount) => amount.toJson();
 
@@ -50,8 +60,35 @@ class CafeBridge {
 
   void attach(CafeGame game) {
     _game = game;
-    _syncStaff(cubit.state);
-    _subscription = cubit.stream.listen(_syncStaff);
+    _layout = cubit.state.cafeLayout;
+    _onState(cubit.state);
+    _subscription = cubit.stream.listen(_onState);
+  }
+
+  void _onState(GameState state) {
+    _syncLayout(state);
+    _syncStaff(state);
+  }
+
+  void _syncLayout(GameState state) {
+    final game = _game;
+    if (game == null || state.cafeLayout == _layout) return;
+    _layout = state.cafeLayout;
+    playerOrder.value = null;
+    game.applyLayout(cubit.cafeRoom, state.cafeLayout.items);
+    editor.refresh();
+  }
+
+  void setEditing(bool editing) {
+    final game = _game;
+    if (editing) {
+      editor.enter();
+      playerOrder.value = null;
+      cubit.resetBrew();
+    } else {
+      editor.exit();
+    }
+    game?.setEditing(editing ? editor : null);
   }
 
   void _syncStaff(GameState state) {
@@ -64,12 +101,13 @@ class CafeBridge {
       vip: state.store.isVip,
       drinks: cubit.availableDrinks(state),
       managers: managers,
+      appeal: cubit.engine.appealMath.appealOf(state.cafeLayout.items),
     );
     if (setup == _staff) return;
     _staff = setup;
     game
       ..drinks = setup.drinks
-      ..arrivalSeconds = service.arrivalSeconds(0)
+      ..arrivalSeconds = service.arrivalSeconds(setup.appeal.toDouble())
       ..autoServeSeconds = service.autoServeSeconds(managers)
       ..configureStaff(npcBaristas: setup.npc, vip: setup.vip);
   }
@@ -156,5 +194,6 @@ class CafeBridge {
   void dispose() {
     _subscription?.cancel();
     playerOrder.dispose();
+    editor.dispose();
   }
 }

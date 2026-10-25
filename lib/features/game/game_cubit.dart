@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:uuid/uuid.dart';
 
 import '../../config/achievement_config.dart';
 import '../../config/economy_config.dart';
@@ -10,7 +11,9 @@ import '../../core/services/monetization_service.dart';
 import '../../core/time/clock.dart';
 import '../../engine/achievement_math.dart';
 import '../../engine/barista_math.dart';
+import '../../engine/cafe_layout.dart';
 import '../../engine/economy_engine.dart';
+import '../../engine/layout_rules.dart';
 import '../../engine/service_math.dart';
 import '../../engine/shop_math.dart';
 import '../daily_reward/daily_reward_actions.dart';
@@ -27,6 +30,7 @@ import 'offline_actions.dart';
 import 'save_repository.dart';
 
 part 'game_cubit_commands.dart';
+part 'game_cubit_layout.dart';
 part 'game_cubit_service.dart';
 
 abstract class _GameCubitCore extends Cubit<GameState> {
@@ -82,7 +86,9 @@ abstract class _GameCubitCore extends Cubit<GameState> {
 
   void _restore() {
     final now = clock.now();
-    final restoredState = _withIncome(lab.completeDueBrew(state, now).state);
+    final restoredState = _withIncome(
+      _withStarterCafe(lab.completeDueBrew(state, now).state),
+    );
     emit(
       _offline.applyAway(
         restoredState,
@@ -150,6 +156,7 @@ abstract class _GameCubitCore extends Cubit<GameState> {
         vip: source.store.isVip,
         starterPack: source.store.hasStarterPack,
         achievementCount: source.achievements.length,
+        appeal: engine.appealMath.appealOf(source.cafeLayout.items),
       );
 
   AchievementProgress achievementProgressOf(GameState source) =>
@@ -165,8 +172,32 @@ abstract class _GameCubitCore extends Cubit<GameState> {
         totalTaps: source.stats.totalTaps,
       );
 
+  GameState _withStarterCafe(GameState source) {
+    final starter = engine.config.cafe.defaultLayout.items;
+    if (starter.isEmpty ||
+        source.cafeLayout.items.isNotEmpty ||
+        source.inventory.isNotEmpty) {
+      return source;
+    }
+    return source.copyWith(
+      cafeLayout: source.cafeLayout.copyWith(items: starter),
+    );
+  }
+
+  GameState _withRoomTier(GameState source) {
+    final opened = source.shopLevels.values.where((level) => level > 0).length;
+    final tier = engine.layoutRules.roomTierFor(
+      opened,
+      current: source.cafeLayout.roomTier,
+    );
+    if (tier == source.cafeLayout.roomTier) return source;
+    return source.copyWith(
+      cafeLayout: source.cafeLayout.copyWith(roomTier: tier),
+    );
+  }
+
   GameState _evaluateProgress(GameState source, {int? openedTab}) {
-    var next = source;
+    var next = _withRoomTier(source);
     final unlocked = engine.achievementMath.newlyUnlocked(
       source.achievements,
       achievementProgressOf(source),
@@ -225,7 +256,12 @@ abstract class _GameCubitCore extends Cubit<GameState> {
 }
 
 class GameCubit extends _GameCubitCore
-    with _ProgressCommands, _StoreCommands, _MetaCommands, _ServiceCommands {
+    with
+        _ProgressCommands,
+        _StoreCommands,
+        _MetaCommands,
+        _ServiceCommands,
+        _LayoutCommands {
   GameCubit({
     required EconomyConfig config,
     required SaveRepository repository,

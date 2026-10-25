@@ -8,6 +8,8 @@ import 'package:coffee_empire/engine/lab_math.dart';
 import 'package:coffee_empire/features/game/game_settings.dart';
 import 'package:coffee_empire/features/game/game_state.dart';
 import 'package:coffee_empire/features/cafe_hud/service_hud.dart';
+import 'package:coffee_empire/features/customize/edit_toolbar.dart';
+import 'package:coffee_empire/features/home/widgets/cafe_view.dart';
 import 'package:coffee_empire/features/home/widgets/cash_header.dart';
 import 'package:coffee_empire/features/lab/lab_state.dart';
 import 'package:coffee_empire/features/store/store_state.dart';
@@ -128,6 +130,18 @@ void main() {
         ),
         TextDirection.ltr,
       );
+
+      await tester.tap(find.byKey(CafeView.editButtonKey));
+      await tester.pump(const Duration(milliseconds: 300));
+      await tester.tap(find.byKey(EditToolbar.catalogKey));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 500));
+      expect(tester.takeException(), isNull, reason: 'edit mode');
+      await tester.tapAt(const Offset(20, 60));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 500));
+      await tester.tap(find.byKey(CafeView.editButtonKey));
+      await tester.pump(const Duration(milliseconds: 300));
 
       final destinations = find.byType(NavigationDestination);
       expect(destinations, findsNWidgets(5));

@@ -329,6 +329,777 @@
      ]
     ]
    }
+  },
+  {
+   "id": "stool",
+   "width": 16,
+   "height": 16,
+   "anchor": "bottomCenter",
+   "fps": 6,
+   "palette": {
+    "o": "outline",
+    "m": "wood_mid",
+    "l": "wood_light",
+    "x": "metal_dark",
+    "s": "metal"
+   },
+   "animations": {
+    "default": [
+     [
+      "................",
+      "................",
+      "................",
+      "................",
+      "................",
+      "....oooooooo....",
+      "...ollllllllo...",
+      "...ommmmmmmmo...",
+      "....oooooooo....",
+      ".....oxssxo.....",
+      "......oxxo......",
+      "......oxxo......",
+      ".....oxxxxo.....",
+      "....oxo..oxo....",
+      "....oo....oo....",
+      "................"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "armchair",
+   "width": 16,
+   "height": 16,
+   "anchor": "bottomCenter",
+   "fps": 6,
+   "palette": {
+    "o": "outline",
+    "d": "wood_dark",
+    "a": "accent",
+    "A": "accent_light"
+   },
+   "animations": {
+    "default": [
+     [
+      "..oooooooooooo..",
+      ".oaaaaaaaaaaaao.",
+      ".oaAAAAAAAAAAao.",
+      ".oaAAAAAAAAAAao.",
+      ".oaaaaaaaaaaaao.",
+      "oaaoooooooooaaao",
+      "oAaoAAAAAAAAoaAo",
+      "oAaoAAAAAAAAoaAo",
+      "oAaoaaaaaaaaoaAo",
+      "oaaaaaaaaaaaaaao",
+      "oaaaaaaaaaaaaaao",
+      ".oooooooooooooo.",
+      "..odo......odo..",
+      "..odo......odo..",
+      "...o........o...",
+      "................"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "bench",
+   "width": 32,
+   "height": 16,
+   "anchor": "bottomCenter",
+   "fps": 6,
+   "palette": {
+    "o": "outline",
+    "d": "wood_dark",
+    "m": "wood_mid",
+    "l": "wood_light"
+   },
+   "animations": {
+    "default": [
+     [
+      "................................",
+      "................................",
+      "................................",
+      "................................",
+      "................................",
+      "................................",
+      ".oooooooooooooooooooooooooooooo.",
+      "ollllllllllllllllllllllllllllllo",
+      "ommmmmmmmmmmmmmmmmmmmmmmmmmmmmmo",
+      ".oooooooooooooooooooooooooooooo.",
+      "..oddo.....................oddo.",
+      "..oddo.....................oddo.",
+      "..oddo.....................oddo.",
+      "..oddo.....................oddo.",
+      "...oo.......................oo..",
+      "................................"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "sofa",
+   "width": 32,
+   "height": 16,
+   "anchor": "bottomCenter",
+   "fps": 6,
+   "palette": {
+    "o": "outline",
+    "d": "wood_dark",
+    "i": "ice",
+    "h": "shirt",
+    "H": "shirt_shade"
+   },
+   "animations": {
+    "default": [
+     [
+      ".oooooooooooooooooooooooooooooo.",
+      "ohhhhhhhhhhhhhhhhhhhhhhhhhhhhhho",
+      "ohiiiiiiiiiiiiohiiiiiiiiiiiiiiho",
+      "ohhhhhhhhhhhhhohhhhhhhhhhhhhhhho",
+      "ohhhhhhhhhhhhhohhhhhhhhhhhhhhhho",
+      "oHHooooooooooooooooooooooooooHHo",
+      "oHhoiiiiiiiiiiioiiiiiiiiiiiiohHo",
+      "oHhohhhhhhhhhhhohhhhhhhhhhhhohHo",
+      "oHhohhhhhhhhhhhohhhhhhhhhhhhohHo",
+      "oHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHo",
+      "oHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHo",
+      ".oooooooooooooooooooooooooooooo.",
+      "..odo......................odo..",
+      "..odo......................odo..",
+      "...o........................o...",
+      "................................"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "table_round",
+   "width": 16,
+   "height": 16,
+   "anchor": "bottomCenter",
+   "fps": 6,
+   "palette": {
+    "o": "outline",
+    "d": "wood_dark",
+    "m": "wood_mid",
+    "l": "wood_light"
+   },
+   "animations": {
+    "default": [
+     [
+      "................",
+      "................",
+      "....oooooooo....",
+      "..oollllllllloo.",
+      ".olllllllllllllo",
+      ".olllllllllllllo",
+      ".olllllllllllllo",
+      "..oommmmmmmmmoo.",
+      "....oooddooo....",
+      "......oddo......",
+      "......oddo......",
+      "......oddo......",
+      "......oddo......",
+      "....oooddooo....",
+      "...oddddddddo...",
+      "....oooooooo...."
+     ]
+    ]
+   }
+  },
+  {
+   "id": "table_bar",
+   "width": 16,
+   "height": 24,
+   "anchor": "bottomCenter",
+   "fps": 6,
+   "palette": {
+    "o": "outline",
+    "m": "wood_mid",
+    "l": "wood_light",
+    "s": "metal"
+   },
+   "animations": {
+    "default": [
+     [
+      "................",
+      "................",
+      "................",
+      "................",
+      "................",
+      "................",
+      "................",
+      "................",
+      "...oooooooooo...",
+      "..ollllllllllo..",
+      "..ommmmmmmmmmo..",
+      "...oooosoooo....",
+      "......osso......",
+      "......osso......",
+      "......osso......",
+      "......osso......",
+      "......osso......",
+      "......osso......",
+      "......osso......",
+      "......osso......",
+      "......osso......",
+      "....oossssoo....",
+      "...osssssssso...",
+      "....oooooooo...."
+     ]
+    ]
+   }
+  },
+  {
+   "id": "painting",
+   "width": 16,
+   "height": 24,
+   "anchor": "bottomCenter",
+   "fps": 6,
+   "palette": {
+    "o": "outline",
+    "d": "wood_dark",
+    "f": "leaf",
+    "F": "leaf_dark",
+    "g": "gold",
+    "b": "glass"
+   },
+   "animations": {
+    "default": [
+     [
+      "....oooooooo....",
+      "...oggggggggo...",
+      "...ogbbbbbbgo...",
+      "...ogbbbbbbgo...",
+      "...ogbbffbbgo...",
+      "...ogbffffbgo...",
+      "...ogffFfFfgo...",
+      "...ogFFFFFFgo...",
+      "...oggggggggo...",
+      "....oooooooo....",
+      ".....od..do.....",
+      ".....od..do.....",
+      ".....od..do.....",
+      "....od....do....",
+      "....od....do....",
+      "....od....do....",
+      "...od......do...",
+      "...od......do...",
+      "...od......do...",
+      "...od......do...",
+      "..od........do..",
+      "..od........do..",
+      "..oo........oo..",
+      "................"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "shelf",
+   "width": 16,
+   "height": 16,
+   "anchor": "bottomCenter",
+   "fps": 6,
+   "palette": {
+    "o": "outline",
+    "d": "wood_dark",
+    "m": "wood_mid",
+    "p": "pot",
+    "f": "leaf",
+    "c": "coffee",
+    "C": "coffee_light",
+    "w": "white",
+    "k": "milk",
+    "a": "accent",
+    "g": "gold",
+    "r": "red"
+   },
+   "animations": {
+    "default": [
+     [
+      ".oooooooooooooo.",
+      ".oddddddddddddo.",
+      ".odkkoowwoCCodo.",
+      ".odkkoowwoCCodo.",
+      ".odkkoowwoCCodo.",
+      ".ommmmmmmmmmmmo.",
+      ".odoaaoorroooodo",
+      ".odoaaoorroggodo",
+      ".odoaaoorroggodo",
+      ".ommmmmmmmmmmmo.",
+      ".odpppofffoccodo",
+      ".odpppofffoccodo",
+      ".odpppofffoccodo",
+      ".ommmmmmmmmmmmo.",
+      ".odddddddddddddo",
+      ".oooooooooooooo."
+     ]
+    ]
+   }
+  },
+  {
+   "id": "rug",
+   "width": 32,
+   "height": 32,
+   "anchor": "bottomCenter",
+   "fps": 6,
+   "palette": {
+    "o": "outline",
+    "a": "accent",
+    "A": "accent_light",
+    "g": "gold"
+   },
+   "animations": {
+    "default": [
+     [
+      "................................",
+      "................................",
+      "................................",
+      "................................",
+      "................................",
+      "................................",
+      "................................",
+      "................................",
+      "................................",
+      "................................",
+      "................................",
+      "................................",
+      "................................",
+      "................................",
+      "................................",
+      "................................",
+      "..oooooooooooooooooooooooooooo..",
+      ".oaaaaaaaaaaaaaaaaaaaaaaaaaaaaao",
+      ".oaggggggggggggggggggggggggggao.",
+      ".oagaaaaaaaaaaaaaaaaaaaaaaaagao.",
+      ".oagaAAAAAAAAAAAAAAAAAAAAAAagao.",
+      ".oagaAAAAAAgggggggggAAAAAAAagao.",
+      ".oagaAAAAAAgaaaaaaagAAAAAAAagao.",
+      ".oagaAAAAAAgaaaaaaagAAAAAAAagao.",
+      ".oagaAAAAAAgggggggggAAAAAAAagao.",
+      ".oagaAAAAAAAAAAAAAAAAAAAAAAagao.",
+      ".oagaaaaaaaaaaaaaaaaaaaaaaaagao.",
+      ".oaggggggggggggggggggggggggggao.",
+      ".oaaaaaaaaaaaaaaaaaaaaaaaaaaaao.",
+      "..oooooooooooooooooooooooooooo..",
+      "................................",
+      "................................"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "bookcase",
+   "width": 16,
+   "height": 24,
+   "anchor": "bottomCenter",
+   "fps": 6,
+   "palette": {
+    "o": "outline",
+    "d": "wood_dark",
+    "m": "wood_mid",
+    "a": "accent",
+    "g": "gold",
+    "r": "red",
+    "h": "shirt"
+   },
+   "animations": {
+    "default": [
+     [
+      ".oooooooooooooo.",
+      ".oddddddddddddo.",
+      ".odrrhhaagghhdo.",
+      ".odrrhhaagghhdo.",
+      ".odrrhhaagghhdo.",
+      ".odrrhhaagghhdo.",
+      ".ommmmmmmmmmmmo.",
+      ".odhhggrraahhdo.",
+      ".odhhggrraahhdo.",
+      ".odhhggrraahhdo.",
+      ".odhhggrraahhdo.",
+      ".ommmmmmmmmmmmo.",
+      ".odaarrhhggrrdo.",
+      ".odaarrhhggrrdo.",
+      ".odaarrhhggrrdo.",
+      ".odaarrhhggrrdo.",
+      ".ommmmmmmmmmmmo.",
+      ".odggaarrhhaado.",
+      ".odggaarrhhaado.",
+      ".odggaarrhhaado.",
+      ".odggaarrhhaado.",
+      ".ommmmmmmmmmmmo.",
+      ".oddddddddddddo.",
+      ".oooooooooooooo."
+     ]
+    ]
+   }
+  },
+  {
+   "id": "record_player",
+   "width": 16,
+   "height": 16,
+   "anchor": "bottomCenter",
+   "fps": 6,
+   "palette": {
+    "o": "outline",
+    "d": "wood_dark",
+    "m": "wood_mid",
+    "x": "metal_dark",
+    "s": "metal",
+    "S": "metal_light",
+    "c": "coffee",
+    "C": "coffee_light",
+    "r": "red"
+   },
+   "animations": {
+    "default": [
+     [
+      "................",
+      "................",
+      "................",
+      "..oooooooooooo..",
+      ".oxxxxxxxxxxxxo.",
+      ".oxoooooooxsSxo.",
+      ".oxocccccoxsSxo.",
+      ".oxocCrCcoxxsxo.",
+      ".oxocccccoxxsxo.",
+      ".oxoooooooxxxxo.",
+      ".oooooooooooooo.",
+      ".ommmmmmmmmmmmo.",
+      ".omddddddddddmo.",
+      ".omddddddddddmo.",
+      ".ommmmmmmmmmmmo.",
+      "..oo........oo.."
+     ]
+    ]
+   }
+  },
+  {
+   "id": "aquarium",
+   "width": 32,
+   "height": 24,
+   "anchor": "bottomCenter",
+   "fps": 6,
+   "palette": {
+    "o": "outline",
+    "x": "metal_dark",
+    "s": "metal",
+    "f": "leaf",
+    "F": "leaf_dark",
+    "a": "accent",
+    "A": "accent_light",
+    "g": "gold",
+    "G": "gold_light",
+    "i": "ice",
+    "b": "glass"
+   },
+   "animations": {
+    "default": [
+     [
+      "................................",
+      "................................",
+      "................................",
+      "................................",
+      ".oooooooooooooooooooooooooooooo.",
+      ".oxxxxxxxxxxxxxxxxxxxxxxxxxxxxo.",
+      ".oibbbbbbbbbbbbbbbbbbbbbbbbbbio.",
+      ".obbbbbbbbbbbbbbbbbbbbbbbbbbbbo.",
+      ".obbbbbbaAbbbbbbbbbbbbbbbbbbbbo.",
+      ".obbbbbaAAAbbbbbbbbbbgGbbbbbbbo.",
+      ".obbbbbbaAbbbbbbbbbbgGGGbbbbbbo.",
+      ".obbbbbbbbbbbbibbbbbbgGbbbbbbbo.",
+      ".obbfbbbbbbbbbbbbbbbbbbbbbbfbbo.",
+      ".obbfbbbbbbbibbbbbbbbbbbbbbfFbo.",
+      ".obFfbbbbbbbbbbbbbbbbbbbbbbFfbo.",
+      ".obFfFbbbGGbbbbbbbbbbbbbbbFfFbo.",
+      ".oGGGGGGGGGGGGGGGGGGGGGGGGGGGGo.",
+      ".oooooooooooooooooooooooooooooo.",
+      ".oxxxxxxxxxxxxxxxxxxxxxxxxxxxxo.",
+      ".oxssssssssssssssssssssssssssxo.",
+      ".oxssssssssssssssssssssssssssxo.",
+      ".oxxxxxxxxxxxxxxxxxxxxxxxxxxxxo.",
+      "..oxo......................oxo..",
+      "..ooo......................ooo.."
+     ]
+    ]
+   }
+  },
+  {
+   "id": "neon_sign",
+   "width": 16,
+   "height": 24,
+   "anchor": "bottomCenter",
+   "fps": 6,
+   "palette": {
+    "o": "outline",
+    "x": "metal_dark",
+    "s": "metal",
+    "a": "accent",
+    "A": "accent_light",
+    "G": "gold_light"
+   },
+   "animations": {
+    "default": [
+     [
+      ".oooooooooooooo.",
+      ".oxxxxxxxxxxxxo.",
+      ".oxaaaaxxAAxxxo.",
+      ".oxaxxaxxAxxAxo.",
+      ".oxaaaaxxAxxAxo.",
+      ".oxaxxxxxAxxAxo.",
+      ".oxaxxxxxxAAxxo.",
+      ".oxxxxxxxxxxxxo.",
+      ".oxGGGGGGGGGGxo.",
+      ".oxxxxxxxxxxxxo.",
+      ".oooooooooooooo.",
+      ".......os.......",
+      ".......os.......",
+      ".......os.......",
+      ".......os.......",
+      ".......os.......",
+      ".......os.......",
+      ".......os.......",
+      ".......os.......",
+      ".......os.......",
+      ".......os.......",
+      ".....oossoo.....",
+      "....osssssso....",
+      ".....ooooooo...."
+     ]
+    ]
+   }
+  },
+  {
+   "id": "floor_lamp",
+   "width": 16,
+   "height": 24,
+   "anchor": "bottomCenter",
+   "fps": 6,
+   "palette": {
+    "o": "outline",
+    "s": "metal",
+    "k": "milk",
+    "G": "gold_light"
+   },
+   "animations": {
+    "default": [
+     [
+      "................",
+      ".....oooooo.....",
+      "....okkkkkko....",
+      "...okkGGGGkko...",
+      "...okGGGGGGko...",
+      "..okkkkkkkkkko..",
+      "..oooooooooooo..",
+      ".......os.......",
+      ".......os.......",
+      ".......os.......",
+      ".......os.......",
+      ".......os.......",
+      ".......os.......",
+      ".......os.......",
+      ".......os.......",
+      ".......os.......",
+      ".......os.......",
+      ".......os.......",
+      ".......os.......",
+      ".......os.......",
+      ".......os.......",
+      ".....oossoo.....",
+      "....osssssso....",
+      ".....ooooooo...."
+     ]
+    ]
+   }
+  },
+  {
+   "id": "lantern",
+   "width": 16,
+   "height": 24,
+   "anchor": "bottomCenter",
+   "fps": 6,
+   "palette": {
+    "o": "outline",
+    "x": "metal_dark",
+    "g": "gold",
+    "G": "gold_light"
+   },
+   "animations": {
+    "default": [
+     [
+      "................",
+      "................",
+      "................",
+      "................",
+      "................",
+      "................",
+      "......oooo......",
+      ".....oxxxxo.....",
+      "....oxxxxxxo....",
+      "....oxGGGGxo....",
+      "....oxGggGxo....",
+      "....oxGggGxo....",
+      "....oxGGGGxo....",
+      "....oxxxxxxo....",
+      ".....oxxxxo.....",
+      "......oxxo......",
+      "......oxxo......",
+      "......oxxo......",
+      "......oxxo......",
+      "......oxxo......",
+      "......oxxo......",
+      "....oxxxxxxo....",
+      "...oxxxxxxxxo...",
+      "....oooooooo...."
+     ]
+    ]
+   }
+  },
+  {
+   "id": "light_pillar",
+   "width": 16,
+   "height": 24,
+   "anchor": "bottomCenter",
+   "fps": 6,
+   "palette": {
+    "o": "outline",
+    "d": "wood_dark",
+    "m": "wood_mid",
+    "k": "milk",
+    "g": "gold",
+    "G": "gold_light"
+   },
+   "animations": {
+    "default": [
+     [
+      "................",
+      "................",
+      ".....oooooo.....",
+      "....oGGGGGGo....",
+      "....oGkkkkGo....",
+      "....oGkkkkGo....",
+      "....oGkkkkGo....",
+      "....oGGGGGGo....",
+      "....oggggggo....",
+      "....oGkkkkGo....",
+      "....oGkkkkGo....",
+      "....oGkkkkGo....",
+      "....oGGGGGGo....",
+      "....oggggggo....",
+      "....oGkkkkGo....",
+      "....oGkkkkGo....",
+      "....oGkkkkGo....",
+      "....oGGGGGGo....",
+      "....oddddddo....",
+      "...oddddddddo...",
+      "...ommmmmmmmo...",
+      "...ommmmmmmmo...",
+      "...oddddddddo...",
+      "....oooooooo...."
+     ]
+    ]
+   }
+  },
+  {
+   "id": "pastry_case",
+   "width": 16,
+   "height": 24,
+   "anchor": "bottomCenter",
+   "fps": 6,
+   "palette": {
+    "o": "outline",
+    "d": "wood_dark",
+    "m": "wood_mid",
+    "l": "wood_light",
+    "x": "metal_dark",
+    "C": "coffee_light",
+    "k": "milk",
+    "A": "accent_light",
+    "G": "gold_light",
+    "r": "red",
+    "i": "ice",
+    "b": "glass"
+   },
+   "animations": {
+    "default": [
+     [
+      "................",
+      "................",
+      "................",
+      "................",
+      "................",
+      "................",
+      "................",
+      "................",
+      ".oooooooooooooo.",
+      ".oiiiiiiiiiiiio.",
+      ".oibbbbbbbbbbio.",
+      ".obCCbGGbCCbbbo.",
+      ".obCCbGGbCCbkbo.",
+      ".oxxxxxxxxxxxxo.",
+      ".obbrrbbCCbbbbo.",
+      ".obrrrbCCCbAAbo.",
+      ".oxxxxxxxxxxxxo.",
+      ".ommmmmmmmmmmmo.",
+      ".olllllllllllmo.",
+      ".omllllllllllmo.",
+      ".omllllllllllmo.",
+      ".ommmmmmmmmmmmo.",
+      ".odddddddddddddo",
+      ".oooooooooooooo."
+     ]
+    ]
+   }
+  },
+  {
+   "id": "drink_fridge",
+   "width": 16,
+   "height": 24,
+   "anchor": "bottomCenter",
+   "fps": 6,
+   "palette": {
+    "o": "outline",
+    "x": "metal_dark",
+    "s": "metal",
+    "S": "metal_light",
+    "q": "screen",
+    "w": "white",
+    "a": "accent",
+    "A": "accent_light",
+    "r": "red",
+    "b": "glass"
+   },
+   "animations": {
+    "default": [
+     [
+      ".oooooooooooooo.",
+      ".oaaaaaaaaaaaao.",
+      ".oaAwwwwwwwwAao.",
+      ".oaaaaaaaaaaaao.",
+      ".oxxxxxxxxxxxxo.",
+      ".oxbbbbbbbbbbxo.",
+      ".oxbrbbqbbabbxo.",
+      ".oxbrbbqbbabbxo.",
+      ".oxsssssssssSxo.",
+      ".oxbbabbrbbqbxo.",
+      ".oxbbabbrbbqbxo.",
+      ".oxsssssssssSxo.",
+      ".oxbqbbabbrbbxo.",
+      ".oxbqbbabbrbbxo.",
+      ".oxsssssssssSxo.",
+      ".oxbbrbbqbbabxo.",
+      ".oxbbrbbqbbabxo.",
+      ".oxsssssssssSxo.",
+      ".oxbbbbbbbbbbxo.",
+      ".oxbbbbbbbbbbxo.",
+      ".oxxxxxxxxxxxxo.",
+      ".oxsssssssssSxo.",
+      ".oxxxxxxxxxxxxo.",
+      ".oooooooooooooo."
+     ]
+    ]
+   }
   }
  ]
 }

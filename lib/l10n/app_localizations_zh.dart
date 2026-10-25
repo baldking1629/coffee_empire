@@ -909,4 +909,138 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get drink_cold_brew => '冷萃咖啡';
+
+  @override
+  String get editLayout => '编辑';
+
+  @override
+  String get editDone => '完成';
+
+  @override
+  String get editHint => '点击家具即可移动。';
+
+  @override
+  String get editRotate => '旋转';
+
+  @override
+  String get editStore => '收起';
+
+  @override
+  String get editPlace => '放置';
+
+  @override
+  String get editCancel => '取消';
+
+  @override
+  String get editInvalid => '这里不能放置';
+
+  @override
+  String get furnitureCatalog => '家具';
+
+  @override
+  String furnitureOwned(int count) {
+    return '仓库中：$count';
+  }
+
+  @override
+  String furnitureAppeal(int appeal) {
+    return '魅力 +$appeal';
+  }
+
+  @override
+  String furnitureLocked(String shop) {
+    return '解锁于$shop';
+  }
+
+  @override
+  String cafeAppealSummary(int appeal, String multiplier) {
+    return '魅力 $appeal · 收入 ×$multiplier';
+  }
+
+  @override
+  String get furnitureCategorySeating => '座椅';
+
+  @override
+  String get furnitureCategoryTable => '桌子';
+
+  @override
+  String get furnitureCategoryDecor => '装饰';
+
+  @override
+  String get furnitureCategoryLighting => '照明';
+
+  @override
+  String get furnitureCategoryCounter => '吧台扩展';
+
+  @override
+  String get furniture_chair => '木椅';
+
+  @override
+  String get furniture_stool => '圆凳';
+
+  @override
+  String get furniture_chair_white => '白椅';
+
+  @override
+  String get furniture_bench => '长凳';
+
+  @override
+  String get furniture_armchair => '扶手椅';
+
+  @override
+  String get furniture_sofa => '沙发';
+
+  @override
+  String get furniture_table => '桌子';
+
+  @override
+  String get furniture_table_round => '圆桌';
+
+  @override
+  String get furniture_table_long => '长桌';
+
+  @override
+  String get furniture_table_bar => '吧台桌';
+
+  @override
+  String get furniture_table_marble => '大理石桌';
+
+  @override
+  String get furniture_plant => '盆栽';
+
+  @override
+  String get furniture_painting => '画作';
+
+  @override
+  String get furniture_shelf => '置物架';
+
+  @override
+  String get furniture_rug => '地毯';
+
+  @override
+  String get furniture_bookcase => '书柜';
+
+  @override
+  String get furniture_record_player => '唱片机';
+
+  @override
+  String get furniture_neon_sign => '霓虹灯牌';
+
+  @override
+  String get furniture_aquarium => '水族箱';
+
+  @override
+  String get furniture_floor_lamp => '落地灯';
+
+  @override
+  String get furniture_lantern => '灯笼';
+
+  @override
+  String get furniture_light_pillar => '光柱';
+
+  @override
+  String get furniture_pastry_case => '甜点柜';
+
+  @override
+  String get furniture_drink_fridge => '饮料冰柜';
 }

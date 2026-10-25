@@ -910,4 +910,138 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get drink_cold_brew => '콜드브루';
+
+  @override
+  String get editLayout => '편집';
+
+  @override
+  String get editDone => '완료';
+
+  @override
+  String get editHint => '가구를 탭해서 옮기세요.';
+
+  @override
+  String get editRotate => '회전';
+
+  @override
+  String get editStore => '보관';
+
+  @override
+  String get editPlace => '배치';
+
+  @override
+  String get editCancel => '취소';
+
+  @override
+  String get editInvalid => '여기에 놓을 수 없어요';
+
+  @override
+  String get furnitureCatalog => '가구';
+
+  @override
+  String furnitureOwned(int count) {
+    return '보관함: $count';
+  }
+
+  @override
+  String furnitureAppeal(int appeal) {
+    return '매력 +$appeal';
+  }
+
+  @override
+  String furnitureLocked(String shop) {
+    return '$shop에서 해금';
+  }
+
+  @override
+  String cafeAppealSummary(int appeal, String multiplier) {
+    return '매력 $appeal · 수입 ×$multiplier';
+  }
+
+  @override
+  String get furnitureCategorySeating => '좌석';
+
+  @override
+  String get furnitureCategoryTable => '테이블';
+
+  @override
+  String get furnitureCategoryDecor => '장식';
+
+  @override
+  String get furnitureCategoryLighting => '조명';
+
+  @override
+  String get furnitureCategoryCounter => '카운터 확장';
+
+  @override
+  String get furniture_chair => '나무 의자';
+
+  @override
+  String get furniture_stool => '스툴';
+
+  @override
+  String get furniture_chair_white => '흰 의자';
+
+  @override
+  String get furniture_bench => '벤치';
+
+  @override
+  String get furniture_armchair => '안락의자';
+
+  @override
+  String get furniture_sofa => '소파';
+
+  @override
+  String get furniture_table => '테이블';
+
+  @override
+  String get furniture_table_round => '원형 테이블';
+
+  @override
+  String get furniture_table_long => '긴 테이블';
+
+  @override
+  String get furniture_table_bar => '바 테이블';
+
+  @override
+  String get furniture_table_marble => '대리석 테이블';
+
+  @override
+  String get furniture_plant => '화분';
+
+  @override
+  String get furniture_painting => '그림';
+
+  @override
+  String get furniture_shelf => '선반';
+
+  @override
+  String get furniture_rug => '러그';
+
+  @override
+  String get furniture_bookcase => '책장';
+
+  @override
+  String get furniture_record_player => '레코드 플레이어';
+
+  @override
+  String get furniture_neon_sign => '네온사인';
+
+  @override
+  String get furniture_aquarium => '수족관';
+
+  @override
+  String get furniture_floor_lamp => '플로어 램프';
+
+  @override
+  String get furniture_lantern => '랜턴';
+
+  @override
+  String get furniture_light_pillar => '조명 기둥';
+
+  @override
+  String get furniture_pastry_case => '디저트 진열장';
+
+  @override
+  String get furniture_drink_fridge => '음료 냉장고';
 }

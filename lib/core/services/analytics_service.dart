@@ -18,6 +18,8 @@ abstract final class AnalyticsEvents {
   static const String sessionStart = 'session_start';
   static const String orderServed = 'order_served';
   static const String customerLost = 'customer_lost';
+  static const String layoutChanged = 'layout_changed';
+  static const String furnitureBought = 'furniture_bought';
 }
 
 abstract class AnalyticsService {

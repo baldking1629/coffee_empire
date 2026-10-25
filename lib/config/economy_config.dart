@@ -34,9 +34,14 @@ class EconomyConfig extends Equatable {
     required this.iap,
     required this.dailyReward,
     required this.service,
+    required this.cafeRules,
+    this.cafe = CafeCatalog.empty,
   });
 
-  factory EconomyConfig.fromJson(JsonMap json) => EconomyConfig(
+  factory EconomyConfig.fromJson(
+    JsonMap json, {
+    CafeCatalog cafe = CafeCatalog.empty,
+  }) => EconomyConfig(
     startingCash: readBig(json, 'startingCash'),
     backgroundGapSeconds: readInt(json, 'backgroundGapSeconds'),
     autosaveIntervalSeconds: readInt(json, 'autosaveIntervalSeconds'),
@@ -53,10 +58,17 @@ class EconomyConfig extends Equatable {
     iap: IapConfig.fromJson(readMap(json, 'iap')),
     dailyReward: DailyRewardConfig.fromJson(readMap(json, 'dailyReward')),
     service: ServiceConfig.fromJson(readMap(json, 'service')),
+    cafeRules: CafeRulesConfig.fromJson(readMap(json, 'cafe')),
+    cafe: cafe,
   );
 
-  factory EconomyConfig.fromJsonString(String source) =>
-      EconomyConfig.fromJson(jsonDecode(source) as JsonMap);
+  factory EconomyConfig.fromJsonString(String source, {String? cafeSource}) =>
+      EconomyConfig.fromJson(
+        jsonDecode(source) as JsonMap,
+        cafe: cafeSource == null
+            ? CafeCatalog.empty
+            : CafeCatalog.fromJsonString(cafeSource),
+      );
 
   final BigNumber startingCash;
   final int backgroundGapSeconds;
@@ -74,6 +86,8 @@ class EconomyConfig extends Equatable {
   final IapConfig iap;
   final DailyRewardConfig dailyReward;
   final ServiceConfig service;
+  final CafeRulesConfig cafeRules;
+  final CafeCatalog cafe;
 
   @override
   List<Object?> get props => [
@@ -93,5 +107,7 @@ class EconomyConfig extends Equatable {
     iap,
     dailyReward,
     service,
+    cafeRules,
+    cafe,
   ];
 }

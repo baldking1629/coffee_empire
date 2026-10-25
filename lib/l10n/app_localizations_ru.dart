@@ -924,4 +924,138 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get drink_cold_brew => 'Колд брю';
+
+  @override
+  String get editLayout => 'Изменить';
+
+  @override
+  String get editDone => 'Готово';
+
+  @override
+  String get editHint => 'Коснитесь мебели, чтобы переместить её.';
+
+  @override
+  String get editRotate => 'Повернуть';
+
+  @override
+  String get editStore => 'На склад';
+
+  @override
+  String get editPlace => 'Поставить';
+
+  @override
+  String get editCancel => 'Отмена';
+
+  @override
+  String get editInvalid => 'Сюда нельзя поставить';
+
+  @override
+  String get furnitureCatalog => 'Мебель';
+
+  @override
+  String furnitureOwned(int count) {
+    return 'На складе: $count';
+  }
+
+  @override
+  String furnitureAppeal(int appeal) {
+    return '+$appeal к уюту';
+  }
+
+  @override
+  String furnitureLocked(String shop) {
+    return 'Откроется с: $shop';
+  }
+
+  @override
+  String cafeAppealSummary(int appeal, String multiplier) {
+    return 'Уют $appeal · доход ×$multiplier';
+  }
+
+  @override
+  String get furnitureCategorySeating => 'Сиденья';
+
+  @override
+  String get furnitureCategoryTable => 'Столы';
+
+  @override
+  String get furnitureCategoryDecor => 'Декор';
+
+  @override
+  String get furnitureCategoryLighting => 'Освещение';
+
+  @override
+  String get furnitureCategoryCounter => 'Дополнения к стойке';
+
+  @override
+  String get furniture_chair => 'Деревянный стул';
+
+  @override
+  String get furniture_stool => 'Табурет';
+
+  @override
+  String get furniture_chair_white => 'Белый стул';
+
+  @override
+  String get furniture_bench => 'Скамья';
+
+  @override
+  String get furniture_armchair => 'Кресло';
+
+  @override
+  String get furniture_sofa => 'Диван';
+
+  @override
+  String get furniture_table => 'Стол';
+
+  @override
+  String get furniture_table_round => 'Круглый стол';
+
+  @override
+  String get furniture_table_long => 'Длинный стол';
+
+  @override
+  String get furniture_table_bar => 'Барный стол';
+
+  @override
+  String get furniture_table_marble => 'Мраморный стол';
+
+  @override
+  String get furniture_plant => 'Растение в горшке';
+
+  @override
+  String get furniture_painting => 'Картина';
+
+  @override
+  String get furniture_shelf => 'Полка';
+
+  @override
+  String get furniture_rug => 'Ковёр';
+
+  @override
+  String get furniture_bookcase => 'Книжный шкаф';
+
+  @override
+  String get furniture_record_player => 'Проигрыватель';
+
+  @override
+  String get furniture_neon_sign => 'Неоновая вывеска';
+
+  @override
+  String get furniture_aquarium => 'Аквариум';
+
+  @override
+  String get furniture_floor_lamp => 'Торшер';
+
+  @override
+  String get furniture_lantern => 'Фонарь';
+
+  @override
+  String get furniture_light_pillar => 'Световая колонна';
+
+  @override
+  String get furniture_pastry_case => 'Витрина с выпечкой';
+
+  @override
+  String get furniture_drink_fridge => 'Холодильник с напитками';
 }

@@ -679,5 +679,78 @@
         "type": "String"
       }
     }
-  }
+  },
+  "editLayout": "Edit",
+  "editDone": "Done",
+  "editHint": "Tap a piece of furniture to move it.",
+  "editRotate": "Rotate",
+  "editStore": "Store",
+  "editPlace": "Place",
+  "editCancel": "Cancel",
+  "editInvalid": "Can't place here",
+  "furnitureCatalog": "Furniture",
+  "furnitureOwned": "In storage: {count}",
+  "@furnitureOwned": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "furnitureAppeal": "+{appeal} appeal",
+  "@furnitureAppeal": {
+    "placeholders": {
+      "appeal": {
+        "type": "int"
+      }
+    }
+  },
+  "furnitureLocked": "Unlocks with {shop}",
+  "@furnitureLocked": {
+    "placeholders": {
+      "shop": {
+        "type": "String"
+      }
+    }
+  },
+  "cafeAppealSummary": "Appeal {appeal} · income ×{multiplier}",
+  "@cafeAppealSummary": {
+    "placeholders": {
+      "appeal": {
+        "type": "int"
+      },
+      "multiplier": {
+        "type": "String"
+      }
+    }
+  },
+  "furnitureCategorySeating": "Seating",
+  "furnitureCategoryTable": "Tables",
+  "furnitureCategoryDecor": "Decor",
+  "furnitureCategoryLighting": "Lighting",
+  "furnitureCategoryCounter": "Counter add-ons",
+  "furniture_chair": "Wooden Chair",
+  "furniture_stool": "Stool",
+  "furniture_chair_white": "White Chair",
+  "furniture_bench": "Bench",
+  "furniture_armchair": "Armchair",
+  "furniture_sofa": "Sofa",
+  "furniture_table": "Table",
+  "furniture_table_round": "Round Table",
+  "furniture_table_long": "Long Table",
+  "furniture_table_bar": "Bar Table",
+  "furniture_table_marble": "Marble Table",
+  "furniture_plant": "Potted Plant",
+  "furniture_painting": "Painting",
+  "furniture_shelf": "Shelf",
+  "furniture_rug": "Rug",
+  "furniture_bookcase": "Bookcase",
+  "furniture_record_player": "Record Player",
+  "furniture_neon_sign": "Neon Sign",
+  "furniture_aquarium": "Aquarium",
+  "furniture_floor_lamp": "Floor Lamp",
+  "furniture_lantern": "Lantern",
+  "furniture_light_pillar": "Light Pillar",
+  "furniture_pastry_case": "Pastry Case",
+  "furniture_drink_fridge": "Drink Fridge"
 }

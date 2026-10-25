@@ -2,6 +2,7 @@ import 'package:equatable/equatable.dart';
 
 import '../../core/bignumber/big_number.dart';
 import '../../engine/barista_math.dart';
+import '../../engine/cafe_layout.dart';
 import '../../engine/offline_math.dart';
 import '../daily_reward/daily_reward_state.dart';
 import '../lab/lab_state.dart';
@@ -31,6 +32,8 @@ class GameState extends Equatable {
     this.savedAt,
     this.barista = BaristaState.idle,
     this.pendingOffline,
+    this.cafeLayout = CafeLayout.empty,
+    this.inventory = const {},
   });
 
   factory GameState.initial({required BigNumber startingCash}) => GameState(
@@ -63,6 +66,8 @@ class GameState extends Equatable {
   final DateTime? savedAt;
   final BaristaState barista;
   final OfflineEarnings? pendingOffline;
+  final CafeLayout cafeLayout;
+  final Map<String, int> inventory;
 
   GameState earn(BigNumber amount) => amount.isZero
       ? this
@@ -97,6 +102,8 @@ class GameState extends Equatable {
     DateTime? savedAt,
     BaristaState? barista,
     OfflineEarnings? Function()? pendingOffline,
+    CafeLayout? cafeLayout,
+    Map<String, int>? inventory,
   }) => GameState(
     cash: cash ?? this.cash,
     runEarnings: runEarnings ?? this.runEarnings,
@@ -120,6 +127,8 @@ class GameState extends Equatable {
     pendingOffline: pendingOffline == null
         ? this.pendingOffline
         : pendingOffline(),
+    cafeLayout: cafeLayout ?? this.cafeLayout,
+    inventory: inventory ?? this.inventory,
   );
 
   @override
@@ -144,5 +153,7 @@ class GameState extends Equatable {
     savedAt,
     barista,
     pendingOffline,
+    cafeLayout,
+    inventory,
   ];
 }

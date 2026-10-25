@@ -41,36 +41,6 @@
       "blocksWalk": true
     },
     {
-      "id": "table",
-      "spriteId": "table",
-      "footprint": {
-        "w": 1,
-        "h": 1
-      },
-      "isSeat": false,
-      "blocksWalk": true
-    },
-    {
-      "id": "chair",
-      "spriteId": "chair",
-      "footprint": {
-        "w": 1,
-        "h": 1
-      },
-      "isSeat": true,
-      "blocksWalk": false
-    },
-    {
-      "id": "plant",
-      "spriteId": "plant",
-      "footprint": {
-        "w": 1,
-        "h": 1
-      },
-      "isSeat": false,
-      "blocksWalk": true
-    },
-    {
       "id": "sign",
       "spriteId": "sign",
       "footprint": {
@@ -79,6 +49,416 @@
       },
       "isSeat": false,
       "blocksWalk": true
+    }
+  ],
+  "items": [
+    {
+      "id": "chair",
+      "nameKey": "furniture_chair",
+      "spriteId": "chair",
+      "paletteKey": "base",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "category": "seating",
+      "appeal": 0,
+      "costMult": 2,
+      "unlockShopIndex": 0,
+      "isSeat": true,
+      "blocksWalk": false,
+      "rotatable": true
+    },
+    {
+      "id": "stool",
+      "nameKey": "furniture_stool",
+      "spriteId": "stool",
+      "paletteKey": "base",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "category": "seating",
+      "appeal": 1,
+      "costMult": 1.5,
+      "unlockShopIndex": 0,
+      "isSeat": true,
+      "blocksWalk": false,
+      "rotatable": false
+    },
+    {
+      "id": "chair_white",
+      "nameKey": "furniture_chair_white",
+      "spriteId": "chair",
+      "paletteKey": "base+wood_white",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "category": "seating",
+      "appeal": 2,
+      "costMult": 3,
+      "unlockShopIndex": 1,
+      "isSeat": true,
+      "blocksWalk": false,
+      "rotatable": true
+    },
+    {
+      "id": "bench",
+      "nameKey": "furniture_bench",
+      "spriteId": "bench",
+      "paletteKey": "base",
+      "footprint": {
+        "w": 2,
+        "h": 1
+      },
+      "category": "seating",
+      "appeal": 2,
+      "costMult": 4,
+      "unlockShopIndex": 1,
+      "isSeat": true,
+      "blocksWalk": false,
+      "rotatable": true
+    },
+    {
+      "id": "armchair",
+      "nameKey": "furniture_armchair",
+      "spriteId": "armchair",
+      "paletteKey": "base",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "category": "seating",
+      "appeal": 3,
+      "costMult": 4,
+      "unlockShopIndex": 2,
+      "isSeat": true,
+      "blocksWalk": false,
+      "rotatable": true
+    },
+    {
+      "id": "sofa",
+      "nameKey": "furniture_sofa",
+      "spriteId": "sofa",
+      "paletteKey": "base",
+      "footprint": {
+        "w": 2,
+        "h": 1
+      },
+      "category": "seating",
+      "appeal": 4,
+      "costMult": 6,
+      "unlockShopIndex": 3,
+      "isSeat": true,
+      "blocksWalk": false,
+      "rotatable": true
+    },
+    {
+      "id": "table",
+      "nameKey": "furniture_table",
+      "spriteId": "table",
+      "paletteKey": "base",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "category": "table",
+      "appeal": 0,
+      "costMult": 3,
+      "unlockShopIndex": 0,
+      "isSeat": false,
+      "blocksWalk": true,
+      "rotatable": false
+    },
+    {
+      "id": "table_round",
+      "nameKey": "furniture_table_round",
+      "spriteId": "table_round",
+      "paletteKey": "base",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "category": "table",
+      "appeal": 2,
+      "costMult": 4,
+      "unlockShopIndex": 1,
+      "isSeat": false,
+      "blocksWalk": true,
+      "rotatable": false
+    },
+    {
+      "id": "table_long",
+      "nameKey": "furniture_table_long",
+      "spriteId": "table_long",
+      "paletteKey": "base",
+      "footprint": {
+        "w": 2,
+        "h": 1
+      },
+      "category": "table",
+      "appeal": 2,
+      "costMult": 5,
+      "unlockShopIndex": 2,
+      "isSeat": false,
+      "blocksWalk": true,
+      "rotatable": true
+    },
+    {
+      "id": "table_bar",
+      "nameKey": "furniture_table_bar",
+      "spriteId": "table_bar",
+      "paletteKey": "base",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "category": "table",
+      "appeal": 2,
+      "costMult": 5,
+      "unlockShopIndex": 2,
+      "isSeat": false,
+      "blocksWalk": true,
+      "rotatable": false
+    },
+    {
+      "id": "table_marble",
+      "nameKey": "furniture_table_marble",
+      "spriteId": "table",
+      "paletteKey": "base+wood_white",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "category": "table",
+      "appeal": 3,
+      "costMult": 6,
+      "unlockShopIndex": 3,
+      "isSeat": false,
+      "blocksWalk": true,
+      "rotatable": false
+    },
+    {
+      "id": "plant",
+      "nameKey": "furniture_plant",
+      "spriteId": "plant",
+      "paletteKey": "base",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "category": "decor",
+      "appeal": 0,
+      "costMult": 3,
+      "unlockShopIndex": 0,
+      "isSeat": false,
+      "blocksWalk": true,
+      "rotatable": false
+    },
+    {
+      "id": "painting",
+      "nameKey": "furniture_painting",
+      "spriteId": "painting",
+      "paletteKey": "base",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "category": "decor",
+      "appeal": 3,
+      "costMult": 5,
+      "unlockShopIndex": 1,
+      "isSeat": false,
+      "blocksWalk": true,
+      "rotatable": false
+    },
+    {
+      "id": "shelf",
+      "nameKey": "furniture_shelf",
+      "spriteId": "shelf",
+      "paletteKey": "base",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "category": "decor",
+      "appeal": 2,
+      "costMult": 4,
+      "unlockShopIndex": 1,
+      "isSeat": false,
+      "blocksWalk": true,
+      "rotatable": false
+    },
+    {
+      "id": "rug",
+      "nameKey": "furniture_rug",
+      "spriteId": "rug",
+      "paletteKey": "base",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "category": "decor",
+      "appeal": 3,
+      "costMult": 4,
+      "unlockShopIndex": 2,
+      "isSeat": false,
+      "blocksWalk": false,
+      "rotatable": false
+    },
+    {
+      "id": "bookcase",
+      "nameKey": "furniture_bookcase",
+      "spriteId": "bookcase",
+      "paletteKey": "base",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "category": "decor",
+      "appeal": 3,
+      "costMult": 6,
+      "unlockShopIndex": 3,
+      "isSeat": false,
+      "blocksWalk": true,
+      "rotatable": false
+    },
+    {
+      "id": "record_player",
+      "nameKey": "furniture_record_player",
+      "spriteId": "record_player",
+      "paletteKey": "base",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "category": "decor",
+      "appeal": 4,
+      "costMult": 8,
+      "unlockShopIndex": 4,
+      "isSeat": false,
+      "blocksWalk": true,
+      "rotatable": false
+    },
+    {
+      "id": "neon_sign",
+      "nameKey": "furniture_neon_sign",
+      "spriteId": "neon_sign",
+      "paletteKey": "base",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "category": "decor",
+      "appeal": 5,
+      "costMult": 8,
+      "unlockShopIndex": 4,
+      "isSeat": false,
+      "blocksWalk": true,
+      "rotatable": false
+    },
+    {
+      "id": "aquarium",
+      "nameKey": "furniture_aquarium",
+      "spriteId": "aquarium",
+      "paletteKey": "base",
+      "footprint": {
+        "w": 2,
+        "h": 1
+      },
+      "category": "decor",
+      "appeal": 6,
+      "costMult": 10,
+      "unlockShopIndex": 5,
+      "isSeat": false,
+      "blocksWalk": true,
+      "rotatable": true
+    },
+    {
+      "id": "floor_lamp",
+      "nameKey": "furniture_floor_lamp",
+      "spriteId": "floor_lamp",
+      "paletteKey": "base",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "category": "lighting",
+      "appeal": 2,
+      "costMult": 4,
+      "unlockShopIndex": 1,
+      "isSeat": false,
+      "blocksWalk": true,
+      "rotatable": false
+    },
+    {
+      "id": "lantern",
+      "nameKey": "furniture_lantern",
+      "spriteId": "lantern",
+      "paletteKey": "base",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "category": "lighting",
+      "appeal": 3,
+      "costMult": 6,
+      "unlockShopIndex": 3,
+      "isSeat": false,
+      "blocksWalk": true,
+      "rotatable": false
+    },
+    {
+      "id": "light_pillar",
+      "nameKey": "furniture_light_pillar",
+      "spriteId": "light_pillar",
+      "paletteKey": "base",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "category": "lighting",
+      "appeal": 5,
+      "costMult": 9,
+      "unlockShopIndex": 6,
+      "isSeat": false,
+      "blocksWalk": true,
+      "rotatable": false
+    },
+    {
+      "id": "pastry_case",
+      "nameKey": "furniture_pastry_case",
+      "spriteId": "pastry_case",
+      "paletteKey": "base",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "category": "counter",
+      "appeal": 4,
+      "costMult": 6,
+      "unlockShopIndex": 2,
+      "isSeat": false,
+      "blocksWalk": true,
+      "rotatable": false
+    },
+    {
+      "id": "drink_fridge",
+      "nameKey": "furniture_drink_fridge",
+      "spriteId": "drink_fridge",
+      "paletteKey": "base",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "category": "counter",
+      "appeal": 4,
+      "costMult": 7,
+      "unlockShopIndex": 4,
+      "isSeat": false,
+      "blocksWalk": true,
+      "rotatable": false
     }
   ],
   "defaultLayout": {
@@ -120,41 +500,6 @@
       "y": 1
     },
     "items": [
-      {
-        "uid": "counter_1",
-        "itemId": "counter",
-        "x": 1,
-        "y": 2,
-        "rotation": 0
-      },
-      {
-        "uid": "counter_2",
-        "itemId": "counter",
-        "x": 3,
-        "y": 2,
-        "rotation": 0
-      },
-      {
-        "uid": "counter_3",
-        "itemId": "counter",
-        "x": 5,
-        "y": 2,
-        "rotation": 0
-      },
-      {
-        "uid": "register",
-        "itemId": "cash_register",
-        "x": 2,
-        "y": 2,
-        "rotation": 0
-      },
-      {
-        "uid": "sign",
-        "itemId": "sign",
-        "x": 0,
-        "y": 0,
-        "rotation": 0
-      },
       {
         "uid": "table_1",
         "itemId": "table",
@@ -209,6 +554,43 @@
         "itemId": "plant",
         "x": 7,
         "y": 8,
+        "rotation": 0
+      }
+    ],
+    "fixedItems": [
+      {
+        "uid": "counter_1",
+        "itemId": "counter",
+        "x": 1,
+        "y": 2,
+        "rotation": 0
+      },
+      {
+        "uid": "counter_2",
+        "itemId": "counter",
+        "x": 3,
+        "y": 2,
+        "rotation": 0
+      },
+      {
+        "uid": "counter_3",
+        "itemId": "counter",
+        "x": 5,
+        "y": 2,
+        "rotation": 0
+      },
+      {
+        "uid": "register",
+        "itemId": "cash_register",
+        "x": 2,
+        "y": 2,
+        "rotation": 0
+      },
+      {
+        "uid": "sign",
+        "itemId": "sign",
+        "x": 0,
+        "y": 0,
         "rotation": 0
       }
     ]

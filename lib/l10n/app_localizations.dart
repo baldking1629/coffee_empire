@@ -1701,6 +1701,258 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Cold Brew'**
   String get drink_cold_brew;
+
+  /// No description provided for @editLayout.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get editLayout;
+
+  /// No description provided for @editDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get editDone;
+
+  /// No description provided for @editHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap a piece of furniture to move it.'**
+  String get editHint;
+
+  /// No description provided for @editRotate.
+  ///
+  /// In en, this message translates to:
+  /// **'Rotate'**
+  String get editRotate;
+
+  /// No description provided for @editStore.
+  ///
+  /// In en, this message translates to:
+  /// **'Store'**
+  String get editStore;
+
+  /// No description provided for @editPlace.
+  ///
+  /// In en, this message translates to:
+  /// **'Place'**
+  String get editPlace;
+
+  /// No description provided for @editCancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get editCancel;
+
+  /// No description provided for @editInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'Can\'t place here'**
+  String get editInvalid;
+
+  /// No description provided for @furnitureCatalog.
+  ///
+  /// In en, this message translates to:
+  /// **'Furniture'**
+  String get furnitureCatalog;
+
+  /// No description provided for @furnitureOwned.
+  ///
+  /// In en, this message translates to:
+  /// **'In storage: {count}'**
+  String furnitureOwned(int count);
+
+  /// No description provided for @furnitureAppeal.
+  ///
+  /// In en, this message translates to:
+  /// **'+{appeal} appeal'**
+  String furnitureAppeal(int appeal);
+
+  /// No description provided for @furnitureLocked.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlocks with {shop}'**
+  String furnitureLocked(String shop);
+
+  /// No description provided for @cafeAppealSummary.
+  ///
+  /// In en, this message translates to:
+  /// **'Appeal {appeal} · income ×{multiplier}'**
+  String cafeAppealSummary(int appeal, String multiplier);
+
+  /// No description provided for @furnitureCategorySeating.
+  ///
+  /// In en, this message translates to:
+  /// **'Seating'**
+  String get furnitureCategorySeating;
+
+  /// No description provided for @furnitureCategoryTable.
+  ///
+  /// In en, this message translates to:
+  /// **'Tables'**
+  String get furnitureCategoryTable;
+
+  /// No description provided for @furnitureCategoryDecor.
+  ///
+  /// In en, this message translates to:
+  /// **'Decor'**
+  String get furnitureCategoryDecor;
+
+  /// No description provided for @furnitureCategoryLighting.
+  ///
+  /// In en, this message translates to:
+  /// **'Lighting'**
+  String get furnitureCategoryLighting;
+
+  /// No description provided for @furnitureCategoryCounter.
+  ///
+  /// In en, this message translates to:
+  /// **'Counter add-ons'**
+  String get furnitureCategoryCounter;
+
+  /// No description provided for @furniture_chair.
+  ///
+  /// In en, this message translates to:
+  /// **'Wooden Chair'**
+  String get furniture_chair;
+
+  /// No description provided for @furniture_stool.
+  ///
+  /// In en, this message translates to:
+  /// **'Stool'**
+  String get furniture_stool;
+
+  /// No description provided for @furniture_chair_white.
+  ///
+  /// In en, this message translates to:
+  /// **'White Chair'**
+  String get furniture_chair_white;
+
+  /// No description provided for @furniture_bench.
+  ///
+  /// In en, this message translates to:
+  /// **'Bench'**
+  String get furniture_bench;
+
+  /// No description provided for @furniture_armchair.
+  ///
+  /// In en, this message translates to:
+  /// **'Armchair'**
+  String get furniture_armchair;
+
+  /// No description provided for @furniture_sofa.
+  ///
+  /// In en, this message translates to:
+  /// **'Sofa'**
+  String get furniture_sofa;
+
+  /// No description provided for @furniture_table.
+  ///
+  /// In en, this message translates to:
+  /// **'Table'**
+  String get furniture_table;
+
+  /// No description provided for @furniture_table_round.
+  ///
+  /// In en, this message translates to:
+  /// **'Round Table'**
+  String get furniture_table_round;
+
+  /// No description provided for @furniture_table_long.
+  ///
+  /// In en, this message translates to:
+  /// **'Long Table'**
+  String get furniture_table_long;
+
+  /// No description provided for @furniture_table_bar.
+  ///
+  /// In en, this message translates to:
+  /// **'Bar Table'**
+  String get furniture_table_bar;
+
+  /// No description provided for @furniture_table_marble.
+  ///
+  /// In en, this message translates to:
+  /// **'Marble Table'**
+  String get furniture_table_marble;
+
+  /// No description provided for @furniture_plant.
+  ///
+  /// In en, this message translates to:
+  /// **'Potted Plant'**
+  String get furniture_plant;
+
+  /// No description provided for @furniture_painting.
+  ///
+  /// In en, this message translates to:
+  /// **'Painting'**
+  String get furniture_painting;
+
+  /// No description provided for @furniture_shelf.
+  ///
+  /// In en, this message translates to:
+  /// **'Shelf'**
+  String get furniture_shelf;
+
+  /// No description provided for @furniture_rug.
+  ///
+  /// In en, this message translates to:
+  /// **'Rug'**
+  String get furniture_rug;
+
+  /// No description provided for @furniture_bookcase.
+  ///
+  /// In en, this message translates to:
+  /// **'Bookcase'**
+  String get furniture_bookcase;
+
+  /// No description provided for @furniture_record_player.
+  ///
+  /// In en, this message translates to:
+  /// **'Record Player'**
+  String get furniture_record_player;
+
+  /// No description provided for @furniture_neon_sign.
+  ///
+  /// In en, this message translates to:
+  /// **'Neon Sign'**
+  String get furniture_neon_sign;
+
+  /// No description provided for @furniture_aquarium.
+  ///
+  /// In en, this message translates to:
+  /// **'Aquarium'**
+  String get furniture_aquarium;
+
+  /// No description provided for @furniture_floor_lamp.
+  ///
+  /// In en, this message translates to:
+  /// **'Floor Lamp'**
+  String get furniture_floor_lamp;
+
+  /// No description provided for @furniture_lantern.
+  ///
+  /// In en, this message translates to:
+  /// **'Lantern'**
+  String get furniture_lantern;
+
+  /// No description provided for @furniture_light_pillar.
+  ///
+  /// In en, this message translates to:
+  /// **'Light Pillar'**
+  String get furniture_light_pillar;
+
+  /// No description provided for @furniture_pastry_case.
+  ///
+  /// In en, this message translates to:
+  /// **'Pastry Case'**
+  String get furniture_pastry_case;
+
+  /// No description provided for @furniture_drink_fridge.
+  ///
+  /// In en, this message translates to:
+  /// **'Drink Fridge'**
+  String get furniture_drink_fridge;
 }
 
 class _AppLocalizationsDelegate

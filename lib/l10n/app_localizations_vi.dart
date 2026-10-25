@@ -919,4 +919,138 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get drink_cold_brew => 'Cold brew';
+
+  @override
+  String get editLayout => 'Sửa';
+
+  @override
+  String get editDone => 'Xong';
+
+  @override
+  String get editHint => 'Chạm vào đồ nội thất để di chuyển.';
+
+  @override
+  String get editRotate => 'Xoay';
+
+  @override
+  String get editStore => 'Cất kho';
+
+  @override
+  String get editPlace => 'Đặt';
+
+  @override
+  String get editCancel => 'Hủy';
+
+  @override
+  String get editInvalid => 'Không thể đặt ở đây';
+
+  @override
+  String get furnitureCatalog => 'Nội thất';
+
+  @override
+  String furnitureOwned(int count) {
+    return 'Trong kho: $count';
+  }
+
+  @override
+  String furnitureAppeal(int appeal) {
+    return '+$appeal sức hút';
+  }
+
+  @override
+  String furnitureLocked(String shop) {
+    return 'Mở khóa với $shop';
+  }
+
+  @override
+  String cafeAppealSummary(int appeal, String multiplier) {
+    return 'Sức hút $appeal · thu nhập ×$multiplier';
+  }
+
+  @override
+  String get furnitureCategorySeating => 'Chỗ ngồi';
+
+  @override
+  String get furnitureCategoryTable => 'Bàn';
+
+  @override
+  String get furnitureCategoryDecor => 'Trang trí';
+
+  @override
+  String get furnitureCategoryLighting => 'Chiếu sáng';
+
+  @override
+  String get furnitureCategoryCounter => 'Phụ kiện quầy';
+
+  @override
+  String get furniture_chair => 'Ghế gỗ';
+
+  @override
+  String get furniture_stool => 'Ghế đẩu';
+
+  @override
+  String get furniture_chair_white => 'Ghế trắng';
+
+  @override
+  String get furniture_bench => 'Ghế băng';
+
+  @override
+  String get furniture_armchair => 'Ghế bành';
+
+  @override
+  String get furniture_sofa => 'Sofa';
+
+  @override
+  String get furniture_table => 'Bàn';
+
+  @override
+  String get furniture_table_round => 'Bàn tròn';
+
+  @override
+  String get furniture_table_long => 'Bàn dài';
+
+  @override
+  String get furniture_table_bar => 'Bàn bar';
+
+  @override
+  String get furniture_table_marble => 'Bàn đá cẩm thạch';
+
+  @override
+  String get furniture_plant => 'Chậu cây';
+
+  @override
+  String get furniture_painting => 'Tranh';
+
+  @override
+  String get furniture_shelf => 'Kệ';
+
+  @override
+  String get furniture_rug => 'Thảm';
+
+  @override
+  String get furniture_bookcase => 'Tủ sách';
+
+  @override
+  String get furniture_record_player => 'Máy hát đĩa';
+
+  @override
+  String get furniture_neon_sign => 'Biển neon';
+
+  @override
+  String get furniture_aquarium => 'Bể cá';
+
+  @override
+  String get furniture_floor_lamp => 'Đèn cây';
+
+  @override
+  String get furniture_lantern => 'Đèn lồng';
+
+  @override
+  String get furniture_light_pillar => 'Cột đèn';
+
+  @override
+  String get furniture_pastry_case => 'Tủ bánh ngọt';
+
+  @override
+  String get furniture_drink_fridge => 'Tủ lạnh đồ uống';
 }

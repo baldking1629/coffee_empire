@@ -1,20 +1,19 @@
 import 'dart:math';
 
 import 'package:coffee_empire/engine/cafe_customer.dart';
-import 'package:coffee_empire/engine/cafe_floor_plan.dart';
+import 'package:coffee_empire/engine/economy_engine.dart';
 import 'package:coffee_empire/engine/customer_flow.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../helpers/cafe_files.dart';
 import '../helpers/test_economy.dart';
 
 void main() {
-  final config = loadTestEconomy().service;
-  final catalog = loadCafeCatalog();
-  final plan = CafeFloorPlan.fromLayout(
-    catalog.defaultLayout,
-    catalog.fixtures,
-    laneLength: config.queueCapacity,
+  final economy = loadTestEconomy();
+  final config = economy.service;
+  final rules = EconomyEngine(economy).layoutRules;
+  final plan = rules.planFor(
+    rules.roomFor(1),
+    economy.cafe.defaultLayout.items,
   );
 
   CustomerFlow newFlow() =>

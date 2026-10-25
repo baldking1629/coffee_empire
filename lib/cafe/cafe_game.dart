@@ -8,14 +8,16 @@ import '../app/theme/app_colors.dart';
 import '../config/cafe_config.dart';
 import '../engine/cafe_customer.dart';
 import '../engine/cafe_floor_plan.dart';
+import '../engine/cafe_layout.dart';
 import '../engine/customer_flow.dart';
 import '../pixel/sprite_atlas.dart';
 import 'actors/barista_component.dart';
 import 'actors/customer_component.dart';
 import 'camera_fit.dart';
+import 'edit/edit_mode_controller.dart';
+import 'edit/placement_ghost.dart';
 import 'cafe_bridge.dart';
-import 'world/floor_layer.dart';
-import 'world/furniture_component.dart';
+import 'world/cafe_room_layer.dart';
 import 'world/machine_component.dart';
 import 'world/scene_effects.dart';
 
@@ -25,25 +27,27 @@ class CafeGame extends FlameGame {
     required this.catalog,
     required this.service,
     required this.bridge,
+    required CafeRoom room,
+    required List<LayoutItem> items,
     Random? random,
-  }) : plan = CafeFloorPlan.fromLayout(
-         catalog.defaultLayout,
-         catalog.fixtures,
-         laneLength: service.queueCapacity,
+  }) : _random = random ?? Random(),
+       _roomLayer = CafeRoomLayer(
+         atlas: atlas,
+         catalog: catalog,
+         room: room,
+         items: items,
        ) {
-    flow = CustomerFlow(
-      config: service,
-      plan: plan,
-      random: random ?? Random(),
-    );
+    flow = _newFlow(room, items);
   }
 
   final SpriteAtlas atlas;
   final CafeCatalog catalog;
   final ServiceConfig service;
   final CafeBridge bridge;
-  final CafeFloorPlan plan;
-  late final CustomerFlow flow;
+  final Random _random;
+  final CafeRoomLayer _roomLayer;
+  late CustomerFlow flow;
+  EditOverlay? _editOverlay;
   final Map<int, CustomerComponent> _customers = {};
   final List<BaristaComponent> _workers = [];
   late final BaristaComponent _player;
@@ -55,7 +59,9 @@ class CafeGame extends FlameGame {
   bool _vipBarista = false;
   bool _loaded = false;
 
-  CafeLayoutConfig get layout => catalog.defaultLayout;
+  CafeRoom get room => _roomLayer.room;
+
+  bool get isEditing => _editOverlay != null;
 
   Iterable<CustomerComponent> get customerComponents => _customers.values;
 
@@ -67,19 +73,13 @@ class CafeGame extends FlameGame {
   @override
   Future<void> onLoad() async {
     camera.viewfinder.anchor = Anchor.topLeft;
-    world.add(FloorLayer(atlas: atlas, layout: layout, paletteKey: 'base'));
-    world.add(DoorComponent(atlas: atlas, door: layout.door));
-    for (final item in layout.items) {
-      final fixture = catalog.fixtures[item.itemId];
-      if (fixture == null) continue;
-      world.add(FurnitureComponent(atlas: atlas, item: item, fixture: fixture));
-    }
-    world.add(_machine = MachineComponent(atlas: atlas, cell: layout.machine));
+    world.add(_roomLayer);
+    world.add(_machine = MachineComponent(atlas: atlas, cell: room.machine));
     world.add(
       _player = BaristaComponent(
         atlas: atlas,
-        station: layout.playerStation,
-        machine: layout.machine,
+        station: room.playerStation,
+        machine: room.machine,
       ),
     );
     _loaded = true;
@@ -99,8 +99,8 @@ class CafeGame extends FlameGame {
     final fit = CameraFit.compute(
       viewWidth: viewSize.x,
       viewHeight: viewSize.y,
-      cols: layout.cols,
-      rows: layout.rows,
+      cols: room.cols,
+      rows: room.rows,
     );
     camera.viewfinder
       ..zoom = fit.scale.toDouble()
@@ -123,14 +123,14 @@ class CafeGame extends FlameGame {
       worker.removeFromParent();
     }
     _workers.clear();
-    final stations = layout.baristaStations;
+    final stations = room.baristaStations;
     for (var i = 0; i < flow.baristas.length; i++) {
       final vip = isVipWorker(i);
       final station = vip ? stations.last : stations[i % stations.length];
       final worker = BaristaComponent(
         atlas: atlas,
         station: station,
-        machine: layout.machine,
+        machine: room.machine,
         outfit: vip ? BaristaComponent.vipOutfit : 'base',
       );
       _workers.add(worker);
@@ -143,7 +143,7 @@ class CafeGame extends FlameGame {
     super.update(dt);
     final events = flow.update(
       dt,
-      spawning: true,
+      spawning: !isEditing,
       drinks: drinks,
       arrivalSeconds: arrivalSeconds,
       autoServeSeconds: autoServeSeconds,
@@ -184,6 +184,42 @@ class CafeGame extends FlameGame {
       });
       component.sync();
     }
+  }
+
+  CustomerFlow _newFlow(CafeRoom room, List<LayoutItem> items) => CustomerFlow(
+    config: service,
+    plan: CafeFloorPlan.build(
+      room: room,
+      items: items,
+      catalog: catalog,
+      laneLength: service.queueCapacity,
+    ),
+    random: _random,
+  )..setBaristaCount(_npcBaristas + (_vipBarista ? 1 : 0));
+
+  void applyLayout(CafeRoom room, List<LayoutItem> items) {
+    resetCafe();
+    final resized = room.cols != this.room.cols || room.rows != this.room.rows;
+    _roomLayer.rebuild(room, items);
+    flow = _newFlow(room, items);
+    _editOverlay?.grid.resize(room);
+    if (resized && isLoaded) _fitCamera(size);
+  }
+
+  void setEditing(EditModeController? controller) {
+    _editOverlay?.removeFromParent();
+    _editOverlay = null;
+    if (controller == null) return;
+    resetCafe();
+    final overlay = EditOverlay(
+      atlas: atlas,
+      catalog: catalog,
+      controller: controller,
+      onHide: _roomLayer.hide,
+      room: room,
+    );
+    _editOverlay = overlay;
+    world.add(overlay);
   }
 
   void resetCafe() {

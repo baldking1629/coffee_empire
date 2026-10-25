@@ -920,4 +920,138 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get drink_cold_brew => 'Cold Brew';
+
+  @override
+  String get editLayout => 'Ubah';
+
+  @override
+  String get editDone => 'Selesai';
+
+  @override
+  String get editHint => 'Ketuk perabot untuk memindahkannya.';
+
+  @override
+  String get editRotate => 'Putar';
+
+  @override
+  String get editStore => 'Simpan';
+
+  @override
+  String get editPlace => 'Taruh';
+
+  @override
+  String get editCancel => 'Batal';
+
+  @override
+  String get editInvalid => 'Tidak bisa ditaruh di sini';
+
+  @override
+  String get furnitureCatalog => 'Perabot';
+
+  @override
+  String furnitureOwned(int count) {
+    return 'Di gudang: $count';
+  }
+
+  @override
+  String furnitureAppeal(int appeal) {
+    return '+$appeal daya tarik';
+  }
+
+  @override
+  String furnitureLocked(String shop) {
+    return 'Terbuka dengan $shop';
+  }
+
+  @override
+  String cafeAppealSummary(int appeal, String multiplier) {
+    return 'Daya tarik $appeal · pendapatan ×$multiplier';
+  }
+
+  @override
+  String get furnitureCategorySeating => 'Tempat duduk';
+
+  @override
+  String get furnitureCategoryTable => 'Meja';
+
+  @override
+  String get furnitureCategoryDecor => 'Dekorasi';
+
+  @override
+  String get furnitureCategoryLighting => 'Pencahayaan';
+
+  @override
+  String get furnitureCategoryCounter => 'Tambahan konter';
+
+  @override
+  String get furniture_chair => 'Kursi kayu';
+
+  @override
+  String get furniture_stool => 'Bangku kecil';
+
+  @override
+  String get furniture_chair_white => 'Kursi putih';
+
+  @override
+  String get furniture_bench => 'Bangku panjang';
+
+  @override
+  String get furniture_armchair => 'Kursi berlengan';
+
+  @override
+  String get furniture_sofa => 'Sofa';
+
+  @override
+  String get furniture_table => 'Meja';
+
+  @override
+  String get furniture_table_round => 'Meja bundar';
+
+  @override
+  String get furniture_table_long => 'Meja panjang';
+
+  @override
+  String get furniture_table_bar => 'Meja bar';
+
+  @override
+  String get furniture_table_marble => 'Meja marmer';
+
+  @override
+  String get furniture_plant => 'Tanaman pot';
+
+  @override
+  String get furniture_painting => 'Lukisan';
+
+  @override
+  String get furniture_shelf => 'Rak';
+
+  @override
+  String get furniture_rug => 'Karpet';
+
+  @override
+  String get furniture_bookcase => 'Rak buku';
+
+  @override
+  String get furniture_record_player => 'Pemutar piringan hitam';
+
+  @override
+  String get furniture_neon_sign => 'Papan neon';
+
+  @override
+  String get furniture_aquarium => 'Akuarium';
+
+  @override
+  String get furniture_floor_lamp => 'Lampu lantai';
+
+  @override
+  String get furniture_lantern => 'Lentera';
+
+  @override
+  String get furniture_light_pillar => 'Pilar cahaya';
+
+  @override
+  String get furniture_pastry_case => 'Etalase kue';
+
+  @override
+  String get furniture_drink_fridge => 'Kulkas minuman';
 }

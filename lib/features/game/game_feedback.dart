@@ -11,6 +11,8 @@ enum FeedbackKind {
   orderTaken,
   serve,
   customerLost,
+  place,
+  placeInvalid,
 }
 
 class GameFeedback {
@@ -25,11 +27,12 @@ class GameFeedback {
   void play(FeedbackKind kind, GameSettings settings) {
     if (settings.haptics) {
       switch (kind) {
-        case FeedbackKind.tap || FeedbackKind.orderTaken:
+        case FeedbackKind.tap || FeedbackKind.orderTaken || FeedbackKind.place:
           haptics.selection();
         case FeedbackKind.cupFull ||
             FeedbackKind.denied ||
-            FeedbackKind.customerLost:
+            FeedbackKind.customerLost ||
+            FeedbackKind.placeInvalid:
           haptics.light();
         case FeedbackKind.purchase || FeedbackKind.serve:
           haptics.medium();
@@ -47,6 +50,8 @@ class GameFeedback {
         FeedbackKind.orderTaken => GameSound.orderTaken,
         FeedbackKind.serve => GameSound.serve,
         FeedbackKind.customerLost => GameSound.customerLost,
+        FeedbackKind.place => GameSound.place,
+        FeedbackKind.placeInvalid => GameSound.denied,
       });
     }
   }
