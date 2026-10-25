@@ -1055,4 +1055,135 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get furniture_drink_fridge => 'ثلاجة مشروبات';
+
+  @override
+  String get appearanceButton => 'المظهر';
+
+  @override
+  String get appearanceTitle => 'مظهر المقهى';
+
+  @override
+  String get cosmeticTypeFloor => 'الأرضية';
+
+  @override
+  String get cosmeticTypeWall => 'الجدران';
+
+  @override
+  String get cosmeticTypeSign => 'اللافتة';
+
+  @override
+  String get cosmeticTypeLight => 'الإضاءة';
+
+  @override
+  String get cosmeticTypeOutfit => 'الأزياء';
+
+  @override
+  String get outfitSlotPlayer => 'أنت';
+
+  @override
+  String outfitSlotBarista(int number) {
+    return 'باريستا $number';
+  }
+
+  @override
+  String cosmeticLockShop(String shop) {
+    return 'يُفتح مع $shop';
+  }
+
+  @override
+  String cosmeticLockAchievement(String name) {
+    return 'إنجاز: $name';
+  }
+
+  @override
+  String get cosmeticLockVip => 'لكبار الشخصيات فقط';
+
+  @override
+  String cosmeticUnlockBeans(int beans) {
+    return 'فتح · $beans حبات';
+  }
+
+  @override
+  String get cosmetic_floor_classic => 'بلاط كلاسيكي';
+
+  @override
+  String get cosmetic_floor_marble => 'رخام';
+
+  @override
+  String get cosmetic_floor_dark_wood => 'خشب داكن';
+
+  @override
+  String get cosmetic_floor_checker => 'مربعات';
+
+  @override
+  String get cosmetic_floor_terracotta => 'تيراكوتا';
+
+  @override
+  String get cosmetic_floor_mint => 'بلاط نعناعي';
+
+  @override
+  String get cosmetic_wall_cream => 'كريمي';
+
+  @override
+  String get cosmetic_wall_sage => 'مريمية';
+
+  @override
+  String get cosmetic_wall_navy => 'كحلي';
+
+  @override
+  String get cosmetic_wall_rose => 'وردي';
+
+  @override
+  String get cosmetic_wall_brick => 'طوب';
+
+  @override
+  String get cosmetic_wall_charcoal => 'فحمي';
+
+  @override
+  String get cosmetic_sign_classic => 'لافتة كلاسيكية';
+
+  @override
+  String get cosmetic_sign_round => 'لافتة دائرية';
+
+  @override
+  String get cosmetic_sign_chalk => 'سبورة';
+
+  @override
+  String get cosmetic_sign_neon => 'لافتة نيون';
+
+  @override
+  String get cosmetic_light_neutral => 'ضوء النهار';
+
+  @override
+  String get cosmetic_light_warm => 'توهج دافئ';
+
+  @override
+  String get cosmetic_light_cool => 'ضوء بارد';
+
+  @override
+  String get cosmetic_light_neon => 'ليلة نيون';
+
+  @override
+  String get cosmetic_outfit_green => 'مريلة خضراء';
+
+  @override
+  String get cosmetic_outfit_red => 'مريلة حمراء';
+
+  @override
+  String get cosmetic_outfit_navy => 'مريلة كحلية';
+
+  @override
+  String get cosmetic_outfit_pink => 'مريلة وردية';
+
+  @override
+  String get cosmetic_outfit_black => 'مريلة سوداء';
+
+  @override
+  String get cosmetic_outfit_purple => 'مريلة بنفسجية';
+
+  @override
+  String get cosmetic_outfit_teal => 'مريلة فيروزية';
+
+  @override
+  String get cosmetic_outfit_gold => 'مريلة ذهبية';
 }

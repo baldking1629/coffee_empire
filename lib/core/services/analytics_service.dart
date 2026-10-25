@@ -20,6 +20,8 @@ abstract final class AnalyticsEvents {
   static const String customerLost = 'customer_lost';
   static const String layoutChanged = 'layout_changed';
   static const String furnitureBought = 'furniture_bought';
+  static const String cosmeticUnlocked = 'cosmetic_unlocked';
+  static const String cosmeticEquipped = 'cosmetic_equipped';
 }
 
 abstract class AnalyticsService {

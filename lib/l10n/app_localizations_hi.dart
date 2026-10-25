@@ -1052,4 +1052,135 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get furniture_drink_fridge => 'ड्रिंक फ़्रिज';
+
+  @override
+  String get appearanceButton => 'रूप';
+
+  @override
+  String get appearanceTitle => 'कैफ़े का रूप';
+
+  @override
+  String get cosmeticTypeFloor => 'फ़र्श';
+
+  @override
+  String get cosmeticTypeWall => 'दीवारें';
+
+  @override
+  String get cosmeticTypeSign => 'साइनबोर्ड';
+
+  @override
+  String get cosmeticTypeLight => 'रोशनी';
+
+  @override
+  String get cosmeticTypeOutfit => 'पोशाक';
+
+  @override
+  String get outfitSlotPlayer => 'आप';
+
+  @override
+  String outfitSlotBarista(int number) {
+    return 'बरिस्ता $number';
+  }
+
+  @override
+  String cosmeticLockShop(String shop) {
+    return '$shop से खुलता है';
+  }
+
+  @override
+  String cosmeticLockAchievement(String name) {
+    return 'उपलब्धि: $name';
+  }
+
+  @override
+  String get cosmeticLockVip => 'केवल VIP';
+
+  @override
+  String cosmeticUnlockBeans(int beans) {
+    return 'खोलें · $beans बीन्स';
+  }
+
+  @override
+  String get cosmetic_floor_classic => 'क्लासिक टाइल';
+
+  @override
+  String get cosmetic_floor_marble => 'संगमरमर';
+
+  @override
+  String get cosmetic_floor_dark_wood => 'गहरी लकड़ी';
+
+  @override
+  String get cosmetic_floor_checker => 'चेकरबोर्ड';
+
+  @override
+  String get cosmetic_floor_terracotta => 'टेराकोटा';
+
+  @override
+  String get cosmetic_floor_mint => 'मिंट टाइल';
+
+  @override
+  String get cosmetic_wall_cream => 'क्रीम';
+
+  @override
+  String get cosmetic_wall_sage => 'सेज';
+
+  @override
+  String get cosmetic_wall_navy => 'नेवी';
+
+  @override
+  String get cosmetic_wall_rose => 'गुलाबी';
+
+  @override
+  String get cosmetic_wall_brick => 'ईंट';
+
+  @override
+  String get cosmetic_wall_charcoal => 'चारकोल';
+
+  @override
+  String get cosmetic_sign_classic => 'क्लासिक साइन';
+
+  @override
+  String get cosmetic_sign_round => 'गोल साइन';
+
+  @override
+  String get cosmetic_sign_chalk => 'चॉकबोर्ड';
+
+  @override
+  String get cosmetic_sign_neon => 'नियॉन साइन';
+
+  @override
+  String get cosmetic_light_neutral => 'दिन की रोशनी';
+
+  @override
+  String get cosmetic_light_warm => 'गर्म रोशनी';
+
+  @override
+  String get cosmetic_light_cool => 'ठंडी रोशनी';
+
+  @override
+  String get cosmetic_light_neon => 'नियॉन रात';
+
+  @override
+  String get cosmetic_outfit_green => 'हरा एप्रन';
+
+  @override
+  String get cosmetic_outfit_red => 'लाल एप्रन';
+
+  @override
+  String get cosmetic_outfit_navy => 'नेवी एप्रन';
+
+  @override
+  String get cosmetic_outfit_pink => 'गुलाबी एप्रन';
+
+  @override
+  String get cosmetic_outfit_black => 'काला एप्रन';
+
+  @override
+  String get cosmetic_outfit_purple => 'बैंगनी एप्रन';
+
+  @override
+  String get cosmetic_outfit_teal => 'फ़िरोज़ी एप्रन';
+
+  @override
+  String get cosmetic_outfit_gold => 'सुनहरा एप्रन';
 }

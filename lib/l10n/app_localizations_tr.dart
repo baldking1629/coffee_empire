@@ -1055,4 +1055,135 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get furniture_drink_fridge => 'İçecek Dolabı';
+
+  @override
+  String get appearanceButton => 'Görünüm';
+
+  @override
+  String get appearanceTitle => 'Kafe görünümü';
+
+  @override
+  String get cosmeticTypeFloor => 'Zemin';
+
+  @override
+  String get cosmeticTypeWall => 'Duvarlar';
+
+  @override
+  String get cosmeticTypeSign => 'Tabela';
+
+  @override
+  String get cosmeticTypeLight => 'Aydınlatma';
+
+  @override
+  String get cosmeticTypeOutfit => 'Kıyafetler';
+
+  @override
+  String get outfitSlotPlayer => 'Sen';
+
+  @override
+  String outfitSlotBarista(int number) {
+    return 'Barista $number';
+  }
+
+  @override
+  String cosmeticLockShop(String shop) {
+    return '$shop ile açılır';
+  }
+
+  @override
+  String cosmeticLockAchievement(String name) {
+    return 'Başarım: $name';
+  }
+
+  @override
+  String get cosmeticLockVip => 'Sadece VIP';
+
+  @override
+  String cosmeticUnlockBeans(int beans) {
+    return 'Aç · $beans çekirdek';
+  }
+
+  @override
+  String get cosmetic_floor_classic => 'Klasik Karo';
+
+  @override
+  String get cosmetic_floor_marble => 'Mermer';
+
+  @override
+  String get cosmetic_floor_dark_wood => 'Koyu Ahşap';
+
+  @override
+  String get cosmetic_floor_checker => 'Dama';
+
+  @override
+  String get cosmetic_floor_terracotta => 'Terrakota';
+
+  @override
+  String get cosmetic_floor_mint => 'Mint Karo';
+
+  @override
+  String get cosmetic_wall_cream => 'Krem';
+
+  @override
+  String get cosmetic_wall_sage => 'Adaçayı';
+
+  @override
+  String get cosmetic_wall_navy => 'Lacivert';
+
+  @override
+  String get cosmetic_wall_rose => 'Gül';
+
+  @override
+  String get cosmetic_wall_brick => 'Tuğla';
+
+  @override
+  String get cosmetic_wall_charcoal => 'Antrasit';
+
+  @override
+  String get cosmetic_sign_classic => 'Klasik Tabela';
+
+  @override
+  String get cosmetic_sign_round => 'Yuvarlak Tabela';
+
+  @override
+  String get cosmetic_sign_chalk => 'Kara Tahta';
+
+  @override
+  String get cosmetic_sign_neon => 'Neon Tabela';
+
+  @override
+  String get cosmetic_light_neutral => 'Gün Işığı';
+
+  @override
+  String get cosmetic_light_warm => 'Sıcak Işık';
+
+  @override
+  String get cosmetic_light_cool => 'Soğuk Işık';
+
+  @override
+  String get cosmetic_light_neon => 'Neon Gece';
+
+  @override
+  String get cosmetic_outfit_green => 'Yeşil Önlük';
+
+  @override
+  String get cosmetic_outfit_red => 'Kırmızı Önlük';
+
+  @override
+  String get cosmetic_outfit_navy => 'Lacivert Önlük';
+
+  @override
+  String get cosmetic_outfit_pink => 'Pembe Önlük';
+
+  @override
+  String get cosmetic_outfit_black => 'Siyah Önlük';
+
+  @override
+  String get cosmetic_outfit_purple => 'Mor Önlük';
+
+  @override
+  String get cosmetic_outfit_teal => 'Turkuaz Önlük';
+
+  @override
+  String get cosmetic_outfit_gold => 'Altın Önlük';
 }

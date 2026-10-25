@@ -13,12 +13,14 @@ import '../../cafe_hud/brew_panel.dart';
 import '../../cafe_hud/service_hud.dart';
 import '../../customize/edit_toolbar.dart';
 import '../../customize/scene_corner_button.dart';
+import '../../customize/theme_picker.dart';
 import '../../game/game_cubit.dart';
 
 class CafeView extends StatefulWidget {
   const CafeView({super.key, required this.active, this.bottomOverlay});
 
   static const Key editButtonKey = Key('edit_layout_button');
+  static const Key appearanceButtonKey = Key('appearance_button');
 
   final bool active;
   final Widget? bottomOverlay;
@@ -107,12 +109,26 @@ class CafeViewState extends State<CafeView> {
         PositionedDirectional(
           top: 8,
           end: 8,
-          child: SceneCornerButton(
-            key: CafeView.editButtonKey,
-            icon: _editing ? LucideIcons.check : LucideIcons.hammer,
-            label: _editing ? l10n.editDone : l10n.editLayout,
-            highlighted: _editing,
-            onPressed: () => setEditing(!_editing),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              SceneCornerButton(
+                key: CafeView.editButtonKey,
+                icon: _editing ? LucideIcons.check : LucideIcons.hammer,
+                label: _editing ? l10n.editDone : l10n.editLayout,
+                highlighted: _editing,
+                onPressed: () => setEditing(!_editing),
+              ),
+              if (!_editing) ...[
+                const SizedBox(height: 8),
+                SceneCornerButton(
+                  key: CafeView.appearanceButtonKey,
+                  icon: LucideIcons.palette,
+                  label: l10n.appearanceButton,
+                  onPressed: () => showAppearanceSheet(context),
+                ),
+              ],
+            ],
           ),
         ),
         PositionedDirectional(

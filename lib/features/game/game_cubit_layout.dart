@@ -7,7 +7,7 @@ mixin _LayoutCommands on _GameCubitCore {
 
   CafeRoom get cafeRoom => layoutRules.roomFor(state.cafeLayout.roomTier);
 
-  int get appeal => engine.appealMath.appealOf(state.cafeLayout.items);
+  int get appeal => totalAppealOf(state);
 
   double get appealMultiplier => engine.appealMath.multiplier(appeal);
 

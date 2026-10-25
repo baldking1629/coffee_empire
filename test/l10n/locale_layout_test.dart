@@ -9,6 +9,7 @@ import 'package:coffee_empire/features/game/game_settings.dart';
 import 'package:coffee_empire/features/game/game_state.dart';
 import 'package:coffee_empire/features/cafe_hud/service_hud.dart';
 import 'package:coffee_empire/features/customize/edit_toolbar.dart';
+import 'package:coffee_empire/features/customize/theme_picker.dart';
 import 'package:coffee_empire/features/home/widgets/cafe_view.dart';
 import 'package:coffee_empire/features/home/widgets/cash_header.dart';
 import 'package:coffee_empire/features/lab/lab_state.dart';
@@ -142,6 +143,19 @@ void main() {
       await tester.pump(const Duration(milliseconds: 500));
       await tester.tap(find.byKey(CafeView.editButtonKey));
       await tester.pump(const Duration(milliseconds: 300));
+
+      await tester.tap(find.byKey(CafeView.appearanceButtonKey));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 500));
+      for (final type in CosmeticType.values) {
+        await tester.tap(find.byKey(AppearanceSheet.tabKey(type)));
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 400));
+        expect(tester.takeException(), isNull, reason: 'look ${type.name}');
+      }
+      await tester.tapAt(const Offset(20, 60));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 500));
 
       final destinations = find.byType(NavigationDestination);
       expect(destinations, findsNWidgets(5));

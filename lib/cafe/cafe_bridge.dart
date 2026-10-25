@@ -2,13 +2,19 @@ import 'dart:async';
 
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/painting.dart';
+
+import '../config/economy_config.dart';
 
 import '../core/bignumber/big_number.dart';
 import '../engine/cafe_customer.dart';
 import '../engine/cafe_layout.dart';
 import '../features/game/game_cubit.dart';
 import '../features/game/game_state.dart';
+import '../pixel/palette_set.dart';
 import 'cafe_game.dart';
+import 'scene_look.dart';
+import 'world/cafe_room_layer.dart';
 import 'edit/edit_mode_controller.dart';
 
 class PlayerOrder extends Equatable {
@@ -50,6 +56,7 @@ class CafeBridge {
   StreamSubscription<GameState>? _subscription;
   StaffSetup? _staff;
   CafeLayout? _layout;
+  SceneLook? _look;
 
   static String _plainGain(BigNumber amount) => amount.toJson();
 
@@ -68,7 +75,60 @@ class CafeBridge {
   void _onState(GameState state) {
     _syncLayout(state);
     _syncStaff(state);
+    _syncLook(state);
   }
+
+  void _syncLook(GameState state) {
+    final game = _game;
+    if (game == null) return;
+    final look = lookOf(game, state);
+    if (look == _look) return;
+    final first = _look == null;
+    _look = look;
+    game.applyLook(look, celebrate: !first);
+  }
+
+  SceneLook lookOf(CafeGame game, GameState state) {
+    String setOf(CosmeticConfig? cosmetic) =>
+        cosmetic?.paletteSetId ?? PaletteCatalog.baseSet;
+    final floor = cubit.cosmeticsRules.equipped(
+      state.cosmetics,
+      CosmeticType.floor,
+    );
+    final wall = cubit.cosmeticsRules.equipped(
+      state.cosmetics,
+      CosmeticType.wall,
+    );
+    final sign = cubit.cosmeticsRules.equipped(
+      state.cosmetics,
+      CosmeticType.sign,
+    );
+    final light = cubit.cosmeticsRules.equipped(
+      state.cosmetics,
+      CosmeticType.light,
+    );
+    final slots = cubit.engine.config.cosmetics.outfitSlots;
+    String outfit(String slot) =>
+        setOf(cubit.cosmeticsRules.outfitFor(state.cosmetics, slot));
+    final tint =
+        game.atlas.palettes.resolve(
+          PaletteCatalog.keyOf([setOf(light)]),
+        )[lightTintSlot] ??
+        const Color(0xFFFFFFFF);
+    return SceneLook(
+      floorPaletteKey: PaletteCatalog.keyOf([setOf(floor), setOf(wall)]),
+      signSpriteId: sign?.spriteId ?? CafeRoomLayer.signFixtureSprite,
+      lightTint: tint,
+      lightIntensity: light?.intensity ?? 0,
+      playerOutfit: slots.isEmpty
+          ? PaletteCatalog.baseSet
+          : outfit(slots.first),
+      npcOutfits: [for (final slot in slots.skip(1)) outfit(slot)],
+      machineLevel: cubit.visibleEquipmentLevel,
+    );
+  }
+
+  static const String lightTintSlot = 'light_tint';
 
   void _syncLayout(GameState state) {
     final game = _game;
@@ -101,7 +161,7 @@ class CafeBridge {
       vip: state.store.isVip,
       drinks: cubit.availableDrinks(state),
       managers: managers,
-      appeal: cubit.engine.appealMath.appealOf(state.cafeLayout.items),
+      appeal: cubit.totalAppealOf(state),
     );
     if (setup == _staff) return;
     _staff = setup;

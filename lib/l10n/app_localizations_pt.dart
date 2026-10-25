@@ -1056,4 +1056,135 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get furniture_drink_fridge => 'Geladeira de bebidas';
+
+  @override
+  String get appearanceButton => 'Visual';
+
+  @override
+  String get appearanceTitle => 'Visual do café';
+
+  @override
+  String get cosmeticTypeFloor => 'Piso';
+
+  @override
+  String get cosmeticTypeWall => 'Paredes';
+
+  @override
+  String get cosmeticTypeSign => 'Letreiro';
+
+  @override
+  String get cosmeticTypeLight => 'Iluminação';
+
+  @override
+  String get cosmeticTypeOutfit => 'Uniformes';
+
+  @override
+  String get outfitSlotPlayer => 'Você';
+
+  @override
+  String outfitSlotBarista(int number) {
+    return 'Barista $number';
+  }
+
+  @override
+  String cosmeticLockShop(String shop) {
+    return 'Desbloqueia com $shop';
+  }
+
+  @override
+  String cosmeticLockAchievement(String name) {
+    return 'Conquista: $name';
+  }
+
+  @override
+  String get cosmeticLockVip => 'Só VIP';
+
+  @override
+  String cosmeticUnlockBeans(int beans) {
+    return 'Desbloquear · $beans grãos';
+  }
+
+  @override
+  String get cosmetic_floor_classic => 'Ladrilho clássico';
+
+  @override
+  String get cosmetic_floor_marble => 'Mármore';
+
+  @override
+  String get cosmetic_floor_dark_wood => 'Madeira escura';
+
+  @override
+  String get cosmetic_floor_checker => 'Xadrez';
+
+  @override
+  String get cosmetic_floor_terracotta => 'Terracota';
+
+  @override
+  String get cosmetic_floor_mint => 'Ladrilho menta';
+
+  @override
+  String get cosmetic_wall_cream => 'Creme';
+
+  @override
+  String get cosmetic_wall_sage => 'Sálvia';
+
+  @override
+  String get cosmetic_wall_navy => 'Azul-marinho';
+
+  @override
+  String get cosmetic_wall_rose => 'Rosa';
+
+  @override
+  String get cosmetic_wall_brick => 'Tijolo';
+
+  @override
+  String get cosmetic_wall_charcoal => 'Grafite';
+
+  @override
+  String get cosmetic_sign_classic => 'Letreiro clássico';
+
+  @override
+  String get cosmetic_sign_round => 'Letreiro redondo';
+
+  @override
+  String get cosmetic_sign_chalk => 'Lousa';
+
+  @override
+  String get cosmetic_sign_neon => 'Letreiro neon';
+
+  @override
+  String get cosmetic_light_neutral => 'Luz do dia';
+
+  @override
+  String get cosmetic_light_warm => 'Brilho quente';
+
+  @override
+  String get cosmetic_light_cool => 'Luz fria';
+
+  @override
+  String get cosmetic_light_neon => 'Noite neon';
+
+  @override
+  String get cosmetic_outfit_green => 'Avental verde';
+
+  @override
+  String get cosmetic_outfit_red => 'Avental vermelho';
+
+  @override
+  String get cosmetic_outfit_navy => 'Avental marinho';
+
+  @override
+  String get cosmetic_outfit_pink => 'Avental rosa';
+
+  @override
+  String get cosmetic_outfit_black => 'Avental preto';
+
+  @override
+  String get cosmetic_outfit_purple => 'Avental roxo';
+
+  @override
+  String get cosmetic_outfit_teal => 'Avental turquesa';
+
+  @override
+  String get cosmetic_outfit_gold => 'Avental dourado';
 }

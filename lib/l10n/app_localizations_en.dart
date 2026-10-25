@@ -1053,4 +1053,135 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get furniture_drink_fridge => 'Drink Fridge';
+
+  @override
+  String get appearanceButton => 'Look';
+
+  @override
+  String get appearanceTitle => 'Cafe look';
+
+  @override
+  String get cosmeticTypeFloor => 'Floor';
+
+  @override
+  String get cosmeticTypeWall => 'Walls';
+
+  @override
+  String get cosmeticTypeSign => 'Sign';
+
+  @override
+  String get cosmeticTypeLight => 'Lighting';
+
+  @override
+  String get cosmeticTypeOutfit => 'Outfits';
+
+  @override
+  String get outfitSlotPlayer => 'You';
+
+  @override
+  String outfitSlotBarista(int number) {
+    return 'Barista $number';
+  }
+
+  @override
+  String cosmeticLockShop(String shop) {
+    return 'Unlocks with $shop';
+  }
+
+  @override
+  String cosmeticLockAchievement(String name) {
+    return 'Achievement: $name';
+  }
+
+  @override
+  String get cosmeticLockVip => 'VIP only';
+
+  @override
+  String cosmeticUnlockBeans(int beans) {
+    return 'Unlock · $beans beans';
+  }
+
+  @override
+  String get cosmetic_floor_classic => 'Classic Tiles';
+
+  @override
+  String get cosmetic_floor_marble => 'Marble';
+
+  @override
+  String get cosmetic_floor_dark_wood => 'Dark Wood';
+
+  @override
+  String get cosmetic_floor_checker => 'Checkerboard';
+
+  @override
+  String get cosmetic_floor_terracotta => 'Terracotta';
+
+  @override
+  String get cosmetic_floor_mint => 'Mint Tiles';
+
+  @override
+  String get cosmetic_wall_cream => 'Cream';
+
+  @override
+  String get cosmetic_wall_sage => 'Sage';
+
+  @override
+  String get cosmetic_wall_navy => 'Navy';
+
+  @override
+  String get cosmetic_wall_rose => 'Rose';
+
+  @override
+  String get cosmetic_wall_brick => 'Brick';
+
+  @override
+  String get cosmetic_wall_charcoal => 'Charcoal';
+
+  @override
+  String get cosmetic_sign_classic => 'Classic Sign';
+
+  @override
+  String get cosmetic_sign_round => 'Round Sign';
+
+  @override
+  String get cosmetic_sign_chalk => 'Chalkboard';
+
+  @override
+  String get cosmetic_sign_neon => 'Neon Sign';
+
+  @override
+  String get cosmetic_light_neutral => 'Daylight';
+
+  @override
+  String get cosmetic_light_warm => 'Warm Glow';
+
+  @override
+  String get cosmetic_light_cool => 'Cool Light';
+
+  @override
+  String get cosmetic_light_neon => 'Neon Night';
+
+  @override
+  String get cosmetic_outfit_green => 'Green Apron';
+
+  @override
+  String get cosmetic_outfit_red => 'Red Apron';
+
+  @override
+  String get cosmetic_outfit_navy => 'Navy Apron';
+
+  @override
+  String get cosmetic_outfit_pink => 'Pink Apron';
+
+  @override
+  String get cosmetic_outfit_black => 'Black Apron';
+
+  @override
+  String get cosmetic_outfit_purple => 'Purple Apron';
+
+  @override
+  String get cosmetic_outfit_teal => 'Teal Apron';
+
+  @override
+  String get cosmetic_outfit_gold => 'Golden Apron';
 }

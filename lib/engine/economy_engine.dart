@@ -6,6 +6,7 @@ import '../core/bignumber/big_number.dart';
 import 'achievement_math.dart';
 import 'appeal_math.dart';
 import 'boost_math.dart';
+import 'cosmetics_rules.dart';
 import 'daily_reward_math.dart';
 import 'franchise_math.dart';
 import 'lab_math.dart';
@@ -78,6 +79,10 @@ class EconomyEngine {
        dailyRewardMath = DailyRewardMath(config.dailyReward),
        serviceMath = ServiceMath(service: config.service, tap: config.tap),
        appealMath = AppealMath(rules: config.cafeRules, catalog: config.cafe),
+       cosmeticsRules = CosmeticsRules(
+         catalog: config.cosmetics,
+         shops: config.shops,
+       ),
        layoutRules = LayoutRules(
          catalog: config.cafe,
          rules: config.cafeRules,
@@ -97,6 +102,7 @@ class EconomyEngine {
   final ServiceMath serviceMath;
   final AppealMath appealMath;
   final LayoutRules layoutRules;
+  final CosmeticsRules cosmeticsRules;
 
   BigNumber shopsIncomePerSec(IncomeInputs inputs) {
     var total = BigNumber.zero;

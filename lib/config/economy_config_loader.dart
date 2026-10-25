@@ -9,13 +9,19 @@ class EconomyConfigLoader {
   static const String assetPath = 'assets/config/economy.json';
   static const String achievementsPath = 'assets/config/achievements.json';
   static const String furniturePath = 'assets/config/furniture.json';
+  static const String cosmeticsPath = 'assets/config/cosmetics.json';
 
   final AssetBundle bundle;
 
   Future<EconomyConfig> load() async {
     final source = await bundle.loadString(assetPath);
     final cafeSource = await bundle.loadString(furniturePath);
-    return EconomyConfig.fromJsonString(source, cafeSource: cafeSource);
+    final cosmeticsSource = await bundle.loadString(cosmeticsPath);
+    return EconomyConfig.fromJsonString(
+      source,
+      cafeSource: cafeSource,
+      cosmeticsSource: cosmeticsSource,
+    );
   }
 
   Future<AchievementCatalog> loadAchievements() async {

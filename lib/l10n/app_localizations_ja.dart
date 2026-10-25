@@ -1044,4 +1044,135 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get furniture_drink_fridge => 'ドリンク冷蔵庫';
+
+  @override
+  String get appearanceButton => '見た目';
+
+  @override
+  String get appearanceTitle => 'カフェの見た目';
+
+  @override
+  String get cosmeticTypeFloor => '床';
+
+  @override
+  String get cosmeticTypeWall => '壁';
+
+  @override
+  String get cosmeticTypeSign => '看板';
+
+  @override
+  String get cosmeticTypeLight => '照明';
+
+  @override
+  String get cosmeticTypeOutfit => '衣装';
+
+  @override
+  String get outfitSlotPlayer => 'あなた';
+
+  @override
+  String outfitSlotBarista(int number) {
+    return 'バリスタ $number';
+  }
+
+  @override
+  String cosmeticLockShop(String shop) {
+    return '$shopで解放';
+  }
+
+  @override
+  String cosmeticLockAchievement(String name) {
+    return '実績: $name';
+  }
+
+  @override
+  String get cosmeticLockVip => 'VIP限定';
+
+  @override
+  String cosmeticUnlockBeans(int beans) {
+    return '解放 · $beans豆';
+  }
+
+  @override
+  String get cosmetic_floor_classic => 'クラシックタイル';
+
+  @override
+  String get cosmetic_floor_marble => '大理石';
+
+  @override
+  String get cosmetic_floor_dark_wood => 'ダークウッド';
+
+  @override
+  String get cosmetic_floor_checker => '市松模様';
+
+  @override
+  String get cosmetic_floor_terracotta => 'テラコッタ';
+
+  @override
+  String get cosmetic_floor_mint => 'ミントタイル';
+
+  @override
+  String get cosmetic_wall_cream => 'クリーム';
+
+  @override
+  String get cosmetic_wall_sage => 'セージ';
+
+  @override
+  String get cosmetic_wall_navy => 'ネイビー';
+
+  @override
+  String get cosmetic_wall_rose => 'ローズ';
+
+  @override
+  String get cosmetic_wall_brick => 'レンガ';
+
+  @override
+  String get cosmetic_wall_charcoal => 'チャコール';
+
+  @override
+  String get cosmetic_sign_classic => 'クラシック看板';
+
+  @override
+  String get cosmetic_sign_round => '丸い看板';
+
+  @override
+  String get cosmetic_sign_chalk => '黒板';
+
+  @override
+  String get cosmetic_sign_neon => 'ネオン看板';
+
+  @override
+  String get cosmetic_light_neutral => '昼の光';
+
+  @override
+  String get cosmetic_light_warm => '暖かい光';
+
+  @override
+  String get cosmetic_light_cool => '涼しい光';
+
+  @override
+  String get cosmetic_light_neon => 'ネオンの夜';
+
+  @override
+  String get cosmetic_outfit_green => '緑のエプロン';
+
+  @override
+  String get cosmetic_outfit_red => '赤のエプロン';
+
+  @override
+  String get cosmetic_outfit_navy => '紺のエプロン';
+
+  @override
+  String get cosmetic_outfit_pink => 'ピンクのエプロン';
+
+  @override
+  String get cosmetic_outfit_black => '黒のエプロン';
+
+  @override
+  String get cosmetic_outfit_purple => '紫のエプロン';
+
+  @override
+  String get cosmetic_outfit_teal => 'ティールのエプロン';
+
+  @override
+  String get cosmetic_outfit_gold => '金のエプロン';
 }

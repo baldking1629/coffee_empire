@@ -10,6 +10,7 @@ import '../engine/cafe_customer.dart';
 import '../engine/cafe_floor_plan.dart';
 import '../engine/cafe_layout.dart';
 import '../engine/customer_flow.dart';
+import '../pixel/palette_set.dart';
 import '../pixel/sprite_atlas.dart';
 import 'actors/barista_component.dart';
 import 'actors/customer_component.dart';
@@ -17,7 +18,9 @@ import 'camera_fit.dart';
 import 'edit/edit_mode_controller.dart';
 import 'edit/placement_ghost.dart';
 import 'cafe_bridge.dart';
+import 'scene_look.dart';
 import 'world/cafe_room_layer.dart';
+import 'world/light_overlay.dart';
 import 'world/machine_component.dart';
 import 'world/scene_effects.dart';
 
@@ -48,6 +51,8 @@ class CafeGame extends FlameGame {
   final CafeRoomLayer _roomLayer;
   late CustomerFlow flow;
   EditOverlay? _editOverlay;
+  final LightOverlay _light = LightOverlay();
+  SceneLook _look = const SceneLook();
   final Map<int, CustomerComponent> _customers = {};
   final List<BaristaComponent> _workers = [];
   late final BaristaComponent _player;
@@ -74,6 +79,7 @@ class CafeGame extends FlameGame {
   Future<void> onLoad() async {
     camera.viewfinder.anchor = Anchor.topLeft;
     world.add(_roomLayer);
+    world.add(_light..setRoom(room.cols, room.rows));
     world.add(_machine = MachineComponent(atlas: atlas, cell: room.machine));
     world.add(
       _player = BaristaComponent(
@@ -84,6 +90,7 @@ class CafeGame extends FlameGame {
     );
     _loaded = true;
     _rebuildWorkers();
+    applyLook(_look, celebrate: false);
     bridge.attach(this);
     _fitCamera(size);
   }
@@ -131,7 +138,7 @@ class CafeGame extends FlameGame {
         atlas: atlas,
         station: station,
         machine: room.machine,
-        outfit: vip ? BaristaComponent.vipOutfit : 'base',
+        outfit: vip ? BaristaComponent.vipOutfit : _look.npcOutfit(i),
       );
       _workers.add(worker);
       world.add(worker);
@@ -203,7 +210,22 @@ class CafeGame extends FlameGame {
     _roomLayer.rebuild(room, items);
     flow = _newFlow(room, items);
     _editOverlay?.grid.resize(room);
+    _light.setRoom(room.cols, room.rows);
     if (resized && isLoaded) _fitCamera(size);
+  }
+
+  void applyLook(SceneLook look, {bool celebrate = true}) {
+    final outfitsChanged = look.npcOutfits != _look.npcOutfits;
+    _look = look;
+    _roomLayer.setLook(
+      floorPaletteKey: look.floorPaletteKey,
+      signSpriteId: look.signSpriteId,
+    );
+    _light.setLight(look.lightTint, look.lightIntensity);
+    if (!_loaded) return;
+    _player.paletteKey = PaletteCatalog.keyOf([look.playerOutfit]);
+    _machine.showLevel(look.machineLevel, celebrate: celebrate);
+    if (outfitsChanged) _rebuildWorkers();
   }
 
   void setEditing(EditModeController? controller) {

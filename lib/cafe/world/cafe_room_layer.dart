@@ -21,6 +21,12 @@ class CafeRoomLayer extends Component {
   List<LayoutItem> _items;
   final Map<String, FurnitureComponent> _furniture = {};
   String? _hiddenUid;
+  FloorLayer? _floor;
+  String floorPaletteKey = 'base';
+  String signSpriteId = signFixtureSprite;
+
+  static const String signFixtureSprite = 'sign';
+  static const String signItemId = 'sign';
 
   CafeRoom get room => _room;
 
@@ -31,6 +37,24 @@ class CafeRoomLayer extends Component {
     _room = room;
     _items = items;
     if (isLoaded) _build();
+  }
+
+  void setLook({
+    required String floorPaletteKey,
+    required String signSpriteId,
+  }) {
+    if (floorPaletteKey == this.floorPaletteKey &&
+        signSpriteId == this.signSpriteId) {
+      return;
+    }
+    this.floorPaletteKey = floorPaletteKey;
+    this.signSpriteId = signSpriteId;
+    _floor?.paletteKey = floorPaletteKey;
+    for (final component in _furniture.values) {
+      if (component.item.itemId == signItemId) {
+        component.spriteId = signSpriteId;
+      }
+    }
   }
 
   void hide(String? uid) {
@@ -44,11 +68,11 @@ class CafeRoomLayer extends Component {
     removeAll(children);
     _furniture.clear();
     add(
-      FloorLayer(
+      _floor = FloorLayer(
         atlas: atlas,
         cols: _room.cols,
         rows: _room.rows,
-        paletteKey: 'base',
+        paletteKey: floorPaletteKey,
       ),
     );
     add(DoorComponent(atlas: atlas, door: _room.door));
@@ -60,6 +84,7 @@ class CafeRoomLayer extends Component {
         item: item,
         shape: shape,
       )..hidden = item.uid == _hiddenUid;
+      if (item.itemId == signItemId) component.spriteId = signSpriteId;
       _furniture[item.uid] = component;
       add(component);
     }

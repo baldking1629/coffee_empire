@@ -1,0 +1,318 @@
+{
+  "outfitSlots": [
+    "player",
+    "npc_1",
+    "npc_2",
+    "npc_3"
+  ],
+  "cosmetics": [
+    {
+      "id": "floor_classic",
+      "nameKey": "cosmetic_floor_classic",
+      "type": "floor",
+      "paletteSetId": "base",
+      "appeal": 0,
+      "unlock": {
+        "kind": "default"
+      }
+    },
+    {
+      "id": "floor_marble",
+      "nameKey": "cosmetic_floor_marble",
+      "type": "floor",
+      "paletteSetId": "floor_marble",
+      "appeal": 2,
+      "unlock": {
+        "kind": "shopIndex",
+        "value": 2
+      }
+    },
+    {
+      "id": "floor_dark_wood",
+      "nameKey": "cosmetic_floor_dark_wood",
+      "type": "floor",
+      "paletteSetId": "floor_dark_wood",
+      "appeal": 2,
+      "unlock": {
+        "kind": "shopIndex",
+        "value": 3
+      }
+    },
+    {
+      "id": "floor_checker",
+      "nameKey": "cosmetic_floor_checker",
+      "type": "floor",
+      "paletteSetId": "floor_checker",
+      "appeal": 2,
+      "unlock": {
+        "kind": "achievement",
+        "value": "small_business"
+      }
+    },
+    {
+      "id": "floor_terracotta",
+      "nameKey": "cosmetic_floor_terracotta",
+      "type": "floor",
+      "paletteSetId": "floor_terracotta",
+      "appeal": 3,
+      "unlock": {
+        "kind": "goldenBeans",
+        "value": 5
+      }
+    },
+    {
+      "id": "floor_mint",
+      "nameKey": "cosmetic_floor_mint",
+      "type": "floor",
+      "paletteSetId": "floor_mint",
+      "appeal": 3,
+      "unlock": {
+        "kind": "vip"
+      }
+    },
+    {
+      "id": "wall_cream",
+      "nameKey": "cosmetic_wall_cream",
+      "type": "wall",
+      "paletteSetId": "base",
+      "appeal": 0,
+      "unlock": {
+        "kind": "default"
+      }
+    },
+    {
+      "id": "wall_sage",
+      "nameKey": "cosmetic_wall_sage",
+      "type": "wall",
+      "paletteSetId": "wall_sage",
+      "appeal": 1,
+      "unlock": {
+        "kind": "shopIndex",
+        "value": 1
+      }
+    },
+    {
+      "id": "wall_navy",
+      "nameKey": "cosmetic_wall_navy",
+      "type": "wall",
+      "paletteSetId": "wall_navy",
+      "appeal": 2,
+      "unlock": {
+        "kind": "shopIndex",
+        "value": 4
+      }
+    },
+    {
+      "id": "wall_rose",
+      "nameKey": "cosmetic_wall_rose",
+      "type": "wall",
+      "paletteSetId": "wall_rose",
+      "appeal": 2,
+      "unlock": {
+        "kind": "achievement",
+        "value": "busy_counter"
+      }
+    },
+    {
+      "id": "wall_brick",
+      "nameKey": "cosmetic_wall_brick",
+      "type": "wall",
+      "paletteSetId": "wall_brick",
+      "appeal": 3,
+      "unlock": {
+        "kind": "goldenBeans",
+        "value": 5
+      }
+    },
+    {
+      "id": "wall_charcoal",
+      "nameKey": "cosmetic_wall_charcoal",
+      "type": "wall",
+      "paletteSetId": "wall_charcoal",
+      "appeal": 3,
+      "unlock": {
+        "kind": "vip"
+      }
+    },
+    {
+      "id": "sign_classic",
+      "nameKey": "cosmetic_sign_classic",
+      "type": "sign",
+      "paletteSetId": "base",
+      "appeal": 0,
+      "unlock": {
+        "kind": "default"
+      },
+      "spriteId": "sign"
+    },
+    {
+      "id": "sign_round",
+      "nameKey": "cosmetic_sign_round",
+      "type": "sign",
+      "paletteSetId": "base",
+      "appeal": 2,
+      "unlock": {
+        "kind": "shopIndex",
+        "value": 2
+      },
+      "spriteId": "sign_round"
+    },
+    {
+      "id": "sign_chalk",
+      "nameKey": "cosmetic_sign_chalk",
+      "type": "sign",
+      "paletteSetId": "base",
+      "appeal": 2,
+      "unlock": {
+        "kind": "achievement",
+        "value": "eager_barista"
+      },
+      "spriteId": "sign_chalk"
+    },
+    {
+      "id": "sign_neon",
+      "nameKey": "cosmetic_sign_neon",
+      "type": "sign",
+      "paletteSetId": "base",
+      "appeal": 4,
+      "unlock": {
+        "kind": "goldenBeans",
+        "value": 10
+      },
+      "spriteId": "sign_neon"
+    },
+    {
+      "id": "light_neutral",
+      "nameKey": "cosmetic_light_neutral",
+      "type": "light",
+      "paletteSetId": "base",
+      "appeal": 0,
+      "unlock": {
+        "kind": "default"
+      },
+      "intensity": 0
+    },
+    {
+      "id": "light_warm",
+      "nameKey": "cosmetic_light_warm",
+      "type": "light",
+      "paletteSetId": "light_warm",
+      "appeal": 1,
+      "unlock": {
+        "kind": "shopIndex",
+        "value": 1
+      },
+      "intensity": 0.12
+    },
+    {
+      "id": "light_cool",
+      "nameKey": "cosmetic_light_cool",
+      "type": "light",
+      "paletteSetId": "light_cool",
+      "appeal": 2,
+      "unlock": {
+        "kind": "achievement",
+        "value": "first_masterpiece"
+      },
+      "intensity": 0.12
+    },
+    {
+      "id": "light_neon",
+      "nameKey": "cosmetic_light_neon",
+      "type": "light",
+      "paletteSetId": "light_neon",
+      "appeal": 3,
+      "unlock": {
+        "kind": "goldenBeans",
+        "value": 8
+      },
+      "intensity": 0.15
+    },
+    {
+      "id": "outfit_green",
+      "nameKey": "cosmetic_outfit_green",
+      "type": "outfit",
+      "paletteSetId": "base",
+      "appeal": 0,
+      "unlock": {
+        "kind": "default"
+      }
+    },
+    {
+      "id": "outfit_red",
+      "nameKey": "cosmetic_outfit_red",
+      "type": "outfit",
+      "paletteSetId": "outfit_red",
+      "appeal": 0,
+      "unlock": {
+        "kind": "shopIndex",
+        "value": 1
+      }
+    },
+    {
+      "id": "outfit_navy",
+      "nameKey": "cosmetic_outfit_navy",
+      "type": "outfit",
+      "paletteSetId": "outfit_navy",
+      "appeal": 0,
+      "unlock": {
+        "kind": "shopIndex",
+        "value": 3
+      }
+    },
+    {
+      "id": "outfit_pink",
+      "nameKey": "cosmetic_outfit_pink",
+      "type": "outfit",
+      "paletteSetId": "outfit_pink",
+      "appeal": 0,
+      "unlock": {
+        "kind": "achievement",
+        "value": "eager_barista"
+      }
+    },
+    {
+      "id": "outfit_black",
+      "nameKey": "cosmetic_outfit_black",
+      "type": "outfit",
+      "paletteSetId": "outfit_black",
+      "appeal": 0,
+      "unlock": {
+        "kind": "achievement",
+        "value": "coffee_mogul"
+      }
+    },
+    {
+      "id": "outfit_purple",
+      "nameKey": "cosmetic_outfit_purple",
+      "type": "outfit",
+      "paletteSetId": "outfit_purple",
+      "appeal": 0,
+      "unlock": {
+        "kind": "goldenBeans",
+        "value": 3
+      }
+    },
+    {
+      "id": "outfit_teal",
+      "nameKey": "cosmetic_outfit_teal",
+      "type": "outfit",
+      "paletteSetId": "outfit_teal",
+      "appeal": 0,
+      "unlock": {
+        "kind": "goldenBeans",
+        "value": 3
+      }
+    },
+    {
+      "id": "outfit_gold",
+      "nameKey": "cosmetic_outfit_gold",
+      "type": "outfit",
+      "paletteSetId": "outfit_gold",
+      "appeal": 0,
+      "unlock": {
+        "kind": "vip"
+      }
+    }
+  ]
+}

@@ -1043,4 +1043,135 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get furniture_drink_fridge => '饮料冰柜';
+
+  @override
+  String get appearanceButton => '外观';
+
+  @override
+  String get appearanceTitle => '咖啡馆外观';
+
+  @override
+  String get cosmeticTypeFloor => '地板';
+
+  @override
+  String get cosmeticTypeWall => '墙面';
+
+  @override
+  String get cosmeticTypeSign => '招牌';
+
+  @override
+  String get cosmeticTypeLight => '灯光';
+
+  @override
+  String get cosmeticTypeOutfit => '服装';
+
+  @override
+  String get outfitSlotPlayer => '你';
+
+  @override
+  String outfitSlotBarista(int number) {
+    return '咖啡师 $number';
+  }
+
+  @override
+  String cosmeticLockShop(String shop) {
+    return '解锁于$shop';
+  }
+
+  @override
+  String cosmeticLockAchievement(String name) {
+    return '成就：$name';
+  }
+
+  @override
+  String get cosmeticLockVip => '仅限VIP';
+
+  @override
+  String cosmeticUnlockBeans(int beans) {
+    return '解锁 · $beans颗咖啡豆';
+  }
+
+  @override
+  String get cosmetic_floor_classic => '经典瓷砖';
+
+  @override
+  String get cosmetic_floor_marble => '大理石';
+
+  @override
+  String get cosmetic_floor_dark_wood => '深色木地板';
+
+  @override
+  String get cosmetic_floor_checker => '棋盘格';
+
+  @override
+  String get cosmetic_floor_terracotta => '赤陶';
+
+  @override
+  String get cosmetic_floor_mint => '薄荷瓷砖';
+
+  @override
+  String get cosmetic_wall_cream => '奶油色';
+
+  @override
+  String get cosmetic_wall_sage => '鼠尾草绿';
+
+  @override
+  String get cosmetic_wall_navy => '海军蓝';
+
+  @override
+  String get cosmetic_wall_rose => '玫瑰粉';
+
+  @override
+  String get cosmetic_wall_brick => '砖墙';
+
+  @override
+  String get cosmetic_wall_charcoal => '炭灰';
+
+  @override
+  String get cosmetic_sign_classic => '经典招牌';
+
+  @override
+  String get cosmetic_sign_round => '圆形招牌';
+
+  @override
+  String get cosmetic_sign_chalk => '黑板';
+
+  @override
+  String get cosmetic_sign_neon => '霓虹招牌';
+
+  @override
+  String get cosmetic_light_neutral => '日光';
+
+  @override
+  String get cosmetic_light_warm => '暖光';
+
+  @override
+  String get cosmetic_light_cool => '冷光';
+
+  @override
+  String get cosmetic_light_neon => '霓虹之夜';
+
+  @override
+  String get cosmetic_outfit_green => '绿色围裙';
+
+  @override
+  String get cosmetic_outfit_red => '红色围裙';
+
+  @override
+  String get cosmetic_outfit_navy => '海军蓝围裙';
+
+  @override
+  String get cosmetic_outfit_pink => '粉色围裙';
+
+  @override
+  String get cosmetic_outfit_black => '黑色围裙';
+
+  @override
+  String get cosmetic_outfit_purple => '紫色围裙';
+
+  @override
+  String get cosmetic_outfit_teal => '青色围裙';
+
+  @override
+  String get cosmetic_outfit_gold => '金色围裙';
 }

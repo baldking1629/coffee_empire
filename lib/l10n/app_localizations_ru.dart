@@ -1058,4 +1058,135 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get furniture_drink_fridge => 'Холодильник с напитками';
+
+  @override
+  String get appearanceButton => 'Облик';
+
+  @override
+  String get appearanceTitle => 'Облик кафе';
+
+  @override
+  String get cosmeticTypeFloor => 'Пол';
+
+  @override
+  String get cosmeticTypeWall => 'Стены';
+
+  @override
+  String get cosmeticTypeSign => 'Вывеска';
+
+  @override
+  String get cosmeticTypeLight => 'Освещение';
+
+  @override
+  String get cosmeticTypeOutfit => 'Форма';
+
+  @override
+  String get outfitSlotPlayer => 'Вы';
+
+  @override
+  String outfitSlotBarista(int number) {
+    return 'Бариста $number';
+  }
+
+  @override
+  String cosmeticLockShop(String shop) {
+    return 'Откроется с: $shop';
+  }
+
+  @override
+  String cosmeticLockAchievement(String name) {
+    return 'Достижение: $name';
+  }
+
+  @override
+  String get cosmeticLockVip => 'Только VIP';
+
+  @override
+  String cosmeticUnlockBeans(int beans) {
+    return 'Открыть · $beans зёрен';
+  }
+
+  @override
+  String get cosmetic_floor_classic => 'Классическая плитка';
+
+  @override
+  String get cosmetic_floor_marble => 'Мрамор';
+
+  @override
+  String get cosmetic_floor_dark_wood => 'Тёмное дерево';
+
+  @override
+  String get cosmetic_floor_checker => 'Шахматка';
+
+  @override
+  String get cosmetic_floor_terracotta => 'Терракота';
+
+  @override
+  String get cosmetic_floor_mint => 'Мятная плитка';
+
+  @override
+  String get cosmetic_wall_cream => 'Кремовые';
+
+  @override
+  String get cosmetic_wall_sage => 'Шалфей';
+
+  @override
+  String get cosmetic_wall_navy => 'Тёмно-синие';
+
+  @override
+  String get cosmetic_wall_rose => 'Розовые';
+
+  @override
+  String get cosmetic_wall_brick => 'Кирпич';
+
+  @override
+  String get cosmetic_wall_charcoal => 'Графит';
+
+  @override
+  String get cosmetic_sign_classic => 'Классическая вывеска';
+
+  @override
+  String get cosmetic_sign_round => 'Круглая вывеска';
+
+  @override
+  String get cosmetic_sign_chalk => 'Меловая доска';
+
+  @override
+  String get cosmetic_sign_neon => 'Неоновая вывеска';
+
+  @override
+  String get cosmetic_light_neutral => 'Дневной свет';
+
+  @override
+  String get cosmetic_light_warm => 'Тёплый свет';
+
+  @override
+  String get cosmetic_light_cool => 'Холодный свет';
+
+  @override
+  String get cosmetic_light_neon => 'Неоновая ночь';
+
+  @override
+  String get cosmetic_outfit_green => 'Зелёный фартук';
+
+  @override
+  String get cosmetic_outfit_red => 'Красный фартук';
+
+  @override
+  String get cosmetic_outfit_navy => 'Синий фартук';
+
+  @override
+  String get cosmetic_outfit_pink => 'Розовый фартук';
+
+  @override
+  String get cosmetic_outfit_black => 'Чёрный фартук';
+
+  @override
+  String get cosmetic_outfit_purple => 'Фиолетовый фартук';
+
+  @override
+  String get cosmetic_outfit_teal => 'Бирюзовый фартук';
+
+  @override
+  String get cosmetic_outfit_gold => 'Золотой фартук';
 }

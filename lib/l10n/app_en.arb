@@ -752,5 +752,74 @@
   "furniture_lantern": "Lantern",
   "furniture_light_pillar": "Light Pillar",
   "furniture_pastry_case": "Pastry Case",
-  "furniture_drink_fridge": "Drink Fridge"
+  "furniture_drink_fridge": "Drink Fridge",
+  "appearanceButton": "Look",
+  "appearanceTitle": "Cafe look",
+  "cosmeticTypeFloor": "Floor",
+  "cosmeticTypeWall": "Walls",
+  "cosmeticTypeSign": "Sign",
+  "cosmeticTypeLight": "Lighting",
+  "cosmeticTypeOutfit": "Outfits",
+  "outfitSlotPlayer": "You",
+  "outfitSlotBarista": "Barista {number}",
+  "@outfitSlotBarista": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "cosmeticLockShop": "Unlocks with {shop}",
+  "@cosmeticLockShop": {
+    "placeholders": {
+      "shop": {
+        "type": "String"
+      }
+    }
+  },
+  "cosmeticLockAchievement": "Achievement: {name}",
+  "@cosmeticLockAchievement": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "cosmeticLockVip": "VIP only",
+  "cosmeticUnlockBeans": "Unlock · {beans} beans",
+  "@cosmeticUnlockBeans": {
+    "placeholders": {
+      "beans": {
+        "type": "int"
+      }
+    }
+  },
+  "cosmetic_floor_classic": "Classic Tiles",
+  "cosmetic_floor_marble": "Marble",
+  "cosmetic_floor_dark_wood": "Dark Wood",
+  "cosmetic_floor_checker": "Checkerboard",
+  "cosmetic_floor_terracotta": "Terracotta",
+  "cosmetic_floor_mint": "Mint Tiles",
+  "cosmetic_wall_cream": "Cream",
+  "cosmetic_wall_sage": "Sage",
+  "cosmetic_wall_navy": "Navy",
+  "cosmetic_wall_rose": "Rose",
+  "cosmetic_wall_brick": "Brick",
+  "cosmetic_wall_charcoal": "Charcoal",
+  "cosmetic_sign_classic": "Classic Sign",
+  "cosmetic_sign_round": "Round Sign",
+  "cosmetic_sign_chalk": "Chalkboard",
+  "cosmetic_sign_neon": "Neon Sign",
+  "cosmetic_light_neutral": "Daylight",
+  "cosmetic_light_warm": "Warm Glow",
+  "cosmetic_light_cool": "Cool Light",
+  "cosmetic_light_neon": "Neon Night",
+  "cosmetic_outfit_green": "Green Apron",
+  "cosmetic_outfit_red": "Red Apron",
+  "cosmetic_outfit_navy": "Navy Apron",
+  "cosmetic_outfit_pink": "Pink Apron",
+  "cosmetic_outfit_black": "Black Apron",
+  "cosmetic_outfit_purple": "Purple Apron",
+  "cosmetic_outfit_teal": "Teal Apron",
+  "cosmetic_outfit_gold": "Golden Apron"
 }

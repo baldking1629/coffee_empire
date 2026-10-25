@@ -1100,6 +1100,118 @@
      ]
     ]
    }
+  },
+  {
+   "id": "sign_round",
+   "width": 32,
+   "height": 16,
+   "anchor": "bottomCenter",
+   "fps": 6,
+   "palette": {
+    "o": "outline",
+    "x": "metal_dark",
+    "c": "coffee",
+    "w": "white",
+    "k": "milk",
+    "g": "gold",
+    "G": "gold_light"
+   },
+   "animations": {
+    "default": [
+     [
+      "...........oooooooooo...........",
+      ".........oogggggggggggoo........",
+      ".......oogGGGGGGGGGGGGGgoo......",
+      "......ogGGGkkkkkkkkkkkGGGgo.....",
+      ".....ogGGkkkkkwwwwwkkkkkGGgo....",
+      ".....ogGkkkkkwcccccwwkkkkGgo....",
+      ".....ogGkkkkkwcccccwwwkkkGgo....",
+      ".....ogGkkkkkwwwwwwwwkkkkGgo....",
+      ".....ogGGkkkkkwwwwwwwkkkGGgo....",
+      "......ogGGGkkkkkkkkkkkGGGgo.....",
+      ".......oogGGGGGGGGGGGGGgoo......",
+      ".........oogggggggggggoo........",
+      "...........oooooxxoooo..........",
+      "...............oxxo.............",
+      "...............oxxo.............",
+      "..............oxxxxo............"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "sign_neon",
+   "width": 32,
+   "height": 16,
+   "anchor": "bottomCenter",
+   "fps": 6,
+   "palette": {
+    "o": "outline",
+    "x": "metal_dark",
+    "s": "metal",
+    "a": "accent",
+    "A": "accent_light",
+    "G": "gold_light",
+    "q": "screen"
+   },
+   "animations": {
+    "default": [
+     [
+      "oooooooooooooooooooooooooooooooo",
+      "oxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxo",
+      "oxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxo",
+      "oxxaaaaxxxAAAAxxxxqqqqxxxxaaaaxo",
+      "oxxaxxxxxxAxxAxxxxqxxqxxxxaxxxxo",
+      "oxxaxxxxxxAxxAxxxxqxxqxxxxaaaxxo",
+      "oxxaxxxxxxAxxAxxxxqxxqxxxxaxxxxo",
+      "oxxaaaaxxxAAAAxxxxqqqqxxxxaaaaxo",
+      "oxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxo",
+      "oxxGGGGGGGGGGGGGGGGGGGGGGGGGGxxo",
+      "oxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxo",
+      "oooooooooooooooooooooooooooooooo",
+      ".....oso..............oso.......",
+      ".....oso..............oso.......",
+      ".....oso..............oso.......",
+      "....ossso............ossso......"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "sign_chalk",
+   "width": 32,
+   "height": 16,
+   "anchor": "bottomCenter",
+   "fps": 6,
+   "palette": {
+    "o": "outline",
+    "d": "wood_dark",
+    "w": "white",
+    "k": "milk",
+    "F": "leaf_dark"
+   },
+   "animations": {
+    "default": [
+     [
+      "................................",
+      "....oooooooooooooooooooooooo....",
+      "....odddddddddddddddddddddddo...",
+      "....odFFFFFFFFFFFFFFFFFFFFFdo...",
+      "....odFwwwFFwFFwFFwwFFFFFFFdo...",
+      "....odFwFFFFwFFwFwFFwFFFFFFdo...",
+      "....odFwFFFFwwwwFwwwwFFFFFFdo...",
+      "....odFwwwFFwFFwFwFFwFFFFFFdo...",
+      "....odFFFFFFFFFFFFFFFFFFFFFdo...",
+      "....odFFFkkkkkkkkkkkkkFFFFFdo...",
+      "....odFFFFFFFFFFFFFFFFFFFFFdo...",
+      "....odddddddddddddddddddddddo...",
+      "....oooodooooooooooooooodooo....",
+      ".......odo.............odo......",
+      "......odo...............odo.....",
+      ".....odo.................odo...."
+     ]
+    ]
+   }
   }
  ]
 }

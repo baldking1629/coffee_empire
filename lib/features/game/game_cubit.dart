@@ -12,6 +12,7 @@ import '../../core/time/clock.dart';
 import '../../engine/achievement_math.dart';
 import '../../engine/barista_math.dart';
 import '../../engine/cafe_layout.dart';
+import '../../engine/cosmetics_rules.dart';
 import '../../engine/economy_engine.dart';
 import '../../engine/layout_rules.dart';
 import '../../engine/service_math.dart';
@@ -30,6 +31,7 @@ import 'offline_actions.dart';
 import 'save_repository.dart';
 
 part 'game_cubit_commands.dart';
+part 'game_cubit_cosmetics.dart';
 part 'game_cubit_layout.dart';
 part 'game_cubit_service.dart';
 
@@ -156,8 +158,12 @@ abstract class _GameCubitCore extends Cubit<GameState> {
         vip: source.store.isVip,
         starterPack: source.store.hasStarterPack,
         achievementCount: source.achievements.length,
-        appeal: engine.appealMath.appealOf(source.cafeLayout.items),
+        appeal: totalAppealOf(source),
       );
+
+  int totalAppealOf(GameState source) =>
+      engine.appealMath.appealOf(source.cafeLayout.items) +
+      engine.cosmeticsRules.appealOf(source.cosmetics);
 
   AchievementProgress achievementProgressOf(GameState source) =>
       AchievementProgress(
@@ -261,7 +267,8 @@ class GameCubit extends _GameCubitCore
         _StoreCommands,
         _MetaCommands,
         _ServiceCommands,
-        _LayoutCommands {
+        _LayoutCommands,
+        _CosmeticCommands {
   GameCubit({
     required EconomyConfig config,
     required SaveRepository repository,

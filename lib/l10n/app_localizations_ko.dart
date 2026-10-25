@@ -1044,4 +1044,135 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get furniture_drink_fridge => '음료 냉장고';
+
+  @override
+  String get appearanceButton => '꾸미기';
+
+  @override
+  String get appearanceTitle => '카페 꾸미기';
+
+  @override
+  String get cosmeticTypeFloor => '바닥';
+
+  @override
+  String get cosmeticTypeWall => '벽';
+
+  @override
+  String get cosmeticTypeSign => '간판';
+
+  @override
+  String get cosmeticTypeLight => '조명';
+
+  @override
+  String get cosmeticTypeOutfit => '의상';
+
+  @override
+  String get outfitSlotPlayer => '나';
+
+  @override
+  String outfitSlotBarista(int number) {
+    return '바리스타 $number';
+  }
+
+  @override
+  String cosmeticLockShop(String shop) {
+    return '$shop에서 해금';
+  }
+
+  @override
+  String cosmeticLockAchievement(String name) {
+    return '업적: $name';
+  }
+
+  @override
+  String get cosmeticLockVip => 'VIP 전용';
+
+  @override
+  String cosmeticUnlockBeans(int beans) {
+    return '해금 · 원두 $beans개';
+  }
+
+  @override
+  String get cosmetic_floor_classic => '클래식 타일';
+
+  @override
+  String get cosmetic_floor_marble => '대리석';
+
+  @override
+  String get cosmetic_floor_dark_wood => '다크 우드';
+
+  @override
+  String get cosmetic_floor_checker => '체커보드';
+
+  @override
+  String get cosmetic_floor_terracotta => '테라코타';
+
+  @override
+  String get cosmetic_floor_mint => '민트 타일';
+
+  @override
+  String get cosmetic_wall_cream => '크림';
+
+  @override
+  String get cosmetic_wall_sage => '세이지';
+
+  @override
+  String get cosmetic_wall_navy => '네이비';
+
+  @override
+  String get cosmetic_wall_rose => '로즈';
+
+  @override
+  String get cosmetic_wall_brick => '벽돌';
+
+  @override
+  String get cosmetic_wall_charcoal => '차콜';
+
+  @override
+  String get cosmetic_sign_classic => '클래식 간판';
+
+  @override
+  String get cosmetic_sign_round => '둥근 간판';
+
+  @override
+  String get cosmetic_sign_chalk => '칠판';
+
+  @override
+  String get cosmetic_sign_neon => '네온 간판';
+
+  @override
+  String get cosmetic_light_neutral => '햇빛';
+
+  @override
+  String get cosmetic_light_warm => '따뜻한 빛';
+
+  @override
+  String get cosmetic_light_cool => '차가운 빛';
+
+  @override
+  String get cosmetic_light_neon => '네온 나이트';
+
+  @override
+  String get cosmetic_outfit_green => '초록 앞치마';
+
+  @override
+  String get cosmetic_outfit_red => '빨간 앞치마';
+
+  @override
+  String get cosmetic_outfit_navy => '네이비 앞치마';
+
+  @override
+  String get cosmetic_outfit_pink => '분홍 앞치마';
+
+  @override
+  String get cosmetic_outfit_black => '검은 앞치마';
+
+  @override
+  String get cosmetic_outfit_purple => '보라 앞치마';
+
+  @override
+  String get cosmetic_outfit_teal => '청록 앞치마';
+
+  @override
+  String get cosmetic_outfit_gold => '황금 앞치마';
 }

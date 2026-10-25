@@ -1053,4 +1053,135 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get furniture_drink_fridge => 'Tủ lạnh đồ uống';
+
+  @override
+  String get appearanceButton => 'Diện mạo';
+
+  @override
+  String get appearanceTitle => 'Diện mạo quán';
+
+  @override
+  String get cosmeticTypeFloor => 'Sàn';
+
+  @override
+  String get cosmeticTypeWall => 'Tường';
+
+  @override
+  String get cosmeticTypeSign => 'Biển hiệu';
+
+  @override
+  String get cosmeticTypeLight => 'Chiếu sáng';
+
+  @override
+  String get cosmeticTypeOutfit => 'Trang phục';
+
+  @override
+  String get outfitSlotPlayer => 'Bạn';
+
+  @override
+  String outfitSlotBarista(int number) {
+    return 'Barista $number';
+  }
+
+  @override
+  String cosmeticLockShop(String shop) {
+    return 'Mở khóa với $shop';
+  }
+
+  @override
+  String cosmeticLockAchievement(String name) {
+    return 'Thành tích: $name';
+  }
+
+  @override
+  String get cosmeticLockVip => 'Chỉ VIP';
+
+  @override
+  String cosmeticUnlockBeans(int beans) {
+    return 'Mở khóa · $beans hạt';
+  }
+
+  @override
+  String get cosmetic_floor_classic => 'Gạch cổ điển';
+
+  @override
+  String get cosmetic_floor_marble => 'Đá cẩm thạch';
+
+  @override
+  String get cosmetic_floor_dark_wood => 'Gỗ tối';
+
+  @override
+  String get cosmetic_floor_checker => 'Ô bàn cờ';
+
+  @override
+  String get cosmetic_floor_terracotta => 'Đất nung';
+
+  @override
+  String get cosmetic_floor_mint => 'Gạch bạc hà';
+
+  @override
+  String get cosmetic_wall_cream => 'Kem';
+
+  @override
+  String get cosmetic_wall_sage => 'Xanh xô thơm';
+
+  @override
+  String get cosmetic_wall_navy => 'Xanh hải quân';
+
+  @override
+  String get cosmetic_wall_rose => 'Hồng';
+
+  @override
+  String get cosmetic_wall_brick => 'Gạch đỏ';
+
+  @override
+  String get cosmetic_wall_charcoal => 'Than chì';
+
+  @override
+  String get cosmetic_sign_classic => 'Biển cổ điển';
+
+  @override
+  String get cosmetic_sign_round => 'Biển tròn';
+
+  @override
+  String get cosmetic_sign_chalk => 'Bảng phấn';
+
+  @override
+  String get cosmetic_sign_neon => 'Biển neon';
+
+  @override
+  String get cosmetic_light_neutral => 'Ánh sáng ban ngày';
+
+  @override
+  String get cosmetic_light_warm => 'Ánh sáng ấm';
+
+  @override
+  String get cosmetic_light_cool => 'Ánh sáng lạnh';
+
+  @override
+  String get cosmetic_light_neon => 'Đêm neon';
+
+  @override
+  String get cosmetic_outfit_green => 'Tạp dề xanh lá';
+
+  @override
+  String get cosmetic_outfit_red => 'Tạp dề đỏ';
+
+  @override
+  String get cosmetic_outfit_navy => 'Tạp dề xanh navy';
+
+  @override
+  String get cosmetic_outfit_pink => 'Tạp dề hồng';
+
+  @override
+  String get cosmetic_outfit_black => 'Tạp dề đen';
+
+  @override
+  String get cosmetic_outfit_purple => 'Tạp dề tím';
+
+  @override
+  String get cosmetic_outfit_teal => 'Tạp dề xanh ngọc';
+
+  @override
+  String get cosmetic_outfit_gold => 'Tạp dề vàng';
 }

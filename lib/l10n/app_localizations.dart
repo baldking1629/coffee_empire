@@ -1953,6 +1953,252 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Drink Fridge'**
   String get furniture_drink_fridge;
+
+  /// No description provided for @appearanceButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Look'**
+  String get appearanceButton;
+
+  /// No description provided for @appearanceTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Cafe look'**
+  String get appearanceTitle;
+
+  /// No description provided for @cosmeticTypeFloor.
+  ///
+  /// In en, this message translates to:
+  /// **'Floor'**
+  String get cosmeticTypeFloor;
+
+  /// No description provided for @cosmeticTypeWall.
+  ///
+  /// In en, this message translates to:
+  /// **'Walls'**
+  String get cosmeticTypeWall;
+
+  /// No description provided for @cosmeticTypeSign.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign'**
+  String get cosmeticTypeSign;
+
+  /// No description provided for @cosmeticTypeLight.
+  ///
+  /// In en, this message translates to:
+  /// **'Lighting'**
+  String get cosmeticTypeLight;
+
+  /// No description provided for @cosmeticTypeOutfit.
+  ///
+  /// In en, this message translates to:
+  /// **'Outfits'**
+  String get cosmeticTypeOutfit;
+
+  /// No description provided for @outfitSlotPlayer.
+  ///
+  /// In en, this message translates to:
+  /// **'You'**
+  String get outfitSlotPlayer;
+
+  /// No description provided for @outfitSlotBarista.
+  ///
+  /// In en, this message translates to:
+  /// **'Barista {number}'**
+  String outfitSlotBarista(int number);
+
+  /// No description provided for @cosmeticLockShop.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlocks with {shop}'**
+  String cosmeticLockShop(String shop);
+
+  /// No description provided for @cosmeticLockAchievement.
+  ///
+  /// In en, this message translates to:
+  /// **'Achievement: {name}'**
+  String cosmeticLockAchievement(String name);
+
+  /// No description provided for @cosmeticLockVip.
+  ///
+  /// In en, this message translates to:
+  /// **'VIP only'**
+  String get cosmeticLockVip;
+
+  /// No description provided for @cosmeticUnlockBeans.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock · {beans} beans'**
+  String cosmeticUnlockBeans(int beans);
+
+  /// No description provided for @cosmetic_floor_classic.
+  ///
+  /// In en, this message translates to:
+  /// **'Classic Tiles'**
+  String get cosmetic_floor_classic;
+
+  /// No description provided for @cosmetic_floor_marble.
+  ///
+  /// In en, this message translates to:
+  /// **'Marble'**
+  String get cosmetic_floor_marble;
+
+  /// No description provided for @cosmetic_floor_dark_wood.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark Wood'**
+  String get cosmetic_floor_dark_wood;
+
+  /// No description provided for @cosmetic_floor_checker.
+  ///
+  /// In en, this message translates to:
+  /// **'Checkerboard'**
+  String get cosmetic_floor_checker;
+
+  /// No description provided for @cosmetic_floor_terracotta.
+  ///
+  /// In en, this message translates to:
+  /// **'Terracotta'**
+  String get cosmetic_floor_terracotta;
+
+  /// No description provided for @cosmetic_floor_mint.
+  ///
+  /// In en, this message translates to:
+  /// **'Mint Tiles'**
+  String get cosmetic_floor_mint;
+
+  /// No description provided for @cosmetic_wall_cream.
+  ///
+  /// In en, this message translates to:
+  /// **'Cream'**
+  String get cosmetic_wall_cream;
+
+  /// No description provided for @cosmetic_wall_sage.
+  ///
+  /// In en, this message translates to:
+  /// **'Sage'**
+  String get cosmetic_wall_sage;
+
+  /// No description provided for @cosmetic_wall_navy.
+  ///
+  /// In en, this message translates to:
+  /// **'Navy'**
+  String get cosmetic_wall_navy;
+
+  /// No description provided for @cosmetic_wall_rose.
+  ///
+  /// In en, this message translates to:
+  /// **'Rose'**
+  String get cosmetic_wall_rose;
+
+  /// No description provided for @cosmetic_wall_brick.
+  ///
+  /// In en, this message translates to:
+  /// **'Brick'**
+  String get cosmetic_wall_brick;
+
+  /// No description provided for @cosmetic_wall_charcoal.
+  ///
+  /// In en, this message translates to:
+  /// **'Charcoal'**
+  String get cosmetic_wall_charcoal;
+
+  /// No description provided for @cosmetic_sign_classic.
+  ///
+  /// In en, this message translates to:
+  /// **'Classic Sign'**
+  String get cosmetic_sign_classic;
+
+  /// No description provided for @cosmetic_sign_round.
+  ///
+  /// In en, this message translates to:
+  /// **'Round Sign'**
+  String get cosmetic_sign_round;
+
+  /// No description provided for @cosmetic_sign_chalk.
+  ///
+  /// In en, this message translates to:
+  /// **'Chalkboard'**
+  String get cosmetic_sign_chalk;
+
+  /// No description provided for @cosmetic_sign_neon.
+  ///
+  /// In en, this message translates to:
+  /// **'Neon Sign'**
+  String get cosmetic_sign_neon;
+
+  /// No description provided for @cosmetic_light_neutral.
+  ///
+  /// In en, this message translates to:
+  /// **'Daylight'**
+  String get cosmetic_light_neutral;
+
+  /// No description provided for @cosmetic_light_warm.
+  ///
+  /// In en, this message translates to:
+  /// **'Warm Glow'**
+  String get cosmetic_light_warm;
+
+  /// No description provided for @cosmetic_light_cool.
+  ///
+  /// In en, this message translates to:
+  /// **'Cool Light'**
+  String get cosmetic_light_cool;
+
+  /// No description provided for @cosmetic_light_neon.
+  ///
+  /// In en, this message translates to:
+  /// **'Neon Night'**
+  String get cosmetic_light_neon;
+
+  /// No description provided for @cosmetic_outfit_green.
+  ///
+  /// In en, this message translates to:
+  /// **'Green Apron'**
+  String get cosmetic_outfit_green;
+
+  /// No description provided for @cosmetic_outfit_red.
+  ///
+  /// In en, this message translates to:
+  /// **'Red Apron'**
+  String get cosmetic_outfit_red;
+
+  /// No description provided for @cosmetic_outfit_navy.
+  ///
+  /// In en, this message translates to:
+  /// **'Navy Apron'**
+  String get cosmetic_outfit_navy;
+
+  /// No description provided for @cosmetic_outfit_pink.
+  ///
+  /// In en, this message translates to:
+  /// **'Pink Apron'**
+  String get cosmetic_outfit_pink;
+
+  /// No description provided for @cosmetic_outfit_black.
+  ///
+  /// In en, this message translates to:
+  /// **'Black Apron'**
+  String get cosmetic_outfit_black;
+
+  /// No description provided for @cosmetic_outfit_purple.
+  ///
+  /// In en, this message translates to:
+  /// **'Purple Apron'**
+  String get cosmetic_outfit_purple;
+
+  /// No description provided for @cosmetic_outfit_teal.
+  ///
+  /// In en, this message translates to:
+  /// **'Teal Apron'**
+  String get cosmetic_outfit_teal;
+
+  /// No description provided for @cosmetic_outfit_gold.
+  ///
+  /// In en, this message translates to:
+  /// **'Golden Apron'**
+  String get cosmetic_outfit_gold;
 }
 
 class _AppLocalizationsDelegate

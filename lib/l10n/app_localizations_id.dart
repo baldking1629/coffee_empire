@@ -1054,4 +1054,135 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get furniture_drink_fridge => 'Kulkas minuman';
+
+  @override
+  String get appearanceButton => 'Tampilan';
+
+  @override
+  String get appearanceTitle => 'Tampilan kafe';
+
+  @override
+  String get cosmeticTypeFloor => 'Lantai';
+
+  @override
+  String get cosmeticTypeWall => 'Dinding';
+
+  @override
+  String get cosmeticTypeSign => 'Papan nama';
+
+  @override
+  String get cosmeticTypeLight => 'Pencahayaan';
+
+  @override
+  String get cosmeticTypeOutfit => 'Seragam';
+
+  @override
+  String get outfitSlotPlayer => 'Kamu';
+
+  @override
+  String outfitSlotBarista(int number) {
+    return 'Barista $number';
+  }
+
+  @override
+  String cosmeticLockShop(String shop) {
+    return 'Terbuka dengan $shop';
+  }
+
+  @override
+  String cosmeticLockAchievement(String name) {
+    return 'Pencapaian: $name';
+  }
+
+  @override
+  String get cosmeticLockVip => 'Khusus VIP';
+
+  @override
+  String cosmeticUnlockBeans(int beans) {
+    return 'Buka · $beans biji';
+  }
+
+  @override
+  String get cosmetic_floor_classic => 'Ubin klasik';
+
+  @override
+  String get cosmetic_floor_marble => 'Marmer';
+
+  @override
+  String get cosmetic_floor_dark_wood => 'Kayu gelap';
+
+  @override
+  String get cosmetic_floor_checker => 'Papan catur';
+
+  @override
+  String get cosmetic_floor_terracotta => 'Terakota';
+
+  @override
+  String get cosmetic_floor_mint => 'Ubin mint';
+
+  @override
+  String get cosmetic_wall_cream => 'Krem';
+
+  @override
+  String get cosmetic_wall_sage => 'Sage';
+
+  @override
+  String get cosmetic_wall_navy => 'Biru tua';
+
+  @override
+  String get cosmetic_wall_rose => 'Mawar';
+
+  @override
+  String get cosmetic_wall_brick => 'Bata';
+
+  @override
+  String get cosmetic_wall_charcoal => 'Arang';
+
+  @override
+  String get cosmetic_sign_classic => 'Papan klasik';
+
+  @override
+  String get cosmetic_sign_round => 'Papan bundar';
+
+  @override
+  String get cosmetic_sign_chalk => 'Papan kapur';
+
+  @override
+  String get cosmetic_sign_neon => 'Papan neon';
+
+  @override
+  String get cosmetic_light_neutral => 'Cahaya siang';
+
+  @override
+  String get cosmetic_light_warm => 'Cahaya hangat';
+
+  @override
+  String get cosmetic_light_cool => 'Cahaya sejuk';
+
+  @override
+  String get cosmetic_light_neon => 'Malam neon';
+
+  @override
+  String get cosmetic_outfit_green => 'Celemek hijau';
+
+  @override
+  String get cosmetic_outfit_red => 'Celemek merah';
+
+  @override
+  String get cosmetic_outfit_navy => 'Celemek biru tua';
+
+  @override
+  String get cosmetic_outfit_pink => 'Celemek merah muda';
+
+  @override
+  String get cosmetic_outfit_black => 'Celemek hitam';
+
+  @override
+  String get cosmetic_outfit_purple => 'Celemek ungu';
+
+  @override
+  String get cosmetic_outfit_teal => 'Celemek toska';
+
+  @override
+  String get cosmetic_outfit_gold => 'Celemek emas';
 }

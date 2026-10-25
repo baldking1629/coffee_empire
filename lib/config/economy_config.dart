@@ -4,6 +4,7 @@ import 'package:equatable/equatable.dart';
 
 import '../core/bignumber/big_number.dart';
 import 'cafe_config.dart';
+import 'cosmetics_config.dart';
 import 'franchise_config.dart';
 import 'json_readers.dart';
 import 'lab_config.dart';
@@ -11,6 +12,7 @@ import 'reward_config.dart';
 import 'shop_config.dart';
 
 export 'cafe_config.dart';
+export 'cosmetics_config.dart';
 export 'franchise_config.dart';
 export 'lab_config.dart';
 export 'reward_config.dart';
@@ -36,11 +38,13 @@ class EconomyConfig extends Equatable {
     required this.service,
     required this.cafeRules,
     this.cafe = CafeCatalog.empty,
+    this.cosmetics = CosmeticsCatalog.empty,
   });
 
   factory EconomyConfig.fromJson(
     JsonMap json, {
     CafeCatalog cafe = CafeCatalog.empty,
+    CosmeticsCatalog cosmetics = CosmeticsCatalog.empty,
   }) => EconomyConfig(
     startingCash: readBig(json, 'startingCash'),
     backgroundGapSeconds: readInt(json, 'backgroundGapSeconds'),
@@ -60,15 +64,22 @@ class EconomyConfig extends Equatable {
     service: ServiceConfig.fromJson(readMap(json, 'service')),
     cafeRules: CafeRulesConfig.fromJson(readMap(json, 'cafe')),
     cafe: cafe,
+    cosmetics: cosmetics,
   );
 
-  factory EconomyConfig.fromJsonString(String source, {String? cafeSource}) =>
-      EconomyConfig.fromJson(
-        jsonDecode(source) as JsonMap,
-        cafe: cafeSource == null
-            ? CafeCatalog.empty
-            : CafeCatalog.fromJsonString(cafeSource),
-      );
+  factory EconomyConfig.fromJsonString(
+    String source, {
+    String? cafeSource,
+    String? cosmeticsSource,
+  }) => EconomyConfig.fromJson(
+    jsonDecode(source) as JsonMap,
+    cafe: cafeSource == null
+        ? CafeCatalog.empty
+        : CafeCatalog.fromJsonString(cafeSource),
+    cosmetics: cosmeticsSource == null
+        ? CosmeticsCatalog.empty
+        : CosmeticsCatalog.fromJsonString(cosmeticsSource),
+  );
 
   final BigNumber startingCash;
   final int backgroundGapSeconds;
@@ -88,6 +99,7 @@ class EconomyConfig extends Equatable {
   final ServiceConfig service;
   final CafeRulesConfig cafeRules;
   final CafeCatalog cafe;
+  final CosmeticsCatalog cosmetics;
 
   @override
   List<Object?> get props => [
@@ -109,5 +121,6 @@ class EconomyConfig extends Equatable {
     service,
     cafeRules,
     cafe,
+    cosmetics,
   ];
 }
