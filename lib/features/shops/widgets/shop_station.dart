@@ -20,7 +20,7 @@ class ShopStation extends StatefulWidget {
     required this.buyAmount,
   });
 
-  static const double nodeSize = 56;
+  static const double nodeSize = 72;
   static const double nodeInset = 16 + nodeSize / 2;
 
   static Key glowKey(String shopId) => Key('station_glow_$shopId');

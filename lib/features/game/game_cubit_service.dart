@@ -5,11 +5,15 @@ class ServeResult {
     required this.amount,
     required this.perfect,
     required this.rushStarted,
+    this.bigPayout = false,
   });
 
   final BigNumber amount;
   final bool perfect;
   final bool rushStarted;
+  final bool bigPayout;
+
+  bool get shakesScene => rushStarted || bigPayout;
 }
 
 mixin _ServiceCommands on _GameCubitCore {
@@ -95,6 +99,7 @@ mixin _ServiceCommands on _GameCubitCore {
       amount: payout.amount,
       perfect: payout.perfect,
       rushStarted: delivery.rushStarted,
+      bigPayout: _service.isBigPayout(payout.amount, state.incomePerSec),
     );
   }
 

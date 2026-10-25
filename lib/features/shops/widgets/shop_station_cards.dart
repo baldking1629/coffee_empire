@@ -9,6 +9,8 @@ import '../../../app/widgets/bouncy_button.dart';
 import '../../../config/economy_config.dart';
 import '../../../engine/shop_math.dart';
 import '../../../l10n/app_localizations.dart';
+import '../../../pixel/pixel_image.dart';
+import '../../../pixel/sprite_atlas.dart';
 import '../../game/game_cubit.dart';
 import '../shop_labels.dart';
 import 'shop_station.dart';
@@ -59,15 +61,17 @@ class StationNode extends StatelessWidget {
             ),
             child: SizedBox.square(
               dimension: ShopStation.nodeSize,
-              child: Icon(
-                locked ? LucideIcons.lock : shopIcon(shop.id),
-                color: locked
-                    ? AppColors.textSecondary
-                    : AppColors.primaryGradientStart,
-                size: 24,
+              child: Center(
+                child: ShopBuildingSprite(shopId: shop.id, locked: locked),
               ),
             ),
           ),
+          if (locked)
+            const Icon(
+              LucideIcons.lock,
+              color: AppColors.textPrimary,
+              size: 18,
+            ),
           if (data.status == StationStatus.open)
             SizedBox.square(
               dimension: ShopStation.nodeSize,
@@ -81,6 +85,51 @@ class StationNode extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class ShopBuildingSprite extends StatelessWidget {
+  const ShopBuildingSprite({
+    super.key,
+    required this.shopId,
+    required this.locked,
+  });
+
+  static Key keyOf(String shopId) => Key('building_$shopId');
+
+  final String shopId;
+  final bool locked;
+
+  @override
+  Widget build(BuildContext context) {
+    final atlas = _atlasOf(context);
+    if (atlas == null) {
+      return Icon(
+        shopIcon(shopId),
+        color: locked
+            ? AppColors.textSecondary
+            : AppColors.primaryGradientStart,
+        size: 24,
+      );
+    }
+    final image = atlas.get('building_$shopId');
+    final sprite = PixelImage(key: keyOf(shopId), image: image, scale: 2);
+    if (!locked) return sprite;
+    return ColorFiltered(
+      colorFilter: const ColorFilter.mode(
+        AppColors.lockedShade,
+        BlendMode.srcATop,
+      ),
+      child: sprite,
+    );
+  }
+}
+
+SpriteAtlas? _atlasOf(BuildContext context) {
+  try {
+    return context.read<SpriteAtlas>();
+  } on ProviderNotFoundException {
+    return null;
   }
 }
 

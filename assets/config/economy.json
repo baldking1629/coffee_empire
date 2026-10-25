@@ -611,7 +611,8 @@
         "unlockShopIndex": 8
       }
     ],
-    "baristaTakesHeadBelowPatience": 0.5
+    "baristaTakesHeadBelowPatience": 0.5,
+    "bigPayoutSeconds": 40
   },
   "cafe": {
     "appealBonus": 0.01,

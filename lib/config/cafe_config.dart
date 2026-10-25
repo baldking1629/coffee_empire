@@ -57,6 +57,7 @@ class ServiceConfig extends Equatable {
     required this.walkCellsPerSecond,
     required this.managerSpeedBonus,
     required this.baristaTakesHeadBelowPatience,
+    required this.bigPayoutSeconds,
     required this.drinks,
   });
 
@@ -81,6 +82,7 @@ class ServiceConfig extends Equatable {
       json,
       'baristaTakesHeadBelowPatience',
     ),
+    bigPayoutSeconds: readDouble(json, 'bigPayoutSeconds'),
     drinks: readList(json, 'drinks', DrinkConfig.fromJson),
   );
 
@@ -101,6 +103,7 @@ class ServiceConfig extends Equatable {
   final double walkCellsPerSecond;
   final double managerSpeedBonus;
   final double baristaTakesHeadBelowPatience;
+  final double bigPayoutSeconds;
   final List<DrinkConfig> drinks;
 
   DrinkConfig? drinkById(String id) {
@@ -129,6 +132,7 @@ class ServiceConfig extends Equatable {
     walkCellsPerSecond,
     managerSpeedBonus,
     baristaTakesHeadBelowPatience,
+    bigPayoutSeconds,
     drinks,
   ];
 }

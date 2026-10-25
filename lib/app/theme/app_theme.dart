@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'app_colors.dart';
+import 'pixel_border.dart';
 
 abstract final class AppTheme {
   static const double cardRadius = 20;
@@ -24,9 +25,16 @@ abstract final class AppTheme {
     colors: [AppColors.backgroundTop, AppColors.backgroundBottom],
   );
 
+  static const double pixelStep = 3;
+
   static const List<BoxShadow> cardShadow = [
-    BoxShadow(color: AppColors.shadow, blurRadius: 12, offset: Offset(0, 4)),
+    BoxShadow(color: AppColors.shadow, offset: Offset(0, 3)),
   ];
+
+  static const PixelBorder panelShape = PixelBorder(
+    side: BorderSide(color: AppColors.caramel, width: 2),
+    step: 4,
+  );
 
   static BoxDecoration cardDecoration({
     Color borderColor = AppColors.cardBorder,
@@ -53,6 +61,15 @@ abstract final class AppTheme {
       colorScheme: colorScheme,
       scaffoldBackgroundColor: AppColors.backgroundBottom,
       dividerTheme: const DividerThemeData(color: AppColors.cardBorder),
+      bottomSheetTheme: const BottomSheetThemeData(
+        backgroundColor: AppColors.surface,
+        shape: panelShape,
+        clipBehavior: Clip.antiAlias,
+      ),
+      dialogTheme: const DialogThemeData(
+        backgroundColor: AppColors.surface,
+        shape: panelShape,
+      ),
       pageTransitionsTheme: const PageTransitionsTheme(
         builders: {
           TargetPlatform.android: FadeForwardsPageTransitionsBuilder(),

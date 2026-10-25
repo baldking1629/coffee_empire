@@ -39,6 +39,10 @@ class ServiceMath {
   double brewStep({required bool rushActive}) =>
       rushActive ? tap.tapFillStep * tap.rushMultiplier : tap.tapFillStep;
 
+  bool isBigPayout(BigNumber amount, BigNumber incomePerSec) =>
+      !incomePerSec.isZero &&
+      amount >= incomePerSec * BigNumber.fromDouble(service.bigPayoutSeconds);
+
   bool isPerfect(double patienceRatio) =>
       patienceRatio >= service.perfectPatienceRatio;
 

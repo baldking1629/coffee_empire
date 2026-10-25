@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../theme/app_colors.dart';
 import '../theme/app_theme.dart';
+import '../theme/pixel_border.dart';
 
 enum BouncyButtonStyle { primary, secondary }
 
@@ -95,14 +96,19 @@ class _BouncyButtonState extends State<BouncyButton>
     }
   }
 
-  BoxDecoration _decoration(double glow) {
+  ShapeDecoration _decoration(double glow) {
     final primary = widget.style == BouncyButtonStyle.primary;
     final glowColor = primary ? AppColors.primaryGradientStart : AppColors.gold;
-    return BoxDecoration(
+    return ShapeDecoration(
       gradient: primary ? AppTheme.primaryGradient : AppTheme.cardGradient,
-      borderRadius: BorderRadius.circular(AppTheme.buttonRadius),
-      border: primary ? null : Border.all(color: AppColors.caramel),
-      boxShadow: [
+      shape: PixelBorder(
+        side: primary
+            ? BorderSide.none
+            : const BorderSide(color: AppColors.caramel),
+        step: AppTheme.pixelStep,
+      ),
+      shadows: [
+        const BoxShadow(color: AppColors.shadow, offset: Offset(0, 3)),
         if (widget.canAfford && widget.isEnabled)
           BoxShadow(
             color: glowColor.withValues(

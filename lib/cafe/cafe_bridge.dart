@@ -203,7 +203,7 @@ class CafeBridge {
       customer,
       gainText: formatGain(result.amount),
       perfectText: result.perfect ? perfectLabel : null,
-      shake: result.rushStarted,
+      shake: result.shakesScene,
       reduceMotion: reduceMotion,
     );
   }
