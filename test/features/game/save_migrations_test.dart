@@ -33,6 +33,9 @@ void main() {
     expect(state.store.rewardedCooldowns, isEmpty);
     expect(state.dailyReward.streak, 0);
     expect(state.achievements, isEmpty);
+    expect(state.stats.ordersServed, 0);
+    expect(state.stats.perfectServes, 0);
+    expect(state.stats.customersLost, 0);
   });
 
   test('migration steps are chained in order', () {

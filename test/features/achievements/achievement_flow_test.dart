@@ -36,10 +36,9 @@ void main() {
     );
     final before = cubit.state.incomePerSec.toDouble();
     for (var i = 0; i < 100; i++) {
-      cubit.tapCup();
+      cubit.brewTap();
     }
     expect(cubit.state.achievements, contains('eager_barista'));
-    expect(cubit.state.achievements, contains('first_dollars'));
     cubit.tick(0);
     final expected =
         before *
@@ -59,13 +58,13 @@ void main() {
       feedback: GameFeedback(haptics: haptics),
       restored: harness.stateWithCash('100'),
     );
-    cubit.tapCup();
+    cubit.brewTap();
     verify(haptics.selection).called(1);
     await cubit.buyShopLevels('street_cart', BuyAmount.one);
     verify(haptics.medium).called(1);
 
     await cubit.updateSettings(const GameSettings(haptics: false));
-    cubit.tapCup();
+    cubit.brewTap();
     verifyNever(haptics.selection);
   });
 }

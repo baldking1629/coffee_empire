@@ -4,7 +4,6 @@ import 'package:coffee_empire/core/services/analytics_service.dart';
 import 'package:coffee_empire/core/services/monetization_service.dart';
 import 'package:coffee_empire/features/game/game_cubit.dart';
 import 'package:coffee_empire/features/game/save_repository.dart';
-import 'package:coffee_empire/features/home/widgets/barista_tap_area.dart';
 import 'package:coffee_empire/features/tutorial/tutorial_overlay.dart';
 import 'package:coffee_empire/features/tutorial/tutorial_rules.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +11,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../helpers/cafe_driver.dart';
+import '../../helpers/cafe_files.dart';
 import '../../helpers/fake_clock.dart';
 import '../../helpers/test_economy.dart';
 
@@ -33,6 +34,7 @@ void main() {
     await tester.pumpWidget(
       MultiRepositoryProvider(
         providers: [
+          ...cafeProviders(),
           RepositoryProvider<EconomyConfig>.value(value: config),
           RepositoryProvider<AnalyticsService>.value(
             value: const DebugAnalyticsService(),
@@ -78,11 +80,12 @@ void main() {
     }
 
     expect(find.textContaining('1/6'), findsOneWidget);
-    for (var i = 0; i < 10; i++) {
-      await tester.tap(find.byKey(BaristaTapArea.cupKey));
-    }
+    await serveNextCustomer(tester);
     await tester.pump(const Duration(milliseconds: 300));
     expect(cubit.state.tutorialStep, TutorialSteps.buyFirstShop);
+
+    await tester.tap(find.text('Shops'));
+    await tester.pump(const Duration(milliseconds: 300));
 
     await tapKey(const Key('buy_shop_street_cart'));
     expect(cubit.state.tutorialStep, TutorialSteps.buySecondShop);

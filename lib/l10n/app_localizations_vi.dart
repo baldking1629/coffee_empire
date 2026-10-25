@@ -665,9 +665,6 @@ class AppLocalizationsVi extends AppLocalizations {
   }
 
   @override
-  String get tutorialStepTapCup => 'Chạm vào tách cà phê để pha tách đầu tiên.';
-
-  @override
   String get tutorialStepBuyFirstShop =>
       'Mua một Xe đẩy đường phố ở thẻ Cửa hàng.';
 
@@ -886,4 +883,40 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get spriteGalleryTitle => 'Thư viện sprite';
+
+  @override
+  String get tabCafe => 'Quán';
+
+  @override
+  String get tutorialStepServeCustomer =>
+      'Chạm vào khách ở quầy, pha đồ uống rồi chạm lại để phục vụ.';
+
+  @override
+  String brewPanelTitle(String drink) {
+    return 'Đang pha: $drink';
+  }
+
+  @override
+  String get serveHint => 'Đồ uống xong! Chạm vào khách để phục vụ.';
+
+  @override
+  String get perfectServe => 'Hoàn hảo!';
+
+  @override
+  String get drink_espresso => 'Espresso';
+
+  @override
+  String get drink_americano => 'Americano';
+
+  @override
+  String get drink_latte => 'Latte';
+
+  @override
+  String get drink_cappuccino => 'Cappuccino';
+
+  @override
+  String get drink_mocha => 'Mocha';
+
+  @override
+  String get drink_cold_brew => 'Cold brew';
 }

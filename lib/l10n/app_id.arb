@@ -186,7 +186,6 @@
   "dailyRewardNext": "Hadiah berikutnya dalam {time}",
   "dailyRewardBean": "+{beans} Biji Emas",
   "tutorialTitle": "Pelatihan barista {step}/{total}",
-  "tutorialStepTapCup": "Ketuk cangkir kopi untuk menyeduh cangkir pertamamu.",
   "tutorialStepBuyFirstShop": "Beli Gerobak Jalanan di tab Toko.",
   "tutorialStepBuySecondShop": "Buka toko keduamu: Kios Pojok.",
   "tutorialStepHireManager": "Rekrut manajer untuk melipatgandakan pendapatan toko tiga kali.",
@@ -252,5 +251,16 @@
   "floatingGain": "+{amount}",
   "lockedStationName": "???",
   "stationUpgradesHint": "Ketuk untuk manajer & peralatan",
-  "spriteGalleryTitle": "Galeri sprite"
+  "spriteGalleryTitle": "Galeri sprite",
+  "tabCafe": "Kafe",
+  "tutorialStepServeCustomer": "Ketuk pelanggan di konter, seduh minumannya, lalu ketuk lagi untuk menyajikan.",
+  "brewPanelTitle": "Menyeduh: {drink}",
+  "serveHint": "Minuman siap! Ketuk pelanggan untuk menyajikan.",
+  "perfectServe": "Sempurna!",
+  "drink_espresso": "Espreso",
+  "drink_americano": "Americano",
+  "drink_latte": "Latte",
+  "drink_cappuccino": "Cappuccino",
+  "drink_mocha": "Moka",
+  "drink_cold_brew": "Cold Brew"
 }

@@ -186,7 +186,6 @@
   "dailyRewardNext": "Phần thưởng tiếp theo sau {time}",
   "dailyRewardBean": "+{beans} Hạt Vàng",
   "tutorialTitle": "Huấn luyện barista {step}/{total}",
-  "tutorialStepTapCup": "Chạm vào tách cà phê để pha tách đầu tiên.",
   "tutorialStepBuyFirstShop": "Mua một Xe đẩy đường phố ở thẻ Cửa hàng.",
   "tutorialStepBuySecondShop": "Mở cửa hàng thứ hai: Quầy góc phố.",
   "tutorialStepHireManager": "Thuê quản lý để tăng gấp ba thu nhập của một cửa hàng.",
@@ -252,5 +251,16 @@
   "floatingGain": "+{amount}",
   "lockedStationName": "???",
   "stationUpgradesHint": "Chạm để xem quản lý và thiết bị",
-  "spriteGalleryTitle": "Thư viện sprite"
+  "spriteGalleryTitle": "Thư viện sprite",
+  "tabCafe": "Quán",
+  "tutorialStepServeCustomer": "Chạm vào khách ở quầy, pha đồ uống rồi chạm lại để phục vụ.",
+  "brewPanelTitle": "Đang pha: {drink}",
+  "serveHint": "Đồ uống xong! Chạm vào khách để phục vụ.",
+  "perfectServe": "Hoàn hảo!",
+  "drink_espresso": "Espresso",
+  "drink_americano": "Americano",
+  "drink_latte": "Latte",
+  "drink_cappuccino": "Cappuccino",
+  "drink_mocha": "Mocha",
+  "drink_cold_brew": "Cold brew"
 }

@@ -17,7 +17,7 @@ class TutorialBanner extends StatelessWidget {
   static const Key finishKey = Key('tutorial_finish');
 
   String _instruction(AppLocalizations l10n, int step) => switch (step) {
-    TutorialSteps.tapCup => l10n.tutorialStepTapCup,
+    TutorialSteps.serveCustomer => l10n.tutorialStepServeCustomer,
     TutorialSteps.buyFirstShop => l10n.tutorialStepBuyFirstShop,
     TutorialSteps.buySecondShop => l10n.tutorialStepBuySecondShop,
     TutorialSteps.hireManager => l10n.tutorialStepHireManager,

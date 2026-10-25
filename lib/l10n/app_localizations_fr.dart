@@ -668,10 +668,6 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
-  String get tutorialStepTapCup =>
-      'Touchez la tasse pour préparer votre premier café.';
-
-  @override
   String get tutorialStepBuyFirstShop =>
       'Achetez une Charrette de rue dans l\'onglet Boutiques.';
 
@@ -892,4 +888,40 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get spriteGalleryTitle => 'Galerie de sprites';
+
+  @override
+  String get tabCafe => 'Café';
+
+  @override
+  String get tutorialStepServeCustomer =>
+      'Touchez le client au comptoir, préparez sa boisson puis touchez-le à nouveau pour servir.';
+
+  @override
+  String brewPanelTitle(String drink) {
+    return 'En préparation : $drink';
+  }
+
+  @override
+  String get serveHint => 'Boisson prête ! Touchez le client pour servir.';
+
+  @override
+  String get perfectServe => 'Parfait !';
+
+  @override
+  String get drink_espresso => 'Espresso';
+
+  @override
+  String get drink_americano => 'Americano';
+
+  @override
+  String get drink_latte => 'Latte';
+
+  @override
+  String get drink_cappuccino => 'Cappuccino';
+
+  @override
+  String get drink_mocha => 'Moka';
+
+  @override
+  String get drink_cold_brew => 'Cold Brew';
 }

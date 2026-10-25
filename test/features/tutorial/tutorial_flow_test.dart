@@ -11,9 +11,9 @@ void main() {
   test('tutorial follows the six steps in order', () async {
     final harness = CubitHarness();
     final cubit = harness.build(harness.stateWithCash('1e4'));
-    expect(cubit.state.tutorialStep, TutorialSteps.tapCup);
+    expect(cubit.state.tutorialStep, TutorialSteps.serveCustomer);
 
-    cubit.tapCup();
+    cubit.serveOrder(drinkId: 'espresso', patienceRatio: 1, byBarista: false);
     expect(cubit.state.tutorialStep, TutorialSteps.buyFirstShop);
 
     cubit.notifyTabOpened(TutorialSteps.labTabIndex);

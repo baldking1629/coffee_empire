@@ -186,7 +186,6 @@
   "dailyRewardNext": "अगला इनाम {time} में",
   "dailyRewardBean": "+{beans} सुनहरा बीन",
   "tutorialTitle": "बरिस्ता प्रशिक्षण {step}/{total}",
-  "tutorialStepTapCup": "अपनी पहली कॉफ़ी बनाने के लिए कप पर टैप करें।",
   "tutorialStepBuyFirstShop": "दुकानें टैब से एक स्ट्रीट कार्ट खरीदें।",
   "tutorialStepBuySecondShop": "अपनी दूसरी दुकान खोलें: कॉर्नर बूथ।",
   "tutorialStepHireManager": "दुकान की आय तिगुनी करने के लिए मैनेजर रखें।",
@@ -252,5 +251,16 @@
   "floatingGain": "+{amount}",
   "lockedStationName": "???",
   "stationUpgradesHint": "मैनेजर और उपकरण के लिए टैप करें",
-  "spriteGalleryTitle": "स्प्राइट गैलरी"
+  "spriteGalleryTitle": "स्प्राइट गैलरी",
+  "tabCafe": "कैफ़े",
+  "tutorialStepServeCustomer": "काउंटर पर ग्राहक को टैप करें, ड्रिंक बनाएँ, फिर परोसने के लिए दोबारा टैप करें।",
+  "brewPanelTitle": "बन रही है: {drink}",
+  "serveHint": "ड्रिंक तैयार! परोसने के लिए ग्राहक को टैप करें।",
+  "perfectServe": "शानदार!",
+  "drink_espresso": "एस्प्रेसो",
+  "drink_americano": "अमेरिकानो",
+  "drink_latte": "लाते",
+  "drink_cappuccino": "कैपुचीनो",
+  "drink_mocha": "मोका",
+  "drink_cold_brew": "कोल्ड ब्रू"
 }

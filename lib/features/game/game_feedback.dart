@@ -2,7 +2,16 @@ import '../../core/services/haptic_service.dart';
 import '../../core/services/sound_service.dart';
 import 'game_settings.dart';
 
-enum FeedbackKind { tap, cupFull, purchase, prestige, denied }
+enum FeedbackKind {
+  tap,
+  cupFull,
+  purchase,
+  prestige,
+  denied,
+  orderTaken,
+  serve,
+  customerLost,
+}
 
 class GameFeedback {
   const GameFeedback({
@@ -16,11 +25,13 @@ class GameFeedback {
   void play(FeedbackKind kind, GameSettings settings) {
     if (settings.haptics) {
       switch (kind) {
-        case FeedbackKind.tap:
+        case FeedbackKind.tap || FeedbackKind.orderTaken:
           haptics.selection();
-        case FeedbackKind.cupFull || FeedbackKind.denied:
+        case FeedbackKind.cupFull ||
+            FeedbackKind.denied ||
+            FeedbackKind.customerLost:
           haptics.light();
-        case FeedbackKind.purchase:
+        case FeedbackKind.purchase || FeedbackKind.serve:
           haptics.medium();
         case FeedbackKind.prestige:
           haptics.heavy();
@@ -33,6 +44,9 @@ class GameFeedback {
         FeedbackKind.purchase => GameSound.purchase,
         FeedbackKind.prestige => GameSound.prestige,
         FeedbackKind.denied => GameSound.denied,
+        FeedbackKind.orderTaken => GameSound.orderTaken,
+        FeedbackKind.serve => GameSound.serve,
+        FeedbackKind.customerLost => GameSound.customerLost,
       });
     }
   }

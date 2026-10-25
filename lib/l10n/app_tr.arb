@@ -186,7 +186,6 @@
   "dailyRewardNext": "Sonraki ödül {time} sonra",
   "dailyRewardBean": "+{beans} Altın Çekirdek",
   "tutorialTitle": "Barista eğitimi {step}/{total}",
-  "tutorialStepTapCup": "İlk kahveni demlemek için fincana dokun.",
   "tutorialStepBuyFirstShop": "Dükkanlar sekmesinden bir Sokak Arabası al.",
   "tutorialStepBuySecondShop": "İkinci dükkanını aç: Köşe Büfesi.",
   "tutorialStepHireManager": "Bir dükkanın gelirini üçe katlamak için yönetici kirala.",
@@ -252,5 +251,16 @@
   "floatingGain": "+{amount}",
   "lockedStationName": "???",
   "stationUpgradesHint": "Yönetici ve ekipman için dokun",
-  "spriteGalleryTitle": "Sprite Galerisi"
+  "spriteGalleryTitle": "Sprite Galerisi",
+  "tabCafe": "Kafe",
+  "tutorialStepServeCustomer": "Tezgahtaki müşteriye dokun, içeceğini demle, sonra servis için tekrar dokun.",
+  "brewPanelTitle": "Hazırlanıyor: {drink}",
+  "serveHint": "İçecek hazır! Servis için müşteriye dokun.",
+  "perfectServe": "Mükemmel!",
+  "drink_espresso": "Espresso",
+  "drink_americano": "Americano",
+  "drink_latte": "Latte",
+  "drink_cappuccino": "Kapuçino",
+  "drink_mocha": "Mocha",
+  "drink_cold_brew": "Soğuk Demleme"
 }

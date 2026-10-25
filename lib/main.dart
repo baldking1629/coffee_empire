@@ -30,6 +30,7 @@ Future<void> main() async {
   final loader = EconomyConfigLoader(rootBundle);
   final config = await loader.load();
   final achievements = await loader.loadAchievements();
+  final cafeCatalog = await loader.loadCafeCatalog();
   final spriteTimer = Stopwatch()..start();
   final sprites = await SpriteAtlas.load(rootBundle);
   final cachedFrames = sprites.warmUp();
@@ -63,6 +64,7 @@ Future<void> main() async {
       providers: [
         RepositoryProvider<EconomyConfig>.value(value: config),
         RepositoryProvider<SpriteAtlas>.value(value: sprites),
+        RepositoryProvider<CafeCatalog>.value(value: cafeCatalog),
         RepositoryProvider<SaveRepository>.value(value: repository),
         RepositoryProvider<AnalyticsService>.value(value: analytics),
         RepositoryProvider<ConsentService>.value(value: consent),

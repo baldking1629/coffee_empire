@@ -186,7 +186,6 @@
   "dailyRewardNext": "Próxima recompensa em {time}",
   "dailyRewardBean": "+{beans} Grão de Ouro",
   "tutorialTitle": "Treinamento de barista {step}/{total}",
-  "tutorialStepTapCup": "Toque na xícara para preparar seu primeiro café.",
   "tutorialStepBuyFirstShop": "Compre um Carrinho de Rua na aba Lojas.",
   "tutorialStepBuySecondShop": "Abra sua segunda loja: o Quiosque da Esquina.",
   "tutorialStepHireManager": "Contrate um gerente para triplicar a renda de uma loja.",
@@ -252,5 +251,16 @@
   "floatingGain": "+{amount}",
   "lockedStationName": "???",
   "stationUpgradesHint": "Toque para gerente e equipamentos",
-  "spriteGalleryTitle": "Galeria de sprites"
+  "spriteGalleryTitle": "Galeria de sprites",
+  "tabCafe": "Café",
+  "tutorialStepServeCustomer": "Toque no cliente do balcão, prepare a bebida e toque de novo para servir.",
+  "brewPanelTitle": "Preparando: {drink}",
+  "serveHint": "Bebida pronta! Toque no cliente para servir.",
+  "perfectServe": "Perfeito!",
+  "drink_espresso": "Espresso",
+  "drink_americano": "Americano",
+  "drink_latte": "Latte",
+  "drink_cappuccino": "Cappuccino",
+  "drink_mocha": "Mocha",
+  "drink_cold_brew": "Cold Brew"
 }

@@ -16,6 +16,8 @@ abstract final class AnalyticsEvents {
   static const String dailyRewardClaimed = 'daily_reward_claimed';
   static const String saveCorrupt = 'save_corrupt';
   static const String sessionStart = 'session_start';
+  static const String orderServed = 'order_served';
+  static const String customerLost = 'customer_lost';
 }
 
 abstract class AnalyticsService {

@@ -660,9 +660,6 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get tutorialStepTapCup => '点击咖啡杯，冲煮你的第一杯咖啡。';
-
-  @override
   String get tutorialStepBuyFirstShop => '在店铺标签中购买一辆街头推车。';
 
   @override
@@ -877,4 +874,39 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get spriteGalleryTitle => '精灵图库';
+
+  @override
+  String get tabCafe => '咖啡馆';
+
+  @override
+  String get tutorialStepServeCustomer => '点击柜台前的顾客接单，冲好饮品后再次点击上餐。';
+
+  @override
+  String brewPanelTitle(String drink) {
+    return '正在冲煮：$drink';
+  }
+
+  @override
+  String get serveHint => '饮品好了！点击顾客上餐。';
+
+  @override
+  String get perfectServe => '完美！';
+
+  @override
+  String get drink_espresso => '意式浓缩';
+
+  @override
+  String get drink_americano => '美式咖啡';
+
+  @override
+  String get drink_latte => '拿铁';
+
+  @override
+  String get drink_cappuccino => '卡布奇诺';
+
+  @override
+  String get drink_mocha => '摩卡';
+
+  @override
+  String get drink_cold_brew => '冷萃咖啡';
 }

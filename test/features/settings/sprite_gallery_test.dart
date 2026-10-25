@@ -1,5 +1,6 @@
 import 'package:coffee_empire/features/settings/sprite_gallery_screen.dart';
 import 'package:coffee_empire/l10n/app_localizations.dart';
+import 'package:coffee_empire/pixel/pixel_image.dart';
 import 'package:coffee_empire/pixel/sprite_atlas.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

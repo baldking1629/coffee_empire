@@ -186,7 +186,6 @@
   "dailyRewardNext": "المكافأة التالية خلال {time}",
   "dailyRewardBean": "+{beans} حبة ذهبية",
   "tutorialTitle": "تدريب الباريستا {step}/{total}",
-  "tutorialStepTapCup": "المس كوب القهوة لتحضير أول كوب.",
   "tutorialStepBuyFirstShop": "اشترِ عربة شارع من تبويب المتاجر.",
   "tutorialStepBuySecondShop": "افتتح متجرك الثاني: كشك الزاوية.",
   "tutorialStepHireManager": "عيّن مديرًا لمضاعفة دخل المتجر ثلاث مرات.",
@@ -252,5 +251,16 @@
   "floatingGain": "+{amount}",
   "lockedStationName": "???",
   "stationUpgradesHint": "المس للمدير والمعدات",
-  "spriteGalleryTitle": "معرض الرسوم"
+  "spriteGalleryTitle": "معرض الرسوم",
+  "tabCafe": "المقهى",
+  "tutorialStepServeCustomer": "المس الزبون عند المنضدة، حضّر مشروبه، ثم المسه مجددًا لتقديمه.",
+  "brewPanelTitle": "جارٍ التحضير: {drink}",
+  "serveHint": "المشروب جاهز! المس الزبون لتقديمه.",
+  "perfectServe": "ممتاز!",
+  "drink_espresso": "إسبريسو",
+  "drink_americano": "أمريكانو",
+  "drink_latte": "لاتيه",
+  "drink_cappuccino": "كابتشينو",
+  "drink_mocha": "موكا",
+  "drink_cold_brew": "قهوة باردة"
 }

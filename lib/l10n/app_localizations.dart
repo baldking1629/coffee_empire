@@ -1240,12 +1240,6 @@ abstract class AppLocalizations {
   /// **'Barista training {step}/{total}'**
   String tutorialTitle(int step, int total);
 
-  /// No description provided for @tutorialStepTapCup.
-  ///
-  /// In en, this message translates to:
-  /// **'Tap the coffee cup to brew your first cup.'**
-  String get tutorialStepTapCup;
-
   /// No description provided for @tutorialStepBuyFirstShop.
   ///
   /// In en, this message translates to:
@@ -1641,6 +1635,72 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Sprite Gallery'**
   String get spriteGalleryTitle;
+
+  /// No description provided for @tabCafe.
+  ///
+  /// In en, this message translates to:
+  /// **'Cafe'**
+  String get tabCafe;
+
+  /// No description provided for @tutorialStepServeCustomer.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap the customer at the counter, brew their drink, then tap them again to serve.'**
+  String get tutorialStepServeCustomer;
+
+  /// No description provided for @brewPanelTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Brewing: {drink}'**
+  String brewPanelTitle(String drink);
+
+  /// No description provided for @serveHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Drink ready! Tap the customer to serve.'**
+  String get serveHint;
+
+  /// No description provided for @perfectServe.
+  ///
+  /// In en, this message translates to:
+  /// **'Perfect!'**
+  String get perfectServe;
+
+  /// No description provided for @drink_espresso.
+  ///
+  /// In en, this message translates to:
+  /// **'Espresso'**
+  String get drink_espresso;
+
+  /// No description provided for @drink_americano.
+  ///
+  /// In en, this message translates to:
+  /// **'Americano'**
+  String get drink_americano;
+
+  /// No description provided for @drink_latte.
+  ///
+  /// In en, this message translates to:
+  /// **'Latte'**
+  String get drink_latte;
+
+  /// No description provided for @drink_cappuccino.
+  ///
+  /// In en, this message translates to:
+  /// **'Cappuccino'**
+  String get drink_cappuccino;
+
+  /// No description provided for @drink_mocha.
+  ///
+  /// In en, this message translates to:
+  /// **'Mocha'**
+  String get drink_mocha;
+
+  /// No description provided for @drink_cold_brew.
+  ///
+  /// In en, this message translates to:
+  /// **'Cold Brew'**
+  String get drink_cold_brew;
 }
 
 class _AppLocalizationsDelegate

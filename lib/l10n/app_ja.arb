@@ -186,7 +186,6 @@
   "dailyRewardNext": "次の報酬まで{time}",
   "dailyRewardBean": "ゴールデンビーン+{beans}",
   "tutorialTitle": "バリスタ研修 {step}/{total}",
-  "tutorialStepTapCup": "カップをタップして最初の一杯を抽出しましょう。",
   "tutorialStepBuyFirstShop": "店舗タブで屋台を購入しましょう。",
   "tutorialStepBuySecondShop": "2店舗目の街角スタンドを開きましょう。",
   "tutorialStepHireManager": "店長を雇って店舗の収入を3倍にしましょう。",
@@ -252,5 +251,16 @@
   "floatingGain": "+{amount}",
   "lockedStationName": "???",
   "stationUpgradesHint": "タップで店長と設備",
-  "spriteGalleryTitle": "スプライトギャラリー"
+  "spriteGalleryTitle": "スプライトギャラリー",
+  "tabCafe": "カフェ",
+  "tutorialStepServeCustomer": "カウンターのお客さんをタップして注文を受け、作ったらもう一度タップして提供しよう。",
+  "brewPanelTitle": "抽出中：{drink}",
+  "serveHint": "できあがり！お客さんをタップして提供しよう。",
+  "perfectServe": "パーフェクト！",
+  "drink_espresso": "エスプレッソ",
+  "drink_americano": "アメリカーノ",
+  "drink_latte": "ラテ",
+  "drink_cappuccino": "カプチーノ",
+  "drink_mocha": "モカ",
+  "drink_cold_brew": "コールドブリュー"
 }

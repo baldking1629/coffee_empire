@@ -10,6 +10,7 @@ import 'franchise_math.dart';
 import 'lab_math.dart';
 import 'offline_math.dart';
 import 'prestige_math.dart';
+import 'service_math.dart';
 import 'shop_math.dart';
 
 class IncomeInputs extends Equatable {
@@ -69,7 +70,8 @@ class EconomyEngine {
        prestigeMath = PrestigeMath(config.prestige),
        offlineMath = OfflineMath(config.offline),
        boostMath = BoostMath(rewarded: config.rewarded, iap: config.iap),
-       dailyRewardMath = DailyRewardMath(config.dailyReward);
+       dailyRewardMath = DailyRewardMath(config.dailyReward),
+       serviceMath = ServiceMath(service: config.service, tap: config.tap);
 
   final EconomyConfig config;
   final ShopMath shopMath;
@@ -80,6 +82,7 @@ class EconomyEngine {
   final BoostMath boostMath;
   final DailyRewardMath dailyRewardMath;
   final AchievementMath achievementMath;
+  final ServiceMath serviceMath;
 
   BigNumber shopsIncomePerSec(IncomeInputs inputs) {
     var total = BigNumber.zero;

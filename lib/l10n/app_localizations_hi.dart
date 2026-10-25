@@ -664,10 +664,6 @@ class AppLocalizationsHi extends AppLocalizations {
   }
 
   @override
-  String get tutorialStepTapCup =>
-      'अपनी पहली कॉफ़ी बनाने के लिए कप पर टैप करें।';
-
-  @override
   String get tutorialStepBuyFirstShop =>
       'दुकानें टैब से एक स्ट्रीट कार्ट खरीदें।';
 
@@ -886,4 +882,40 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get spriteGalleryTitle => 'स्प्राइट गैलरी';
+
+  @override
+  String get tabCafe => 'कैफ़े';
+
+  @override
+  String get tutorialStepServeCustomer =>
+      'काउंटर पर ग्राहक को टैप करें, ड्रिंक बनाएँ, फिर परोसने के लिए दोबारा टैप करें।';
+
+  @override
+  String brewPanelTitle(String drink) {
+    return 'बन रही है: $drink';
+  }
+
+  @override
+  String get serveHint => 'ड्रिंक तैयार! परोसने के लिए ग्राहक को टैप करें।';
+
+  @override
+  String get perfectServe => 'शानदार!';
+
+  @override
+  String get drink_espresso => 'एस्प्रेसो';
+
+  @override
+  String get drink_americano => 'अमेरिकानो';
+
+  @override
+  String get drink_latte => 'लाते';
+
+  @override
+  String get drink_cappuccino => 'कैपुचीनो';
+
+  @override
+  String get drink_mocha => 'मोका';
+
+  @override
+  String get drink_cold_brew => 'कोल्ड ब्रू';
 }

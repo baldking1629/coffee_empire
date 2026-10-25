@@ -3,12 +3,14 @@ import 'dart:convert';
 import 'package:equatable/equatable.dart';
 
 import '../core/bignumber/big_number.dart';
+import 'cafe_config.dart';
 import 'franchise_config.dart';
 import 'json_readers.dart';
 import 'lab_config.dart';
 import 'reward_config.dart';
 import 'shop_config.dart';
 
+export 'cafe_config.dart';
 export 'franchise_config.dart';
 export 'lab_config.dart';
 export 'reward_config.dart';
@@ -31,6 +33,7 @@ class EconomyConfig extends Equatable {
     required this.rewarded,
     required this.iap,
     required this.dailyReward,
+    required this.service,
   });
 
   factory EconomyConfig.fromJson(JsonMap json) => EconomyConfig(
@@ -49,6 +52,7 @@ class EconomyConfig extends Equatable {
     rewarded: RewardedConfig.fromJson(readMap(json, 'rewarded')),
     iap: IapConfig.fromJson(readMap(json, 'iap')),
     dailyReward: DailyRewardConfig.fromJson(readMap(json, 'dailyReward')),
+    service: ServiceConfig.fromJson(readMap(json, 'service')),
   );
 
   factory EconomyConfig.fromJsonString(String source) =>
@@ -69,6 +73,7 @@ class EconomyConfig extends Equatable {
   final RewardedConfig rewarded;
   final IapConfig iap;
   final DailyRewardConfig dailyReward;
+  final ServiceConfig service;
 
   @override
   List<Object?> get props => [
@@ -87,5 +92,6 @@ class EconomyConfig extends Equatable {
     rewarded,
     iap,
     dailyReward,
+    service,
   ];
 }

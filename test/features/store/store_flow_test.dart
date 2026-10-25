@@ -61,22 +61,48 @@ void main() {
     expect(await cubit.applyRewardedAd(RewardedAdType.offlineDouble), isTrue);
   });
 
-  test('VIP doubles income, extends offline cap and auto-taps', () async {
-    final cubit = harness.build(earning());
-    final base = cubit.state.incomePerSec.toDouble();
-    expect(await cubit.applyPurchase(ProductIds.vip), isTrue);
-    expect(cubit.state.store.isVip, isTrue);
-    expect(cubit.state.incomePerSec.toDouble(), closeTo(base * 2, 1e-9));
-    expect(await cubit.applyPurchase(ProductIds.vip), isFalse);
+  test(
+    'VIP doubles income, extends offline cap and adds a VIP barista',
+    () async {
+      final cubit = harness.build(earning());
+      final base = cubit.state.incomePerSec.toDouble();
+      expect(await cubit.applyPurchase(ProductIds.vip), isTrue);
+      expect(cubit.state.store.isVip, isTrue);
+      expect(cubit.state.incomePerSec.toDouble(), closeTo(base * 2, 1e-9));
+      expect(await cubit.applyPurchase(ProductIds.vip), isFalse);
 
-    final cashBefore = cubit.state.cash;
-    await cubit.tick(10);
-    final passive = cubit.state.incomePerSec * BigNumber.fromInt(10);
-    expect(cubit.state.cash > cashBefore + passive, isTrue);
+      final income = cubit.state.incomePerSec.toDouble();
+      final service = harness.config.service;
+      final npc = cubit.serveOrder(
+        drinkId: 'espresso',
+        patienceRatio: 0,
+        byBarista: true,
+      );
+      final vip = cubit.serveOrder(
+        drinkId: 'espresso',
+        patienceRatio: 0,
+        byBarista: true,
+        vipBarista: true,
+      );
+      expect(
+        npc.amount.toDouble(),
+        closeTo(
+          income * service.orderValueSeconds * service.autoServeEfficiency,
+          1e-6,
+        ),
+      );
+      expect(
+        vip.amount.toDouble(),
+        closeTo(
+          income * service.orderValueSeconds * service.vipAutoServeEfficiency,
+          1e-6,
+        ),
+      );
 
-    await cubit.handleBackgroundGap(20 * 3600);
-    expect(cubit.state.pendingOffline?.creditedSeconds, 12 * 3600);
-  });
+      await cubit.handleBackgroundGap(20 * 3600);
+      expect(cubit.state.pendingOffline?.creditedSeconds, 12 * 3600);
+    },
+  );
 
   test('starter pack is one-time and grants multiplier plus cash', () async {
     final cubit = harness.build(earning());

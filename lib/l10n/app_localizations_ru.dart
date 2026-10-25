@@ -668,10 +668,6 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
-  String get tutorialStepTapCup =>
-      'Нажмите на чашку, чтобы сварить первый кофе.';
-
-  @override
   String get tutorialStepBuyFirstShop =>
       'Купите уличную тележку во вкладке «Кофейни».';
 
@@ -892,4 +888,40 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get spriteGalleryTitle => 'Галерея спрайтов';
+
+  @override
+  String get tabCafe => 'Кафе';
+
+  @override
+  String get tutorialStepServeCustomer =>
+      'Нажмите на гостя у стойки, приготовьте напиток и нажмите снова, чтобы подать.';
+
+  @override
+  String brewPanelTitle(String drink) {
+    return 'Готовится: $drink';
+  }
+
+  @override
+  String get serveHint => 'Напиток готов! Нажмите на гостя, чтобы подать.';
+
+  @override
+  String get perfectServe => 'Идеально!';
+
+  @override
+  String get drink_espresso => 'Эспрессо';
+
+  @override
+  String get drink_americano => 'Американо';
+
+  @override
+  String get drink_latte => 'Латте';
+
+  @override
+  String get drink_cappuccino => 'Капучино';
+
+  @override
+  String get drink_mocha => 'Мокко';
+
+  @override
+  String get drink_cold_brew => 'Колд брю';
 }

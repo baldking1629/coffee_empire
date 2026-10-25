@@ -524,7 +524,6 @@
       }
     }
   },
-  "tutorialStepTapCup": "Tap the coffee cup to brew your first cup.",
   "tutorialStepBuyFirstShop": "Buy a Street Cart in the Shops tab.",
   "tutorialStepBuySecondShop": "Open your second shop: the Corner Booth.",
   "tutorialStepHireManager": "Hire a manager to triple a shop's income.",
@@ -662,5 +661,23 @@
   },
   "lockedStationName": "???",
   "stationUpgradesHint": "Tap for manager & equipment",
-  "spriteGalleryTitle": "Sprite Gallery"
+  "spriteGalleryTitle": "Sprite Gallery",
+  "tabCafe": "Cafe",
+  "tutorialStepServeCustomer": "Tap the customer at the counter, brew their drink, then tap them again to serve.",
+  "brewPanelTitle": "Brewing: {drink}",
+  "serveHint": "Drink ready! Tap the customer to serve.",
+  "perfectServe": "Perfect!",
+  "drink_espresso": "Espresso",
+  "drink_americano": "Americano",
+  "drink_latte": "Latte",
+  "drink_cappuccino": "Cappuccino",
+  "drink_mocha": "Mocha",
+  "drink_cold_brew": "Cold Brew",
+  "@brewPanelTitle": {
+    "placeholders": {
+      "drink": {
+        "type": "String"
+      }
+    }
+  }
 }

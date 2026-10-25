@@ -1,7 +1,6 @@
 import 'package:equatable/equatable.dart';
 
 import '../config/economy_config.dart';
-import '../core/bignumber/big_number.dart';
 
 class BaristaState extends Equatable {
   const BaristaState({
@@ -41,23 +40,6 @@ class BaristaState extends Equatable {
   List<Object?> get props => [cupFill, combo, lastCupFilledAt, rushEndsAt];
 }
 
-class TapOutcome extends Equatable {
-  const TapOutcome({
-    required this.barista,
-    required this.payout,
-    required this.cupFilled,
-    required this.rushStarted,
-  });
-
-  final BaristaState barista;
-  final BigNumber payout;
-  final bool cupFilled;
-  final bool rushStarted;
-
-  @override
-  List<Object?> get props => [barista, payout, cupFilled, rushStarted];
-}
-
 class BaristaMath {
   const BaristaMath(this.config);
 
@@ -68,73 +50,6 @@ class BaristaMath {
 
   Duration get _rushDuration =>
       Duration(milliseconds: (config.rushDurationSeconds * 1000).round());
-
-  BigNumber cupPayout(BigNumber incomePerSec, {required bool rushActive}) {
-    final base = (incomePerSec * BigNumber.fromDouble(config.tapPayoutSeconds))
-        .clampMin(config.minTapPayout);
-    return rushActive
-        ? base * BigNumber.fromDouble(config.rushMultiplier)
-        : base;
-  }
-
-  TapOutcome tap(BaristaState current, BigNumber incomePerSec, DateTime now) {
-    final settled = settle(current, now);
-    final rushActive = settled.isRushActive(now);
-    final step = rushActive
-        ? config.tapFillStep * config.rushMultiplier
-        : config.tapFillStep;
-    final filled = settled.cupFill + step;
-    // Small epsilon absorbs accumulated floating-point error from repeated steps.
-    if (filled < 1 - 1e-9) {
-      return TapOutcome(
-        barista: settled.copyWith(cupFill: filled),
-        payout: BigNumber.zero,
-        cupFilled: false,
-        rushStarted: false,
-      );
-    }
-    final payout = cupPayout(incomePerSec, rushActive: rushActive);
-    final combo = settled.lastCupFilledAt == null ? 0 : settled.combo + 1;
-    final startsRush = !rushActive && combo >= config.rushComboThreshold;
-    return TapOutcome(
-      barista: BaristaState(
-        combo: startsRush ? 0 : combo,
-        lastCupFilledAt: now,
-        rushEndsAt: startsRush ? now.add(_rushDuration) : settled.rushEndsAt,
-      ),
-      payout: payout,
-      cupFilled: true,
-      rushStarted: startsRush,
-    );
-  }
-
-  TapOutcome autoFill(
-    BaristaState current,
-    BigNumber incomePerSec,
-    double taps,
-  ) {
-    if (taps <= 0) {
-      return TapOutcome(
-        barista: current,
-        payout: BigNumber.zero,
-        cupFilled: false,
-        rushStarted: false,
-      );
-    }
-    final filled = current.cupFill + taps * config.tapFillStep;
-    final cups = (filled + 1e-9).floor();
-    final payout = cups == 0
-        ? BigNumber.zero
-        : cupPayout(incomePerSec, rushActive: false) * BigNumber.fromInt(cups);
-    return TapOutcome(
-      barista: current.copyWith(
-        cupFill: cups == 0 ? filled : (filled - cups).clamp(0.0, 1.0),
-      ),
-      payout: payout,
-      cupFilled: cups > 0,
-      rushStarted: false,
-    );
-  }
 
   BaristaState settle(BaristaState current, DateTime now) {
     var result = current;

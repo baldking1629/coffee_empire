@@ -44,12 +44,17 @@ void main() {
   });
 
   blocTest<GameCubit, GameState>(
-    'filling a cup adds the minimum payout to cash and earnings',
+    'ten brew taps fill a cup and serving pays the minimum',
     build: build,
     act: (cubit) {
       for (var i = 0; i < 10; i++) {
-        cubit.tapCup();
+        cubit.brewTap();
       }
+      cubit.serveOrder(
+        drinkId: 'espresso',
+        patienceRatio: 0.5,
+        byBarista: false,
+      );
     },
     verify: (cubit) {
       expect(cubit.state.cash, config.startingCash + BigNumber.one);
@@ -58,6 +63,25 @@ void main() {
       expect(cubit.state.stats.cupsFilled, 1);
     },
   );
+
+  test('serves build combo, a lost customer resets it and stats count', () {
+    final cubit = build();
+    final first = cubit.serveOrder(
+      drinkId: 'espresso',
+      patienceRatio: 0.9,
+      byBarista: false,
+    );
+    expect(first.perfect, isTrue);
+    expect(first.amount.toDouble(), closeTo(1.5, 1e-9));
+    cubit.serveOrder(drinkId: 'espresso', patienceRatio: 0.1, byBarista: false);
+    expect(cubit.state.barista.combo, 1);
+    cubit.serveOrder(drinkId: 'espresso', patienceRatio: 0, byBarista: true);
+    cubit.customerLost();
+    expect(cubit.state.barista.combo, 0);
+    expect(cubit.state.stats.ordersServed, 2);
+    expect(cubit.state.stats.perfectServes, 1);
+    expect(cubit.state.stats.customersLost, 1);
+  });
 
   blocTest<GameCubit, GameState>(
     'tick credits income times delta',

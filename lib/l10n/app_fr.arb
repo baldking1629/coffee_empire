@@ -186,7 +186,6 @@
   "dailyRewardNext": "Prochaine récompense dans {time}",
   "dailyRewardBean": "+{beans} Grain d'or",
   "tutorialTitle": "Formation barista {step}/{total}",
-  "tutorialStepTapCup": "Touchez la tasse pour préparer votre premier café.",
   "tutorialStepBuyFirstShop": "Achetez une Charrette de rue dans l'onglet Boutiques.",
   "tutorialStepBuySecondShop": "Ouvrez votre deuxième boutique : le Kiosque du coin.",
   "tutorialStepHireManager": "Embauchez un gérant pour tripler les revenus d'une boutique.",
@@ -252,5 +251,16 @@
   "floatingGain": "+{amount}",
   "lockedStationName": "???",
   "stationUpgradesHint": "Touchez pour gérant et équipements",
-  "spriteGalleryTitle": "Galerie de sprites"
+  "spriteGalleryTitle": "Galerie de sprites",
+  "tabCafe": "Café",
+  "tutorialStepServeCustomer": "Touchez le client au comptoir, préparez sa boisson puis touchez-le à nouveau pour servir.",
+  "brewPanelTitle": "En préparation : {drink}",
+  "serveHint": "Boisson prête ! Touchez le client pour servir.",
+  "perfectServe": "Parfait !",
+  "drink_espresso": "Espresso",
+  "drink_americano": "Americano",
+  "drink_latte": "Latte",
+  "drink_cappuccino": "Cappuccino",
+  "drink_mocha": "Moka",
+  "drink_cold_brew": "Cold Brew"
 }

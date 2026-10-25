@@ -667,9 +667,6 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get tutorialStepTapCup => 'المس كوب القهوة لتحضير أول كوب.';
-
-  @override
   String get tutorialStepBuyFirstShop => 'اشترِ عربة شارع من تبويب المتاجر.';
 
   @override
@@ -888,4 +885,40 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get spriteGalleryTitle => 'معرض الرسوم';
+
+  @override
+  String get tabCafe => 'المقهى';
+
+  @override
+  String get tutorialStepServeCustomer =>
+      'المس الزبون عند المنضدة، حضّر مشروبه، ثم المسه مجددًا لتقديمه.';
+
+  @override
+  String brewPanelTitle(String drink) {
+    return 'جارٍ التحضير: $drink';
+  }
+
+  @override
+  String get serveHint => 'المشروب جاهز! المس الزبون لتقديمه.';
+
+  @override
+  String get perfectServe => 'ممتاز!';
+
+  @override
+  String get drink_espresso => 'إسبريسو';
+
+  @override
+  String get drink_americano => 'أمريكانو';
+
+  @override
+  String get drink_latte => 'لاتيه';
+
+  @override
+  String get drink_cappuccino => 'كابتشينو';
+
+  @override
+  String get drink_mocha => 'موكا';
+
+  @override
+  String get drink_cold_brew => 'قهوة باردة';
 }

@@ -186,7 +186,6 @@
   "dailyRewardNext": "Prossima ricompensa tra {time}",
   "dailyRewardBean": "+{beans} Chicco d'oro",
   "tutorialTitle": "Addestramento barista {step}/{total}",
-  "tutorialStepTapCup": "Tocca la tazza per preparare il tuo primo caffè.",
   "tutorialStepBuyFirstShop": "Compra un Carretto di strada nella scheda Negozi.",
   "tutorialStepBuySecondShop": "Apri il tuo secondo negozio: il Chiosco d'angolo.",
   "tutorialStepHireManager": "Assumi un manager per triplicare le entrate di un negozio.",
@@ -252,5 +251,16 @@
   "floatingGain": "+{amount}",
   "lockedStationName": "???",
   "stationUpgradesHint": "Tocca per manager e attrezzature",
-  "spriteGalleryTitle": "Galleria sprite"
+  "spriteGalleryTitle": "Galleria sprite",
+  "tabCafe": "Caffè",
+  "tutorialStepServeCustomer": "Tocca il cliente al bancone, prepara la bevanda e toccalo di nuovo per servire.",
+  "brewPanelTitle": "In preparazione: {drink}",
+  "serveHint": "Bevanda pronta! Tocca il cliente per servire.",
+  "perfectServe": "Perfetto!",
+  "drink_espresso": "Espresso",
+  "drink_americano": "Americano",
+  "drink_latte": "Latte macchiato",
+  "drink_cappuccino": "Cappuccino",
+  "drink_mocha": "Moka",
+  "drink_cold_brew": "Cold brew"
 }

@@ -660,9 +660,6 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get tutorialStepTapCup => '커피잔을 탭해 첫 잔을 추출하세요.';
-
-  @override
   String get tutorialStepBuyFirstShop => '매장 탭에서 길거리 카트를 구매하세요.';
 
   @override
@@ -877,4 +874,40 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get spriteGalleryTitle => '스프라이트 갤러리';
+
+  @override
+  String get tabCafe => '카페';
+
+  @override
+  String get tutorialStepServeCustomer =>
+      '카운터의 손님을 탭해 주문을 받고, 음료를 만든 뒤 다시 탭해 서빙하세요.';
+
+  @override
+  String brewPanelTitle(String drink) {
+    return '제조 중: $drink';
+  }
+
+  @override
+  String get serveHint => '음료 완성! 손님을 탭해 서빙하세요.';
+
+  @override
+  String get perfectServe => '완벽해요!';
+
+  @override
+  String get drink_espresso => '에스프레소';
+
+  @override
+  String get drink_americano => '아메리카노';
+
+  @override
+  String get drink_latte => '라테';
+
+  @override
+  String get drink_cappuccino => '카푸치노';
+
+  @override
+  String get drink_mocha => '모카';
+
+  @override
+  String get drink_cold_brew => '콜드브루';
 }

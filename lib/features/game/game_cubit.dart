@@ -11,6 +11,7 @@ import '../../core/time/clock.dart';
 import '../../engine/achievement_math.dart';
 import '../../engine/barista_math.dart';
 import '../../engine/economy_engine.dart';
+import '../../engine/service_math.dart';
 import '../../engine/shop_math.dart';
 import '../daily_reward/daily_reward_actions.dart';
 import '../growth/franchise_actions.dart';
@@ -26,6 +27,7 @@ import 'offline_actions.dart';
 import 'save_repository.dart';
 
 part 'game_cubit_commands.dart';
+part 'game_cubit_service.dart';
 
 abstract class _GameCubitCore extends Cubit<GameState> {
   _GameCubitCore(
@@ -90,42 +92,16 @@ abstract class _GameCubitCore extends Cubit<GameState> {
     );
   }
 
-  TapOutcome tapCup() {
-    final outcome = _barista.tap(
-      state.barista,
-      state.incomePerSec,
-      clock.now(),
-    );
-    final stats = state.stats.copyWith(
-      totalTaps: state.stats.totalTaps + 1,
-      cupsFilled: state.stats.cupsFilled + (outcome.cupFilled ? 1 : 0),
-    );
-    _play(outcome.cupFilled ? FeedbackKind.cupFull : FeedbackKind.tap);
-    emit(
-      _evaluateProgress(
-        state
-            .earn(outcome.payout)
-            .copyWith(barista: outcome.barista, stats: stats),
-      ),
-    );
-    return outcome;
-  }
-
   Future<void> tick(double deltaSeconds) async {
     final safeDelta = deltaSeconds > 0 ? deltaSeconds : 0.0;
     final now = clock.now();
     final earned = engine.earningsFor(state.incomePerSec, safeDelta);
-    var next = state
+    final next = state
         .earn(earned)
         .copyWith(
           barista: _barista.settle(state.barista, now),
           store: state.store.withoutExpiredBoosts(now),
         );
-    if (next.store.isVip) {
-      final autoTaps = engine.config.tap.autoTapPerSecond * safeDelta;
-      final auto = _barista.autoFill(next.barista, next.incomePerSec, autoTaps);
-      next = next.earn(auto.payout).copyWith(barista: auto.barista);
-    }
     emit(_withIncome(_evaluateProgress(next)));
     _secondsSinceSave += safeDelta;
     if (await _completeDueBrew()) return;
@@ -249,7 +225,7 @@ abstract class _GameCubitCore extends Cubit<GameState> {
 }
 
 class GameCubit extends _GameCubitCore
-    with _ProgressCommands, _StoreCommands, _MetaCommands {
+    with _ProgressCommands, _StoreCommands, _MetaCommands, _ServiceCommands {
   GameCubit({
     required EconomyConfig config,
     required SaveRepository repository,

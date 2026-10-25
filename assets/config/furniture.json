@@ -1,0 +1,216 @@
+{
+  "fixtures": [
+    {
+      "id": "door",
+      "spriteId": "door",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "isSeat": false,
+      "blocksWalk": false
+    },
+    {
+      "id": "counter",
+      "spriteId": "counter",
+      "footprint": {
+        "w": 2,
+        "h": 1
+      },
+      "isSeat": false,
+      "blocksWalk": true
+    },
+    {
+      "id": "cash_register",
+      "spriteId": "cash_register",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "isSeat": false,
+      "blocksWalk": true
+    },
+    {
+      "id": "espresso_machine",
+      "spriteId": "espresso_machine_0",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "isSeat": false,
+      "blocksWalk": true
+    },
+    {
+      "id": "table",
+      "spriteId": "table",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "isSeat": false,
+      "blocksWalk": true
+    },
+    {
+      "id": "chair",
+      "spriteId": "chair",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "isSeat": true,
+      "blocksWalk": false
+    },
+    {
+      "id": "plant",
+      "spriteId": "plant",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "isSeat": false,
+      "blocksWalk": true
+    },
+    {
+      "id": "sign",
+      "spriteId": "sign",
+      "footprint": {
+        "w": 2,
+        "h": 1
+      },
+      "isSeat": false,
+      "blocksWalk": true
+    }
+  ],
+  "defaultLayout": {
+    "roomTier": 1,
+    "cols": 8,
+    "rows": 10,
+    "door": {
+      "x": 3,
+      "y": 9
+    },
+    "queueHead": {
+      "x": 3,
+      "y": 3
+    },
+    "playerStation": {
+      "x": 3,
+      "y": 1
+    },
+    "baristaStations": [
+      {
+        "x": 1,
+        "y": 1
+      },
+      {
+        "x": 5,
+        "y": 1
+      },
+      {
+        "x": 6,
+        "y": 1
+      },
+      {
+        "x": 2,
+        "y": 1
+      }
+    ],
+    "machine": {
+      "x": 4,
+      "y": 1
+    },
+    "items": [
+      {
+        "uid": "counter_1",
+        "itemId": "counter",
+        "x": 1,
+        "y": 2,
+        "rotation": 0
+      },
+      {
+        "uid": "counter_2",
+        "itemId": "counter",
+        "x": 3,
+        "y": 2,
+        "rotation": 0
+      },
+      {
+        "uid": "counter_3",
+        "itemId": "counter",
+        "x": 5,
+        "y": 2,
+        "rotation": 0
+      },
+      {
+        "uid": "register",
+        "itemId": "cash_register",
+        "x": 2,
+        "y": 2,
+        "rotation": 0
+      },
+      {
+        "uid": "sign",
+        "itemId": "sign",
+        "x": 0,
+        "y": 0,
+        "rotation": 0
+      },
+      {
+        "uid": "table_1",
+        "itemId": "table",
+        "x": 1,
+        "y": 5,
+        "rotation": 0
+      },
+      {
+        "uid": "table_2",
+        "itemId": "table",
+        "x": 6,
+        "y": 5,
+        "rotation": 0
+      },
+      {
+        "uid": "chair_1",
+        "itemId": "chair",
+        "x": 0,
+        "y": 5,
+        "rotation": 0
+      },
+      {
+        "uid": "chair_2",
+        "itemId": "chair",
+        "x": 2,
+        "y": 5,
+        "rotation": 0
+      },
+      {
+        "uid": "chair_3",
+        "itemId": "chair",
+        "x": 5,
+        "y": 5,
+        "rotation": 0
+      },
+      {
+        "uid": "chair_4",
+        "itemId": "chair",
+        "x": 7,
+        "y": 5,
+        "rotation": 0
+      },
+      {
+        "uid": "plant_1",
+        "itemId": "plant",
+        "x": 0,
+        "y": 8,
+        "rotation": 0
+      },
+      {
+        "uid": "plant_2",
+        "itemId": "plant",
+        "x": 7,
+        "y": 8,
+        "rotation": 0
+      }
+    ]
+  }
+}

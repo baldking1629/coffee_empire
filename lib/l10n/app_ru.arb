@@ -186,7 +186,6 @@
   "dailyRewardNext": "Следующая награда через {time}",
   "dailyRewardBean": "+{beans} золотое зерно",
   "tutorialTitle": "Обучение бариста {step}/{total}",
-  "tutorialStepTapCup": "Нажмите на чашку, чтобы сварить первый кофе.",
   "tutorialStepBuyFirstShop": "Купите уличную тележку во вкладке «Кофейни».",
   "tutorialStepBuySecondShop": "Откройте вторую точку: угловой киоск.",
   "tutorialStepHireManager": "Наймите менеджера, чтобы утроить доход кофейни.",
@@ -252,5 +251,16 @@
   "floatingGain": "+{amount}",
   "lockedStationName": "???",
   "stationUpgradesHint": "Нажмите: менеджер и оборудование",
-  "spriteGalleryTitle": "Галерея спрайтов"
+  "spriteGalleryTitle": "Галерея спрайтов",
+  "tabCafe": "Кафе",
+  "tutorialStepServeCustomer": "Нажмите на гостя у стойки, приготовьте напиток и нажмите снова, чтобы подать.",
+  "brewPanelTitle": "Готовится: {drink}",
+  "serveHint": "Напиток готов! Нажмите на гостя, чтобы подать.",
+  "perfectServe": "Идеально!",
+  "drink_espresso": "Эспрессо",
+  "drink_americano": "Американо",
+  "drink_latte": "Латте",
+  "drink_cappuccino": "Капучино",
+  "drink_mocha": "Мокко",
+  "drink_cold_brew": "Колд брю"
 }

@@ -21,6 +21,10 @@ class BottomNav extends StatelessWidget {
       onDestinationSelected: onSelected,
       destinations: [
         NavigationDestination(
+          icon: const Icon(LucideIcons.coffee),
+          label: l10n.tabCafe,
+        ),
+        NavigationDestination(
           icon: const Icon(LucideIcons.store),
           label: l10n.tabShops,
         ),

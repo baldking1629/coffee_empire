@@ -549,5 +549,68 @@
     ],
     "finalDayGoldenBeans": 1,
     "minCash": "50"
+  },
+  "service": {
+    "baseArrivalSeconds": 6,
+    "minArrivalSeconds": 2,
+    "arrivalAppealBonus": 0.05,
+    "queueCapacity": 5,
+    "patienceSeconds": 20,
+    "seatSeconds": 12,
+    "orderValueSeconds": 10,
+    "perfectPatienceRatio": 0.7,
+    "perfectTipRatio": 0.5,
+    "autoServeSeconds": 8,
+    "autoServeEfficiency": 0.5,
+    "vipAutoServeEfficiency": 0.75,
+    "maxVisibleBaristas": 3,
+    "maxCustomers": 8,
+    "walkCellsPerSecond": 2.5,
+    "managerSpeedBonus": 0.1,
+    "drinks": [
+      {
+        "id": "espresso",
+        "nameKey": "drink_espresso",
+        "iconSpriteId": "drink_espresso",
+        "drinkMult": 1.0,
+        "unlockShopIndex": 0
+      },
+      {
+        "id": "americano",
+        "nameKey": "drink_americano",
+        "iconSpriteId": "drink_americano",
+        "drinkMult": 1.1,
+        "unlockShopIndex": 0
+      },
+      {
+        "id": "latte",
+        "nameKey": "drink_latte",
+        "iconSpriteId": "drink_latte",
+        "drinkMult": 1.3,
+        "unlockShopIndex": 2
+      },
+      {
+        "id": "cappuccino",
+        "nameKey": "drink_cappuccino",
+        "iconSpriteId": "drink_cappuccino",
+        "drinkMult": 1.5,
+        "unlockShopIndex": 4
+      },
+      {
+        "id": "mocha",
+        "nameKey": "drink_mocha",
+        "iconSpriteId": "drink_mocha",
+        "drinkMult": 1.8,
+        "unlockShopIndex": 6
+      },
+      {
+        "id": "cold_brew",
+        "nameKey": "drink_cold_brew",
+        "iconSpriteId": "drink_cold_brew",
+        "drinkMult": 2.2,
+        "unlockShopIndex": 8
+      }
+    ],
+    "baristaTakesHeadBelowPatience": 0.5
   }
 }

@@ -58,26 +58,59 @@ class GameSettings extends Equatable {
 }
 
 class GameStats extends Equatable {
-  const GameStats({this.totalTaps = 0, this.cupsFilled = 0});
+  const GameStats({
+    this.totalTaps = 0,
+    this.cupsFilled = 0,
+    this.ordersServed = 0,
+    this.perfectServes = 0,
+    this.customersLost = 0,
+  });
 
-  factory GameStats.fromJson(Map<String, dynamic> json) => GameStats(
-    totalTaps: (json['totalTaps'] as num?)?.toInt() ?? 0,
-    cupsFilled: (json['cupsFilled'] as num?)?.toInt() ?? 0,
-  );
+  factory GameStats.fromJson(Map<String, dynamic> json) {
+    int read(String key) => (json[key] as num?)?.toInt() ?? 0;
+    return GameStats(
+      totalTaps: read('totalTaps'),
+      cupsFilled: read('cupsFilled'),
+      ordersServed: read('ordersServed'),
+      perfectServes: read('perfectServes'),
+      customersLost: read('customersLost'),
+    );
+  }
 
   final int totalTaps;
   final int cupsFilled;
+  final int ordersServed;
+  final int perfectServes;
+  final int customersLost;
 
-  GameStats copyWith({int? totalTaps, int? cupsFilled}) => GameStats(
+  GameStats copyWith({
+    int? totalTaps,
+    int? cupsFilled,
+    int? ordersServed,
+    int? perfectServes,
+    int? customersLost,
+  }) => GameStats(
     totalTaps: totalTaps ?? this.totalTaps,
     cupsFilled: cupsFilled ?? this.cupsFilled,
+    ordersServed: ordersServed ?? this.ordersServed,
+    perfectServes: perfectServes ?? this.perfectServes,
+    customersLost: customersLost ?? this.customersLost,
   );
 
   Map<String, dynamic> toJson() => {
     'totalTaps': totalTaps,
     'cupsFilled': cupsFilled,
+    'ordersServed': ordersServed,
+    'perfectServes': perfectServes,
+    'customersLost': customersLost,
   };
 
   @override
-  List<Object?> get props => [totalTaps, cupsFilled];
+  List<Object?> get props => [
+    totalTaps,
+    cupsFilled,
+    ordersServed,
+    perfectServes,
+    customersLost,
+  ];
 }

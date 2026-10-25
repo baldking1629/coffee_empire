@@ -186,7 +186,6 @@
   "dailyRewardNext": "{time}后可领下一个奖励",
   "dailyRewardBean": "+{beans}颗金咖啡豆",
   "tutorialTitle": "咖啡师培训 {step}/{total}",
-  "tutorialStepTapCup": "点击咖啡杯，冲煮你的第一杯咖啡。",
   "tutorialStepBuyFirstShop": "在店铺标签中购买一辆街头推车。",
   "tutorialStepBuySecondShop": "开设你的第二家店：街角小亭。",
   "tutorialStepHireManager": "雇用店长，让店铺收入翻三倍。",
@@ -252,5 +251,16 @@
   "floatingGain": "+{amount}",
   "lockedStationName": "???",
   "stationUpgradesHint": "点击查看店长和设备",
-  "spriteGalleryTitle": "精灵图库"
+  "spriteGalleryTitle": "精灵图库",
+  "tabCafe": "咖啡馆",
+  "tutorialStepServeCustomer": "点击柜台前的顾客接单，冲好饮品后再次点击上餐。",
+  "brewPanelTitle": "正在冲煮：{drink}",
+  "serveHint": "饮品好了！点击顾客上餐。",
+  "perfectServe": "完美！",
+  "drink_espresso": "意式浓缩",
+  "drink_americano": "美式咖啡",
+  "drink_latte": "拿铁",
+  "drink_cappuccino": "卡布奇诺",
+  "drink_mocha": "摩卡",
+  "drink_cold_brew": "冷萃咖啡"
 }

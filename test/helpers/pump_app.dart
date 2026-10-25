@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'cafe_files.dart';
+
 Future<void> pumpWithGame(
   WidgetTester tester, {
   required EconomyConfig config,
@@ -18,6 +20,7 @@ Future<void> pumpWithGame(
   await tester.pumpWidget(
     MultiRepositoryProvider(
       providers: [
+        ...cafeProviders(),
         RepositoryProvider<EconomyConfig>.value(value: config),
         RepositoryProvider<AnalyticsService>.value(
           value: const DebugAnalyticsService(),

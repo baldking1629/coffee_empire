@@ -186,7 +186,6 @@
   "dailyRewardNext": "다음 보상까지 {time}",
   "dailyRewardBean": "황금 원두 +{beans}",
   "tutorialTitle": "바리스타 교육 {step}/{total}",
-  "tutorialStepTapCup": "커피잔을 탭해 첫 잔을 추출하세요.",
   "tutorialStepBuyFirstShop": "매장 탭에서 길거리 카트를 구매하세요.",
   "tutorialStepBuySecondShop": "두 번째 매장인 코너 부스를 여세요.",
   "tutorialStepHireManager": "매니저를 고용해 매장 수입을 3배로 늘리세요.",
@@ -252,5 +251,16 @@
   "floatingGain": "+{amount}",
   "lockedStationName": "???",
   "stationUpgradesHint": "탭하여 매니저와 장비 보기",
-  "spriteGalleryTitle": "스프라이트 갤러리"
+  "spriteGalleryTitle": "스프라이트 갤러리",
+  "tabCafe": "카페",
+  "tutorialStepServeCustomer": "카운터의 손님을 탭해 주문을 받고, 음료를 만든 뒤 다시 탭해 서빙하세요.",
+  "brewPanelTitle": "제조 중: {drink}",
+  "serveHint": "음료 완성! 손님을 탭해 서빙하세요.",
+  "perfectServe": "완벽해요!",
+  "drink_espresso": "에스프레소",
+  "drink_americano": "아메리카노",
+  "drink_latte": "라테",
+  "drink_cappuccino": "카푸치노",
+  "drink_mocha": "모카",
+  "drink_cold_brew": "콜드브루"
 }

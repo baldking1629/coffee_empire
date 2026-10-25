@@ -186,7 +186,6 @@
   "dailyRewardNext": "Nächste Belohnung in {time}",
   "dailyRewardBean": "+{beans} Goldene Bohne",
   "tutorialTitle": "Barista-Training {step}/{total}",
-  "tutorialStepTapCup": "Tippe auf die Kaffeetasse, um deinen ersten Kaffee zu brühen.",
   "tutorialStepBuyFirstShop": "Kaufe im Tab Läden einen Straßenwagen.",
   "tutorialStepBuySecondShop": "Eröffne deinen zweiten Laden: den Eckkiosk.",
   "tutorialStepHireManager": "Stelle einen Manager ein, um die Einnahmen eines Ladens zu verdreifachen.",
@@ -252,5 +251,16 @@
   "floatingGain": "+{amount}",
   "lockedStationName": "???",
   "stationUpgradesHint": "Tippen für Manager & Ausrüstung",
-  "spriteGalleryTitle": "Sprite-Galerie"
+  "spriteGalleryTitle": "Sprite-Galerie",
+  "tabCafe": "Café",
+  "tutorialStepServeCustomer": "Tippe auf den Gast an der Theke, brühe sein Getränk und tippe erneut zum Servieren.",
+  "brewPanelTitle": "In Zubereitung: {drink}",
+  "serveHint": "Getränk fertig! Tippe auf den Gast zum Servieren.",
+  "perfectServe": "Perfekt!",
+  "drink_espresso": "Espresso",
+  "drink_americano": "Americano",
+  "drink_latte": "Latte",
+  "drink_cappuccino": "Cappuccino",
+  "drink_mocha": "Mokka",
+  "drink_cold_brew": "Cold Brew"
 }

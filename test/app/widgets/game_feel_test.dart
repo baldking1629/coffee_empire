@@ -7,7 +7,6 @@ import 'package:coffee_empire/core/services/haptic_service.dart';
 import 'package:coffee_empire/features/game/game_cubit.dart';
 import 'package:coffee_empire/features/game/game_feedback.dart';
 import 'package:coffee_empire/features/game/game_settings.dart';
-import 'package:coffee_empire/features/home/widgets/barista_tap_area.dart';
 import 'package:coffee_empire/features/shops/shops_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -191,42 +190,6 @@ void main() {
       expect(find.text(r'+$5'), findsNothing);
       expect(controller.entries, isEmpty);
     });
-
-    Future<void> fillCup(
-      WidgetTester tester, {
-      required bool disableAnimations,
-    }) async {
-      final harness = CubitHarness();
-      final cubit = harness.build(harness.stateWithCash('0'));
-      await pumpWithGame(
-        tester,
-        config: harness.config,
-        cubit: cubit,
-        child: withAnimations(
-          const BaristaTapArea(),
-          disableAnimations: disableAnimations,
-        ),
-      );
-      for (var i = 0; i < 10; i++) {
-        await tester.tap(find.byKey(BaristaTapArea.cupKey));
-      }
-      await tester.pump(const Duration(milliseconds: 100));
-      expect(cubit.state.cash.isZero, isFalse);
-    }
-
-    testWidgets('a full cup spawns a floating gain', (tester) async {
-      await fillCup(tester, disableAnimations: false);
-      expect(find.text(r'+$1'), findsOneWidget);
-      await tester.pump(FloatingTextLayer.lifetime);
-      await tester.pump();
-    });
-
-    testWidgets('no floating gain when animations are disabled', (
-      tester,
-    ) async {
-      await fillCup(tester, disableAnimations: true);
-      expect(find.text(r'+$1'), findsNothing);
-    });
   });
 
   group('haptics', () {
@@ -245,7 +208,7 @@ void main() {
               .copyWith(settings: const GameSettings(haptics: false)),
         );
         for (var i = 0; i < 10; i++) {
-          cubit.tapCup();
+          cubit.brewTap();
         }
         cubit.reportInsufficientFunds();
         verifyZeroInteractions(haptics);

@@ -7,13 +7,17 @@ import 'package:coffee_empire/engine/boost_math.dart';
 import 'package:coffee_empire/engine/lab_math.dart';
 import 'package:coffee_empire/features/game/game_settings.dart';
 import 'package:coffee_empire/features/game/game_state.dart';
+import 'package:coffee_empire/features/cafe_hud/service_hud.dart';
 import 'package:coffee_empire/features/home/widgets/cash_header.dart';
 import 'package:coffee_empire/features/lab/lab_state.dart';
 import 'package:coffee_empire/features/store/store_state.dart';
+import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import '../helpers/cafe_driver.dart';
+import '../helpers/cafe_files.dart';
 import '../helpers/cubit_harness.dart';
 
 GameState busyState(CubitHarness harness, String locale) {
@@ -84,6 +88,7 @@ void main() {
       await tester.pumpWidget(
         MultiRepositoryProvider(
           providers: [
+            ...cafeProviders(),
             RepositoryProvider<EconomyConfig>.value(value: harness.config),
             RepositoryProvider<AnalyticsService>.value(
               value: const DebugAnalyticsService(),
@@ -111,11 +116,26 @@ void main() {
       final cash = tester.widget<Text>(find.byKey(CashHeader.cashTextKey));
       expect(cash.textDirection, TextDirection.ltr);
 
+      expect(
+        Directionality.of(tester.element(find.byType(ServiceHud))),
+        expectedDirection,
+      );
+      expect(
+        Directionality.of(
+          tester.element(
+            find.byWidgetPredicate((widget) => widget is GameWidget),
+          ),
+        ),
+        TextDirection.ltr,
+      );
+
       final destinations = find.byType(NavigationDestination);
-      for (var tab = 0; tab < 4; tab++) {
+      expect(destinations, findsNWidgets(5));
+      for (var tab = 0; tab < 5; tab++) {
         await tester.tap(destinations.at(tab));
         await tester.pump(const Duration(milliseconds: 300));
         expect(tester.takeException(), isNull, reason: 'tab $tab');
+        expect(cafeViewState(tester).game.paused, tab != 0);
         final scrollable = find.byType(Scrollable).hitTestable();
         for (var page = 0; page < 12; page++) {
           if (scrollable.evaluate().isEmpty) break;
